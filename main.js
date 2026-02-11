@@ -155,6 +155,7 @@ document.body.innerHTML = `
                 <div class="skill-card fade-up"><i class="fas fa-mobile-alt"></i><h4>Flutter</h4></div>
                 <div class="skill-card fade-up"><i class="fas fa-user-secret"></i><h4>Ethical Hacking</h4></div>
                 <div class="skill-card fade-up"><i class="fab fa-linux"></i><h4>Linux Expert</h4></div>
+                <div class="skill-card fade-up"><i class="fa-solid fa-flask"></i><h4>Bandlab</h4></div>
                 <div class="skill-card fade-up"><i class="fas fa-bug"></i><h4>Software Tester</h4></div>
                 <div class="skill-card fade-up"><i class="fas fa-pencil-ruler"></i><h4>UI/UX Designer</h4></div>
                 <div class="skill-card fade-up"><i class="fab fa-python"></i><h4>Python</h4></div>
