@@ -97,6 +97,15 @@ input:focus, textarea:focus { border-color: var(--primary); background: rgba(0, 
 .btn-small { padding: 0.5rem 1.5rem; margin-top: 1rem; font-size: 0.8rem; }
 .fade-up { opacity: 0; transform: translateY(30px); }
 
+/* Footer Alignment Fix */
+footer {
+padding: 2rem;
+color: #666;
+font-size: 0.8rem;
+text-align: centre; /* ALIGNS FOOTER TO CENTRE */
+width: 100%;
+}
+
 /* Desktop */
 @media (min-width: 768px) { h1 { font-size: 5rem; } h1 span.hacker-text { font-family: 'Poppins', sans-serif; } .projects-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .nav-links { gap: 3rem; } }
 `;
@@ -199,7 +208,7 @@ document.body.innerHTML = `
             </div>
         </section>
         <footer>
-        <p style="margin-bottom: 2rem;">©️ Sayyid Rafid Al Hadi 2026</p>
+        <p>&copy; ©️ Sayyid Rafid Al Hadi 2026</p>
         </footer>
     </main>
 `;
