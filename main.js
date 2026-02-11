@@ -175,6 +175,13 @@ document.body.innerHTML = `
                         Visit Site <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
+                <div class="project-card fade-up">
+                    <h4>Kithademic Studies</h4>
+                    <p>(Currently In Work) <br>Knowledge is the light of the heart.<br>Excellence in Islamic & Academic Education.</p>
+                    <a href="https://kithademicstudies.vercel.app" target="_blank" class="btn-small">
+                        Visit Site <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
