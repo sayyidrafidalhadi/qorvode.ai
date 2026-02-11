@@ -134,7 +134,7 @@ document.body.innerHTML = `
                 <span class="hacker-text" data-value="SAYYID RAFID">SAYYID RAFID</span><br>
                 <span class="hacker-text" data-value="AL HADI">AL HADI</span>
             </h1>
-            <p style="text-align: center; >Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
+            <p>Perfection is achieved, <br> not when there is nothing more to add, <br> but when there is nothing left to take away.</p>
             <a href="#work" class="btn">View Projects</a>
         </section>
         
