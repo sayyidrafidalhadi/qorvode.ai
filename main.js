@@ -134,7 +134,7 @@ document.body.innerHTML = `
                 <span class="hacker-text" data-value="SAYYID RAFID">SAYYID RAFID</span><br>
                 <span class="hacker-text" data-value="AL HADI">AL HADI</span>
             </h1>
-            
+            <p> Full Stack Developer & Vocalist </p>
             <a href="#work" class="btn">View Projects</a>
         </section>
         
