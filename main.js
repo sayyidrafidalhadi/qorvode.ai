@@ -135,7 +135,8 @@ document.body.innerHTML = `
                 <span class="hacker-text" data-value="AL HADI">AL HADI</span>
             </h1>
             <p> Full Stack Developer & Vocalist </p>
-            <a href="#work" class="btn">View Projects</a>
+            <a href="#work1" class="btn">View Projects</a>
+            <a href="#work2" class="btn">View Releases</a>
         </section>
         
         <section id="about" class="container">
@@ -175,7 +176,7 @@ document.body.innerHTML = `
             </div>
         </section>
         
-        <section id="work" class="container">
+        <section id="work1" class="container">
             <h3 class="section-title">Projects</h3>
             <div class="grid projects-grid">
                 <div class="project-card fade-up">
@@ -190,6 +191,32 @@ document.body.innerHTML = `
                     <p>Heal Through Ayurveda <br> Authentic Care for Holistic Wellness. </p>
                     <a href="https://kpsayurvedaclinic.vercel.app/" target="_blank" class="btn-small">
                         Visit Site <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="work2" class="container">
+            <h3 class="section-title">My Releases</h3>
+            <div class="grid projects-grid">
+                <div class="project-card fade-up">
+                    <h4>Wail Of The End - أنين النهاية</h4>
+                    <p>Vocals : Sayyid Rafid Al Hadi<br>Lyrics : Sayyid Rafid Al Hadi<br>Composer : Sayyid Rafid Al Hadi</p>
+                    <a href="https://open.spotify.com/track/0vCjKf9jBapuEfTNaHkUU2?si=UDlXI-8US0Cy6UqHUZkSCw" target="_blank" class="btn-small">
+                        Spotify <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://music.youtube.com/watch?v=gBqhglUhEWI" target="_blank" class="btn-small">
+                        YT Music <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-card fade-up">
+                    <h4>Fajr-al-Islam(The Dawn Of Islam)</h4>
+                    <p>Vocals : Sayyid Rafid Al Hadi<br>Lyrics : Sayyid Rafid Al Hadi<br> Composer : Sayyid Rafid Al Hadi</p>
+                    <a href="https://open.spotify.com/album/5R1hKfIw7qmtZIZ6fUI5eD?si=XbE1Fk7oSCaxv5s4lmb1Hg" target="_blank" class="btn-small">
+                        Spotify <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://music.apple.com/in/album/fajr-al-islam-the-dawn-of-islam/1863053913?i=1863053914&ls" target="_blank" class="btn-small">
+                        Apple Music <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
