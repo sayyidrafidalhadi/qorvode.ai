@@ -176,8 +176,8 @@ document.body.innerHTML = `
                     </a>
                 </div>
                 <div class="project-card fade-up">
-                    <h4>Kithademic Studies</h4>
-                    <p>(Currently In Work) <br>Knowledge is the light of the heart.<br>Excellence in Islamic & Academic Education.</p>
+                    <h4>KPS Ayurveda Clinic</h4>
+                    <p>Heal Through Ayurveda <br> Authentic Care for Holistic Wellness. </p>
                     <a href="https://kithademicstudies.vercel.app" target="_blank" class="btn-small">
                         Visit Site <i class="fas fa-arrow-right"></i>
                     </a>
