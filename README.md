@@ -1,7 +1,7 @@
 <div align="center">
 
-# 🌌 SYD.RAFI | Sayyid Rafid Al Hadi
-### Full-Stack Architect & Ethical Hacker
+# Sayyid Rafid Al Hadi
+### Full-Stack Developer & Ethical Hacker
 
 [![GitHub Followers](https://img.shields.io/github/followers/your-username?label=Follow&style=social)](https://github.com/Cybertechyrappu)
 [![Static Badge](https://img.shields.io/badge/Portfolio-Live-6e07f3)](https://your-portfolio-link.vercel.app)
@@ -10,7 +10,7 @@
 ---
 
 <p align="center">
-  <b>Full-stack architect and ethical hacker operating at the edge of mobile and web innovation.</b> <br>
+  <b>Full-stack developer and ethical hacker operating at the edge of mobile and web innovation.</b> <br>
   From crafting fluid UIs to fortifying systems via Linux and penetration testing, I engineer digital solutions that are as robust as they are beautiful.
 </p>
 
@@ -71,8 +71,7 @@ I leverage a diverse tech stack to build, test, and secure digital assets.
 Ready to start a project or discuss cybersecurity? Let's connect.
 
 * **Website:** [your-portfolio-link.vercel.app](https://your-portfolio-link.vercel.app)
-* **Email:** your-email@example.com
-* **LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com)
+* **Email:** igsydrafiofficial@gmail.com
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/render?type=waving&color=6e07f3&height=100&section=footer" width="100%"/>
