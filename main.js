@@ -4,7 +4,7 @@ import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 // 1. INJECT THE CSS (STYLES)
 // ==========================================
 const cssStyles = `
-:root { --primary: #6e07f3; --hacker-green: #00ff41; --text: #ffffff; }
+:root { --primary: #6e07f3; --hacker-green: #6e07f3; --text: #ffffff; }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
 body { background: #050505; color: var(--text); font-family: 'Poppins', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
