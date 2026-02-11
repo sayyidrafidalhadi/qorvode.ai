@@ -208,7 +208,7 @@ document.body.innerHTML = `
             </div>
         </section>
         <footer>
-        <p>&copy; ©️ Sayyid Rafid Al Hadi 2026</p>
+        <p style="text-align: center;">©️ Sayyid Rafid Al Hadi 2026</p>
         </footer>
     </main>
 `;
