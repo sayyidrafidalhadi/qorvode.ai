@@ -3,7 +3,7 @@
 # 🌌 SYD.RAFI | Sayyid Rafid Al Hadi
 ### Full-Stack Architect & Ethical Hacker
 
-[![GitHub Followers](https://img.shields.io/github/followers/your-username?label=Follow&style=social)](https://github.com/your-username)
+[![GitHub Followers](https://img.shields.io/github/followers/your-username?label=Follow&style=social)](https://github.com/Cybertechyrappu)
 [![Static Badge](https://img.shields.io/badge/Portfolio-Live-6e07f3)](https://your-portfolio-link.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ff41.svg)](https://opensource.org/licenses/MIT)
 
