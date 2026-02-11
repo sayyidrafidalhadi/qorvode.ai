@@ -65,6 +65,13 @@ I leverage a diverse tech stack to build, test, and secure digital assets.
 * **Tech:** Built with Next.js and Tailwind CSS for high-speed responsiveness.
 * **Status:** [Live Preview ↗](https://kithademicstudies.vercel.app)
 
+### **KPS Ayurveda**
+> *Heal Through Ayurveda <br> Authentic Care for Holistic Wellness.*
+
+* **Core:** Schedule your personalized Ayurvedic consultation today.
+* **Tech:** Built with Next.js and Tailwind CSS for high-speed responsiveness.
+* **Status:** [Live Preview ↗](https://kpsayurvedaclinic.vercel.app/)
+
 ---
 
 ## 📡 Initialize Protocol

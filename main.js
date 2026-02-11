@@ -178,7 +178,7 @@ document.body.innerHTML = `
                 <div class="project-card fade-up">
                     <h4>KPS Ayurveda Clinic</h4>
                     <p>Heal Through Ayurveda <br> Authentic Care for Holistic Wellness. </p>
-                    <a href="https://kithademicstudies.vercel.app" target="_blank" class="btn-small">
+                    <a href="https://kpsayurvedaclinic.vercel.app/" target="_blank" class="btn-small">
                         Visit Site <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
