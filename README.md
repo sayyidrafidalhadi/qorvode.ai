@@ -4,7 +4,7 @@
 ### Full-Stack Developer & Ethical Hacker
 
 [![GitHub Followers](https://img.shields.io/github/followers/your-username?label=Follow&style=social)](https://github.com/Cybertechyrappu)
-[![Static Badge](https://img.shields.io/badge/Portfolio-Live-6e07f3)](https://your-portfolio-link.vercel.app)
+[![Static Badge](https://img.shields.io/badge/Portfolio-Live-6e07f3)](https://sydrafiofficial.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ff41.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -70,7 +70,7 @@ I leverage a diverse tech stack to build, test, and secure digital assets.
 ## 📡 Initialize Protocol
 Ready to start a project or discuss cybersecurity? Let's connect.
 
-* **Website:** [your-portfolio-link.vercel.app](https://your-portfolio-link.vercel.app)
+* **Website:** [https://sydrafiofficial.vercel.app/](https://sydrafiofficial.vercel.app/)
 * **Email:** igsydrafiofficial@gmail.com
 
 <div align="center">
