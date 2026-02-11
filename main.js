@@ -198,6 +198,9 @@ document.body.innerHTML = `
                 </form>
             </div>
         </section>
+        <footer>
+        <p>Sayyid Rafid Al Hadi - 2026</p>
+        </footer>
     </main>
 `;
 
