@@ -135,14 +135,14 @@ document.body.innerHTML = `
                 <span class="hacker-text" data-value="AL HADI">AL HADI</span>
             </h1>
             <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
-            <a href="#work" class="btn">View Work</a>
+            <a href="#work" class="btn">View Projects</a>
         </section>
         
         <section id="about" class="container">
             <h3 class="section-title">Who I Am</h3>
             <div class="glass-card fade-up">
                 <p style="font-size: 1.1rem; line-height: 1.8;">
-                    I am a full-stack developer and ethical hacker operating at the edge of mobile and web innovation. From crafting fluid UIs with <b style="color:var(--primary)">Flutter</b> and <b style="color:var(--primary)">Next.js</b> to fortifying systems via <b style="color:var(--primary)">Linux</b> and penetration testing, I engineer digital solutions that are as robust as they are beautiful.
+                   I am a full-stack developer, ethical hacker, and vocalist operating at the edge of mobile and web innovation. From crafting fluid, rhythmic UIs with Flutter and Next.js to fortifying systems via Linux and penetration testing, I engineer digital solutions that are as robust as they are beautiful. Much like my approach to singing, I believe the best code requires a balance of technical discipline and creative soul—ensuring every project I touch hits the high notes of both security and user experience.
                 </p>
             </div>
         </section>
@@ -176,7 +176,7 @@ document.body.innerHTML = `
         </section>
         
         <section id="work" class="container">
-            <h3 class="section-title">Selected Works</h3>
+            <h3 class="section-title">Projects</h3>
             <div class="grid projects-grid">
                 <div class="project-card fade-up">
                     <h4>Kithademic Studies</h4>
@@ -196,7 +196,7 @@ document.body.innerHTML = `
         </section>
 
         <section id="contact" class="container contact-section">
-            <h3 class="section-title">Initialize Protocol</h3>
+            <h3 class="section-title">Connect With Us</h3>
             <div class="glass-card fade-up form-container">
                 <p style="margin-bottom: 2rem;">Send your requirements. Transmission is secure.</p>
                 <form id="contact-form">
