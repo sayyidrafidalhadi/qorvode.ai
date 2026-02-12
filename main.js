@@ -209,6 +209,15 @@ document.body.innerHTML = `
 <a href="https://music.youtube.com/watch?v=gBqhglUhEWI" target="_blank" class="btn-small">
                         YT Music <i class="fas fa-arrow-right"></i>
                     </a>
+<a href="https://gaana.com/song/wail-of-the-end" target="_blank" class="btn-small">
+                        Gaana <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://www.jiosaavn.com/song/wail-of-the-end-%d8%a3%d9%86%d9%8a%d9%86-%d8%a7%d9%84%d9%86%d9%87%d8%a7%d9%8a%d8%a9/FDwTAxIGeWw" target="_blank" class="btn-small">
+                        Jio Saavn <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://music.amazon.com/albums/B0G7ZL2NQC?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_4ytTNnzTuimGJZPBSKmxsHf0Z" target="_blank" class="btn-small">
+                        Amazon Music <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card fade-up">
                     <h4>Fajr-al-Islam(The Dawn Of Islam)</h4>
@@ -218,6 +227,15 @@ document.body.innerHTML = `
                     </a>
 <a href="https://music.apple.com/in/album/fajr-al-islam-the-dawn-of-islam/1863053913?i=1863053914&ls" target="_blank" class="btn-small">
                         Apple Music <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://gaana.com/song/fajr-al-islam-the-dawn-of-islam" target="_blank" class="btn-small">
+                        Gaana <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://www.jiosaavn.com/song/fajr-al-islam-the-dawn-of-islam/QB4pUwUDUls" target="_blank" class="btn-small">
+                        Jio Saavn <i class="fas fa-arrow-right"></i>
+                    </a>
+<a href="https://music.amazon.com/albums/B0G9TQ822W?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_VVZRovfR6lgerqi39eBLVH4jE" target="_blank" class="btn-small">
+                        Amazon Music <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
