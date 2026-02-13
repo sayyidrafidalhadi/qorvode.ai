@@ -124,7 +124,7 @@ document.body.innerHTML = `
         <div class="logo">SYD<span style="color:var(--primary)">.</span>RAFI</div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#work">Work</a></li>
+            <li><a href="#work1">Work</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
