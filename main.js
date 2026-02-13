@@ -4,13 +4,13 @@ import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 // 1. INJECT THE CSS (STYLES)
 // ==========================================
 const cssStyles = `
-:root { --primary: #6e07f3; --hacker-green: #6e07f3; --text: #ffffff; }
+:root { --primary: #888888; --hacker-green: #ffffff; --text: #ffffff; }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
 body { background: #050505; color: var(--text); font-family: 'Poppins', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 /* 3D BG */
 canvas#bg { position: fixed; top: 0; left: 0; z-index: -1; transform: translateZ(0); }
-.cursor-glow { position: fixed; top: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(110, 7, 243, 0.4) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; transform: translate(-50%, -50%); filter: blur(50px); will-change: transform; }
+.cursor-glow { position: fixed; top: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(248, 249, 250, 0.4) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; transform: translate(-50%, -50%); filter: blur(50px); will-change: transform; }
 
 /* Navigation */
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; position: fixed; width: 100%; z-index: 100; background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
@@ -82,7 +82,7 @@ h3.section-title { font-size: 1.8rem; margin-bottom: 2rem; display: inline-block
 
 /* Projects Grid */
 .projects-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; width: 100%; }
-.project-card h4 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 10px rgba(110, 7, 243, 0.3); }
+.project-card h4 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; color: var(--text); text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 0 10px rgba(110, 7, 243, 0.3); }
 
 /* Contact Form */
 .contact-section { margin-top: 4rem; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); }
@@ -124,7 +124,8 @@ document.body.innerHTML = `
         <div class="logo">SYD<span style="color:var(--primary)">.</span>RAFI</div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#work1">Work</a></li>
+            <li><a href="#work1">Projects</a></li>
+            <li><a href="#work2">Releases</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -143,7 +144,7 @@ document.body.innerHTML = `
             <h3 class="section-title">Who I Am</h3>
             <div class="glass-card fade-up">
                 <p style="font-size: 1.1rem; line-height: 1.8;">
-                   I am a full-stack developer, ethical hacker, and vocalist operating at the edge of mobile and web innovation. From crafting fluid, rhythmic UIs with Flutter and Next.js to fortifying systems via Linux and penetration testing, I engineer digital solutions that are as robust as they are beautiful. Much like my approach to singing, I believe the best code requires a balance of technical discipline and creative soul—ensuring every project I touch hits the high notes of both security and user experience.
+                   I am a full-stack Developer, ethical hacker, and vocalist operating at the edge of mobile and web innovation. From crafting fluid, rhythmic UIs with <b style="color:#888888">Flutter</b> and <b style="color:#888888">Next.js</b> to fortifying systems via Linux and penetration testing, I engineer digital solutions that are as robust as they are beautiful. Much like my approach to singing, I believe the best code requires a balance of technical discipline and creative soul—ensuring every project I touch hits the high notes of both security and user experience.
                 </p>
             </div>
         </section>
@@ -270,13 +271,13 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
-const geometry = new THREE.TorusKnotGeometry(10, 3, 64, 8);
-const material = new THREE.MeshStandardMaterial({ color: 0x6e07f3, wireframe: true, roughness: 0.1, metalness: 0.8 });
+const geometry = new THREE.TorusKnotGeometry(10, 3, 94, 3);
+const material = new THREE.MeshStandardMaterial({ color: 0x888888, wireframe: true, roughness: 0.2, metalness: 0.7 });
 const torus = new THREE.Mesh(geometry, material);
 scene.add(torus);
 
 const starGeo = new THREE.BufferGeometry();
-const starCount = 200;
+const starCount = 500;
 const starPos = new Float32Array(starCount * 3);
 for(let i=0; i<starCount*3; i++) { starPos[i] = (Math.random() - 0.5) * 100; }
 starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
@@ -329,8 +330,8 @@ document.querySelectorAll(".hacker-text").forEach(el => {
 
 // Cursor Glow
 const cursor = document.querySelector('.cursor-glow');
-document.addEventListener('mousemove', (e) => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.6, ease: "power2.out" }); });
-document.addEventListener('touchmove', (e) => { const touch = e.touches[0]; gsap.to(cursor, { x: touch.clientX, y: touch.clientY, duration: 0.6, ease: "power2.out" }); });
+document.addEventListener('mousemove', (e) => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.9, ease: "power2.out" }); });
+document.addEventListener('touchmove', (e) => { const touch = e.touches[0]; gsap.to(cursor, { x: touch.clientX, y: touch.clientY, duration: 0.5, ease: "power2.out" }); });
 
 // EmailJS - REPLACE WITH YOUR KEYS
 emailjs.init("2PZEMjOl54g2tl_3A"); 
