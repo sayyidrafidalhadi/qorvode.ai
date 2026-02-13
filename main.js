@@ -4,13 +4,13 @@ import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 // 1. INJECT THE CSS (STYLES)
 // ==========================================
 const cssStyles = `
-:root { --primary: #6e07f3; --hacker-green: #6e07f3; --text: #ffffff; }
+:root { --primary: #36454F; --hacker-green: #899499; --text: #ffffff; }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; }
 body { background: #050505; color: var(--text); font-family: 'Poppins', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 /* 3D BG */
 canvas#bg { position: fixed; top: 0; left: 0; z-index: -1; transform: translateZ(0); }
-.cursor-glow { position: fixed; top: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(110, 7, 243, 0.4) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; transform: translate(-50%, -50%); filter: blur(50px); will-change: transform; }
+.cursor-glow { position: fixed; top: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(128, 128, 128, 0.4) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; transform: translate(-50%, -50%); filter: blur(50px); will-change: transform; }
 
 /* Navigation */
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; position: fixed; width: 100%; z-index: 100; background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
