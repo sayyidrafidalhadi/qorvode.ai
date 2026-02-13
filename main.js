@@ -199,7 +199,7 @@ document.body.innerHTML = `
         </section>
 
         <section id="work2" class="container">
-            <h3 class="section-title">My Releases</h3>
+            <h3 class="section-title">Releases</h3>
             <div class="grid projects-grid">
                 <div class="project-card fade-up">
                     <h4>Wail Of The End - أنين النهاية</h4>
@@ -330,8 +330,8 @@ document.querySelectorAll(".hacker-text").forEach(el => {
 
 // Cursor Glow
 const cursor = document.querySelector('.cursor-glow');
-document.addEventListener('mousemove', (e) => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.9, ease: "power2.out" }); });
-document.addEventListener('touchmove', (e) => { const touch = e.touches[0]; gsap.to(cursor, { x: touch.clientX, y: touch.clientY, duration: 0.5, ease: "power2.out" }); });
+document.addEventListener('mousemove', (e) => { gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.6, ease: "power2.out" }); });
+document.addEventListener('touchmove', (e) => { const touch = e.touches[0]; gsap.to(cursor, { x: touch.clientX, y: touch.clientY, duration: 0.6, ease: "power2.out" }); });
 
 // EmailJS - REPLACE WITH YOUR KEYS
 emailjs.init("2PZEMjOl54g2tl_3A"); 
