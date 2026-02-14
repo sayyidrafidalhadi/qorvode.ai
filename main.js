@@ -135,7 +135,7 @@ document.body.innerHTML = `
                 <span class="hacker-text" data-value="SAYYID RAFID">SAYYID RAFID</span><br>
                 <span class="hacker-text" data-value="AL HADI">AL HADI</span>
             </h1>
-            <p> Full Stack Developer & Vocalist </p>
+            <p> Developer & Vocalist </p>
             <a href="#work1" class="btn">View Projects</a>
             <a href="#work2" class="btn">View Releases</a>
         </section>
@@ -144,7 +144,7 @@ document.body.innerHTML = `
             <h3 class="section-title">Who I Am</h3>
             <div class="glass-card fade-up">
                 <p style="font-size: 1.1rem; line-height: 1.8;">
-                   I am a full-stack Developer, ethical hacker, and vocalist operating at the edge of mobile and web innovation. From crafting fluid, rhythmic UIs with <b style="color:#888888">Flutter</b> and <b style="color:#888888">Next.js</b> to fortifying systems via Linux and penetration testing, I engineer digital solutions that are as robust as they are beautiful. Much like my approach to singing, I believe the best code requires a balance of technical discipline and creative soul—ensuring every project I touch hits the high notes of both security and user experience.
+                   I am a Developer and vocalist operating at the edge of mobile and web innovation. From crafting fluid, rhythmic UIs with <b style="color:#888888">Next.js</b> to fortifying systems via Linux and penetration testing, I engineer digital solutions that are as robust as they are beautiful. Much like my approach to singing, I believe the best code requires a balance of technical discipline and creative soul—ensuring every project I touch hits the high notes of both security and user experience.
                 </p>
             </div>
         </section>
@@ -153,8 +153,7 @@ document.body.innerHTML = `
             <h3 class="section-title">The Arsenal</h3>
             <div class="grid skills-grid">
                 <div class="skill-card fade-up"><i class="fab fa-html5"></i><h4>HTML5</h4></div>
-                <div class="skill-card fade-up"><i class="fas fa-mobile-alt"></i><h4>Flutter</h4></div>
-                <div class="skill-card fade-up"><i class="fas fa-user-secret"></i><h4>Ethical Hacking</h4></div>
+               
                 <div class="skill-card fade-up"><i class="fab fa-linux"></i><h4>Linux Expert</h4></div>
                 <div class="skill-card fade-up"><i class="fa-solid fa-flask"></i><h4>Bandlab</h4></div>
                 <div class="skill-card fade-up"><i class="fas fa-bug"></i><h4>Software Tester</h4></div>
