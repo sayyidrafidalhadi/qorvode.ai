@@ -204,38 +204,38 @@ document.body.innerHTML = `
                     <h4>Wail Of The End - أنين النهاية</h4>
                     <p>Vocals : Sayyid Rafid Al Hadi<br>Lyrics : Sayyid Rafid Al Hadi<br>Composer : Sayyid Rafid Al Hadi</p>
                     <a href="https://open.spotify.com/track/0vCjKf9jBapuEfTNaHkUU2?si=UDlXI-8US0Cy6UqHUZkSCw" target="_blank" class="btn-small">
-                        Spotify <i class="fas fa-arrow-right"></i>
+                       Listen On Spotify <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://music.youtube.com/watch?v=gBqhglUhEWI" target="_blank" class="btn-small">
-                        YT Music <i class="fas fa-arrow-right"></i>
+                        Listen On YT Music <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://gaana.com/song/wail-of-the-end" target="_blank" class="btn-small">
-                        Gaana <i class="fas fa-arrow-right"></i>
+                        Listen On Gaana <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://www.jiosaavn.com/song/wail-of-the-end-%d8%a3%d9%86%d9%8a%d9%86-%d8%a7%d9%84%d9%86%d9%87%d8%a7%d9%8a%d8%a9/FDwTAxIGeWw" target="_blank" class="btn-small">
-                        Jio Saavn <i class="fas fa-arrow-right"></i>
+                       Listen On Jio Saavn <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://music.amazon.com/albums/B0G7ZL2NQC?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_4ytTNnzTuimGJZPBSKmxsHf0Z" target="_blank" class="btn-small">
-                        Amazon Music <i class="fas fa-arrow-right"></i>
+                        Listen On Amazon Music <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 <div class="project-card fade-up">
                     <h4>Fajr-al-Islam(The Dawn Of Islam)</h4>
                     <p>Vocals : Sayyid Rafid Al Hadi<br>Lyrics : Sayyid Rafid Al Hadi<br> Composer : Sayyid Rafid Al Hadi</p>
                     <a href="https://open.spotify.com/album/5R1hKfIw7qmtZIZ6fUI5eD?si=XbE1Fk7oSCaxv5s4lmb1Hg" target="_blank" class="btn-small">
-                        Spotify <i class="fas fa-arrow-right"></i>
+                       Listen On Spotify <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://music.apple.com/in/album/fajr-al-islam-the-dawn-of-islam/1863053913?i=1863053914&ls" target="_blank" class="btn-small">
-                        Apple Music <i class="fas fa-arrow-right"></i>
+                       Listen On Apple Music <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://gaana.com/song/fajr-al-islam-the-dawn-of-islam" target="_blank" class="btn-small">
-                        Gaana <i class="fas fa-arrow-right"></i>
+                       Listen On Gaana <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://www.jiosaavn.com/song/fajr-al-islam-the-dawn-of-islam/QB4pUwUDUls" target="_blank" class="btn-small">
-                        Jio Saavn <i class="fas fa-arrow-right"></i>
+                       Listen On Jio Saavn <i class="fas fa-arrow-right"></i>
                     </a>
 <a href="https://music.amazon.com/albums/B0G9TQ822W?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_VVZRovfR6lgerqi39eBLVH4jE" target="_blank" class="btn-small">
-                        Amazon Music <i class="fas fa-arrow-right"></i>
+                       Listen On Amazon Music <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
