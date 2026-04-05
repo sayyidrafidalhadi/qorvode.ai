@@ -401,7 +401,7 @@ ul { list-style: none; }
     animation: expandLine 2s ease-in-out infinite;
     transform-origin: left;
 }
-@keyframes expandLine { 0%,100%{scaleX(0.3)} 50%{scaleX(1)} }
+@keyframes expandLine { 0%,100%{ transform: scaleX(0.3); } 50%{ transform: scaleX(1); } }
 
 /* ==========================================
    FADE-UP ANIMATION

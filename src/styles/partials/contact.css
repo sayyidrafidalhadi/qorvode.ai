@@ -1,0 +1,18 @@
+/* =============================================
+   CONTACT
+   ============================================= */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; opacity: 0; transform: translateY(30px); }
+.contact-wrap.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.contact-left .section-num { display: block; margin-bottom: 1.5rem; }
+.contact-left h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.25rem; }
+.contact-left h2 em { font-style: italic; color: var(--red); }
+.contact-left p { color: var(--muted); font-size: 0.9rem; font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
+.gh-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--border); padding: 0.6rem 1.2rem; border-radius: 30px; transition: color 0.3s, border-color 0.3s; }
+.gh-link:hover { color: var(--text); border-color: rgba(255,255,255,0.3); }
+.contact-right form { display: flex; flex-direction: column; gap: 1.25rem; }
+.fg { display: flex; flex-direction: column; gap: 0.5rem; }
+.fg label { font-size: 0.75rem; font-family: var(--font-mono); color: var(--muted2); letter-spacing: 0.5px; }
+.fg input, .fg textarea { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1rem; color: var(--text); font-size: 0.9rem; font-family: var(--font-body); font-weight: 300; outline: none; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s; resize: vertical; }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--muted2); }
+.fg input:focus, .fg textarea:focus { border-color: var(--border-h); background: rgba(217,4,41,0.04); box-shadow: 0 0 0 3px rgba(217,4,41,0.08); }
+.btn-submit { align-self: flex-start; font-size: 0.9rem; gap: 0.6rem; }

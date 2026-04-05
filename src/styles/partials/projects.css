@@ -1,0 +1,19 @@
+/* =============================================
+   PROJECTS
+   ============================================= */
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.project-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: border-color 0.4s, transform 0.4s var(--ease), box-shadow 0.4s; overflow: hidden; opacity: 0; transform: translateY(30px); }
+.project-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease), border-color 0.4s, box-shadow 0.4s; }
+.project-card:hover { border-color: var(--border-h); transform: translateY(-4px) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 0 1px var(--red-glow); }
+.project-wide { grid-column: span 2; }
+.project-wide p { max-width: 700px; }
+.pc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; }
+.pc-status { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 1px; color: var(--red); background: rgba(217,4,41,0.1); border: 1px solid rgba(217,4,41,0.3); padding: 3px 10px; border-radius: 20px; }
+.pc-beta { color: var(--gold); background: rgba(201,169,110,0.1); border-color: rgba(201,169,110,0.3); }
+.pc-link { color: var(--muted2); font-size: 0.9rem; transition: color 0.3s; }
+.pc-link:hover { color: var(--text); }
+.project-card h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.2; }
+.project-card p { color: var(--muted); font-size: 0.9rem; font-weight: 300; margin-bottom: 1.5rem; line-height: 1.7; }
+.pc-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pc-tags span { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted2); border: 1px solid var(--border); padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; }
+.pc-num { position: absolute; bottom: 1.5rem; right: 1.75rem; font-family: var(--font-display); font-size: 5rem; font-weight: 300; color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none; user-select: none; }

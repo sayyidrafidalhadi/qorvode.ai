@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayyid Rafid Al Hadi | Developer & Vocalist</title>
+
+    <!-- SEO Primary -->
+    <title>Sayyid Rafid Al Hadi | QORVODE</title>
     <meta name="description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="keywords" content="Sayyid Rafid Al Hadi, QORVODE, Full-stack developer, vocalist, web developer, mobile developer, Three.js, React, Next.js, music producer">
+    <meta name="author" content="Sayyid Rafid Al Hadi">
+    <link rel="canonical" href="https://qorvode.co.in/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sayyid Rafid Al Hadi | QORVODE">
+    <meta property="og:description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qorvode.co.in/">
+    <meta property="og:image" content="https://qorvode.co.in/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sayyid Rafid Al Hadi | QORVODE">
+    <meta name="twitter:description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation.">
+    <meta name="twitter:image" content="https://qorvode.co.in/og-image.jpg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sayyid Rafid Al Hadi",
+      "alternateName": "QORVODE",
+      "url": "https://qorvode.co.in/",
+      "jobTitle": "Full-stack Developer & Vocalist",
+      "description": "Full-stack developer and vocalist operating at the edge of mobile and web innovation.",
+      "sameAs": ["https://github.com/Cybertechyrappu"]
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
@@ -23,126 +58,22 @@
     </div>
     <div class="grain"></div>
 
-    <!-- Navbar -->
-    <nav id="navbar">
-        <div class="nav-inner">
-            <div class="logo">SYD<span class="logo-dot">·</span>RAFI</div>
-            <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#releases">Music</a></li>
-                <li><a href="#arsenal">Arsenal</a></li>
-                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-            </ul>
-            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-                <span></span><span></span>
-            </button>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#projects" class="mm-link">Projects</a>
-            <a href="#releases" class="mm-link">Music</a>
-            <a href="#arsenal" class="mm-link">Arsenal</a>
-            <a href="#contact" class="mm-link">Let's Talk</a>
-        </div>
-    </nav>
+    <!-- Navbar mount point -->
+    <nav id="navbar"></nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge fade-up" style="--i:0">
-            <span class="badge-dot"></span> Available for work · 2026
-        </div>
-        <div class="hero-layout">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="fade-up" style="--i:1">Crafting</span>
-                    <em class="fade-up" style="--i:2">fluid digital</em>
-                    <span class="fade-up" style="--i:3">experiences</span>
-                </h1>
-                <p class="hero-desc fade-up" style="--i:4">Developer &amp; Vocalist — operating at the edge of mobile and web innovation. Code by day, audio by night.</p>
-                <div class="hero-actions fade-up" style="--i:5">
-                    <a href="#projects" class="btn-primary">View Work</a>
-                    <a href="#releases" class="btn-ghost"><i class="fas fa-play"></i> Listen</a>
-                </div>
-            </div>
-            <div class="terminal-wrap fade-up" style="--i:6">
-                <div class="terminal">
-                    <div class="terminal-bar">
-                        <div class="t-dots">
-                            <span class="td td-red"></span>
-                            <span class="td td-yellow"></span>
-                            <span class="td td-green"></span>
-                        </div>
-                        <span class="t-title">deploy_stack.sh</span>
-                    </div>
-                    <div class="terminal-body">
-                        <p class="t-cmd"><span class="t-prompt">root@sydrafi:~$</span> ./deploy</p>
-                        <div id="typing-container"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <span>scroll</span>
-            <div class="scroll-bar"></div>
-        </div>
-    </section>
+    <!-- Hero mount point -->
+    <section class="hero" id="hero"></section>
 
-    <!-- Stack Strip -->
-    <div class="stack-strip">
-        <span class="strip-label">Stack</span>
-        <div class="stack-icons">
-            <span title="HTML5"><i class="fab fa-html5"></i></span>
-            <span title="CSS3"><i class="fab fa-css3-alt"></i></span>
-            <span title="JavaScript"><i class="fab fa-js"></i></span>
-            <span title="React"><i class="fab fa-react"></i></span>
-            <span title="Next.js"><i class="fas fa-layer-group"></i></span>
-            <span title="Tailwind"><i class="fas fa-wind"></i></span>
-            <span title="Python"><i class="fab fa-python"></i></span>
-            <span title="PHP"><i class="fab fa-php"></i></span>
-            <span title="Linux"><i class="fab fa-linux"></i></span>
-            <span title="Docker"><i class="fab fa-docker"></i></span>
-            <span title="Git"><i class="fab fa-git-alt"></i></span>
-            <span title="GitHub"><i class="fab fa-github"></i></span>
-        </div>
-    </div>
+    <!-- Stack Strip mount point -->
+    <div class="stack-strip" id="stack-strip"></div>
 
-    <!-- Projects -->
+    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="section-head">
             <span class="section-num">01</span>
             <h2 class="section-title">Selected Projects</h2>
         </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="pc-top">
-                    <span class="pc-status">In Progress</span>
-                    <a href="https://kithademic.vercel.app" target="_blank" class="pc-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <h3>Kithademic Studies</h3>
-                <p>Knowledge is the light of the heart. A platform for Islamic &amp; academic excellence — engineered for depth and designed for clarity.</p>
-                <div class="pc-tags"><span>Next.js</span><span>Education</span><span>Islamic</span></div>
-                <div class="pc-num">01</div>
-            </div>
-            <div class="project-card">
-                <div class="pc-top">
-                    <span class="pc-status">In Progress</span>
-                    <a href="https://kpsayurvedaclinic.vercel.app/" target="_blank" class="pc-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <h3>KPS Ayurveda Clinic</h3>
-                <p>A clean, elegant web presence for authentic holistic wellness care. Heal Through Ayurveda.</p>
-                <div class="pc-tags"><span>Web</span><span>Healthcare</span><span>UI/UX</span></div>
-                <div class="pc-num">02</div>
-            </div>
-            <div class="project-card project-wide">
-                <div class="pc-top">
-                    <span class="pc-status pc-beta">Beta</span>
-                    <a href="https://halaltune.vercel.app" target="_blank" class="pc-link"><i class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <h3>HalalTune</h3>
-                <p>A Spotify-tier Islamic audio streaming PWA — built entirely from an Android phone. Firebase backend, Cloudinary CDN, Cache API offline playback, full playlist system, and admin dashboard.</p>
-                <div class="pc-tags"><span>PWA</span><span>Firebase</span><span>Audio</span><span>Islamic</span><span>Cloudinary</span></div>
-                <div class="pc-num">03</div>
-            </div>
-        </div>
+        <div class="projects-grid" id="projects-grid"></div>
     </section>
 
     <!-- Quote Divider -->
@@ -155,116 +86,43 @@
         <div class="qd-line"></div>
     </div>
 
-    <!-- Releases -->
+    <!-- Releases Section -->
     <section id="releases" class="section">
         <div class="section-head">
             <span class="section-num">02</span>
             <h2 class="section-title">Audio Releases</h2>
         </div>
-        <div class="releases-grid">
-            <div class="release-card">
-                <div class="vinyl">
-                    <div class="vinyl-disc">
-                        <div class="vinyl-label"><span>WAIL</span></div>
-                    </div>
-                </div>
-                <div class="release-info">
-                    <span class="release-year">2024</span>
-                    <h3>Wail Of The End</h3>
-                    <p class="release-arabic">أنين النهاية</p>
-                    <p class="release-credit">Vocals · Lyrics · Composition</p>
-                    <div class="release-btns">
-                        <a href="https://open.spotify.com/track/0vCjKf9jBapuEfTNaHkUU2?si=UDlXI-8US0Cy6UqHUZkSCw" target="_blank" class="rb spotify"><i class="fab fa-spotify"></i> Spotify</a>
-                        <a href="https://music.youtube.com/watch?v=gBqhglUhEWI" target="_blank" class="rb yt"><i class="fab fa-youtube"></i> YT Music</a>
-                        <a href="https://www.jiosaavn.com/song/wail-of-the-end-%d8%a3%d9%86%d9%8a%d9%86-%d8%a7%d9%84%d9%86%d9%87%d8%a7%d9%8a%d8%a9/FDwTAxIGeWw" target="_blank" class="rb jio"><i class="fas fa-music"></i> JioSaavn</a>
-                    </div>
-                </div>
-            </div>
-            <div class="release-card">
-                <div class="vinyl">
-                    <div class="vinyl-disc">
-                        <div class="vinyl-label"><span>FAJR</span></div>
-                    </div>
-                </div>
-                <div class="release-info">
-                    <span class="release-year">2024</span>
-                    <h3>Fajr-al-Islam</h3>
-                    <p class="release-arabic">The Dawn Of Islam</p>
-                    <p class="release-credit">Vocals · Lyrics · Composition</p>
-                    <div class="release-btns">
-                        <a href="https://open.spotify.com/album/5R1hKfIw7qmtZIZ6fUI5eD?si=XbE1Fk7oSCaxv5s4lmb1Hg" target="_blank" class="rb spotify"><i class="fab fa-spotify"></i> Spotify</a>
-                        <a href="https://music.apple.com/in/album/fajr-al-islam-the-dawn-of-islam/1863053913?i=1863053914&ls" target="_blank" class="rb apple"><i class="fab fa-apple"></i> Apple Music</a>
-                        <a href="https://gaana.com/song/fajr-al-islam-the-dawn-of-islam" target="_blank" class="rb jio"><i class="fas fa-music"></i> Gaana</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="releases-grid" id="releases-grid"></div>
     </section>
 
-    <!-- Arsenal -->
+    <!-- Arsenal Section -->
     <section id="arsenal" class="section">
         <div class="section-head">
             <span class="section-num">03</span>
             <h2 class="section-title">The Arsenal</h2>
         </div>
-        <div class="arsenal-grid">
-            <div class="arsenal-card">
-                <i class="fas fa-layer-group"></i>
-                <h3>Full-Stack Architecture</h3>
-                <p>Scalable, high-performance web applications using Next.js, React, Tailwind, and Firebase.</p>
-            </div>
-            <div class="arsenal-card">
-                <i class="fas fa-microphone-alt"></i>
-                <h3>Vocal Production</h3>
-                <p>Composing, writing, and tracking resonant vocal performances and lyrics with professional fidelity.</p>
-            </div>
-            <div class="arsenal-card">
-                <i class="fas fa-cube"></i>
-                <h3>Immersive 3D UI</h3>
-                <p>Three.js and GSAP for fluid motion, WebGL, and glassmorphism that keeps users deeply engaged.</p>
-            </div>
-            <div class="arsenal-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Mobile-First Dev</h3>
-                <p>Production-grade apps built entirely on Android — Spck Editor, Kotlin, no desktop required.</p>
-            </div>
-        </div>
+        <div class="arsenal-grid" id="arsenal-grid"></div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ Section -->
     <section id="faq" class="section">
         <div class="section-head">
             <span class="section-num">04</span>
             <h2 class="section-title">Questions</h2>
         </div>
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-q">What is your primary development stack? <i class="fas fa-plus"></i></button>
-                <div class="faq-a"><p>I specialize in modern web and mobile technologies — Next.js, React, Tailwind CSS, TypeScript, Firebase, and Three.js for immersive 3D interfaces. I build everything mobile-first.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q">Do you write and compose your own music? <i class="fas fa-plus"></i></button>
-                <div class="faq-a"><p>Yes. For releases like 'Wail Of The End' and 'Fajr-al-Islam', I handle all vocals, lyric writing, and composition. My music draws from Islamic heritage and modern production.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q">Are the Kithademic and KPS projects live? <i class="fas fa-plus"></i></button>
-                <div class="faq-a"><p>Both are in active development with live preview deployments on Vercel. Click the project links above to explore them.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q">Open to collaboration? <i class="fas fa-plus"></i></button>
-                <div class="faq-a"><p>Absolutely. Whether it's development, audio collaboration, or a hybrid creative project — use the contact form below and let's build something extraordinary together.</p></div>
-            </div>
-        </div>
+        <div class="faq-list" id="faq-list"></div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="contact-wrap">
             <div class="contact-left">
                 <span class="section-num">05</span>
                 <h2>Ready to build<br><em>something great?</em></h2>
                 <p>Send your requirements for development or audio collaboration. Every transmission is read personally.</p>
-                <a href="https://github.com/Cybertechyrappu" target="_blank" class="gh-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://github.com/Cybertechyrappu" target="_blank" class="gh-link" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
             <div class="contact-right">
                 <form id="contact-form">
@@ -288,19 +146,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-inner">
-            <div class="f-logo">SYD<span>·</span>RAFI</div>
-            <div class="f-links">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="https://github.com/Cybertechyrappu" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-        <p class="f-copy">© 2026 Sayyid Rafid Al Hadi · All rights reserved</p>
-    </footer>
+    <!-- Footer mount point -->
+    <footer id="site-footer"></footer>
 
-    <script type="module" src="script.js"></script>
+    <!-- Main JS entry (Vite handles bundling) -->
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>

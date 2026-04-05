@@ -1,0 +1,32 @@
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .menu-toggle { display: flex; }
+    .mobile-menu { display: flex; }
+
+    .hero { padding: 7rem 5% 4rem; min-height: auto; }
+    .hero-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-title { font-size: clamp(3rem, 10vw, 4.5rem); }
+    .terminal-wrap { order: -1; }
+
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-wide { grid-column: span 1; }
+    .releases-grid { grid-template-columns: 1fr; }
+    .arsenal-grid { grid-template-columns: 1fr; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-inner { flex-direction: column; gap: 1.25rem; }
+
+    .section { padding: 4rem 5%; }
+    .quote-divider { gap: 1rem; }
+    .qd-line { display: none; }
+    .release-card { flex-direction: column; gap: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+    .btn-submit { width: 100%; justify-content: center; }
+    .hero-scroll { display: none; }
+}

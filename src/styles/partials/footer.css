@@ -1,0 +1,10 @@
+/* =============================================
+   FOOTER
+   ============================================= */
+footer { border-top: 1px solid var(--border); padding: 2.5rem 5%; text-align: center; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto 1.5rem; }
+.f-logo { font-family: var(--font-mono); font-size: 0.9rem; font-weight: 500; letter-spacing: 3px; }
+.f-links { display: flex; gap: 1.5rem; align-items: center; }
+.f-links a { font-size: 0.8rem; color: var(--muted2); transition: color 0.3s; }
+.f-links a:hover { color: var(--text); }
+.f-copy { font-size: 0.75rem; color: var(--muted2); font-family: var(--font-mono); }

@@ -1,0 +1,9 @@
+/* =============================================
+   STACK STRIP
+   ============================================= */
+.stack-strip { display: flex; align-items: center; gap: 2rem; padding: 1.2rem 5%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.015); overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+.stack-strip::-webkit-scrollbar { display: none; }
+.strip-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 2px; color: var(--muted2); white-space: nowrap; text-transform: uppercase; }
+.stack-icons { display: flex; gap: 2rem; align-items: center; }
+.stack-icons span { font-size: 1.4rem; color: var(--muted); opacity: 0.6; transition: color 0.3s, opacity 0.3s, transform 0.3s; cursor: default; }
+.stack-icons span:hover { color: var(--red); opacity: 1; transform: translateY(-3px); }

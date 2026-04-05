@@ -1,0 +1,19 @@
+/* =============================================
+   MAIN ENTRY — imports all styles
+   ============================================= */
+@import './partials/tokens.css';
+@import './partials/reset.css';
+@import './partials/background.css';
+@import './partials/navbar.css';
+@import './partials/hero.css';
+@import './partials/stack.css';
+@import './partials/sections.css';
+@import './partials/projects.css';
+@import './partials/releases.css';
+@import './partials/arsenal.css';
+@import './partials/faq.css';
+@import './partials/contact.css';
+@import './partials/footer.css';
+@import './partials/animations.css';
+@import './partials/responsive.css';
+@import './partials/legal.css';

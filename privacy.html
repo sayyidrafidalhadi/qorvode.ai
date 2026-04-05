@@ -3,32 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Sayyid Rafid Al Hadi</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Privacy Policy | QORVODE</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        /* Specific adjustments for text-heavy legal pages */
-        .legal-content h3 { color: var(--primary); margin-top: 2rem; margin-bottom: 0.5rem; }
-        .legal-content p, .legal-content li { color: var(--text-muted); margin-bottom: 1rem; }
-        .legal-content ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
-    </style>
 </head>
 <body>
-    <nav id="navbar" class="scrolled">
-        <div class="nav-container">
-            <div class="logo">SYD<span class="accent">.</span>RAFI</div>
+    <!-- Navbar mount point -->
+    <nav id="navbar"></nav>
 
-        </div>
-    </nav>
-
-    <main class="container" style="padding-top: 8rem; max-width: 900px;">
-        <div class="glass-card legal-content">
-            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Privacy Policy</h1>
-            <p style="color: var(--primary); font-weight: 600; margin-bottom: 2rem;">Effective Date: February 25, 2026</p>
+    <main class="legal-page">
+        <a href="/" class="legal-back"><i class="fas fa-chevron-left"></i> Return to Base</a>
+        
+        <div class="legal-card">
+            <h1>Privacy Policy</h1>
+            <span class="legal-effective">Effective Date: February 25, 2026</span>
 
             <h3>1. Introduction</h3>
-            <p>Welcome to the portfolio of Sayyid Rafid Al Hadi. This Privacy Policy outlines how your personal information is collected, used, and protected when you visit this website and utilize the contact forms provided.</p>
+            <p>Welcome to the portfolio of Sayyid Rafid Al Hadi (QORVODE). This Privacy Policy outlines how your personal information is collected, used, and protected when you visit this website and utilize the contact forms provided.</p>
 
             <h3>2. Information We Collect</h3>
             <p>We only collect information that you voluntarily provide when you submit a "Transmission" (contact form). This includes:</p>
@@ -46,7 +41,7 @@
                 <li>Maintain a record of our professional communications.</li>
             </ul>
 
-            <h3>4. Third-Party Services (EmailJS)</h3>
+            <h3>4. Third-Party Services</h3>
             <p>To securely transmit your messages without exposing backend server architecture, this site utilizes <strong>EmailJS</strong>. When you submit a form, your data is securely routed through their servers directly to our inbox. EmailJS does not use your data for their own marketing purposes.</p>
 
             <h3>5. Data Sharing and Security</h3>
@@ -61,8 +56,10 @@
         </div>
     </main>
 
-    <footer>
-        <p class="copyright">© 2026 Sayyid Rafid Al Hadi. All rights reserved.</p>
-    </footer>
+    <!-- Footer mount point -->
+    <footer id="site-footer"></footer>
+
+    <!-- JS entry -->
+    <script type="module" src="/src/legal.js"></script>
 </body>
 </html>

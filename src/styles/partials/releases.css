@@ -1,0 +1,28 @@
+/* =============================================
+   RELEASES / MUSIC
+   ============================================= */
+.releases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.release-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; display: flex; gap: 2rem; align-items: flex-start; transition: border-color 0.4s, transform 0.4s var(--ease); opacity: 0; transform: translateY(30px); }
+.release-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease), border-color 0.4s; }
+.release-card:hover { border-color: var(--border-h); transform: translateY(-4px) !important; }
+
+.vinyl { flex-shrink: 0; }
+.vinyl-disc { width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #2a0008, #0a0003); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; animation: spin 12s linear infinite; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.vinyl-disc::before { content: ''; position: absolute; inset: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.05); }
+.vinyl-disc::after { content: ''; position: absolute; inset: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); }
+.vinyl-label { width: 26px; height: 26px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; z-index: 1; }
+.vinyl-label span { font-family: var(--font-mono); font-size: 0.38rem; color: #fff; letter-spacing: 0.5px; font-weight: 500; }
+
+.release-info { flex: 1; }
+.release-year { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted2); letter-spacing: 1px; display: block; margin-bottom: 0.4rem; }
+.release-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.2rem; }
+.release-arabic { font-family: var(--font-display); font-size: 0.9rem; color: var(--gold); margin-bottom: 0.5rem; font-style: italic; }
+.release-credit { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted2); letter-spacing: 0.5px; margin-bottom: 1.2rem; }
+.release-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.rb { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; padding: 5px 12px; border-radius: 6px; font-weight: 400; border: 1px solid var(--border); color: var(--muted); transition: all 0.25s; }
+.rb:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+.rb.spotify:hover { color: #1DB954; border-color: #1DB954; }
+.rb.yt:hover      { color: #FF0000; border-color: #FF0000; }
+.rb.apple:hover   { color: #fc3c44; border-color: #fc3c44; }
+.rb.jio:hover     { color: #f3962b; border-color: #f3962b; }
