@@ -29,4 +29,17 @@ export const releases = [
       { platform: "jio", label: "Gaana", icon: "fas fa-music", url: "https://gaana.com/song/fajr-al-islam-the-dawn-of-islam" }
     ]
   }
+  {
+    id: 3,
+    title: "The Sanctuary Of Hearts",
+    arabic: "Acoustic/Duff Version",
+    year: "2026",
+    credit: "Vocals · Lyrics · Composition",
+    label: "HEART",
+    links: [
+      { platform: "spotify", label: "Spotify", icon: "fab fa-spotify", url: "https://open.spotify.com/track/1DHLZsSiOSsE1JLCqWmCDT?si=16fa4c78104e47de" },
+      { platform: "apple", label: "Apple Music", icon: "fab fa-apple", url: "https://music.apple.com/in/song/the-sanctuary-of-hearts-acoustic-duff-version/1884798069" },
+      { platform: "jio", label: "Amazon Music", icon: "fas fa-music", url: "https://music.amazon.com/albums/B0GSBW2MQ9?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_5CQ7ttYtujLmW4VrCujMw54k9" }
+    ]
+  }
 ];
