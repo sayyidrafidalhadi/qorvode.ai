@@ -11,7 +11,6 @@ import { renderReleases } from './components/releases.js';
 import { renderArsenal } from './components/arsenal.js';
 import { renderFaq, initFaq } from './components/faq.js';
 import { renderFooter } from './components/footer.js';
-import { initThreeBackground } from './scripts/three-bg.js';
 import { initScrollReveal } from './scripts/scroll-reveal.js';
 import { initContactForm } from './scripts/contact-form.js';
 
@@ -30,5 +29,4 @@ initNavbar();
 startTypingAnimation();
 initFaq();
 initScrollReveal();
-initThreeBackground();
 initContactForm();

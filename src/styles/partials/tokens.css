@@ -2,22 +2,22 @@
    DESIGN TOKENS
    ============================================= */
 :root {
-    --bg:        #0f0005;
-    --bg2:       #1a000a;
-    --surface:   rgba(255,255,255,0.03);
-    --border:    rgba(255,255,255,0.07);
-    --border-h:  rgba(217,4,41,0.4);
+    --bg:        #FAFAFA;
+    --bg2:       #F2F2F2;
+    --surface:   rgba(67, 56, 202, 0.05);
+    --border:    rgba(0, 0, 0, 0.08);
+    --border-h:  rgba(67, 56, 202, 0.4);
 
-    --red:       #D90429;
-    --red-glow:  rgba(217,4,41,0.2);
-    --red-dim:   #9B111E;
-    --gold:      #c9a96e;
+    --red:       #4338CA; /* Qorvode Indigo */
+    --red-glow:  rgba(67, 56, 202, 0.2);
+    --red-dim:   #3730A3;
+    --gold:      #F97316; /* Dynamic Orange */
 
-    --text:      #f5f0ee;
-    --muted:     rgba(245,240,238,0.5);
-    --muted2:    rgba(245,240,238,0.25);
+    --text:      #27272A;
+    --muted:     rgba(39, 39, 42, 0.6);
+    --muted2:    rgba(39, 39, 42, 0.35);
 
-    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Outfit', sans-serif;
     --font-body:    'Outfit', sans-serif;
     --font-mono:    'DM Mono', monospace;
 

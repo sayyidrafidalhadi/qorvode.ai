@@ -3,7 +3,6 @@
    ============================================= */
 @import './partials/tokens.css';
 @import './partials/reset.css';
-@import './partials/background.css';
 @import './partials/navbar.css';
 @import './partials/hero.css';
 @import './partials/stack.css';
