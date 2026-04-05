@@ -7,7 +7,7 @@ export const releases = [
     id: 1,
     title: "Wail Of The End",
     arabic: "أنين النهاية",
-    year: "2024",
+    year: "2025",
     credit: "Vocals · Lyrics · Composition",
     label: "WAIL",
     links: [
@@ -20,7 +20,7 @@ export const releases = [
     id: 2,
     title: "Fajr-al-Islam",
     arabic: "The Dawn Of Islam",
-    year: "2024",
+    year: "2025",
     credit: "Vocals · Lyrics · Composition",
     label: "FAJR",
     links: [
