@@ -28,7 +28,7 @@ export const releases = [
       { platform: "apple", label: "Apple Music", icon: "fab fa-apple", url: "https://music.apple.com/in/album/fajr-al-islam-the-dawn-of-islam/1863053913?i=1863053914&ls" },
       { platform: "jio", label: "Gaana", icon: "fas fa-music", url: "https://gaana.com/song/fajr-al-islam-the-dawn-of-islam" }
     ]
-  }
+  },
   {
     id: 3,
     title: "The Sanctuary Of Hearts",
