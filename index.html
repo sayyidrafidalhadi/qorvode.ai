@@ -1,149 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Primary -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sayyid Rafid Al Hadi | QORVODE</title>
-    <meta name="description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation.">
-    <meta name="keywords" content="Sayyid Rafid Al Hadi, QORVODE, Full-stack developer, vocalist, web developer, mobile developer, Three.js, React, Next.js, music producer">
-    <meta name="author" content="Sayyid Rafid Al Hadi">
-    <link rel="canonical" href="https://qorvode.co.in/">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sayyid Rafid Al Hadi | QORVODE">
-    <meta property="og:description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://qorvode.co.in/">
-    <meta property="og:image" content="https://qorvode.co.in/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sayyid Rafid Al Hadi | QORVODE">
-    <meta name="twitter:description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation.">
-    <meta name="twitter:image" content="https://qorvode.co.in/og-image.jpg">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sayyid Rafid Al Hadi",
-      "alternateName": "QORVODE",
-      "url": "https://qorvode.co.in/",
-      "jobTitle": "Full-stack Developer & Vocalist",
-      "description": "Full-stack developer and vocalist operating at the edge of mobile and web innovation.",
-      "sameAs": ["https://github.com/Cybertechyrappu"]
-    }
-    </script>
-
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Icons -->
-    <link rel="icon" type="image/png" href="/icon.png">
-    
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-</head>
-<body>
-
-    <!-- Navbar mount point -->
-    <nav id="navbar"></nav>
-
-    <!-- Hero mount point -->
-    <section class="hero" id="hero"></section>
-
-    <!-- Stack Strip mount point -->
-    <div class="stack-strip" id="stack-strip"></div>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="section-head">
-            <span class="section-num">01</span>
-            <h2 class="section-title">Selected Projects</h2>
-        </div>
-        <div class="projects-grid" id="projects-grid"></div>
-    </section>
-
-    <!-- Quote Divider -->
-    <div class="quote-divider">
-        <div class="qd-line"></div>
-        <blockquote>
-            <span class="q-arabic">وَعَلَّمَكَ مَا لَمْ تَكُن تَعْلَمُ</span>
-            <span class="q-tr">And He taught you what you did not know</span>
-        </blockquote>
-        <div class="qd-line"></div>
-    </div>
-
-    <!-- Releases Section -->
-    <section id="releases" class="section">
-        <div class="section-head">
-            <span class="section-num">02</span>
-            <h2 class="section-title">Audio Releases</h2>
-        </div>
-        <div class="releases-grid" id="releases-grid"></div>
-    </section>
-
-    <!-- Arsenal Section -->
-    <section id="arsenal" class="section">
-        <div class="section-head">
-            <span class="section-num">03</span>
-            <h2 class="section-title">The Arsenal</h2>
-        </div>
-        <div class="arsenal-grid" id="arsenal-grid"></div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section">
-        <div class="section-head">
-            <span class="section-num">04</span>
-            <h2 class="section-title">Questions</h2>
-        </div>
-        <div class="faq-list" id="faq-list"></div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="contact-wrap">
-            <div class="contact-left">
-                <span class="section-num">05</span>
-                <h2>Ready to build<br><em>something great?</em></h2>
-                <p>Send your requirements for development or audio collaboration. Every transmission is read personally.</p>
-                <a href="https://github.com/Cybertechyrappu" target="_blank" class="gh-link" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
-            <div class="contact-right">
-                <form id="contact-form">
-                    <div class="fg">
-                        <label>Name</label>
-                        <input type="text" name="from_name" placeholder="Your name or callsign" required>
-                    </div>
-                    <div class="fg">
-                        <label>Email</label>
-                        <input type="email" name="from_email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="fg">
-                        <label>Message</label>
-                        <textarea name="message" placeholder="Project details, requirements, or just hello…" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary btn-submit" id="submit-btn">
-                        Send Transmission <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer mount point -->
-    <footer id="site-footer"></footer>
-
-    <!-- Main JS entry (Vite handles bundling) -->
-    <script type="module" src="/src/main.js"></script>
-</body>
+    <meta name="description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation." />
+    <meta name="keywords" content="QORVODE, Full-stack developer, React, Framer Motion, Portfolio" />
+    <meta name="author" content="Sayyid Rafid Al Hadi" />
+    <link rel="canonical" href="https://qorvode.co.in/" />
+    <meta property="og:title" content="Sayyid Rafid Al Hadi | QORVODE" />
+    <meta property="og:description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://qorvode.co.in/" />
+    <meta property="og:image" content="https://qorvode.co.in/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sayyid Rafid Al Hadi | QORVODE" />
+    <meta name="twitter:description" content="Full-stack developer and vocalist operating at the edge of mobile and web innovation." />
+    <meta name="twitter:image" content="https://qorvode.co.in/og-image.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
