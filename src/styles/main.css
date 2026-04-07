@@ -380,7 +380,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 900px) {
   .hero-layout, .contact-wrap { grid-template-columns: 1fr; }
-  .projects-grid, .releases-grid, .arsenal-grid, .story-grid, .stats-grid { grid-template-columns: 1fr; }
+  .projects-grid, .releases-grid, .arsenal-grid, .story-grid, .stats-grid, .articles-grid { grid-template-columns: 1fr; }
   .card.wide { grid-column: auto; }
   .hero-aurora {
     width: 90%;

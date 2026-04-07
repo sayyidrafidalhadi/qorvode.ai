@@ -10,17 +10,54 @@ function makeFade(reduced) {
   return { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55 } } };
 }
 
-function Navbar({ scrolled }) {
+function Navbar() {
+  const [open, setOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+  
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 28);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const onEsc = (e) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onEsc);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('keydown', onEsc);
+    };
+  }, []);
+
+  const navItems = [
+    { href: '/#projects', label: 'Projects' },
+    { href: '/#releases', label: 'Music' },
+    { href: '/articles.html', label: 'Articles' },
+    { href: '/#contact', label: "Let's Talk", cta: true },
+  ];
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
         <a href="/" className="logo">{site.brand}</a>
         <nav className="nav-links" aria-label="Primary">
-          <a href="/#projects">Projects</a>
-          <a href="/#releases">Music</a>
-          <a href="/#contact" className="nav-cta">Let&apos;s Talk</a>
+          {navItems.map((item) => <a className={item.cta ? 'nav-cta' : ''} key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
+        <button
+          className="menu-toggle"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+        </button>
       </div>
+      <nav id="mobile-menu" className={`mobile-menu ${open ? 'open' : ''}`} aria-label="Mobile">
+        {navItems.map((item) => (
+          <a key={item.href} href={item.href} className={`mm-link ${item.cta ? 'nav-cta' : ''}`} onClick={() => setOpen(false)}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }
@@ -80,13 +117,8 @@ function BackgroundFX() {
 function ArticlesPage() {
   const reduceMotion = useReducedMotion();
   const fade = makeFade(reduceMotion);
-  const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    
     // Copy button injection
     const blocks = document.querySelectorAll('pre');
     blocks.forEach(block => {
@@ -120,14 +152,12 @@ function ArticlesPage() {
         }
       }, 500);
     }
-    
-    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <div className="app-shell legal-mode">
       <BackgroundFX />
-      <Navbar scrolled={scrolled} />
+      <Navbar />
       <main className="legal-page container">
         <a href="/" className="legal-back">Return to Base</a>
         <motion.div initial="hidden" animate="visible" variants={fade}>
@@ -136,7 +166,7 @@ function ArticlesPage() {
             {articles.map((article) => (
               <motion.article key={article.id} id={article.id} variants={fade} className="legal-card" style={{ marginBottom: '2rem' }}>
                 <header>
-                  <h1 style={{ fontSize: '2.4rem', marginBottom: '0.5rem' }}>{article.title}</h1>
+                  <h1 style={{ fontSize: 'clamp(1.6rem, 5vw, 2.4rem)', marginBottom: '0.5rem' }}>{article.title}</h1>
                   <span className="legal-effective">{article.date}</span>
                   <div className="chip-row">
                     {article.tags.map(tag => <span key={tag} className="chip">{tag}</span>)}
@@ -147,11 +177,13 @@ function ArticlesPage() {
                   style={{ marginTop: '1.5rem' }}
                   dangerouslySetInnerHTML={{ __html: formatMarkdown(article.content) }}
                 />
-                <div style={{ marginTop: '2rem' }}>
-                  <a href={article.repo} target="_blank" rel="noreferrer" className="btn-primary" style={{ display: 'inline-block' }}>
-                    View Repository
-                  </a>
-                </div>
+                {article.repo && (
+                  <div style={{ marginTop: '2rem' }}>
+                    <a href={article.repo} target="_blank" rel="noreferrer" className="btn-primary" style={{ display: 'inline-block' }}>
+                      View Repository
+                    </a>
+                  </div>
+                )}
               </motion.article>
             ))}
           </div>
