@@ -16,6 +16,7 @@ export default defineConfig({
         main: resolve(rootDir, 'index.html'),
         privacy: resolve(rootDir, 'privacy.html'),
         terms: resolve(rootDir, 'terms.html'),
+        articles: resolve(rootDir, 'articles.html'),
       }
     }
   }

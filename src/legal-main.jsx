@@ -45,6 +45,7 @@ function LegalPage() {
           <nav className="nav-links" aria-label="Primary">
             <a href="/#projects">Projects</a>
             <a href="/#releases">Music</a>
+            <a href="/articles.html">Articles</a>
             <a href="/#contact" className="nav-cta">Let&apos;s Talk</a>
           </nav>
         </div>
@@ -68,6 +69,7 @@ function LegalPage() {
         <div className="container footer-inner">
           <a href="/" className="f-logo">{site.brand}</a>
           <div className="f-links">
+            <a href="/articles.html">Articles</a>
             <a href="/privacy.html">Privacy</a>
             <a href="/terms.html">Terms</a>
             <a href={site.github} aria-label="Visit GitHub profile" target="_blank" rel="noreferrer">GitHub</a>

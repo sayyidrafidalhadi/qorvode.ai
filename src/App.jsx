@@ -7,10 +7,12 @@ import { projects } from './data/projects.js';
 import { releases } from './data/releases.js';
 import { arsenal } from './data/arsenal.js';
 import { faq } from './data/faq.js';
+import { articles } from './data/articles.js';
 
 const navItems = [
   { href: '#projects', label: 'Projects' },
   { href: '#releases', label: 'Music' },
+  { href: '/articles.html', label: 'Articles' },
   { href: '#arsenal', label: 'Arsenal' },
   { href: '#contact', label: "Let's Talk", cta: true },
 ];
@@ -164,6 +166,15 @@ function Hero() {
               >
                 Listen
               </motion.a>
+              <motion.a
+                variants={fade}
+                whileHover={reduceMotion ? {} : { y: -3, scale: 1.02 }}
+                whileTap={reduceMotion ? {} : { scale: 0.98 }}
+                href="/articles.html"
+                className="btn-ghost"
+              >
+                Read Lab
+              </motion.a>
             </div>
             </motion.div>
             <motion.aside
@@ -241,7 +252,7 @@ function Contact() {
       <div className="container">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} className="contact-wrap">
           <div className="contact-left">
-            <span className="section-num">05</span>
+            <span className="section-num">06</span>
             <h2>Ready to build something great?</h2>
             <p>Send your requirements for development or audio collaboration. Every transmission is read personally.</p>
             <a href={site.github} className="gh-link" target="_blank" rel="noreferrer">GitHub Profile</a>
@@ -268,6 +279,7 @@ function Footer() {
       <div className="container footer-inner">
         <a href="#hero" className="f-logo">{site.brand}</a>
         <div className="f-links">
+          <a href="/articles.html">Articles</a>
           <a href="/privacy.html">Privacy</a>
           <a href="/terms.html">Terms</a>
           <a href={site.github} target="_blank" rel="noreferrer" aria-label="Visit GitHub profile">GitHub</a>
@@ -429,9 +441,32 @@ export default function App() {
             </motion.div>
           </div>
         </section>
+        <section id="articles" className="section-shell section-muted">
+          <div className="container">
+            <SectionTitle index="02" title="The Lab" />
+            <div className="articles-grid">
+              {articles.slice(0, 3).map((article) => (
+                <motion.article 
+                  key={article.id} 
+                  variants={fade} 
+                  whileHover={reduceMotion ? {} : { y: -4 }} 
+                  className="card" 
+                  style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+                >
+                  <div className="article-preview-compact">
+                    <span className="card-meta">{article.date}</span>
+                    <h3 style={{ fontSize: '1.25rem', margin: '0.4rem 0' }}>{article.title}</h3>
+                    <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>{article.excerpt}</p>
+                  </div>
+                  <a href={`/articles.html#${article.id}`} className="chip" style={{ width: 'fit-content', marginTop: '1rem', border: '1px solid var(--accent)' }}>Read More</a>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
         <section id="releases" className="section-shell">
           <div className="container">
-            <SectionTitle index="02" title="Audio Releases" />
+            <SectionTitle index="03" title="Audio Releases" />
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="releases-grid">
               {releases.map((release) => (
                 <motion.article variants={fade} whileHover={reduceMotion ? {} : { y: -6 }} key={release.id} className="card">
@@ -451,7 +486,7 @@ export default function App() {
         </section>
         <section id="arsenal" className="section-shell">
           <div className="container">
-            <SectionTitle index="03" title="The Arsenal" />
+            <SectionTitle index="04" title="The Arsenal" />
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="arsenal-grid">
               {arsenal.map((item) => (
                 <motion.article variants={fade} whileHover={reduceMotion ? {} : { y: -6 }} key={item.title} className="card">
@@ -464,7 +499,7 @@ export default function App() {
         </section>
         <section id="faq" className="section-shell">
           <div className="container">
-            <SectionTitle index="04" title="Questions" />
+            <SectionTitle index="05" title="Questions" />
             <div className="faq-list">
               {faq.map((item, idx) => (
                 <details key={item.question} className="faq-item" open={idx === 0}>

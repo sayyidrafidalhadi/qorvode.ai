@@ -219,12 +219,16 @@ a { color: inherit; text-decoration: none; }
 .terminal-body { padding: 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .terminal-body p { margin: 0 0 0.45rem; color: #d0d7f9; }
 .prompt { color: var(--accent); }
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
 .t-success { color: #93ffd0; }
 
 .section-head { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 1.2rem; }
 .section-num { color: var(--accent); font-weight: 700; }
 .section-title { margin: 0; font-size: 1.5rem; }
-.projects-grid, .releases-grid, .arsenal-grid {
+.projects-grid, .releases-grid, .arsenal-grid, .articles-grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -255,6 +259,9 @@ a { color: inherit; text-decoration: none; }
     box-shadow: 0 10px 28px rgba(6, 10, 24, 0.75);
   }
 }
+.article-preview-content h3 { margin-top: 0.5rem; font-size: 1.8rem; }
+.article-preview-content .badge-dot { margin-right: 0.5rem; }
+.articles-grid .legal-card header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
 .card h3 { margin-top: 0.1rem; margin-bottom: 0.55rem; }
 .card p { color: var(--text-soft); line-height: 1.65; }
 .card.wide { grid-column: span 2; }
@@ -365,7 +372,10 @@ a { color: inherit; text-decoration: none; }
   padding: 1.2rem;
 }
 .legal-effective { color: var(--text-soft); font-size: 0.92rem; }
-.legal-card h3 { margin-top: 1.1rem; }
+.article-content ul { margin: 1.2rem 0; padding-left: 1.2rem; display: grid; gap: 0.6rem; }
+.article-content li { color: var(--text-soft); line-height: 1.6; }
+.article-content li::marker { color: var(--accent); }
+.legal-card h3 { margin-top: 2rem; margin-bottom: 1rem; color: var(--accent); }
 .legal-card p { color: var(--text-soft); line-height: 1.7; }
 
 @media (max-width: 900px) {
