@@ -1,5 +1,76 @@
 export const articles = [
   {
+    id: 'local-llms-ollama',
+    title: 'Private AI: Running LLMs Locally with Ollama',
+    date: 'April 07, 2026',
+    excerpt: 'Stop paying for individual API tokens. Learn how to run Llama 3, Mistral, and more on your own hardware with full privacy.',
+    tags: ['AI', 'Local LLM', 'Privacy', 'Ollama'],
+    repo: 'https://github.com/ollama/ollama',
+    content: `# Private AI: Running LLMs Locally with Ollama
+
+For years, the power of Large Language Models (LLMs) was locked behind expensive cloud APIs and "black box" systems like OpenAI or Anthropic. While these tools are incredibly powerful, they come with trade-offs: cost, latency, and—most importantly—data privacy.
+
+Enter **Ollama**. In 2024 and 2025, Ollama became the definitive tool for developers who want to run powerful AI models right on their own machines. Here is the ultimate guide to taking back control of your AI stack.
+
+---
+
+## Why Go Local?
+
+The move toward local LLMs isn't just for enthusiasts. It's a strategic shift for developers and companies who care about:
+
+1.  **Zero API Costs**: You aren't billed per token. If your GPU is on, your AI is free.
+2.  **Privacy by Design**: Your code, sensitive documents, and personal chats never leave your machine.
+3.  **Offline Capability**: Work from a plane, a train, or anywhere without a stable connection.
+4.  **Customization**: Fine-tune system prompts and parameters without "alignment" filters getting in your way.
+
+---
+
+## Setting Up Your Local Lab
+
+Getting Ollama running is deceptively simple. Unlike old-school local LLM setups that required complex Python environments, Ollama is a single binary.
+
+### 1. Installation
+Visit [ollama.com](https://ollama.com) and download the installer for your OS. Once installed, verify it in your terminal:
+
+\`\`\`bash
+ollama --version
+\`\`\`
+
+### 2. Running Your First Model
+Llama 3.2 is currenty the gold standard for a balance of speed and intelligence. To start chatting, simply run:
+
+\`\`\`bash
+ollama run llama3.2
+\`\`\`
+
+Ollama will automatically handle the download (usually around 2-4GB for the 8B version) and start an interactive session.
+
+---
+
+## Beyond the Terminal: Integration
+
+Running AI in a terminal is cool, but real value comes from integrating it into your workflow.
+
+### Using local AI in VS Code
+Most developers use **Continue.dev** or **Cursor**. These tools allow you to point your "Chat" or "Autocomplete" feature to your local Ollama instance.
+
+### The OpenAI-Compatible API
+Ollama runs a server background on port \`11434\`. It is fully compatible with the OpenAI API format, meaning you can drop it into almost any existing AI app by changing the base URL:
+
+\`\`\`bash
+# The Ollama API endpoint
+http://localhost:11434/v1
+\`\`\`
+
+---
+
+## The Verdict
+
+Local AI isn't going to replace GPT-4o for massive architectural reasoning yet, but for 80% of daily coding tasks—summarization, unit testing, and component scaffolding—models like **Llama 3.2** and **Mistral** running via Ollama are more than enough.
+
+It is time to stop being a "renter" of intelligence and start being a "homeowner."`
+  },
+  {
     id: 'openclaude-core-integration',
     title: 'OpenClaude: Advanced Agentic Coding CLI Integration',
     date: 'April 7, 2026',

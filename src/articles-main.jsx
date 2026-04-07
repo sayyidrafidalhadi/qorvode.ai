@@ -29,7 +29,7 @@ function Navbar() {
   const navItems = [
     { href: '/#projects', label: 'Projects' },
     { href: '/#releases', label: 'Music' },
-    { href: '/articles.html', label: 'Articles' },
+    { href: '/articles.html', label: 'Lab' },
     { href: '/#contact', label: "Let's Talk", cta: true },
   ];
 
@@ -41,7 +41,7 @@ function Navbar() {
           {navItems.map((item) => <a className={item.cta ? 'nav-cta' : ''} key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
         <button
-          className="menu-toggle"
+          className={`menu-toggle ${open ? 'active' : ''}`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -154,32 +154,74 @@ function ArticlesPage() {
     }
   }, []);
 
+  const { scrollYProgress } = useScroll();
+
   return (
     <div className="app-shell legal-mode">
+      <motion.div
+        className="scroll-progress"
+        style={{
+          scaleX: scrollYProgress,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '4px',
+          background: 'var(--primary)',
+          transformOrigin: '0%',
+          zIndex: 1100,
+        }}
+      />
       <BackgroundFX />
       <Navbar />
       <main className="legal-page container">
         <a href="/" className="legal-back">Return to Base</a>
         <motion.div initial="hidden" animate="visible" variants={fade}>
           <SectionTitle index="01" title="Articles & Insights" />
-          <div className="articles-grid">
+          
+          <div className="article-index" style={{ 
+            marginBottom: '4rem', 
+            padding: '2rem', 
+            background: 'var(--surface)', 
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--radius)' 
+          }}>
+            <h3 style={{ marginBottom: '1.5rem', opacity: 0.6, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Laboratory Index</h3>
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              {articles.map((article) => (
+                <a key={article.id} href={`#${article.id}`} style={{ 
+                  color: 'var(--text-soft)', 
+                  textDecoration: 'none', 
+                  fontSize: '1.1rem',
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: '1rem'
+                }} className="index-link">
+                  <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>→</span>
+                  {article.title}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="articles-list-vertical" style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
             {articles.map((article) => (
-              <motion.article key={article.id} id={article.id} variants={fade} className="legal-card" style={{ marginBottom: '2rem' }}>
+              <motion.article key={article.id} id={article.id} variants={fade} className="legal-card">
                 <header>
-                  <h1 style={{ fontSize: 'clamp(1.6rem, 5vw, 2.4rem)', marginBottom: '0.5rem' }}>{article.title}</h1>
+                  <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.2rem)', marginBottom: '1rem', lineHeight: 1.1 }}>{article.title}</h1>
                   <span className="legal-effective">{article.date}</span>
-                  <div className="chip-row">
-                    {article.tags.map(tag => <span key={tag} className="chip">{tag}</span>)}
+                  <div className="chip-row" style={{ marginTop: '1rem' }}>
+                    {article.tags && article.tags.map(tag => <span key={tag} className="chip">{tag}</span>)}
                   </div>
                 </header>
                 <div 
                   className="article-content" 
-                  style={{ marginTop: '1.5rem' }}
+                  style={{ marginTop: '3rem', maxWidth: '800px' }}
                   dangerouslySetInnerHTML={{ __html: formatMarkdown(article.content) }}
                 />
                 {article.repo && (
-                  <div style={{ marginTop: '2rem' }}>
-                    <a href={article.repo} target="_blank" rel="noreferrer" className="btn-primary" style={{ display: 'inline-block' }}>
+                  <div style={{ marginTop: '3rem' }}>
+                    <a href={article.repo} target="_blank" rel="noreferrer" className="btn-primary">
                       View Repository
                     </a>
                   </div>

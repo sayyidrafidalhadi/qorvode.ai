@@ -12,8 +12,8 @@ import { articles } from './data/articles.js';
 const navItems = [
   { href: '#projects', label: 'Projects' },
   { href: '#releases', label: 'Music' },
-  { href: '/articles.html', label: 'Articles' },
-  { href: '#arsenal', label: 'Arsenal' },
+  { href: '/articles.html', label: 'Lab' },
+  { href: '#arsenal', label: 'Stack' },
   { href: '#contact', label: "Let's Talk", cta: true },
 ];
 
@@ -59,7 +59,7 @@ function Navbar() {
           {navItems.map((item) => <a className={item.cta ? 'nav-cta' : ''} key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
         <button
-          className="menu-toggle"
+          className={`menu-toggle ${open ? 'active' : ''}`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -435,7 +435,7 @@ export default function App() {
                   <p>{project.description}</p>
                   <p className="card-meta">Status: {project.status}</p>
                   <div className="chip-row">{project.tags.map((tag) => <span key={tag} className="chip">{tag}</span>)}</div>
-                  <a href={project.url} target="_blank" rel="noreferrer">Open project</a>
+                  <a href={project.url} target="_blank" rel="noreferrer" className="card-link">Open project</a>
                 </motion.article>
               ))}
             </motion.div>
@@ -445,7 +445,7 @@ export default function App() {
           <div className="container">
             <SectionTitle index="02" title="The Lab" />
             <div className="articles-grid">
-              {[...articles].reverse().slice(0, 3).map((article) => (
+              {articles.slice(0, 3).map((article) => (
                 <motion.article 
                   key={article.id} 
                   variants={fade} 
