@@ -445,7 +445,7 @@ export default function App() {
           <div className="container">
             <SectionTitle index="02" title="The Lab" />
             <div className="articles-grid">
-              {articles.slice(0, 3).map((article) => (
+              {[...articles].reverse().slice(0, 3).map((article) => (
                 <motion.article 
                   key={article.id} 
                   variants={fade} 
