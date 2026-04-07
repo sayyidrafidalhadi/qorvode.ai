@@ -26,6 +26,15 @@ function Navbar() {
     };
   }, []);
 
+  React.useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
   const navItems = [
     { href: '/#projects', label: 'Projects' },
     { href: '/#releases', label: 'Music' },
@@ -52,6 +61,9 @@ function Navbar() {
         </button>
       </div>
       <nav id="mobile-menu" className={`mobile-menu ${open ? 'open' : ''}`} aria-label="Mobile">
+        <button className="mm-close" aria-label="Close menu" onClick={() => setOpen(false)}>
+          <span>&times;</span>
+        </button>
         {navItems.map((item) => (
           <a key={item.href} href={item.href} className={`mm-link ${item.cta ? 'nav-cta' : ''}`} onClick={() => setOpen(false)}>
             {item.label}

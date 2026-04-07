@@ -31,7 +31,24 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   width: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
 
 h1, h2, h3, h4, .logo { font-family: var(--font-head); font-weight: 700; letter-spacing: -0.02em; }
 
@@ -358,6 +375,8 @@ h1, h2, h3, h4, .logo { font-family: var(--font-head); font-weight: 700; letter-
 }
 .mobile-menu.open { opacity: 1; visibility: visible; }
 .mm-link { font-size: 2.5rem; font-weight: 800; color: #fff; text-decoration: none; font-family: var(--font-head); }
+.mm-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; padding: 0.5rem; line-height: 1; opacity: 0.7; transition: opacity 0.3s; }
+.mm-close:hover { opacity: 1; }
 
 .article-preview-compact { flex: 1; }
 .article-preview-compact h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
@@ -399,11 +418,66 @@ h1, h2, h3, h4, .logo { font-family: var(--font-head); font-weight: 700; letter-
   .hero-layout, .story-grid, .footer-inner { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .menu-toggle { display: block; }
-  .hero-title { font-size: 4rem; }
-  .section-shell { padding: 5rem 0; }
+  .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .section-shell { padding: 4rem 0; }
   .projects-grid, .articles-grid, .releases-grid { grid-template-columns: 1fr; }
   .stat-pill { padding: 1.5rem; }
-  .contact-wrap { grid-template-columns: 1fr; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .terminal { max-width: 100%; }
+  .hero-desc { font-size: 1rem; }
+  .section-title { font-size: 2rem; }
+  .card { padding: 1.75rem; }
+  .footer-inner { gap: 2rem; }
+  .f-links { flex-wrap: wrap; gap: 1.25rem; }
+  .article-index { padding: 1.5rem !important; }
+  .articles-list-vertical { gap: 2.5rem !important; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 100px 0 40px; }
+  .hero-layout { gap: 2rem; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost { width: 100%; justify-content: center; }
+  .hero-scroll-cue { display: none; }
+  .section-shell { padding: 3rem 0; }
+  .container { width: min(var(--maxw), 92%); padding: 0 1rem; }
+  .card { padding: 1.5rem; }
+  .card h3 { font-size: 1.2rem; }
+  .terminal { max-width: 100%; }
+  .terminal-body { padding: 1rem; font-size: 0.75rem; }
+  .section-head { flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .section-title { font-size: 1.75rem; }
+  .contact-left h2 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+  .contact-right label { margin-bottom: 0.25rem; }
+  .contact-right input,
+  .contact-right textarea { padding: 1rem; font-size: 16px; }
+  .btn-submit { padding: 1rem !important; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+  .f-links { justify-content: center; }
+  .stat-value { font-size: 2rem; }
+  .stat-label { font-size: 0.8rem; }
+  .faq-item summary { padding: 1.2rem; font-size: 0.9rem; }
+  .faq-item p { padding: 0 1.2rem 1.2rem; font-size: 0.85rem; }
+  .chip-row { gap: 0.4rem; }
+  .chip { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+  .mm-link { font-size: 1.8rem; }
+  .story-card { padding: 1.75rem; }
+  .legal-card { padding: 1.5rem !important; }
+  .article-content { font-size: 1rem; }
+  .article-content pre { padding: 1.25rem; }
+  .index-link { font-size: 1rem !important; }
+  .article-index { padding: 1.25rem !important; margin-bottom: 2.5rem !important; }
+  .articles-list-vertical { gap: 2rem !important; }
+  .legal-page { padding-top: 100px; }
+  .nav-inner { height: 64px; }
+}
+
+@media (max-width: 380px) {
+  .container { padding: 0 0.75rem; }
+  .hero-title { font-size: 2.2rem; }
+  .card { padding: 1.25rem; }
+  .mm-link { font-size: 1.5rem; }
 }
 
 /* BACKGROUND DECORATIONS */
