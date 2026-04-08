@@ -1,299 +1,177 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'motion/react';
+import { ArrowLeft, ExternalLink, Menu, X, BookOpen, Clock, Calendar, ArrowUpRight } from 'lucide-react';
 import './styles/main.css';
 import { site } from './data/site.js';
 import { articles } from './data/articles.js';
 
-function makeFade(reduced) {
-  if (reduced) return { hidden: { opacity: 1 }, visible: { opacity: 1 } };
-  return { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55 } } };
-}
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-function Navbar() {
-  const [open, setOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
-  
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    const onEsc = (e) => e.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', onEsc);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('keydown', onEsc);
-    };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  React.useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => { document.body.style.overflow = ''; };
-  }, [open]);
-
   const navItems = [
-    { href: '/#projects', label: 'Projects' },
-    { href: '/#releases', label: 'Music' },
-    { href: '/articles.html', label: 'Lab' },
-    { href: '/#contact', label: "Let's Talk", cta: true },
+    { name: "Back to Home", href: "/" },
+    { name: "Projects", href: "/#work" },
+    { name: "Music", href: "/#music" },
+    { name: "Contact", href: "/#contact" }
   ];
 
   return (
-    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container nav-inner">
-        <a href="/" className="logo">{site.brand}</a>
-        <nav className="nav-links" aria-label="Primary">
-          {navItems.map((item) => <a className={item.cta ? 'nav-cta' : ''} key={item.href} href={item.href}>{item.label}</a>)}
-        </nav>
-        <button
-          className={`menu-toggle ${open ? 'active' : ''}`}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-        </button>
-      </div>
-      <nav id="mobile-menu" className={`mobile-menu ${open ? 'open' : ''}`} aria-label="Mobile">
-        <button className="mm-close" aria-label="Close menu" onClick={() => setOpen(false)}>
-          <span>&times;</span>
-        </button>
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href} className={`mm-link ${item.cta ? 'nav-cta' : ''}`} onClick={() => setOpen(false)}>
-            {item.label}
-          </a>
+    <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent'}`}>
+      <a href="/" className="text-xl font-display uppercase tracking-tighter cursor-pointer">
+        {site.brand}.
+      </a>
+      
+      <div className="hidden md:flex gap-12 items-center">
+        {navItems.map((item, i) => (
+          <motion.a
+            key={item.name}
+            href={item.href}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 * i }}
+            className="text-[10px] uppercase tracking-widest font-bold hover:text-accent transition-colors"
+          >
+            {item.name}
+          </motion.a>
         ))}
-      </nav>
-    </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="container footer-inner">
-        <a href="/" className="f-logo">{site.brand}</a>
-        <div className="f-links">
-          <a href="/privacy.html">Privacy</a>
-          <a href="/terms.html">Terms</a>
-          <a href={site.github} target="_blank" rel="noreferrer" aria-label="Visit GitHub profile">GitHub</a>
-        </div>
       </div>
-      <p className="f-copy">© {new Date().getFullYear()} {site.name} · All rights reserved</p>
-    </footer>
-  );
-}
 
-function BackgroundFX() {
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const layerY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -220]);
-  const layerRotate = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -6]);
-  const gridY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -120]);
-  const gridOpacity = useTransform(scrollYProgress, [0, 0.45, 1], [0.14, 0.2, 0.1]);
-  const orbAOffset = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -170]);
-  const orbBOffset = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -110]);
-  const orbCOffset = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -220]);
+      <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">
+        {isOpen ? <X /> : <Menu />}
+      </button>
 
-  return (
-    <motion.div className="bg-fx" aria-hidden="true" style={{ y: layerY, rotate: layerRotate }}>
-      <motion.div
-        className="bg-orb orb-a"
-        style={{ y: orbAOffset }}
-        animate={reduceMotion ? {} : { x: [0, 35, -20, 0], scale: [1, 1.08, 0.95, 1] }}
-        transition={reduceMotion ? {} : { duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="bg-orb orb-b"
-        style={{ y: orbBOffset }}
-        animate={reduceMotion ? {} : { x: [0, -30, 20, 0], scale: [1, 0.96, 1.06, 1] }}
-        transition={reduceMotion ? {} : { duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="bg-orb orb-c"
-        style={{ y: orbCOffset }}
-        animate={reduceMotion ? {} : { x: [0, 22, -18, 0] }}
-        transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div className="bg-grid" style={{ y: gridY, opacity: gridOpacity }} />
-    </motion.div>
-  );
-}
-
-function ArticlesPage() {
-  const reduceMotion = useReducedMotion();
-  const fade = makeFade(reduceMotion);
-
-  React.useEffect(() => {
-    // Copy button injection
-    const blocks = document.querySelectorAll('pre');
-    blocks.forEach(block => {
-      if (block.querySelector('.copy-btn')) return;
-      block.style.position = 'relative';
-      const btn = document.createElement('button');
-      btn.className = 'copy-btn';
-      btn.innerText = 'Copy';
-      btn.style.cssText = 'position: absolute; right: 0.5rem; top: 0.5rem; padding: 0.2rem 0.5rem; border-radius: 4px; background: rgba(255,255,255,0.1); border: 1px solid var(--border); color: var(--text-soft); font-size: 0.75rem; cursor: pointer; transition: all 0.2s;';
-      btn.onclick = () => {
-        const code = block.querySelector('code').innerText;
-        navigator.clipboard.writeText(code).then(() => {
-          btn.innerText = 'Copied!';
-          btn.style.borderColor = 'var(--accent)';
-          setTimeout(() => {
-            btn.innerText = 'Copy';
-            btn.style.borderColor = 'var(--border)';
-          }, 2000);
-        });
-      };
-      block.appendChild(btn);
-    });
-
-    // Scroll to hash on load
-    if (window.location.hash) {
-      setTimeout(() => {
-        const id = window.location.hash.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 500);
-    }
-  }, []);
-
-  const { scrollYProgress } = useScroll();
-
-  return (
-    <div className="app-shell legal-mode">
-      <motion.div
-        className="scroll-progress"
-        style={{
-          scaleX: scrollYProgress,
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '4px',
-          background: 'var(--primary)',
-          transformOrigin: '0%',
-          zIndex: 1100,
-        }}
-      />
-      <BackgroundFX />
-      <Navbar />
-      <main className="legal-page container">
-        <a href="/" className="legal-back">Return to Base</a>
-        <motion.div initial="hidden" animate="visible" variants={fade}>
-          <SectionTitle index="01" title="Articles & Insights" />
-          
-          <div className="article-index" style={{ 
-            marginBottom: '4rem', 
-            padding: '2rem', 
-            background: 'var(--surface)', 
-            border: '1px solid var(--border)',
-            borderRadius: 'var(--radius)' 
-          }}>
-            <h3 style={{ marginBottom: '1.5rem', opacity: 0.6, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Laboratory Index</h3>
-            <div style={{ display: 'grid', gap: '1rem' }}>
-              {articles.map((article) => (
-                <a key={article.id} href={`#${article.id}`} style={{ 
-                  color: 'var(--text-soft)', 
-                  textDecoration: 'none', 
-                  fontSize: '1.1rem',
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  gap: '1rem'
-                }} className="index-link">
-                  <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>→</span>
-                  {article.title}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="articles-list-vertical" style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
-            {articles.map((article) => (
-              <motion.article key={article.id} id={article.id} variants={fade} className="legal-card">
-                <header>
-                  <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.2rem)', marginBottom: '1rem', lineHeight: 1.1 }}>{article.title}</h1>
-                  <span className="legal-effective">{article.date}</span>
-                  <div className="chip-row" style={{ marginTop: '1rem' }}>
-                    {article.tags && article.tags.map(tag => <span key={tag} className="chip">{tag}</span>)}
-                  </div>
-                </header>
-                <div 
-                  className="article-content" 
-                  style={{ marginTop: '3rem', maxWidth: '800px' }}
-                  dangerouslySetInnerHTML={{ __html: formatMarkdown(article.content) }}
-                />
-                {article.repo && (
-                  <div style={{ marginTop: '3rem' }}>
-                    <a href={article.repo} target="_blank" rel="noreferrer" className="btn-primary">
-                      View Repository
-                    </a>
-                  </div>
-                )}
-              </motion.article>
-            ))}
-          </div>
+      {isOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute top-full left-0 w-full bg-bg p-8 flex flex-col gap-6 border-b border-white/10"
+        >
+          {navItems.map((item) => (
+            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} className="text-2xl font-display uppercase">
+              {item.name}
+            </a>
+          ))}
         </motion.div>
-      </main>
-      <Footer />
-    </div>
+      )}
+    </nav>
   );
-}
-
-function SectionTitle({ index, title }) {
-  return (
-    <div className="section-head" style={{ marginBottom: '2rem' }}>
-      <span className="section-num">{index}</span>
-      <h2 className="section-title">{title}</h2>
-    </div>
-  );
-}
+};
 
 function formatMarkdown(text) {
-  let html = text
-    .replace(/### (.*)/g, '<h3>$1</h3>')
-    .replace(/\*\*(.*)\*\*/g, '<strong>$1</strong>')
-    .replace(/```bash\n([\s\S]*?)```/g, '<pre class="terminal-body" style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px;"><code>$1</code></pre>')
-    .replace(/```json\n([\s\S]*?)```/g, '<pre class="terminal-body" style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px;"><code>$1</code></pre>')
-    .replace(/```powershell\n([\s\S]*?)```/g, '<pre class="terminal-body" style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 8px;"><code>$1</code></pre>')
-    .replace(/`([^`]+)`/g, '<code class="chip" style="background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 4px;">$1</code>');
-
-  // Handle lists: find blocks of lines starting with "- "
-  const lines = html.split('\n');
-  let inList = false;
-  const processedLines = [];
-
-  for (let line of lines) {
-    if (line.trim().startsWith('- ')) {
-      if (!inList) {
-        processedLines.push('<ul>');
-        inList = true;
-      }
-      processedLines.push(`<li>${line.trim().substring(2)}</li>`);
-    } else {
-      if (inList) {
-        processedLines.push('</ul>');
-        inList = false;
-      }
-      processedLines.push(line);
-    }
-  }
-  if (inList) processedLines.push('</ul>');
-
-  return processedLines
-    .join('\n')
-    .split('\n\n')
-    .map(p => (p.startsWith('<h') || p.startsWith('<ul') || p.startsWith('<li') || p.startsWith('<pre')) ? p : `<p>${p}</p>`)
-    .join('');
+  return text
+    .replace(/### (.*)/g, '<h3 class="text-2xl font-display uppercase mt-12 mb-6">$1</h3>')
+    .replace(/\*\*(.*)\*\*/g, '<strong class="text-accent font-semibold">$1</strong>')
+    .replace(/```bash\n([\s\S]*?)```/g, '<pre class="bg-white/5 p-6 rounded-2xl border border-white/10 my-8 overflow-x-auto font-mono text-sm leading-relaxed text-accent/80"><code>$1</code></pre>')
+    .replace(/```json\n([\s\S]*?)```/g, '<pre class="bg-white/5 p-6 rounded-2xl border border-white/10 my-8 overflow-x-auto font-mono text-sm leading-relaxed text-accent/80"><code>$1</code></pre>')
+    .replace(/```powershell\n([\s\S]*?)```/g, '<pre class="bg-white/5 p-6 rounded-2xl border border-white/10 my-8 overflow-x-auto font-mono text-sm leading-relaxed text-accent/80"><code>$1</code></pre>')
+    .replace(/`([^`]+)`/g, '<code class="bg-white/10 px-1.5 py-0.5 rounded text-accent/90">$1</code>');
 }
+
+const ArticleHero = () => {
+    return (
+        <section className="pt-48 pb-24 px-6 border-b border-white/10">
+            <div className="max-w-4xl mx-auto">
+                <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-accent mb-6 block">The Laboratory</span>
+                <h1 className="text-6xl md:text-8xl font-display uppercase leading-none mb-12">Articles &<br />Insights.</h1>
+                <p className="text-xl md:text-2xl font-light opacity-50 max-w-2xl leading-relaxed">
+                    Exploring the intersection of agentic workflows, software architecture, and the future of human-AI collaboration.
+                </p>
+            </div>
+        </section>
+    );
+};
+
+const ArticleList = () => {
+    return (
+        <section className="py-24 px-6">
+            <div className="max-w-4xl mx-auto flex flex-col gap-24">
+                {articles.map((article, i) => (
+                    <motion.article 
+                        key={article.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        id={article.id}
+                        className="group"
+                    >
+                        <div className="flex flex-col md:flex-row gap-12">
+                            <div className="md:w-1/4">
+                                <div className="sticky top-32 flex flex-col gap-4 text-[10px] uppercase tracking-widest font-bold opacity-30">
+                                    <div className="flex items-center gap-2">
+                                        <Calendar className="w-3 h-3" />
+                                        {article.date}
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Clock className="w-3 h-3" />
+                                        5 min read
+                                    </div>
+                                    <div className="mt-4 flex flex-wrap gap-2 uppercase">
+                                        {article.tags?.map(tag => (
+                                            <span key={tag} className="text-[8px] border border-white/20 px-2 py-1 rounded">{tag}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="md:w-3/4">
+                                <h2 className="text-4xl md:text-5xl font-display uppercase leading-none mb-8 group-hover:text-accent transition-colors">
+                                    {article.title}
+                                </h2>
+                                <div 
+                                    className="prose prose-invert max-w-none text-lg opacity-60 leading-relaxed space-y-6"
+                                    dangerouslySetInnerHTML={{ __html: formatMarkdown(article.content) }}
+                                />
+                                {article.repo && (
+                                    <a 
+                                        href={article.repo} 
+                                        target="_blank" 
+                                        rel="noreferrer" 
+                                        className="inline-flex items-center gap-2 mt-12 text-sm uppercase tracking-widest font-bold text-accent hover:gap-4 transition-all"
+                                    >
+                                        Explore Repository <ArrowUpRight className="w-4 h-4" />
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </motion.article>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+const ArticlesPage = () => {
+  const { scrollYProgress } = useScroll();
+
+  return (
+    <div className="bg-bg min-h-screen selection:bg-accent selection:text-white text-white">
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-accent z-[60] origin-left"
+        style={{ scaleX: scrollYProgress }}
+      />
+      <Navbar />
+      <main>
+        <ArticleHero />
+        <ArticleList />
+      </main>
+      <footer className="py-24 px-6 border-t border-white/10 text-center">
+         <a href="/" className="inline-flex items-center gap-4 text-sm uppercase tracking-widest font-bold opacity-50 hover:opacity-100 transition-opacity">
+            <ArrowLeft className="w-4 h-4" /> Back to Base
+         </a>
+         <div className="mt-12 text-[10px] font-mono opacity-20 uppercase">
+            © {new Date().getFullYear()} {site.brand} · Research Dept.
+         </div>
+      </footer>
+    </div>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

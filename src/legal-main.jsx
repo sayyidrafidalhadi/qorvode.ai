@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/main.css';
 import { site } from './data/site.js';
+import { motion } from 'motion/react';
+import { ArrowLeft } from 'lucide-react';
 
 const legalData = {
   '/privacy.html': {
@@ -30,51 +32,59 @@ const legalData = {
   },
 };
 
+const Navbar = () => {
+    return (
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-bg/80 backdrop-blur-md border-b border-white/10">
+        <a href="/" className="text-xl font-display uppercase tracking-tighter cursor-pointer">
+          {site.brand}.
+        </a>
+      </nav>
+    );
+  };
+
 function LegalPage() {
   const path = window.location.pathname.toLowerCase();
   const page = legalData[path] || legalData['/privacy.html'];
-  document.title = `${page.title} | ${site.brand}`;
-  const descriptionMeta = document.querySelector('meta[name="description"]');
-  if (descriptionMeta) descriptionMeta.setAttribute('content', page.description);
+  
+  React.useEffect(() => {
+    document.title = `${page.title} | ${site.brand}`;
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) descriptionMeta.setAttribute('content', page.description);
+  }, [page]);
 
   return (
-    <div className="app-shell legal-mode">
-      <header className="navbar scrolled">
-        <div className="container nav-inner">
-          <a href="/" className="logo">{site.brand}</a>
-          <nav className="nav-links" aria-label="Primary">
-            <a href="/#projects">Projects</a>
-            <a href="/#releases">Music</a>
-            <a href="/articles.html">Articles</a>
-            <a href="/#contact" className="nav-cta">Let&apos;s Talk</a>
-          </nav>
-        </div>
-      </header>
-      <main className="legal-page container">
-        <a href="/" className="legal-back">Return to Base</a>
-        <article className="legal-card">
-          <h1>{page.title}</h1>
-          <span className="legal-effective">Effective Date: February 25, 2026</span>
-          {page.sections.map(([title, text]) => (
-            <section key={title}>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </section>
-          ))}
-          <h3>Contact Information</h3>
-          <p>Email: {site.email}</p>
-        </article>
-      </main>
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <a href="/" className="f-logo">{site.brand}</a>
-          <div className="f-links">
-            <a href="/articles.html">Articles</a>
-            <a href="/privacy.html">Privacy</a>
-            <a href="/terms.html">Terms</a>
-            <a href={site.github} aria-label="Visit GitHub profile" target="_blank" rel="noreferrer">GitHub</a>
+    <div className="bg-bg min-h-screen selection:bg-accent selection:text-white text-white">
+      <Navbar />
+      <main className="pt-48 pb-24 px-6 max-w-4xl mx-auto">
+        <a href="/" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 hover:opacity-100 hover:text-accent transition-all mb-12">
+          <ArrowLeft className="w-4 h-4" /> Back to Base
+        </a>
+        
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white/5 border border-white/10 rounded-[40px] p-12 glass"
+        >
+          <h1 className="text-5xl md:text-7xl font-display uppercase leading-none mb-12">{page.title}</h1>
+          <span className="text-[10px] uppercase tracking-widest font-bold opacity-30 block mb-12">Effective Date: February 25, 2024</span>
+          
+          <div className="space-y-12">
+            {page.sections.map(([title, text]) => (
+                <section key={title}>
+                <h3 className="text-2xl font-display uppercase mb-4 text-accent">{title}</h3>
+                <p className="text-lg opacity-60 leading-relaxed font-light">{text}</p>
+                </section>
+            ))}
           </div>
-        </div>
+
+          <div className="mt-16 pt-12 border-t border-white/10">
+            <h3 className="text-2xl font-display uppercase mb-4">Contact Information</h3>
+            <p className="text-lg opacity-60">Email: {site.email}</p>
+          </div>
+        </motion.div>
+      </main>
+      <footer className="py-24 px-6 border-t border-white/10 text-center opacity-30 text-[10px] uppercase tracking-widest">
+         © {new Date().getFullYear()} {site.brand} · Compliance Dept.
       </footer>
     </div>
   );
