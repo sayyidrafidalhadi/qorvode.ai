@@ -4,6 +4,7 @@ import './styles/main.css';
 import { site } from './data/site.js';
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
+import AmoledBackground from './components/AnimeEditBackground.jsx';
 
 const legalData = {
   '/privacy.html': {
@@ -54,6 +55,7 @@ function LegalPage() {
 
   return (
     <div className="bg-bg min-h-screen selection:bg-accent selection:text-white text-white">
+      <AmoledBackground />
       <Navbar />
       <main className="pt-48 pb-24 px-6 max-w-4xl mx-auto">
         <a href="/" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 hover:opacity-100 hover:text-accent transition-all mb-12">

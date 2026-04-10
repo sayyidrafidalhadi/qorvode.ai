@@ -9,6 +9,7 @@
 .contact-left p { color: var(--muted); font-size: 0.9rem; font-weight: 300; line-height: 1.75; margin-bottom: 2rem; }
 .gh-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--border); padding: 0.6rem 1.2rem; border-radius: 30px; transition: color 0.3s, border-color 0.3s; }
 .gh-link:hover { color: var(--text); border-color: var(--border-h); }
+.gh-link:active { transform: scale(0.98); }
 .contact-right form { display: flex; flex-direction: column; gap: 1.25rem; }
 .fg { display: flex; flex-direction: column; gap: 0.5rem; }
 .fg label { font-size: 0.75rem; font-family: var(--font-mono); color: var(--muted2); letter-spacing: 0.5px; }
@@ -17,3 +18,45 @@
 .fg input:focus, .fg textarea:focus { border-color: var(--border-h); background: rgba(67,56,202,0.04); box-shadow: 0 0 0 3px rgba(67,56,202,0.08); }
 .btn-submit { align-self: flex-start; font-size: 0.9rem; gap: 0.6rem; background: var(--gold) !important; box-shadow: 0 4px 20px rgba(249,115,22,0.2) !important; }
 .btn-submit:hover { box-shadow: 0 8px 30px rgba(249,115,22,0.3) !important; }
+.btn-submit:active { transform: scale(0.98); }
+
+/* Tablet */
+@media (max-width: 900px) {
+  .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-left h2 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .contact-wrap { gap: 2.5rem; }
+  .contact-left h2 { font-size: clamp(1.5rem, 8vw, 2rem); margin-bottom: 1rem; }
+  .contact-left p { font-size: 0.875rem; line-height: 1.65; margin-bottom: 1.5rem; }
+  .gh-link { font-size: 0.8125rem; padding: 0.625rem 1rem; }
+  .fg label { font-size: 0.6875rem; }
+  .fg input, .fg textarea { padding: 0.75rem 0.875rem; font-size: 0.875rem; }
+  .btn-submit { width: 100%; justify-content: center; align-self: stretch; font-size: 0.875rem; }
+}
+
+@media (max-width: 480px) {
+  .contact-wrap { gap: 2rem; }
+  .contact-left h2 { font-size: clamp(1.375rem, 9vw, 1.75rem); margin-bottom: 0.875rem; }
+  .contact-left p { font-size: 0.8125rem; line-height: 1.5; margin-bottom: 1.25rem; }
+  .gh-link { font-size: 0.75rem; padding: 0.5rem 0.875rem; }
+  .fg label { font-size: 0.625rem; }
+  .fg input, .fg textarea { padding: 0.625rem 0.75rem; font-size: 0.8125rem; }
+  .btn-submit { font-size: 0.8125rem; padding: 0.75rem 1.25rem; }
+}
+
+@media (max-width: 360px) {
+  .contact-left h2 { font-size: clamp(1.25rem, 10vw, 1.5rem); }
+  .contact-left p { font-size: 0.75rem; }
+  .fg input, .fg textarea { padding: 0.5rem 0.625rem; font-size: 0.75rem; }
+  .btn-submit { font-size: 0.75rem; padding: 0.625rem 1rem; }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .gh-link { min-height: 44px; }
+  .fg input, .fg textarea { min-height: 44px; }
+  .btn-submit { min-height: 48px; }
+}

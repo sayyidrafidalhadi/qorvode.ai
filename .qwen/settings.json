@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install)",
+      "Bash(sed *)",
+      "Bash(git checkout *)",
+      "Bash(node)",
+      "Bash(const *)",
+      "Bash('fs')",
+      "Bash(// *)",
+      "Bash('secret-sauce-article.txt', *)",
+      "Bash(let *)",
+      "Bash('src/data/articles.js', *)",
+      "Bash('export const articles = ['.length)",
+      "Bash('\\n  ' *)",
+      "Bash(insertpos)",
+      "Bash(fs.writefilesync)",
+      "Bash(console.log)",
+      "Bash(node_eof)"
+    ]
+  },
+  "$version": 3
+}

@@ -8,3 +8,38 @@ footer { border-top: 1px solid var(--border); padding: 2.5rem 5%; text-align: ce
 .f-links a { font-size: 0.8rem; color: var(--muted2); transition: color 0.3s; }
 .f-links a:hover { color: var(--text); }
 .f-copy { font-size: 0.75rem; color: var(--muted2); font-family: var(--font-mono); }
+
+/* Tablet */
+@media (max-width: 900px) {
+  .footer-inner { flex-direction: column; gap: 1.25rem; text-align: center; }
+  .f-links { flex-wrap: wrap; justify-content: center; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  footer { padding: 2rem 4%; }
+  .footer-inner { gap: 1rem; margin-bottom: 1.25rem; }
+  .f-logo { font-size: 0.875rem; letter-spacing: 2px; }
+  .f-links { gap: 1rem; }
+  .f-links a { font-size: 0.75rem; }
+  .f-copy { font-size: 0.6875rem; }
+}
+
+@media (max-width: 480px) {
+  footer { padding: 1.75rem 4%; }
+  .f-logo { font-size: 0.75rem; letter-spacing: 1.5px; }
+  .f-links { gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+  .f-links a { font-size: 0.6875rem; }
+  .f-copy { font-size: 0.625rem; }
+}
+
+@media (max-width: 360px) {
+  .f-logo { font-size: 0.6875rem; }
+  .f-links a { font-size: 0.625rem; }
+  .f-copy { font-size: 0.5625rem; }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .f-links a { min-height: 44px; display: flex; align-items: center; padding: 0.25rem 0; }
+}
