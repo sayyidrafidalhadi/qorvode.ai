@@ -1,178 +1,127 @@
 import { useEffect, useRef } from 'react';
 
-const AnimeEditBackground = () => {
+const PremiumBackground = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    let animationId;
-    let time = 0;
+    const gl = canvas.getContext('webgl', { antialias: false, powerPreference: 'high-performance' });
+    if (!gl) return;
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
+    const vsSource = `
+      attribute vec2 position;
+      void main() {
+        gl_Position = vec4(position, 0.0, 1.0);
+      }
+    `;
 
-    resize();
-    window.addEventListener('resize', resize);
+    const fsSource = `
+      precision mediump float;
+      uniform vec2 u_resolution;
+      uniform float u_time;
 
-    // Particles
-    const particles = Array.from({ length: 80 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 3 + 1,
-      speedX: (Math.random() - 0.5) * 2,
-      speedY: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.5 + 0.2,
-      color: ['#F27D26', '#4338CA', '#F97316', '#00FF00', '#FFFFFF'][Math.floor(Math.random() * 5)]
-    }));
-
-    // Speed lines
-    const speedLines = Array.from({ length: 30 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      length: Math.random() * 150 + 50,
-      speed: Math.random() * 8 + 4,
-      opacity: Math.random() * 0.3 + 0.05,
-      width: Math.random() * 2 + 0.5
-    }));
-
-    // Floating orbs
-    const orbs = Array.from({ length: 5 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 200 + 100,
-      color: ['#F27D26', '#4338CA', '#F97316', '#00FF00', '#2563EB'][Math.floor(Math.random() * 5)],
-      speedX: (Math.random() - 0.5) * 1.5,
-      speedY: (Math.random() - 0.5) * 1.5,
-      phase: Math.random() * Math.PI * 2
-    }));
-
-    const draw = () => {
-      time += 0.016;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Deep black background
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw floating orbs with glow
-      orbs.forEach(orb => {
-        orb.x += orb.speedX + Math.sin(time + orb.phase) * 0.5;
-        orb.y += orb.speedY + Math.cos(time + orb.phase) * 0.5;
-
-        // Wrap around
-        if (orb.x < -orb.radius) orb.x = canvas.width + orb.radius;
-        if (orb.x > canvas.width + orb.radius) orb.x = -orb.radius;
-        if (orb.y < -orb.radius) orb.y = canvas.height + orb.radius;
-        if (orb.y > canvas.height + orb.radius) orb.y = -orb.radius;
-
-        const gradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.radius);
-        gradient.addColorStop(0, orb.color + '20');
-        gradient.addColorStop(0.5, orb.color + '10');
-        gradient.addColorStop(1, 'transparent');
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(orb.x - orb.radius, orb.y - orb.radius, orb.radius * 2, orb.radius * 2);
-      });
-
-      // Draw speed lines (anime style)
-      speedLines.forEach(line => {
-        line.y += line.speed;
-        if (line.y > canvas.height + line.length) {
-          line.y = -line.length;
-          line.x = Math.random() * canvas.width;
-        }
-
-        ctx.beginPath();
-        ctx.moveTo(line.x, line.y);
-        ctx.lineTo(line.x, line.y + line.length);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${line.opacity})`;
-        ctx.lineWidth = line.width;
-        ctx.stroke();
-      });
-
-      // Draw particles
-      particles.forEach(p => {
-        p.x += p.speedX + Math.sin(time * 2 + p.y * 0.01) * 0.5;
-        p.y += p.speedY;
-
-        if (p.y > canvas.height + 10) {
-          p.y = -10;
-          p.x = Math.random() * canvas.width;
-        }
-        if (p.x < -10) p.x = canvas.width + 10;
-        if (p.x > canvas.width + 10) p.x = -10;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color + Math.floor(p.opacity * 255).toString(16).padStart(2, '0');
-        ctx.fill();
-
-        // Glow effect
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
-      });
-
-      ctx.shadowBlur = 0;
-
-      // Subtle grid overlay
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
-      ctx.lineWidth = 1;
-      const gridSize = 80;
-
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
+      // Faster noise for performance
+      vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+      float snoise(vec2 v){
+        const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+        vec2 i  = floor(v + dot(v, C.yy) );
+        vec2 x0 = v -   i + dot(i, C.xx);
+        vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+        vec4 x12 = x0.xyxy + C.xxzz;
+        x12.xy -= i1;
+        i = mod(i, 289.0);
+        vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+        vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+        m = m*m; m = m*m;
+        vec3 x = 2.0 * fract(p * C.www) - 1.0;
+        vec3 h = abs(x) - 0.5;
+        vec3 a0 = x - floor(x + 0.5);
+        vec3 g = a0 * vec3(x0.x,x12.x,x12.z) + h * vec3(x0.y,x12.y,x12.w);
+        return 130.0 * dot(m, g);
       }
 
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
+      void main() {
+        vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+        vec2 p = uv * 2.0 - 1.0;
+        p.x *= u_resolution.x / u_resolution.y;
+
+        float t = u_time * 0.05;
+        
+        // Optimized fluid motion using layered noise
+        float n = snoise(p * 0.4 + t);
+        n += 0.4 * snoise(p * 0.8 - t * 1.3);
+        
+        // Luxury Palette
+        vec3 baseColor = vec3(0.04, 0.04, 0.04); // #0A0A0A
+        vec3 gold = vec3(0.77, 0.62, 0.35);      // #C5A059
+        vec3 emerald = vec3(0.02, 0.3, 0.23);   // #064E3B
+        
+        vec3 color = baseColor;
+        color = mix(color, color + gold * 0.07, smoothstep(-0.5, 0.8, n));
+        color = mix(color, color + emerald * 0.05, smoothstep(0.2, -1.0, n));
+        
+        // Very subtle scanline/texture for luxury feel
+        color *= 0.98 + 0.02 * sin(gl_FragCoord.y * 1.5);
+
+        gl_FragColor = vec4(color, 1.0);
       }
+    `;
 
-      // Scanline effect (anime aesthetic)
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
-      for (let y = 0; y < canvas.height; y += 4) {
-        ctx.fillRect(0, y, canvas.width, 2);
-      }
-
-      // Vignette effect
-      const vignette = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height / 2, canvas.height * 0.3,
-        canvas.width / 2, canvas.height / 2, canvas.height * 0.8
-      );
-      vignette.addColorStop(0, 'transparent');
-      vignette.addColorStop(1, 'rgba(0, 0, 0, 0.5)');
-      ctx.fillStyle = vignette;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      animationId = requestAnimationFrame(draw);
+    const createShader = (gl, type, source) => {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return shader;
     };
 
-    draw();
+    const program = gl.createProgram();
+    gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vsSource));
+    gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fsSource));
+    gl.linkProgram(program);
+    gl.useProgram(program);
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+    const positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+
+    const positionLocation = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(positionLocation);
+    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+    const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+    const timeLocation = gl.getUniformLocation(program, 'u_time');
+
+    let dpr = Math.min(window.devicePixelRatio, 1.5); // Cap DPR for performance
+
+    const render = (time) => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      if (canvas.width !== Math.floor(width * dpr) || canvas.height !== Math.floor(height * dpr)) {
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      
+      gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+      gl.uniform1f(timeLocation, time * 0.001);
+      
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      requestAnimationFrame(render);
     };
+
+    requestAnimationFrame(render);
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 pointer-events-none"
-      style={{ width: '100vw', height: '100vh' }}
-      aria-hidden="true"
+      className="fixed inset-0 -z-1 pointer-events-none"
+      style={{ width: '100vw', height: '100vh', background: '#0A0A0A' }}
     />
   );
 };
 
-export default AnimeEditBackground;
+export default PremiumBackground;

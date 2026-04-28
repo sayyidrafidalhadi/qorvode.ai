@@ -5,18 +5,29 @@
 export const site = {
   brand: "QORVODE",
   name: "Sayyid Rafid Al Hadi",
-  title: "Sayyid Rafid Al Hadi | QORVODE",
-  description: "Full-stack developer and vocalist operating at the edge of mobile and web innovation.",
+  title: "QORVODE — Premium Digital Experiences",
+  description: "We build premium digital authority for brands that want to dominate. Bespoke design and high-performance development.",
   url: "https://qorvode.co.in",
   github: "https://github.com/Cybertechyrappu",
   email: "igsydrafiofficial@gmail.com",
   availableYear: "2026",
-  terminalPrompt: "root@qorvode:~$",
+  hero: {
+    badge: "Available for Selective Partnerships · 2026",
+    headline: {
+      top: "Design. Development.",
+      bottom: "Digital Authority."
+    },
+    subheadline: "We build premium digital experiences that transform brands into industry leaders. High-ticket solutions for serious businesses.",
+    ctaPrimary: "Start Your Brand Upgrade",
+    ctaSecondary: "View Selected Works",
+    trust: "Trusted by visionary founders & premium brands"
+  },
+  terminalPrompt: "qorvode@authority:~$",
   terminalLines: [
-    "> Initializing full-stack engine...",
-    "> Loading vocal & audio modules...",
-    "> Deploying to production...",
-    "> Status: Live & Resonant. ✓"
+    "> Analyzing market positioning...",
+    "> Optimizing conversion architecture...",
+    "> Scaling digital authority...",
+    "> Status: Premium Experience Online. ✓"
   ],
   stack: [
     { icon: "fab fa-html5", title: "HTML5" },

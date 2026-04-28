@@ -4,43 +4,59 @@ export function renderHero() {
   const hero = document.getElementById('hero');
   if (!hero) return;
 
+  const { hero: heroData } = site;
+
   hero.innerHTML = `
-    <div class="hero-badge fade-up" style="--i:0">
-      <span class="badge-dot"></span> Available for work · ${site.availableYear}
-    </div>
-    <div class="hero-layout">
-      <div class="hero-text">
+    <div class="hero-container">
+      <div class="hero-badge fade-up" style="--i:0">
+        <span class="badge-dot"></span> ${heroData.badge}
+      </div>
+      
+      <div class="hero-content">
         <h1 class="hero-title">
-          <span class="fade-up" style="--i:1">Crafting</span>
-          <em class="fade-up" style="--i:2">fluid digital</em>
-          <span class="fade-up" style="--i:3">experiences</span>
+          <span class="fade-up" style="--i:1">${heroData.headline.top}</span>
+          <em class="fade-up" style="--i:2">${heroData.headline.bottom}</em>
         </h1>
-        <p class="hero-desc fade-up" style="--i:4">Developer &amp; Vocalist — operating at the edge of mobile and web innovation. Code by day, audio by night.</p>
-        <div class="hero-actions fade-up" style="--i:5">
-          <a href="#projects" class="btn-primary">View Work</a>
-          <a href="#releases" class="btn-ghost"><i class="fas fa-play"></i> Listen</a>
+        
+        <p class="hero-subheadline fade-up" style="--i:3">
+          ${heroData.subheadline}
+        </p>
+        
+        <div class="hero-actions fade-up" style="--i:4">
+          <a href="#projects" class="btn-primary">${heroData.ctaPrimary}</a>
+          <a href="#contact" class="btn-secondary">${heroData.ctaSecondary}</a>
+        </div>
+
+        <div class="hero-trust fade-up" style="--i:5">
+          <div class="trust-line"></div>
+          <span>${heroData.trust}</span>
         </div>
       </div>
-      <div class="terminal-wrap fade-up" style="--i:6">
-        <div class="terminal">
-          <div class="terminal-bar">
-            <div class="t-dots">
-              <span class="td td-red"></span>
-              <span class="td td-yellow"></span>
-              <span class="td td-green"></span>
+
+      <div class="hero-visual fade-up" style="--i:6">
+        <div class="terminal-container">
+          <div class="terminal-premium">
+            <div class="terminal-header">
+              <div class="t-controls">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="t-tab">${site.terminalPrompt.split('@')[1]}</div>
             </div>
-            <span class="t-title">deploy_stack.sh</span>
+            <div class="terminal-window">
+              <p class="t-input"><span class="t-prompt">${site.terminalPrompt}</span> ./accelerate_growth</p>
+              <div id="typing-container"></div>
+            </div>
           </div>
-          <div class="terminal-body">
-            <p class="t-cmd"><span class="t-prompt">${site.terminalPrompt}</span> ./deploy</p>
-            <div id="typing-container"></div>
-          </div>
+          <div class="visual-glow"></div>
         </div>
       </div>
     </div>
-    <div class="hero-scroll">
-      <span>scroll</span>
-      <div class="scroll-bar"></div>
+    
+    <div class="hero-scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div class="scroll-text">DISCOVER MORE</div>
     </div>
   `;
 }
