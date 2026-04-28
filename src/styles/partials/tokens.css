@@ -7,16 +7,16 @@
     --surface:   rgba(255, 255, 255, 0.04);
     --surface-hover: rgba(255, 255, 255, 0.07);
     --border:    rgba(255, 255, 255, 0.08);
-    --border-h:  rgba(197, 160, 89, 0.4); /* Muted Gold accent on hover */
+    --border-h:  rgba(51, 179, 230, 0.4); /* Cyan accent on hover */
 
-    --primary:   #C5A059; /* Muted Gold */
-    --primary-glow: rgba(197, 160, 89, 0.1);
+    --primary:   #33B3E6; /* Cyan Aurora */
+    --primary-glow: rgba(51, 179, 230, 0.15);
 
-    --red:           #C5A059;        /* repurpose: gold IS the hero accent */
-    --red-glow:      rgba(197, 160, 89, 0.15);
-    --red-dim:       #A8843E;
-    --gold:          #C5A059;        /* alias — consistent with --primary */
-    --gold-glow:     rgba(197, 160, 89, 0.15);
+    --red:           #33B3E6;        /* Cyan accent */
+    --red-glow:      rgba(51, 179, 230, 0.15);
+    --red-dim:       #2288B3;
+    --gold:          #33B3E6;        /* Cyan — aurora accent */
+    --gold-glow:     rgba(51, 179, 230, 0.15);
 
     --accent:    #064E3B; /* Deep Emerald (Subtle Lighting) */
     --emerald-glow:  rgba(6, 78, 59, 0.3);

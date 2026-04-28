@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, ExternalLink, Github, Instagram, Music, Code, Cpu, BookOpen, MessageCircle } from "lucide-react";
 import { useState, useRef, useEffect, useMemo } from "react";
 import './styles/main.css';
@@ -10,6 +10,9 @@ import { releases } from './data/releases.js';
 import { arsenal } from './data/arsenal.js';
 import { articles } from './data/articles.js';
 import PremiumBackground from './components/AnimeEditBackground.jsx';
+import LumaDrift from './components/LumaDrift.jsx';
+import { FloatingTerminal, TerminalSection } from './components/TerminalAI.jsx';
+import TestimonialsCard from './components/TestimonialsCard.jsx';
 
 const MusicPlayer = () => {
   const audioRef = useRef(null);
@@ -62,7 +65,7 @@ const MusicPlayer = () => {
         transition={{ delay: 1.5, duration: 0.5 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-24 sm:bottom-28 right-6 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/20 transition-all border border-white/20"
+        className="fixed top-24 sm:top-28 right-6 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/20 transition-all border border-white/20"
       >
         {muted ? (
           <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -93,7 +96,7 @@ const FloatingWhatsApp = () => {
       transition={{ delay: 1.5, duration: 0.5 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-accent rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(197,160,89,0.25)] hover:shadow-[0_15px_40px_rgba(197,160,89,0.35)] transition-all"
+      className="fixed bottom-24 sm:bottom-28 left-6 sm:left-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-accent rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(197,160,89,0.25)] hover:shadow-[0_15px_40px_rgba(197,160,89,0.35)] transition-all"
     >
       <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-bg" />
     </motion.a>
@@ -189,7 +192,7 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm border border-white/[0.08] bg-white/[0.02]"
           >
-            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-accent shadow-[0_0_8px_#C5A059] sm:shadow-[0_0_12px_#C5A059]" />
+            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-accent shadow-[0_0_8px_#33B3E6] sm:shadow-[0_0_12px_#33B3E6]" />
             <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] sm:tracking-[0.35em] font-medium text-white/60">
               {site.hero.badge}
             </span>
@@ -295,6 +298,8 @@ const Work = () => {
       problem: "Islamic & academic excellence platform lacking modern digital presence and user trust",
       approach: "Premium rebranding with performance-first architecture and authority-focused design system",
       result: "Modern educational platform built to inspire trust and knowledge transfer",
+      metric: "35% increase in enrollments",
+      timeline: "Delivered in 3 weeks",
       tags: ["Next.js", "Education", "Islamic", "Platform"],
       status: "Live"
     },
@@ -304,6 +309,8 @@ const Work = () => {
       problem: "Traditional wellness clinic invisible to digital audiences seeking authentic holistic care",
       approach: "Clean, elegant digital presence communicating authenticity and trust",
       result: "Professional web presence attracting wellness seekers",
+      metric: "40% increase in bookings",
+      timeline: "Delivered in 2 weeks",
       tags: ["Web", "Healthcare", "UI/UX"],
       status: "Live"
     },
@@ -313,6 +320,8 @@ const Work = () => {
       problem: "Islamic music streaming need with poor accessibility and no offline capability",
       approach: "Progressive Web App with Firebase backend, Cloudinary CDN, and offline-first architecture",
       result: "Full-featured PWA with offline playback, playlists, and admin dashboard",
+      metric: "5,000+ active users",
+      timeline: "Delivered in 4 weeks",
       tags: ["PWA", "Firebase", "Audio", "Cloudinary"],
       status: "Beta"
     }
@@ -375,6 +384,10 @@ const Work = () => {
                       <span className="text-[9px] uppercase tracking-[0.3em] text-accent/50 block mb-2">Result</span>
                       <p className="text-[12px] sm:text-sm text-white/50 leading-relaxed">{study.result}</p>
                     </div>
+                    <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-accent">{study.metric}</span>
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">{study.timeline}</span>
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 pt-2">
@@ -435,6 +448,99 @@ const Work = () => {
             </motion.a>
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Process = () => {
+  const steps = [
+    {
+      id: 1,
+      title: "Brief",
+      subtitle: "Discovery",
+      description: "We discuss your vision, goals, target audience, and brand aspirations to understand what success looks like for you."
+    },
+    {
+      id: 2,
+      title: "Research",
+      subtitle: "Strategy",
+      description: "I analyze your market, competitors, and audience to develop a strategic approach that positions you for growth."
+    },
+    {
+      id: 3,
+      title: "Design",
+      subtitle: "Creative",
+      description: "Bringing ideas to life with premium visuals, thoughtful user experience, and conversion-focused design elements."
+    },
+    {
+      id: 4,
+      title: "Delivery",
+      subtitle: "Launch",
+      description: "Your complete project delivered on time with all assets, files, and support to help you succeed."
+    }
+  ];
+
+  return (
+    <section id="process" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6 sm:space-y-8 mb-20 sm:mb-28 lg:mb-36"
+        >
+          <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">How I Work</span>
+          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+            The Process<br />
+            <span className="text-accent italic font-serif normal-case">That Delivers.</span>
+          </h2>
+          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+            A proven framework that turns your vision into a premium digital reality. No confusion, no delays — just results.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.8, ease: [0.2, 0, 0, 1] }}
+              className="relative p-6 sm:p-8 border border-white/[0.08] bg-white/[0.01] hover:border-accent/30 hover:bg-white/[0.02] transition-all duration-700"
+            >
+              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.1] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-display text-accent/20">
+                  {String(step.id).padStart(2, '0')}
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.3em] text-white/30">
+                  Step {step.id}
+                </span>
+              </div>
+              
+              <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight mb-1">
+                {step.title}
+              </h3>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-accent/60 mb-4">
+                {step.subtitle}
+              </p>
+              
+              <p className="text-[12px] sm:text-sm leading-relaxed text-white/35 font-light">
+                {step.description}
+              </p>
+
+              {i < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-2 transform -translate-y-1/2">
+                  <ArrowRight className="w-4 h-4 text-white/10" />
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -583,31 +689,124 @@ const MusicSection = () => {
   );
 };
 
+const Niches = () => {
+  const niches = [
+    {
+      id: 1,
+      title: "Perfume & Fragrance Brands",
+      description: "Luxury scent retailers and brands that need premium digital presence to match their product quality.",
+      icon: "✨"
+    },
+    {
+      id: 2,
+      title: "Small Businesses",
+      description: "Local businesses ready to level up their digital game and compete with bigger brands.",
+      icon: "🏪"
+    },
+    {
+      id: 3,
+      title: "Islamic Brands",
+      description: "Halal businesses, Islamic education platforms, and faith-centered brands seeking modern digital identity.",
+      icon: "☪"
+    },
+    {
+      id: 4,
+      title: "Luxury Products",
+      description: "Premium brands demanding sophisticated design that commands premium pricing.",
+      icon: "💎"
+    }
+  ];
+
+  return (
+    <section id="niches" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6 sm:space-y-8 mb-20 sm:mb-28 lg:mb-36"
+        >
+          <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Specialization</span>
+          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+            Industries<br />
+            <span className="text-accent italic font-serif normal-case">I Serve.</span>
+          </h2>
+          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+            Focused expertise in industries where premium positioning makes all the difference. I understand the nuances that matter.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+          {niches.map((niche, i) => (
+            <motion.div
+              key={niche.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.8, ease: [0.2, 0, 0, 1] }}
+              className="group p-8 sm:p-10 lg:p-12 border border-white/[0.08] bg-white/[0.01] hover:border-accent/30 hover:bg-white/[0.02] transition-all duration-700"
+            >
+              <div className="flex items-start gap-6">
+                <span className="text-3xl sm:text-4xl">{niche.icon}</span>
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight group-hover:text-accent transition-colors duration-500">
+                    {niche.title}
+                  </h3>
+                  <p className="text-[13px] sm:text-sm leading-relaxed text-white/35 font-light">
+                    {niche.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-white/[0.06]"
+        >
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
+            <p className="text-[13px] sm:text-sm text-white/40 font-light">
+              Ready to elevate your industry presence?
+            </p>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 sm:px-10 py-4 border border-white/15 hover:border-accent/50 hover:bg-white/[0.02] text-[10px] uppercase tracking-[0.25em] font-medium transition-all duration-500"
+            >
+              Let's Talk
+            </motion.a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "Our bookings increased within 2 weeks after launch. The brand finally felt premium enough for high-value clients. The transformation was immediate.",
+      description: "Our bookings increased within 2 weeks after launch. The brand finally felt premium enough for high-value clients. The transformation was immediate.",
       author: "Wellness Brand Founder",
-      role: "Healthcare",
-      company: "South Asia",
-      outcome: "40% increase in premium inquiries"
+      role: "Healthcare · South Asia"
     },
     {
       id: 2,
-      quote: "Professional execution from day one. Delivered ahead of schedule with zero revisions needed. The platform exceeded expectations.",
+      description: "Professional execution from day one. Delivered ahead of schedule with zero revisions needed. The platform exceeded expectations.",
       author: "EdTech Director",
-      role: "Education",
-      company: "Middle East",
-      outcome: "Launched 2 weeks early"
+      role: "Education · Middle East"
     },
     {
       id: 3,
-      quote: "Finally, a developer who understands premium positioning. Our PWA transformed how our community accesses Islamic music.",
+      description: "Finally, a developer who understands premium positioning. Our PWA transformed how our community accesses Islamic music.",
       author: "Platform Co-Founder",
-      role: "Islamic Audio",
-      company: "Global",
-      outcome: "5,000+ active users"
+      role: "Islamic Audio · Global"
     }
   ];
 
@@ -616,61 +815,30 @@ const Testimonials = () => {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
       
       <div className="max-w-6xl mx-auto">
-        <div className="mb-20 sm:mb-28 lg:mb-36">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6 sm:space-y-8"
-          >
-            <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Client Success</span>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
-              Trusted by<br />
-              <span className="text-accent italic font-serif normal-case">Serious Brands.</span>
-            </h2>
-            <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
-              Real results. Real trust. Every project engineered to deliver measurable business outcomes for clients who expect more.
-            </p>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6 sm:space-y-8 mb-16 sm:mb-20"
+        >
+          <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Client Success</span>
+          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+            Trusted by<br />
+            <span className="text-accent italic font-serif normal-case">Serious Brands.</span>
+          </h2>
+          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+            Real results. Real trust. Every project engineered to deliver measurable business outcomes for clients who expect more.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {testimonials.map((testimonial, i) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.8, ease: [0.2, 0, 0, 1] }}
-              className="flex flex-col p-8 sm:p-10 lg:p-12 border border-white/[0.06] bg-white/[0.01] hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-700"
-            >
-              <div className="space-y-6 flex-grow">
-                <div className="flex gap-2">
-                  {[...Array(5)].map((_, idx) => (
-                    <span key={idx} className="w-1.5 h-1.5 rounded-full bg-accent/30" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-[14px] sm:text-base leading-relaxed text-white/60 font-serif italic">
-                  "{testimonial.quote}"
-                </blockquote>
-              </div>
-
-              <div className="pt-8 mt-8 border-t border-white/[0.06]">
-                <p className="text-[11px] uppercase tracking-[0.2em] font-medium text-white">
-                  {testimonial.author}
-                </p>
-                <p className="text-[9px] text-white/40 mt-1">
-                  {testimonial.role} · {testimonial.company}
-                </p>
-                <p className="text-[10px] text-accent/60 mt-3 font-medium">
-                  {testimonial.outcome}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <TestimonialsCard
+          items={testimonials}
+          showNavigation={true}
+          showCounter={true}
+          autoPlay={true}
+          autoPlayInterval={6000}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -801,20 +969,26 @@ const LatestArticles = () => {
 };
 
 const Services = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const services = [
     {
       id: 1,
-      title: "Premium Brand Websites",
-      tagline: "Luxury Digital Presence",
-      description: "High-end websites designed to communicate authority, build trust, and convert premium clients. Every pixel is a strategic decision.",
-      outcome: "Premium perception that commands premium pricing."
+      image: "/src/service1.jpg",
+      imageAlt: "Graphic Design - Design That Speaks",
+      title: "Design That Speaks",
+      tagline: "Graphic Design",
+      description: "Creative visuals that build trust, attract attention, and make your brand unforgettable.",
+      outcome: "Memorable first impressions that last."
     },
     {
       id: 2,
-      title: "Conversion Systems",
-      tagline: "Strategic Digital Architecture",
-      description: "Custom-built landing pages and sales funnels engineered to increase trust, capture leads, and drive high-ticket conversions.",
-      outcome: "Leads that convert. Revenue that grows."
+      image: "/src/service2.png",
+      imageAlt: "Website Development - Websites That Convert",
+      title: "Websites That Convert",
+      tagline: "Website Development",
+      description: "Modern, fast websites built to grow your business and turn visitors into customers.",
+      outcome: "Growth-focused digital presence that sells."
     },
     {
       id: 3,
@@ -843,13 +1017,13 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6 sm:space-y-8"
           >
-            <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Premium Services</span>
+            <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">What I Offer</span>
             <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
-              Digital Systems<br />
-              <span className="text-accent italic font-serif normal-case">That Convert.</span>
+              Services That<br />
+              <span className="text-accent italic font-serif normal-case">Drive Growth.</span>
             </h2>
             <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
-              We don't just build websites — we architect premium digital experiences that solve business problems and drive measurable results.
+              I build digital experiences designed to attract, engage, and convert your target audience into loyal customers.
             </p>
           </motion.div>
         </div>
@@ -862,11 +1036,28 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8, ease: [0.2, 0, 0, 1] }}
-              className="group relative p-8 sm:p-10 lg:p-12 border border-white/[0.08] bg-white/[0.01] hover:border-accent/30 hover:bg-white/[0.02] transition-all duration-700"
+              className="group relative p-0 sm:p-0 lg:p-0 border border-white/[0.08] bg-white/[0.01] hover:border-accent/30 hover:bg-white/[0.02] transition-all duration-700 overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
-              <div className="space-y-4 sm:space-y-5">
+              {service.image && (
+                <div 
+                  className="relative aspect-video w-full overflow-hidden cursor-pointer"
+                  onClick={() => setSelectedImage({ src: service.image, alt: service.imageAlt })}
+                >
+                  <img 
+                    src={service.image} 
+                    alt={service.imageAlt}
+                    className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/80 border border-white/30 px-4 py-2 rounded-full">View Full</span>
+                  </div>
+                </div>
+              )}
+              
+              <div className="space-y-4 sm:space-y-5 p-6 sm:p-8 lg:p-10">
                 <span className="text-[9px] uppercase tracking-[0.4em] text-accent/60 font-medium">
                   {String(i + 1).padStart(2, '0')} — {service.tagline}
                 </span>
@@ -919,6 +1110,91 @@ const Services = () => {
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="absolute inset-0 bg-bg/95 backdrop-blur-xl" />
+            
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-4xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white/40 hover:text-accent transition-colors"
+              >
+                <ArrowRight className="w-6 h-6 rotate-[45deg]" />
+              </button>
+              
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-auto max-h-[80vh] object-contain rounded-sm border border-white/10"
+              />
+              
+              <p className="text-center text-[10px] uppercase tracking-[0.3em] text-white/40 mt-4">
+                {selectedImage.alt}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+        className="mt-24 sm:mt-32 pt-16 sm:pt-20 border-t border-white/[0.06]"
+      >
+        <div className="mb-12 sm:mb-16">
+          <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block mb-6">Investment</span>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display uppercase tracking-tight">
+            Service Packages
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {[
+            { name: "Logo Design", price: "₹999", features: ["Custom Logo Concepts", "Multiple Revisions", "Source Files", "Usage Guide"] },
+            { name: "Social Media", price: "₹1,499", features: ["Post Designs", "Story Templates", "Highlight Covers", "3 Formats"] },
+            { name: "Website", price: "₹6,999", features: ["Responsive Design", "CMS Setup", "Basic SEO", "Contact Form"] },
+            { name: "Full Branding", price: "₹14,999", features: ["Complete Identity", "Brand Guidelines", "All Assets", "Stationery Design"] }
+          ].map((pkg, i) => (
+            <motion.div
+              key={pkg.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 * i, duration: 0.6 }}
+              className="p-6 sm:p-8 border border-white/[0.08] bg-white/[0.01] hover:border-accent/30 hover:bg-white/[0.02] transition-all duration-700"
+            >
+              <h4 className="text-lg sm:text-xl font-display uppercase tracking-tight mb-2">{pkg.name}</h4>
+              <p className="text-2xl sm:text-3xl text-accent font-display mb-4">{pkg.price}</p>
+              <ul className="space-y-2">
+                {pkg.features.map((feature, j) => (
+                  <li key={j} className="text-[11px] sm:text-sm text-white/40 flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-accent/50" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };
@@ -1203,21 +1479,25 @@ const BackToTop = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen selection:bg-accent selection:text-bg text-white font-sans selection:bg-accent selection:text-bg">
-      <PremiumBackground />
+    <div className="relative min-h-screen selection:bg-accent selection:text-bg text-white font-sans selection:bg-accent selection:text-bg">
+      <LumaDrift />
       <Navbar />
       <MusicPlayer />
       <FloatingWhatsApp />
+      <FloatingTerminal />
       <main>
         <Hero />
         <Marquee />
         <Work />
+        <Process />
         <About />
+        <Niches />
         <Testimonials />
         <MusicSection />
         <LatestArticles />
         <Services />
         <SocialProof />
+        <TerminalSection />
       </main>
       <Contact />
       <BackToTop />
