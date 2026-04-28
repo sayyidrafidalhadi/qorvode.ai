@@ -471,6 +471,12 @@ const MusicSection = () => {
           </p>
         </div>
 
+        <div className="flex items-center justify-center gap-4 sm:gap-6 mb-16 sm:mb-20">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
+          <span style={{ fontFamily: "'Amiri', serif" }} className="text-xl sm:text-2xl text-accent tracking-[0.15em]">اللهُ أَكْبَرُ</span>
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {releases.map((release, i) => (
             <motion.div
@@ -514,25 +520,25 @@ const Testimonials = () => {
     {
       id: 1,
       quote: "Our bookings increased within 2 weeks after launch. The brand finally felt premium enough for high-value clients. The transformation was immediate.",
-      author: "Dr. Priya Sharma",
-      role: "Founder",
-      company: "KPS Ayurveda Clinic",
+      author: "Wellness Brand Founder",
+      role: "Healthcare",
+      company: "South Asia",
       outcome: "40% increase in premium inquiries"
     },
     {
       id: 2,
       quote: "Professional execution from day one. Delivered ahead of schedule with zero revisions needed. The platform exceeded expectations.",
-      author: "Ahmed Hasan",
-      role: "Director",
-      company: "Kithademic Studies",
+      author: "EdTech Director",
+      role: "Education",
+      company: "Middle East",
       outcome: "Launched 2 weeks early"
     },
     {
       id: 3,
       quote: "Finally, a developer who understands premium positioning. Our PWA transformed how our community accesses Islamic music.",
-      author: "Sarah Khatun",
-      role: "Co-Founder",
-      company: "HalalTune",
+      author: "Platform Co-Founder",
+      role: "Islamic Audio",
+      company: "Global",
       outcome: "5,000+ active users"
     }
   ];
@@ -1072,7 +1078,7 @@ const FinalCTA = () => {
           <div className="flex flex-col gap-2">
             <span className="text-lg sm:text-xl font-display uppercase tracking-tighter">{site.brand}<span className="text-accent">.</span></span>
             <p className="text-[9px] uppercase tracking-[0.25em] text-white/25">
-              © {new Date().getFullYear()} Premium Digital Execution
+              © {new Date().getFullYear()} / {getHijriYear()} AH Premium Digital Execution
             </p>
           </div>
 
@@ -1092,6 +1098,41 @@ const FinalCTA = () => {
 
 const Contact = FinalCTA;
 
+function getHijriYear() {
+  const now = new Date();
+  const gregorianYear = now.getFullYear();
+  const hijriOffset = Math.floor((gregorianYear - 622) * (33 / 32));
+  return hijriOffset;
+}
+
+const BackToTop = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.8 }}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={scrollToTop}
+      className="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-accent rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(197,160,89,0.25)] hover:shadow-[0_15px_40px_rgba(197,160,89,0.35)] transition-all cursor-pointer"
+      title="Back to top"
+    >
+      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-bg rotate-[-90deg]" />
+    </motion.button>
+  );
+};
+
 export default function App() {
   return (
     <div className="min-h-screen selection:bg-accent selection:text-bg text-white font-sans selection:bg-accent selection:text-bg">
@@ -1110,6 +1151,7 @@ export default function App() {
         <SocialProof />
       </main>
       <Contact />
+      <BackToTop />
     </div>
   );
 }

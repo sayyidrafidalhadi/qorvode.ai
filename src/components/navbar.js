@@ -9,7 +9,7 @@ export function renderNavbar() {
       <div class="logo">${site.brand}</div>
       <ul class="nav-links">
         <li><a href="#projects" data-section="projects">Projects</a></li>
-        <li><a href="#releases" data-section="releases">Music</a></li>
+        <li><a href="music.html" data-section="releases">Music</a></li>
         <li><a href="#arsenal" data-section="arsenal">Arsenal</a></li>
         <li><a href="#contact" class="nav-cta" data-section="contact">Let's Talk</a></li>
       </ul>
@@ -19,7 +19,7 @@ export function renderNavbar() {
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#projects" class="mm-link" data-section="projects">Projects</a>
-      <a href="#releases" class="mm-link" data-section="releases">Music</a>
+      <a href="music.html" class="mm-link">Music</a>
       <a href="#arsenal" class="mm-link" data-section="arsenal">Arsenal</a>
       <a href="#contact" class="mm-link" data-section="contact">Let's Talk</a>
     </div>

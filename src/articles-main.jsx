@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import { motion, useScroll } from 'motion/react';
-import { ArrowLeft, ExternalLink, Menu, X, BookOpen, Clock, Calendar, ArrowUpRight, Github, Instagram } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Menu, X, BookOpen, Clock, Calendar, ArrowUpRight, Github, Instagram, FileText, Sparkles } from 'lucide-react';
 import './styles/main.css';
 import { site } from './data/site.js';
 import { articles } from './data/articles.js';
@@ -86,11 +86,62 @@ const ArticleHero = () => {
     return (
         <section className="pt-48 pb-24 px-6 border-b border-white/10">
             <div className="max-w-4xl mx-auto">
-                <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-accent mb-6 block">The Laboratory</span>
-                <h1 className="text-6xl md:text-8xl font-display uppercase leading-none mb-12">Articles &<br />Insights.</h1>
+                <div className="flex items-center gap-3 mb-6">
+                    <BookOpen className="w-5 h-5 text-accent" />
+                    <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-accent">The Laboratory</span>
+                </div>
+                <h1 className="text-6xl md:text-8xl font-display uppercase leading-none mb-8">Articles &<br /><span className="italic font-serif normal-case text-accent">Insights.</span></h1>
                 <p className="text-xl md:text-2xl font-light opacity-50 max-w-2xl leading-relaxed">
                     Exploring the intersection of agentic workflows, software architecture, and the future of human-AI collaboration.
                 </p>
+                
+                <div className="flex items-center gap-4 mt-12">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
+                    <span className="text-[10px] uppercase tracking-[0.3em] opacity-30">Scroll to explore</span>
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const FeaturedArticles = ({ articles }) => {
+    const featured = articles.slice(0, 3);
+    
+    return (
+        <section className="py-24 px-6 border-b border-white/10">
+            <div className="max-w-6xl mx-auto">
+                <div className="flex items-center gap-3 mb-12">
+                    <Sparkles className="w-5 h-5 text-accent" />
+                    <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-accent">Featured</span>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {featured.map((article, i) => (
+                        <motion.a
+                            key={article.id}
+                            href={`#${article.id}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group p-8 border border-white/10 bg-white/[0.02] rounded-xl backdrop-blur-sm hover:bg-white/[0.04] hover:border-accent/30 transition-all"
+                        >
+                            <div className="flex items-center gap-2 mb-4">
+                                <span className="text-[10px] font-mono opacity-40">{article.date}</span>
+                                <span className="text-white/10">·</span>
+                                <span className="text-[10px] uppercase tracking-wider text-accent/60">{article.tags?.[0]}</span>
+                            </div>
+                            <h3 className="text-2xl font-display uppercase leading-tight mb-4 group-hover:text-accent transition-colors">
+                                {article.title.length > 50 ? article.title.substring(0, 50) + '...' : article.title}
+                            </h3>
+                            <p className="text-sm opacity-40 line-clamp-3">{article.excerpt}</p>
+                            <div className="mt-6 flex items-center gap-2 text-[10px] uppercase tracking-widest text-accent/60 group-hover:text-accent">
+                                Read Article <ArrowUpRight className="w-3 h-3" />
+                            </div>
+                        </motion.a>
+                    ))}
+                </div>
             </div>
         </section>
     );
@@ -221,6 +272,7 @@ const ArticlesPage = () => {
       <Navbar />
       <main>
         <ArticleHero />
+        <FeaturedArticles articles={articles} />
         <ArticleIndex articles={articles} activeArticle={activeArticle} />
         <ArticleList activeArticle={activeArticle} />
       </main>

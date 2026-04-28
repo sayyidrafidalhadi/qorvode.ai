@@ -15,30 +15,36 @@ footer { border-top: 1px solid var(--border); padding: 2.5rem 5%; text-align: ce
 }
 .f-links a:hover { color: var(--primary); }
 .f-copy { font-size: 0.75rem; color: var(--muted2); font-family: var(--font-mono); }
+.f-copy span { color: var(--primary); font-weight: 500; }
 
 /* Back to top button */
 .back-to-top {
   position: absolute;
   right: 2rem;
   bottom: 2rem;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--red-dim));
   color: #fff;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s, transform 0.2s;
-  box-shadow: 0 4px 15px var(--primary-glow);
+  transition: opacity 0.3s, transform 0.3s var(--ease), box-shadow 0.3s;
+  box-shadow: 0 4px 20px var(--primary-glow), 0 0 0 0 var(--primary-glow);
 }
-.back-to-top:hover { transform: translateY(-3px); }
+.back-to-top:hover { 
+  transform: translateY(-4px) scale(1.05); 
+  box-shadow: 0 8px 30px var(--primary-glow), 0 0 20px var(--primary-glow);
+}
 .back-to-top:active { transform: scale(0.95); }
+.back-to-top i { animation: bounceUp 1s ease-in-out infinite; }
+@keyframes bounceUp { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
 
 /* Tablet */
 @media (max-width: 900px) {

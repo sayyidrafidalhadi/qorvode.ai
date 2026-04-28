@@ -38,7 +38,7 @@ export function renderFooter() {
         </a>
       </div>
     </div>
-    <p class="f-copy">© ${year} / ${hijriYear} AH ${site.name} · All rights reserved</p>
+    <p class="f-copy">© ${year} · <span>${hijriYear} AH</span> ${site.name} · All rights reserved</p>
     <button class="back-to-top" id="backToTop" title="Back to top">
       <i class="fas fa-arrow-up"></i>
     </button>

@@ -21,8 +21,8 @@ export function renderHero() {
           </h1>
 
           <div class="role-toggle fade-up" style="--i:3">
-            <button class="role-chip active" data-role="dev">&lt; Developer /&gt;</button>
-            <button class="role-chip" data-role="vocal">♫ Vocalist</button>
+            <button class="role-chip active" data-role="dev">Dev</button>
+            <button class="role-chip" data-role="vocal">Vocalist</button>
           </div>
 
           <p class="hero-desc hero-desc-dev fade-up" style="--i:4">
