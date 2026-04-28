@@ -11,6 +11,74 @@ import { arsenal } from './data/arsenal.js';
 import { articles } from './data/articles.js';
 import PremiumBackground from './components/AnimeEditBackground.jsx';
 
+const MusicPlayer = () => {
+  const audioRef = useRef(null);
+  const [muted, setMuted] = useState(true);
+  const [fadeComplete, setFadeComplete] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.volume = 0;
+    
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
+    }
+
+    const fadeInterval = setInterval(() => {
+      if (audio.volume < 0.7) {
+        audio.volume = Math.min(audio.volume + 0.014, 0.7);
+      } else {
+        clearInterval(fadeInterval);
+        setFadeComplete(true);
+      }
+    }, 50);
+
+    return () => clearInterval(fadeInterval);
+  }, []);
+
+  const toggleMute = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    
+    if (muted) {
+      audio.play().catch(() => {});
+      setMuted(false);
+    } else {
+      audio.pause();
+      setMuted(true);
+    }
+  };
+
+  return (
+    <>
+      <audio ref={audioRef} src="https://res.cloudinary.com/detke30vn/video/upload/v1777379597/Eric_Heitmann_-_Twilight_ajlttp.ogg" loop preload="auto" />
+      <motion.button
+        onClick={toggleMute}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.5, duration: 0.5 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-24 sm:bottom-28 right-6 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/20 transition-all border border-white/20"
+      >
+        {muted ? (
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        ) : (
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+        )}
+      </motion.button>
+    </>
+  );
+};
+
 const FloatingWhatsApp = () => {
   const phoneNumber = "+919526755210";
   const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}`;
@@ -1138,6 +1206,7 @@ export default function App() {
     <div className="min-h-screen selection:bg-accent selection:text-bg text-white font-sans selection:bg-accent selection:text-bg">
       <PremiumBackground />
       <Navbar />
+      <MusicPlayer />
       <FloatingWhatsApp />
       <main>
         <Hero />
