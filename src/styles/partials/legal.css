@@ -29,7 +29,7 @@
 .legal-effective {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--red);
+    color: var(--primary);
     letter-spacing: 1px;
     margin-bottom: 2.5rem;
     display: block;
@@ -76,7 +76,7 @@
     content: '·';
     position: absolute;
     left: 0;
-    color: var(--red);
+    color: var(--primary);
     font-weight: 700;
 }
 
@@ -85,7 +85,7 @@
     font-weight: 500;
 }
 
-.legal-card em { color: var(--gold); font-style: italic; }
+.legal-card em { color: var(--primary); font-style: italic; }
 
 .legal-back {
     display: inline-flex;
@@ -98,7 +98,7 @@
     margin-bottom: 2rem;
     transition: color 0.3s;
 }
-.legal-back:hover { color: var(--red); }
+.legal-back:hover { color: var(--primary); }
 .legal-back i { font-size: 0.65rem; }
 
 @media (max-width: 600px) {

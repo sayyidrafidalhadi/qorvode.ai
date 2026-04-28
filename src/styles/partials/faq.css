@@ -6,10 +6,10 @@
 .faq-item { border-bottom: 1px solid var(--border); }
 .faq-item:last-child { border-bottom: none; }
 .faq-q { width: 100%; background: transparent; color: var(--text); border: none; padding: 1.4rem 1.75rem; text-align: left; font-size: 0.95rem; font-weight: 400; font-family: var(--font-body); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: background 0.2s; }
-.faq-q:hover { background: rgba(67,56,202,0.03); }
+.faq-q:hover { background: var(--surface-hover); }
 .faq-q i { font-size: 0.8rem; color: var(--muted2); flex-shrink: 0; transition: transform 0.3s var(--ease), color 0.3s; }
 .faq-item.active .faq-q { color: var(--text); }
-.faq-item.active .faq-q i { transform: rotate(45deg); color: var(--red); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease), padding 0.3s; background: rgba(67,56,202,0.02); }
+.faq-item.active .faq-q i { transform: rotate(45deg); color: var(--primary); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease), padding 0.3s; background: var(--surface); }
 .faq-a p { padding: 0 1.75rem 1.5rem; color: var(--muted); font-size: 0.9rem; font-weight: 300; line-height: 1.75; }
 .faq-item.active .faq-a { max-height: 200px; }

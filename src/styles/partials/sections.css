@@ -3,7 +3,7 @@
    ============================================= */
 .section { max-width: 1200px; margin: 0 auto; padding: 6rem 5%; }
 .section-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
-.section-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--red); letter-spacing: 1px; }
+.section-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; }
 .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.5px; }
 
 /* Quote Divider */
@@ -11,7 +11,7 @@
 .quote-divider.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
 .qd-line { flex: 1; height: 1px; background: var(--border); }
 .quote-divider blockquote { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; flex-shrink: 0; }
-.q-arabic { font-family: var(--font-display); font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; color: var(--gold); direction: rtl; }
+.q-arabic { font-family: var(--font-arabic); font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; color: var(--primary); direction: rtl; }
 .q-tr { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted2); letter-spacing: 1px; }
 
 /* Tablet */
