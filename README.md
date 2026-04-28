@@ -71,6 +71,7 @@ I leverage a diverse tech stack to build, test, and secure digital assets.
 I offer premium digital services tailored to elevate your brand.
 
 ![Services](src/service1.jpg)
+![Services](src/service2.png)
 
 ### Premium Web Development — From $499
 
