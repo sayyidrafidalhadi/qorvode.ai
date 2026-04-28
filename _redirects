@@ -1,0 +1,9 @@
+# Premium URL Management - QORVODE
+# Redirects for consistent domain handling
+
+# Force trailing slashes for consistency
+# /about    -> /about/
+# /work    -> /work/
+
+# SPA fallback for client-side routing
+/*    /index.html   200

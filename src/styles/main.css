@@ -8,7 +8,7 @@
   --font-mono: "JetBrains Mono", monospace;
 
   --color-bg: #0A0A0A;
-  --color-accent: #C5A059; /* Muted Gold */
+  --color-accent: #C5A059;
   --color-emerald: #064E3B;
   --color-steel: #4B5563;
   --color-ivory: #F5F5F0;
@@ -39,7 +39,6 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Custom scrollbar - Luxury Stealth */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -62,14 +61,36 @@ html {
   writing-mode: vertical-rl;
 }
 
-/* Luxury Reveal Animation Classes */
-.reveal-text {
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  mask-size: 100% 200%;
-  mask-position: 0% 100%;
-  transition: mask-position 1.5s cubic-bezier(0.2, 0, 0, 1);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.group:hover .reveal-text {
-  mask-position: 0% 0%;
+@media (max-width: 639px) {
+  :root {
+    font-size: 15px;
+  }
+  
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

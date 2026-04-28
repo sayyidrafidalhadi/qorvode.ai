@@ -1,0 +1,50 @@
+# Security Headers - Premium Protection Layer
+# QORVODE Portfolio Security Configuration
+
+# HSTS - Force HTTPS
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# X-Frame-Options - Prevent Clickjacking
+/*
+  X-Frame-Options: DENY
+
+# X-Content-Type-Options - Prevent MIME Sniffing
+/*
+  X-Content-Type-Options: nosniff
+
+# Referrer-Policy - Control Referrer Information
+/*
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Permissions-Policy - Disable Unnecessary Browser Features
+/*
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# Content-Security-Policy - XSS and Injection Protection
+/*
+  Content-Security-Policy: 
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self' https://service.emailjs.com https://api.emailjs.com;
+    frame-ancestors 'none';
+    form-action 'self';
+    base-uri 'self';
+    object-src 'none'
+
+# Cache-Control - Static Asset Caching
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML Pages - No Cache for Dynamic Content
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+/privacy.html
+  Cache-Control: no-cache, no-store, must-revalidate
+/terms.html
+  Cache-Control: no-cache, no-store, must-revalidate
+/articles.html
+  Cache-Control: no-cache, no-store, must-revalidate

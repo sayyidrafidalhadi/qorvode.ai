@@ -9,7 +9,7 @@ export const site = {
   description: "We build premium digital authority for brands that want to dominate. Bespoke design and high-performance development.",
   url: "https://qorvode.co.in",
   github: "https://github.com/Cybertechyrappu",
-  email: "igsydrafiofficial@gmail.com",
+  email: "qorvode.ai@gmail.com",
   availableYear: "2026",
   hero: {
     badge: "Available for Selective Partnerships · 2026",
