@@ -66,6 +66,46 @@ I leverage a diverse tech stack to build, test, and secure digital assets.
 
 ---
 
+## Services
+
+I offer premium digital services tailored to elevate your brand.
+
+![Services](src/service1.jpg)
+
+### Premium Web Development — From $499
+
+- Bespoke High-Performance Websites
+- 3D Immersive Experiences
+- React & Next.js Expert
+- Mobile-First Design
+- SEO-Optimized
+
+### Mobile App Development — From $699
+
+- Android Apps Built on Android
+- Flutter & Kotlin
+- PWA Development
+- Play Store Deployment
+- App Maintenance
+
+### Brand Identity Design — From $299
+
+- Logo Design
+- Brand Guidelines
+- Visual Identity Systems
+- Typography & Color
+- Brand Strategy
+
+### Islamic Audio Production — From $199
+
+- Nasheed Composition
+- Vocals & Lyrics
+- Professional Mixing
+- Mastering
+- Rights Management
+
+---
+
 ## Selected Works
 
 ### Kithademic Studies
