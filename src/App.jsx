@@ -31,8 +31,8 @@ const MusicPlayer = () => {
     }
 
     const fadeInterval = setInterval(() => {
-      if (audio.volume < 0.7) {
-        audio.volume = Math.min(audio.volume + 0.014, 0.7);
+      if (audio.volume < 0.5 && !muted) {
+        audio.volume = Math.min(audio.volume + 0.014, 0.5);
       } else {
         clearInterval(fadeInterval);
         setFadeComplete(true);
@@ -47,8 +47,16 @@ const MusicPlayer = () => {
     if (!audio) return;
     
     if (muted) {
+      audio.volume = 0;
       audio.play().catch(() => {});
       setMuted(false);
+      const fadeIn = setInterval(() => {
+        if (audio.volume < 0.5) {
+          audio.volume = Math.min(audio.volume + 0.014, 0.5);
+        } else {
+          clearInterval(fadeIn);
+        }
+      }, 50);
     } else {
       audio.pause();
       setMuted(true);
@@ -65,7 +73,7 @@ const MusicPlayer = () => {
         transition={{ delay: 1.5, duration: 0.5 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed top-24 sm:top-28 right-6 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/20 transition-all border border-white/20"
+        className="fixed top-24 sm:top-28 right-6 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-white/10 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white/60 transition-all border border-white/60"
       >
         {muted ? (
           <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -130,7 +138,7 @@ const Navbar = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-medium text-white/40 hover:text-accent transition-colors hidden sm:block"
+          className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-medium text-white/60 hover:text-accent transition-colors hidden sm:block"
         >
           Insights
         </motion.a>
@@ -144,19 +152,19 @@ const Navbar = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             whileHover={{ y: -2 }}
-            className="text-white/40 p-2 hover:text-accent transition-colors"
+            className="text-white/60 p-2 hover:text-accent transition-colors"
           >
             <Github size={16} sm={18} />
           </motion.a>
           <motion.a
-            href="https://instagram.com/qorvode"
+            href="https://instagram.com/qorvode.ai"
             target="_blank"
             rel="noreferrer"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.35, duration: 0.6 }}
             whileHover={{ y: -2 }}
-            className="text-white/40 p-2 hover:text-accent transition-colors"
+            className="text-white/60 p-2 hover:text-accent transition-colors"
           >
             <Instagram size={16} sm={18} />
           </motion.a>
@@ -228,7 +236,7 @@ const Hero = () => {
                 <span className="text-[10px] uppercase tracking-[0.35em] font-medium text-white/50 group-hover:text-accent transition-colors">
                   {site.hero.ctaSecondary}
                 </span>
-                <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-accent group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-white/50 group-hover:text-accent group-hover:translate-x-1 transition-all" />
               </motion.a>
             </motion.div>
           </div>
@@ -241,7 +249,7 @@ const Hero = () => {
           >
             <div className="flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-16">
               <div className="flex flex-col gap-1">
-                <span className="text-[9px] uppercase tracking-[0.4em] text-white/20 font-medium">Trusted By</span>
+                <span className="text-[9px] uppercase tracking-[0.4em] text-white/60 font-medium">Trusted By</span>
                 <div className="flex items-center gap-6 sm:gap-8 opacity-25">
                   <span className="text-[10px] sm:text-[11px] font-display tracking-widest uppercase">Premium Brands</span>
                   <span className="text-[10px] sm:text-[11px] font-display tracking-widest uppercase">Founders</span>
@@ -343,7 +351,7 @@ const Work = () => {
               Work That<br />
               <span className="text-accent italic font-serif normal-case">Builds Authority.</span>
             </h2>
-            <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+            <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/60 font-serif italic border-l border-accent/20 pl-6">
               Not projects — business transformations. Each system engineered to solve specific problems and deliver measurable results for premium brands.
             </p>
           </motion.div>
@@ -363,14 +371,14 @@ const Work = () => {
                 <div className="space-y-6 sm:space-y-8">
                   <div className="flex items-center gap-4">
                     <span className="text-[9px] font-mono text-accent/40">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/30">{study.status}</span>
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/50">{study.status}</span>
                   </div>
 
                   <div>
                     <h3 className="text-3xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight mb-3 group-hover:text-accent transition-colors duration-500">
                       {study.brand}
                     </h3>
-                    <p className="text-[13px] sm:text-sm leading-relaxed text-white/35 font-light">
+                    <p className="text-[13px] sm:text-sm leading-relaxed text-white/55 font-light">
                       {study.problem}
                     </p>
                   </div>
@@ -386,13 +394,13 @@ const Work = () => {
                     </div>
                     <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
                       <span className="text-[10px] uppercase tracking-[0.2em] text-accent">{study.metric}</span>
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">{study.timeline}</span>
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-white/60">{study.timeline}</span>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 pt-2">
                     {study.tags.map(tag => (
-                      <span key={tag} className="text-[8px] uppercase tracking-[0.2em] px-3 py-1.5 border border-white/10 text-white/40 group-hover:text-white/60 group-hover:border-accent/30 transition-colors">
+                      <span key={tag} className="text-[8px] uppercase tracking-[0.2em] px-3 py-1.5 border border-white/10 text-white/60 group-hover:text-white/60 group-hover:border-accent/30 transition-colors">
                         {tag}
                       </span>
                     ))}
@@ -402,7 +410,7 @@ const Work = () => {
                 <div className="relative aspect-[16/10] lg:aspect-[4/3] overflow-hidden rounded-sm bg-white/[0.02] border border-white/5 group-hover:border-accent/30 transition-all duration-700">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center px-8">
-                      <span className="text-[10px] uppercase tracking-[0.4em] text-white/20 block mb-2">Project Preview</span>
+                      <span className="text-[10px] uppercase tracking-[0.4em] text-white/60 block mb-2">Project Preview</span>
                       <span className="text-2xl sm:text-3xl font-display uppercase tracking-tight text-white/10">{study.brand}</span>
                     </div>
                   </div>
@@ -434,7 +442,7 @@ const Work = () => {
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display uppercase tracking-tight mb-4">
                 Ready to build your <span className="text-accent italic font-serif normal-case">transformation</span>?
               </h3>
-              <p className="text-[13px] sm:text-sm text-white/40 leading-relaxed">
+              <p className="text-[13px] sm:text-sm text-white/60 leading-relaxed">
                 Let's discuss how we can solve your specific business challenges through premium digital experience.
               </p>
             </div>
@@ -496,7 +504,7 @@ const Process = () => {
             The Process<br />
             <span className="text-accent italic font-serif normal-case">That Delivers.</span>
           </h2>
-          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/60 font-serif italic border-l border-accent/20 pl-6">
             A proven framework that turns your vision into a premium digital reality. No confusion, no delays — just results.
           </p>
         </motion.div>
@@ -517,7 +525,7 @@ const Process = () => {
                 <span className="text-3xl sm:text-4xl lg:text-5xl font-display text-accent/20">
                   {String(step.id).padStart(2, '0')}
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.3em] text-white/30">
+                <span className="text-[9px] uppercase tracking-[0.3em] text-white/50">
                   Step {step.id}
                 </span>
               </div>
@@ -529,7 +537,7 @@ const Process = () => {
                 {step.subtitle}
               </p>
               
-              <p className="text-[12px] sm:text-sm leading-relaxed text-white/35 font-light">
+              <p className="text-[12px] sm:text-sm leading-relaxed text-white/55 font-light">
                 {step.description}
               </p>
 
@@ -558,11 +566,12 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6 sm:space-y-8"
           >
-            <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">The Authority</span>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
-              Built for Brands<br />
-              <span className="text-accent italic font-serif normal-case">That Refuse Average.</span>
+            <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">About Me</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display uppercase leading-[0.95] tracking-tighter">
+              Sayyid Rafid<br />
+              <span className="text-accent italic font-serif normal-case">Al Hadi.</span>
             </h2>
+            <p className="text-[13px] sm:text-sm uppercase tracking-[0.15em] text-white/60">Full-Stack Developer | Vocalist | Founder of Qorvode</p>
           </motion.div>
 
           <motion.div
@@ -573,55 +582,33 @@ const About = () => {
             className="space-y-6 sm:space-y-8"
           >
             <p className="text-[15px] sm:text-lg lg:text-xl font-light leading-relaxed text-white/50">
-              Qorvode.ai exists to help brands move from ordinary online presence to premium digital authority.
+              I build high-performance web experiences and digital brands that bridge the gap between technical efficiency and creative storytelling.
             </p>
 
-            <p className="text-[14px] sm:text-base leading-relaxed text-white/35">
-              I build digital systems where design, trust, and business growth work together. Not just websites — strategic assets that command premium positioning and convert serious clients.
+            <p className="text-[14px] sm:text-base leading-relaxed text-white/55">
+              Based in Kerala, India, I specialize in developing modern, static-first web applications using Astro, Tailwind CSS, and Node.js. My workflow is mobile-first, leveraging advanced terminal environments to build seamless solutions on the go.
             </p>
 
-            <div className="pt-6 sm:pt-8 border-t border-white/[0.08] space-y-4">
-              <p className="text-[12px] uppercase tracking-[0.2em] text-accent/60">The Differentiation</p>
-              <ul className="space-y-3">
-                {[
-                  "Strategy-first approach, not template-based",
-                  "Premium positioning that commands pricing",
-                  "Systems built for conversion, not decoration",
-                  "Execution that respects your brand's authority"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-[13px] text-white/45">
-                    <span className="w-1 h-1 rounded-full bg-accent" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <p className="text-[14px] sm:text-base leading-relaxed text-white/55">
+              Beyond the code, I am a digital content creator and vocalist, bringing a unique, artistic perspective to every project I undertake. Whether it's architecting community platforms like Science Orbit or driving growth for my own ventures like Qorvode, I am driven by the intersection of innovation and art.
+            </p>
+
+            <p className="text-[14px] sm:text-base font-medium text-white/50">
+              Let's collaborate on something meaningful.
+            </p>
+            <div className="pt-4">
+              <a
+                href="https://instagram.com/zydhh.hadi"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-[12px] text-white/60 hover:text-accent transition-colors"
+              >
+                <Instagram size={14} />
+                @zydhh.hadi
+              </a>
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mt-20 sm:mt-28 pt-16 sm:pt-20 border-t border-white/[0.06]"
-        >
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="max-w-lg">
-              <p className="text-[14px] sm:text-base text-white/40 leading-relaxed">
-                Ready to build a digital presence that reflects premium value?
-              </p>
-            </div>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-10 sm:px-12 py-5 border border-white/15 hover:border-accent/50 text-[10px] uppercase tracking-[0.25em] font-medium transition-all duration-500"
-            >
-              Let's Start
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
@@ -732,7 +719,7 @@ const Niches = () => {
             Industries<br />
             <span className="text-accent italic font-serif normal-case">I Serve.</span>
           </h2>
-          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/60 font-serif italic border-l border-accent/20 pl-6">
             Focused expertise in industries where premium positioning makes all the difference. I understand the nuances that matter.
           </p>
         </motion.div>
@@ -753,7 +740,7 @@ const Niches = () => {
                   <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight group-hover:text-accent transition-colors duration-500">
                     {niche.title}
                   </h3>
-                  <p className="text-[13px] sm:text-sm leading-relaxed text-white/35 font-light">
+                  <p className="text-[13px] sm:text-sm leading-relaxed text-white/55 font-light">
                     {niche.description}
                   </p>
                 </div>
@@ -770,7 +757,7 @@ const Niches = () => {
           className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-white/[0.06]"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
-            <p className="text-[13px] sm:text-sm text-white/40 font-light">
+            <p className="text-[13px] sm:text-sm text-white/60 font-light">
               Ready to elevate your industry presence?
             </p>
             <motion.a
@@ -827,7 +814,7 @@ const Testimonials = () => {
             Trusted by<br />
             <span className="text-accent italic font-serif normal-case">Serious Brands.</span>
           </h2>
-          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/60 font-serif italic border-l border-accent/20 pl-6">
             Real results. Real trust. Every project engineered to deliver measurable business outcomes for clients who expect more.
           </p>
         </motion.div>
@@ -848,7 +835,7 @@ const Testimonials = () => {
           className="mt-20 sm:mt-28 pt-16 sm:pt-20 border-t border-white/[0.06]"
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <p className="text-[13px] sm:text-sm text-white/40">
+            <p className="text-[13px] sm:text-sm text-white/60">
               Ready to join the list of successful transformations?
             </p>
             <motion.a
@@ -904,7 +891,7 @@ const LatestArticles = () => {
           </div>
           <a
             href="/articles.html"
-            className="inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] font-medium text-white/40 hover:text-accent hover:gap-6 transition-all duration-500 py-4"
+            className="inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.3em] font-medium text-white/60 hover:text-accent hover:gap-6 transition-all duration-500 py-4"
           >
             Archive <ArrowRight className="w-4 h-4" />
           </a>
@@ -923,20 +910,20 @@ const LatestArticles = () => {
             >
               <div className="flex items-center justify-between mb-6">
                 <span className="text-[9px] uppercase tracking-[0.25em] text-accent/50">{insight.category}</span>
-                <span className="text-[9px] text-white/30">{insight.readTime} read</span>
+                <span className="text-[9px] text-white/50">{insight.readTime} read</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-display uppercase leading-tight mb-4 group-hover:text-accent transition-colors duration-500 tracking-tight">
                 {insight.title}
               </h3>
 
-              <p className="text-[13px] leading-relaxed text-white/40 font-light flex-grow mb-6">
+              <p className="text-[13px] leading-relaxed text-white/60 font-light flex-grow mb-6">
                 {insight.excerpt}
               </p>
 
               <div className="pt-4 mt-auto border-t border-white/[0.06] flex items-center justify-between">
-                <span className="text-[9px] uppercase tracking-[0.2em] text-white/40 group-hover:text-accent transition-colors">Read Insight</span>
-                <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-accent group-hover:translate-x-1 transition-all duration-500" />
+                <span className="text-[9px] uppercase tracking-[0.2em] text-white/60 group-hover:text-accent transition-colors">Read Insight</span>
+                <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-accent group-hover:translate-x-1 transition-all duration-500" />
               </div>
             </motion.a>
           ))}
@@ -950,7 +937,7 @@ const LatestArticles = () => {
           className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-white/[0.06]"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
-            <p className="text-[13px] sm:text-sm text-white/40">
+            <p className="text-[13px] sm:text-sm text-white/60">
               Insights for brands that think beyond templates.
             </p>
             <motion.a
@@ -1022,7 +1009,7 @@ const Services = () => {
               Services That<br />
               <span className="text-accent italic font-serif normal-case">Drive Growth.</span>
             </h2>
-            <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/40 font-serif italic border-l border-accent/20 pl-6">
+            <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/60 font-serif italic border-l border-accent/20 pl-6">
               I build digital experiences designed to attract, engage, and convert your target audience into loyal customers.
             </p>
           </motion.div>
@@ -1052,7 +1039,7 @@ const Services = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/80 border border-white/30 px-4 py-2 rounded-full">View Full</span>
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/80 border border-white/50 px-4 py-2 rounded-full">View Full</span>
                   </div>
                 </div>
               )}
@@ -1066,7 +1053,7 @@ const Services = () => {
                   {service.title}
                 </h3>
                 
-                <p className="text-[13px] sm:text-sm leading-relaxed text-white/35 font-light group-hover:text-white/50 transition-colors duration-500">
+                <p className="text-[13px] sm:text-sm leading-relaxed text-white/55 font-light group-hover:text-white/50 transition-colors duration-500">
                   {service.description}
                 </p>
 
@@ -1096,7 +1083,7 @@ const Services = () => {
           className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-white/[0.06]"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8">
-            <p className="text-[13px] sm:text-sm text-white/40 font-light">
+            <p className="text-[13px] sm:text-sm text-white/60 font-light">
               Ready to elevate your brand?
             </p>
             <motion.a
@@ -1133,7 +1120,7 @@ const Services = () => {
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white/40 hover:text-accent transition-colors"
+                className="absolute -top-12 right-0 text-white/60 hover:text-accent transition-colors"
               >
                 <ArrowRight className="w-6 h-6 rotate-[45deg]" />
               </button>
@@ -1144,7 +1131,7 @@ const Services = () => {
                 className="w-full h-auto max-h-[80vh] object-contain rounded-sm border border-white/10"
               />
               
-              <p className="text-center text-[10px] uppercase tracking-[0.3em] text-white/40 mt-4">
+              <p className="text-center text-[10px] uppercase tracking-[0.3em] text-white/60 mt-4">
                 {selectedImage.alt}
               </p>
             </motion.div>
@@ -1185,7 +1172,7 @@ const Services = () => {
               <p className="text-2xl sm:text-3xl text-accent font-display mb-4">{pkg.price}</p>
               <ul className="space-y-2">
                 {pkg.features.map((feature, j) => (
-                  <li key={j} className="text-[11px] sm:text-sm text-white/40 flex items-center gap-2">
+                  <li key={j} className="text-[11px] sm:text-sm text-white/60 flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-accent/50" />
                     {feature}
                   </li>
@@ -1235,7 +1222,7 @@ const SocialProof = () => {
               <span className="text-[10px] uppercase tracking-[0.25em] text-white/50 block mt-3">
                 {metric.label}
               </span>
-              <span className="text-[11px] text-white/30 block mt-1">
+              <span className="text-[11px] text-white/50 block mt-1">
                 {metric.description}
               </span>
             </motion.div>
@@ -1250,14 +1237,14 @@ const SocialProof = () => {
           className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-white/[0.06]"
         >
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-white/50">
               Trusted by brands in
             </span>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
               {trustSignals.map((signal, i) => (
                 <span 
                   key={signal} 
-                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.15em] text-white/40 px-3 py-2 border border-white/[0.08] hover:border-accent/30 hover:text-white/60 transition-colors cursor-default"
+                  className="text-[10px] sm:text-[11px] uppercase tracking-[0.15em] text-white/60 px-3 py-2 border border-white/[0.08] hover:border-accent/30 hover:text-white/60 transition-colors cursor-default"
                 >
                   {signal}
                 </span>
@@ -1342,10 +1329,10 @@ const FinalCTA = () => {
             </p>
 
             <div className="pt-6 sm:pt-8 border-t border-white/[0.06] space-y-4">
-              <p className="text-[11px] text-white/35 leading-relaxed">
+              <p className="text-[11px] text-white/55 leading-relaxed">
                 <span className="text-accent/60">Limited projects:</span> Only a select number of projects taken monthly to ensure premium execution quality.
               </p>
-              <p className="text-[11px] text-white/35 leading-relaxed">
+              <p className="text-[11px] text-white/55 leading-relaxed">
                 <span className="text-accent/60">Response:</span> Within 24 hours. Strategic call to discuss your project.
               </p>
             </div>
@@ -1360,28 +1347,28 @@ const FinalCTA = () => {
             <form className="flex flex-col gap-6 sm:gap-8 p-6 sm:p-10 border border-white/[0.08] bg-white/[0.01]" onSubmit={submitForm} ref={formRef}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Full Name</label>
-                  <input required name="from_name" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/20" placeholder="Your full name" />
+                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Full Name</label>
+                  <input required name="from_name" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/60" placeholder="Your full name" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Brand / Business</label>
-                  <input required name="brand_name" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/20" placeholder="Your brand or business" />
+                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Brand / Business</label>
+                  <input required name="brand_name" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/60" placeholder="Your brand or business" />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Email Address</label>
-                <input required name="from_email" type="email" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/20" placeholder="Professional email" />
+                <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Email Address</label>
+                <input required name="from_email" type="email" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/60" placeholder="Professional email" />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Website (Optional)</label>
-                <input name="website_url" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/20" placeholder="Current website if any" />
+                <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Website (Optional)</label>
+                <input name="website_url" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light placeholder:text-white/60" placeholder="Current website if any" />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Project Type</label>
+                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Project Type</label>
                   <select required name="project_type" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light text-white/60 [&>option]:text-black">
                     <option value="">Select project type</option>
                     {projectTypes.map(type => (
@@ -1390,7 +1377,7 @@ const FinalCTA = () => {
                   </select>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Budget Range</label>
+                  <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Budget Range</label>
                   <select required name="budget_range" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors text-sm font-light text-white/60 [&>option]:text-black">
                     <option value="">Select budget range</option>
                     {budgetRanges.map(range => (
@@ -1401,8 +1388,8 @@ const FinalCTA = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[9px] uppercase tracking-[0.25em] text-white/40">Project Vision</label>
-                <textarea required name="project_vision" rows="3" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors resize-none text-sm font-light placeholder:text-white/20" placeholder="Describe your project goals and vision..." />
+                <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Project Vision</label>
+                <textarea required name="project_vision" rows="3" className="bg-transparent border-b border-white/[0.1] py-2.5 outline-none focus:border-accent transition-colors resize-none text-sm font-light placeholder:text-white/60" placeholder="Describe your project goals and vision..." />
               </div>
 
               <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
@@ -1427,10 +1414,10 @@ const FinalCTA = () => {
           </div>
 
           <div className="flex flex-wrap gap-5 sm:gap-8">
-            <a href={site.github} target="_blank" rel="noreferrer" className="text-[9px] uppercase tracking-[0.2em] text-white/30 hover:text-accent transition-colors">GitHub</a>
-            <a href="#work" className="text-[9px] uppercase tracking-[0.2em] text-white/30 hover:text-accent transition-colors">Work</a>
-            <a href="#about" className="text-[9px] uppercase tracking-[0.2em] text-white/30 hover:text-accent transition-colors">About</a>
-            <a href="/articles.html" className="text-[9px] uppercase tracking-[0.2em] text-white/30 hover:text-accent transition-colors">Insights</a>
+            <a href={site.github} target="_blank" rel="noreferrer" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">GitHub</a>
+            <a href="#work" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">Work</a>
+            <a href="#about" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">About</a>
+            <a href="/articles.html" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">Insights</a>
           </div>
 
           <p className="text-[9px] font-mono text-white/15 uppercase tracking-[0.15em]">{site.terminalPrompt}</p>
@@ -1485,7 +1472,7 @@ export default function App() {
       <MusicPlayer />
       <FloatingWhatsApp />
       <FloatingTerminal />
-      <main>
+      <main className="skeuo">
         <Hero />
         <Marquee />
         <Work />
