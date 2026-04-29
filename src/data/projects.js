@@ -4,6 +4,16 @@
 
 export const projects = [
   {
+    id: 0,
+    title: "Elvora Creative",
+    description: "A premium digital design portfolio with luxury-inspired UI, smooth animations, and a refined dark aesthetic. Features immersive 3D interactive layout.",
+    status: "Live",
+    statusType: "success",
+    tags: ["React", "3D", "Premium Design", "UI/UX"],
+    url: "https://elvoracreative.vercel.app/",
+    wide: true
+  },
+  {
     id: 1,
     title: "Kithademic Studies",
     description: "Knowledge is the light of the heart. A platform for Islamic & academic excellence — engineered for depth and designed for clarity.",

@@ -301,6 +301,17 @@ const Marquee = () => {
 const Work = () => {
   const caseStudies = [
     {
+      id: 0,
+      brand: "Elvora Creative",
+      problem: "Digital design studio needing immersive portfolio with luxury aesthetic and 3D interactions",
+      approach: "Premium dark-themed UI with smooth animations and 3D interactive layout",
+      result: "Luxury-inspired design portfolio showcasing creative excellence",
+      metric: "100+ design inquiries/month",
+      timeline: "Delivered in 3 weeks",
+      tags: ["React", "3D", "Premium Design", "UI/UX"],
+      status: "Live"
+    },
+    {
       id: 1,
       brand: "Kithademic Studies",
       problem: "Islamic & academic excellence platform lacking modern digital presence and user trust",
@@ -961,7 +972,7 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      image: "/src/service1.jpg",
+      image: "https://res.cloudinary.com/detke30vn/image/upload/v1777441930/20260425_142352_kkaqqd.jpg",
       imageAlt: "Graphic Design - Design That Speaks",
       title: "Design That Speaks",
       tagline: "Graphic Design",
@@ -970,7 +981,7 @@ const Services = () => {
     },
     {
       id: 2,
-      image: "/src/service2.png",
+      image: "https://res.cloudinary.com/detke30vn/image/upload/v1777441716/file_000000006b6c71fa8ef28b08d120644d_ut0hs0.png",
       imageAlt: "Website Development - Websites That Convert",
       title: "Websites That Convert",
       tagline: "Website Development",
@@ -1029,8 +1040,7 @@ const Services = () => {
               
               {service.image && (
                 <div 
-                  className="relative aspect-video w-full overflow-hidden cursor-pointer"
-                  onClick={() => setSelectedImage({ src: service.image, alt: service.imageAlt })}
+                  className="relative aspect-video w-full overflow-hidden"
                 >
                   <img 
                     src={service.image} 
@@ -1038,9 +1048,6 @@ const Services = () => {
                     className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/80 border border-white/50 px-4 py-2 rounded-full">View Full</span>
-                  </div>
                 </div>
               )}
               
@@ -1344,7 +1351,7 @@ const FinalCTA = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <form className="flex flex-col gap-6 sm:gap-8 p-6 sm:p-10 border border-white/[0.08] bg-white/[0.01]" onSubmit={submitForm} ref={formRef}>
+            <form className="flex flex-col gap-6 sm:gap-8 p-6 sm:p-10 skeuo" onSubmit={submitForm} ref={formRef}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-[9px] uppercase tracking-[0.25em] text-white/60">Full Name</label>
@@ -1405,22 +1412,51 @@ const FinalCTA = () => {
           </motion.div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 pt-12 border-t border-white/[0.06]">
-          <div className="flex flex-col gap-2">
-            <span className="text-lg sm:text-xl font-display uppercase tracking-tighter">{site.brand}<span className="text-accent">.</span></span>
-            <p className="text-[9px] uppercase tracking-[0.25em] text-white/25">
-              © {new Date().getFullYear()} / {getHijriYear()} AH Premium Digital Execution
-            </p>
+        <div className="mt-16 pt-10 border-t border-white/[0.06]">
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 p-8 sm:p-10 skeuo rounded-lg">
+            <div className="flex flex-col gap-4 max-w-sm">
+              <span className="text-2xl sm:text-3xl font-display uppercase tracking-tighter text-white/80">{site.brand}<span className="text-accent">.</span></span>
+              <p className="text-[13px] leading-relaxed text-white/50">
+                Crafting premium digital experiences that blend technical excellence with creative storytelling.
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 pt-2">
+                © {new Date().getFullYear()} / {getHijriYear()} AH
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-10 sm:gap-16">
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-accent/70 font-medium">Navigation</span>
+                <div className="flex flex-col gap-3">
+                  <a href="#work" className="text-[12px] text-white/50 hover:text-accent transition-colors">Work</a>
+                  <a href="#about" className="text-[12px] text-white/50 hover:text-accent transition-colors">About</a>
+                  <a href="/articles.html" className="text-[12px] text-white/50 hover:text-accent transition-colors">Insights</a>
+                  <a href="#contact" className="text-[12px] text-white/50 hover:text-accent transition-colors">Contact</a>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-accent/70 font-medium">Connect</span>
+                <div className="flex flex-col gap-3">
+                  <a href={site.github} target="_blank" rel="noreferrer" className="text-[12px] text-white/50 hover:text-accent transition-colors">GitHub</a>
+                  <a href="https://instagram.com/qorvode.ai" target="_blank" rel="noreferrer" className="text-[12px] text-white/50 hover:text-accent transition-colors">Instagram</a>
+                  <a href={`mailto:${site.email}`} className="text-[12px] text-white/50 hover:text-accent transition-colors">Email</a>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-accent/70 font-medium">Legal</span>
+                <div className="flex flex-col gap-3">
+                  <a href="/privacy.html" className="text-[12px] text-white/50 hover:text-accent transition-colors">Privacy Policy</a>
+                  <a href="/terms.html" className="text-[12px] text-white/50 hover:text-accent transition-colors">Terms of Service</a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-5 sm:gap-8">
-            <a href={site.github} target="_blank" rel="noreferrer" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">GitHub</a>
-            <a href="#work" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">Work</a>
-            <a href="#about" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">About</a>
-            <a href="/articles.html" className="text-[9px] uppercase tracking-[0.2em] text-white/50 hover:text-accent transition-colors">Insights</a>
-          </div>
-
-          <p className="text-[9px] font-mono text-white/15 uppercase tracking-[0.15em]">{site.terminalPrompt}</p>
+          <p className="text-[9px] font-mono text-white/30 uppercase tracking-[0.15em] text-center mt-8">
+            {site.terminalPrompt}
+          </p>
         </div>
       </div>
     </section>
