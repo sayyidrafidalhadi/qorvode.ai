@@ -202,14 +202,14 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen min-h-[100svh] flex flex-col justify-center px-5 sm:px-12 lg:px-24 pt-20 sm:pt-32 pb-12 sm:pb-16 overflow-hidden">
+    <section className="relative min-h-screen min-h-[100svh] flex flex-col justify-center px-5 sm:px-12 lg:px-24 pt-16 sm:pt-24 pb-8 sm:pb-12 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.2, 0, 0, 1] }}
         className="relative z-10 max-w-6xl mx-auto w-full"
       >
-        <div className="space-y-8 sm:space-y-14 lg:space-y-16">
+        <div className="space-y-6 sm:space-y-10 lg:space-y-12">
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -223,7 +223,7 @@ const Hero = () => {
           </motion.div>
 
           <div className="space-y-6 sm:space-y-8">
-            <h1 className="font-display text-[10vw] sm:text-[8vw] lg:text-[6.5vw] leading-[0.92] sm:leading-[0.9] tracking-tighter uppercase font-light">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.92] sm:leading-[0.9] tracking-tighter uppercase font-light">
               <span className="block">{site.hero.headline.top}</span>
               <span className="block text-accent italic font-serif normal-case mt-0.5 sm:mt-1">{site.hero.headline.bottom}</span>
             </h1>
@@ -363,9 +363,9 @@ const Work = () => {
   ];
 
   return (
-    <section id="work" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24">
+    <section id="work" className="py-16 sm:py-24 px-6 sm:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-20 sm:mb-28 lg:mb-36">
+        <div className="mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -374,7 +374,7 @@ const Work = () => {
             className="space-y-6 sm:space-y-8"
           >
             <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Case Studies</span>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.88] tracking-tighter">
               Work That<br />
               <span className="text-accent italic font-serif normal-case">Builds Authority.</span>
             </h2>
@@ -384,7 +384,7 @@ const Work = () => {
           </motion.div>
         </div>
 
-        <div className="space-y-16 sm:space-y-24">
+        <div className="space-y-12 sm:space-y-16">
           {caseStudies.map((study, i) => (
             <motion.article
               key={study.id}
@@ -394,7 +394,7 @@ const Work = () => {
               transition={{ delay: i * 0.15, duration: 1, ease: [0.2, 0, 0, 1] }}
               className="group relative"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 sm:gap-12 lg:gap-20">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 sm:gap-12 lg:gap-12">
                 <div className="space-y-6 sm:space-y-8">
                   <div className="flex items-center gap-4">
                     <span className="text-[9px] font-mono text-accent/40">{String(i + 1).padStart(2, '0')}</span>
@@ -517,17 +517,17 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24">
+    <section id="process" className="py-16 sm:py-24 px-6 sm:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-6 sm:space-y-8 mb-20 sm:mb-28 lg:mb-36"
+          className="space-y-6 sm:space-y-8 mb-12 sm:mb-16 lg:mb-20"
         >
           <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">How I Work</span>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.88] tracking-tighter">
             The Process<br />
             <span className="text-accent italic font-serif normal-case">That Delivers.</span>
           </h2>
@@ -583,9 +583,9 @@ const Process = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24">
+    <section id="about" className="py-16 sm:py-24 px-6 sm:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -652,7 +652,7 @@ const MusicSection = () => {
         <div className="mb-24 sm:mb-32 flex flex-col lg:flex-row lg:items-end justify-between gap-12">
           <div className="max-w-3xl">
             <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-accent mb-6 block">Sonic Identity</span>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.85] tracking-tighter">Audio<br />Authority.</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.85] tracking-tighter">Audio<br />Authority.</h2>
           </div>
           <p className="max-w-xs text-[11px] sm:text-sm opacity-60 leading-relaxed font-light italic font-serif border-l border-white/10 pl-8">
             Where binary logic meets composition. Exploring themes of spirituality and existence through the human voice.
@@ -732,17 +732,17 @@ const Niches = () => {
   ];
 
   return (
-    <section id="niches" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24">
+    <section id="niches" className="py-16 sm:py-24 px-6 sm:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-6 sm:space-y-8 mb-20 sm:mb-28 lg:mb-36"
+          className="space-y-6 sm:space-y-8 mb-12 sm:mb-16 lg:mb-20"
         >
           <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Specialization</span>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.88] tracking-tighter">
             Industries<br />
             <span className="text-accent italic font-serif normal-case">I Serve.</span>
           </h2>
@@ -837,7 +837,7 @@ const Testimonials = () => {
           className="space-y-6 sm:space-y-8 mb-16 sm:mb-20"
         >
           <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Client Success</span>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.88] tracking-tighter">
             Trusted by<br />
             <span className="text-accent italic font-serif normal-case">Serious Brands.</span>
           </h2>
@@ -911,7 +911,7 @@ const LatestArticles = () => {
         <div className="mb-16 sm:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-xl">
             <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block mb-4">The Insights</span>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase leading-[0.9] tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-display uppercase leading-[0.9] tracking-tighter">
               Strategic<br />
               <span className="text-accent italic font-serif normal-case">Intelligence.</span>
             </h2>
@@ -1023,7 +1023,7 @@ const Services = () => {
   return (
     <section id="services" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-20 sm:mb-28 lg:mb-36">
+        <div className="mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1032,7 +1032,7 @@ const Services = () => {
             className="space-y-6 sm:space-y-8"
           >
             <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">What I Offer</span>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display uppercase leading-[0.88] tracking-tighter">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.88] tracking-tighter">
               Services That<br />
               <span className="text-accent italic font-serif normal-case">Drive Growth.</span>
             </h2>
@@ -1331,7 +1331,7 @@ const FinalCTA = () => {
   return (
     <section id="contact" className="py-32 sm:py-48 px-5 sm:px-12 lg:px-24 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20 sm:mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 mb-20 sm:mb-28">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1341,7 +1341,7 @@ const FinalCTA = () => {
           >
             <div>
               <span className="text-[10px] uppercase tracking-[0.5em] text-accent block mb-4 sm:mb-6">Project Discovery</span>
-              <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase leading-[0.9] tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-display uppercase leading-[0.9] tracking-tighter">
                 Where Serious<br />
                 <span className="text-accent italic font-serif normal-case">Projects Begin.</span>
               </h2>
