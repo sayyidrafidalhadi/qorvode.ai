@@ -11,6 +11,7 @@ import { arsenal } from './data/arsenal.js';
 import { articles } from './data/articles.js';
 import PremiumBackground from './components/AnimeEditBackground.jsx';
 import LumaDrift from './components/LumaDrift.jsx';
+import RainEffect from './components/RainEffect.jsx';
 import { FloatingTerminal, TerminalSection } from './components/TerminalAI.jsx';
 import TestimonialsCard from './components/TestimonialsCard.jsx';
 
@@ -1520,6 +1521,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen selection:bg-accent selection:text-bg text-white font-sans selection:bg-accent selection:text-bg">
       <LumaDrift />
+      <RainEffect />
       <Navbar />
       <MusicPlayer />
       <FloatingWhatsApp />
