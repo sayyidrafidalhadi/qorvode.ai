@@ -9,7 +9,7 @@ import { projects } from './data/projects.js';
 import { releases } from './data/releases.js';
 import { arsenal } from './data/arsenal.js';
 import { articles } from './data/articles.js';
-import LumaDrift from './components/LumaDrift.jsx';
+import AmoledBackground from './components/AmoledBackground.jsx';
 import { FloatingTerminal, TerminalSection } from './components/TerminalAI.jsx';
 import TestimonialsCard from './components/TestimonialsCard.jsx';
 
@@ -1517,8 +1517,8 @@ const BackToTop = () => {
 
 export default function App() {
   return (
-    <div className="relative min-h-screen selection:bg-accent selection:text-bg text-white font-sans selection:bg-accent selection:text-bg">
-      <LumaDrift />
+    <div className="relative min-h-screen selection:bg-accent selection:text-bg text-white font-sans bg-bg selection:bg-accent selection:text-bg">
+      <AmoledBackground />
       <Navbar />
       <MusicPlayer />
       <FloatingWhatsApp />

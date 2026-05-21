@@ -148,7 +148,7 @@ const TerminalContent = ({ onClose }) => {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-2xl bg-[#0a0a0a] border border-white/10 rounded-sm overflow-hidden"
+        className="relative w-full max-w-2xl bg-[#000000] border border-white/10 rounded-sm overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.02]">
@@ -318,7 +318,7 @@ export const TerminalSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="bg-[#0a0a0a] border border-white/10 overflow-hidden"
+          className="bg-[#000000] border border-white/10 overflow-hidden"
         >
           <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.02]">
             <div className="flex items-center gap-2">

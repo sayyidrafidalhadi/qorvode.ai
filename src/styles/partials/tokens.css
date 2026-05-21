@@ -2,7 +2,7 @@
    DESIGN TOKENS — LUXURY MONOCHROME
    ============================================= */
 :root {
-    --bg:        #0A0A0A; /* Pure Matte Black */
+    --bg:        #000000; /* Pure AMOLED Black */
     --bg-alt:    #0F0F0F;
     --surface:   rgba(255, 255, 255, 0.04);
     --surface-hover: rgba(255, 255, 255, 0.07);

@@ -128,7 +128,7 @@ const PremiumBackground = () => {
   }, []);
 
   if (prefersReducedMotion) {
-    return <div className="fixed inset-0 -z-10 bg-[#0A0A0A]" />;
+    return <div className="fixed inset-0 -z-10 bg-[#000000]" />;
   }
 
   return (
@@ -136,7 +136,7 @@ const PremiumBackground = () => {
       <canvas
         ref={canvasRef}
         className="fixed inset-0 -z-10"
-        style={{ background: '#0A0A0A' }}
+        style={{ background: '#000000' }}
       />
       <div 
         className="fixed inset-0 -z-[5] pointer-events-none"
