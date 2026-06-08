@@ -14,9 +14,9 @@ interface HistoryItem {
 
 const knowledgeBase: Record<string, KnowledgeEntry> = {
   about: {
-    keywords: ['who', 'whoami', 'about', 'yourself', 'introduce', 'background', 'name', 'developer', 'vocalist', 'sayyid'],
+    keywords: ['who', 'whoami', 'about', 'yourself', 'introduce', 'background', 'name', 'developer', 'music artist', 'sayyid'],
     responses: [
-      "I'm Sayyid Rafid Al Hadi — a Full-Stack Developer & Vocalist based in South Asia.",
+      "I'm Sayyid Rafid Al Hadi — a Vibecoder & Music Artist based in South Asia.",
       "I build premium digital experiences for brands that refuse to be average. Plus I compose Islamic vocals.",
     ]
   },
@@ -37,8 +37,8 @@ const knowledgeBase: Record<string, KnowledgeEntry> = {
   projects: {
     keywords: ['projects', 'work', 'built', 'portfolio', 'case', 'studies', 'clients'],
     responses: [
-      "Projects: Kithademic Studies (Islamic education platform), KPS Ayurveda Clinic, HalalTune (Islamic music PWA)",
-      "Case Studies: Kithademic — 35% increase in enrollments | KPS Ayurveda — 40% increase in bookings | HalalTune — 5,000+ active users",
+      "Projects: Meliqo (Halal audio streaming platform)",
+      "Case Studies: Meliqo — Pure Sound, Pure Halal streaming platform",
     ]
   },
   contact: {

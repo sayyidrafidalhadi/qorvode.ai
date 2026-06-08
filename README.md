@@ -2,9 +2,9 @@
 
 # Sayyid Rafid Al Hadi
 
-### Full-Stack Developer & Vocalist
+### Vibecoder & Music Artist
 
-[![GitHub Followers](https://img.shields.io/github/followers/Cybertechyrappu?label=Follow&style=social)](https://github.com/Cybertechyrappu)
+[![GitHub Followers](https://img.shields.io/github/followers/sayyidrafidalhadi?label=Follow&style=social)](https://github.com/sayyidrafidalhadi)
 [![Static Badge](https://img.shields.io/badge/Portfolio-Live-6e07f3)](https://qorvode.co.in/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00ff41.svg)](https://opensource.org/licenses/MIT)
 
@@ -109,26 +109,12 @@ I offer premium digital services tailored to elevate your brand.
 
 ## Selected Works
 
-### Kithademic Studies
-> *Knowledge is the light of the heart. Excellence in Islamic & Academic Education.*
+### Meliqo
+> *Pure Sound, Pure Halal — High-Fidelity Audio Streaming Platform*
 
-- **Core:** A professional education platform bridging Islamic values with modern academics.
-- **Tech:** Next.js, Tailwind CSS, Vercel deployment
-- **Status:** In Progress — [Live Preview](https://kithademic.vercel.app)
-
-### KPS Ayurveda Clinic
-> *Heal Through Ayurveda — Authentic Care for Holistic Wellness.*
-
-- **Core:** Schedule your personalized Ayurvedic consultation today.
-- **Tech:** Next.js, Tailwind CSS, Vercel deployment
-- **Status:** In Progress — [Live Preview](https://kpsayurvedaclinic.vercel.app/)
-
-### HalalTune
-> *Islamic Audio Streaming PWA*
-
-- **Core:** A Spotify-tier Islamic audio streaming PWA — built entirely from an Android phone. Firebase backend, Cloudinary CDN, Cache API offline playback, full playlist system, and admin dashboard.
-- **Tech:** PWA, Firebase, Cloudinary
-- **Status:** Beta — [Live Preview](https://halaltune.vercel.app)
+- **Core:** A premium halal audio streaming platform for Quran recitations, vocal nasheeds, and spiritual soundscapes. AMOLED monochrome design, lossless quality, privacy-first.
+- **Tech:** React, Tailwind CSS, Vite, OGL/Three.js
+- **Status:** Coming Soon — [Live Preview](https://meliqo.qorvode.co.in/)
 
 ---
 
@@ -176,7 +162,7 @@ Ready to start a project or discuss collaboration? Let's connect.
 
 - **Website:** [https://qorvode.co.in/](https://qorvode.co.in/)
 - **Email:** qorvode.ai@gmail.com
-- **GitHub:** [https://github.com/Cybertechyrappu](https://github.com/Cybertechyrappu)
+- **GitHub:** [https://github.com/sayyidrafidalhadi](https://github.com/sayyidrafidalhadi)
 
 Trusted by visionary founders & premium brands.
 

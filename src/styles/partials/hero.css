@@ -190,7 +190,7 @@
 .typing-cursor::after { content: '▌'; color: var(--primary); animation: blink 1s step-end infinite; }
 @keyframes blink { 50%{opacity:0} }
 
-/* Vocalist card */
+/* Music Artist card */
 .vocal-card {
   background: rgba(6,78,59,0.2);
   border: 1px solid var(--emerald-glow);

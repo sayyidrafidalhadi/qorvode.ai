@@ -26,7 +26,7 @@ export const site: SiteConfig = {
   title: "QORVODE — Premium Digital Experiences",
   description: "We build premium digital authority for brands that want to dominate. Bespoke design and high-performance development.",
   url: "https://qorvode.co.in",
-  github: "https://github.com/Cybertechyrappu",
+  github: "https://github.com/sayyidrafidalhadi",
   email: "qorvode.ai@gmail.com",
   availableYear: "2026",
   hero: {

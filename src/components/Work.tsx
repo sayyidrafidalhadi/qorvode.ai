@@ -37,27 +37,16 @@ const Work = () => {
       tags: ["Next.js", "Education", "Islamic", "Platform"],
       status: "Live"
     },
-    {
-      id: 2,
-      brand: "KPS Ayurveda Clinic",
-      problem: "Traditional wellness clinic invisible to digital audiences seeking authentic holistic care",
-      approach: "Clean, elegant digital presence communicating authenticity and trust",
-      result: "Professional web presence attracting wellness seekers",
-      metric: "40% increase in bookings",
-      timeline: "Delivered in 2 weeks",
-      tags: ["Web", "Healthcare", "UI/UX"],
-      status: "Live"
-    },
-    {
+{
       id: 3,
-      brand: "HalalTune",
-      problem: "Islamic music streaming need with poor accessibility and no offline capability",
-      approach: "Progressive Web App with Firebase backend, Cloudinary CDN, and offline-first architecture",
-      result: "Full-featured PWA with offline playback, playlists, and admin dashboard",
-      metric: "5,000+ active users",
-      timeline: "Delivered in 4 weeks",
-      tags: ["PWA", "Firebase", "Audio", "Cloudinary"],
-      status: "Beta"
+      brand: "Meliqo",
+      problem: "No dedicated halal audio streaming platform with lossless quality and privacy-first approach for Muslim audiences",
+      approach: "AMOLED monochrome landing page with immersive UI, OGL/Three.js visuals, and modern React architecture",
+      result: "Premium brand presence with waitlist capture and high-conversion landing experience",
+      metric: "Launching soon — waitlist active",
+      timeline: "Delivered in 2 weeks",
+      tags: ["React", "Audio", "Islamic", "Streaming"],
+      status: "Coming Soon"
     }
   ];
 

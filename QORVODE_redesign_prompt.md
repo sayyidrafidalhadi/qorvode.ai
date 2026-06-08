@@ -4,7 +4,7 @@
 
 **Codebase:** React 18 + Vite SPA at `https://qorvode.co.in`  
 **Owner:** Sayyid Rafid Al Hadi (brand: QORVODE)  
-**Dual identity:** Full-stack developer + Islamic nasheed vocalist  
+**Dual identity:** Full-stack developer + Islamic nasheed music artist  
 **Constraint:** All code must be CDN-compatible (no build-step-only libraries). Use only what is already in `package.json` or importable via CDN/ESM.
 
 ---
@@ -84,12 +84,12 @@ Add these missing definitions to `src/styles/partials/tokens.css`:
 
 ### 2. Hero Section Redesign
 
-**Goal:** Make the dual identity (coder + vocalist) immediately clear in the hero.
+**Goal:** Make the dual identity (coder + music artist) immediately clear in the hero.
 
 **Layout changes:**
 - Keep 2-column grid on desktop, but add a **vertical accent line** (`2px`, gold gradient) between the two columns
-- Add a **role toggle chip** below the headline: two pill buttons `< Developer />` and `♫ Vocalist` — clicking smoothly cross-fades subheadline and CTA text (pure JS state toggle, no router)
-- Replace the static terminal box with a **split visual**: top half = terminal (developer), bottom half = waveform/Arabic calligraphy card (vocalist) — transition between them with the role toggle
+- Add a **role toggle chip** below the headline: two pill buttons `< Developer />` and `♫ Music Artist` — clicking smoothly cross-fades subheadline and CTA text (pure JS state toggle, no router)
+- Replace the static terminal box with a **split visual**: top half = terminal (developer), bottom half = waveform/Arabic calligraphy card (music artist) — transition between them with the role toggle
 - Badge dot: change pulsing color from `--red` (which was broken) to gold `--primary` with a proper `box-shadow` glow
 
 **Typography:**

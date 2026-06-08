@@ -18,7 +18,7 @@ const About = () => {
               Sayyid Rafid<br />
               <span className="text-accent italic font-serif normal-case">Al Hadi.</span>
             </h2>
-            <p className="text-[13px] sm:text-sm uppercase tracking-[0.15em] text-white/60">Full-Stack Developer | Vocalist | Founder of Qorvode</p>
+            <p className="text-[13px] sm:text-sm uppercase tracking-[0.15em] text-white/60">Vibecoder | Music Artist | Founder of Qorvode</p>
           </motion.div>
 
           <motion.div
@@ -37,7 +37,7 @@ const About = () => {
             </p>
 
             <p className="text-[14px] sm:text-base leading-relaxed text-white/55">
-              Beyond the code, I am a digital content creator and vocalist, bringing a unique, artistic perspective to every project I undertake. Whether it's architecting community platforms like Science Orbit or driving growth for my own ventures like Qorvode, I am driven by the intersection of innovation and art.
+              Beyond the code, I am a digital content creator and music artist, bringing a unique, artistic perspective to every project I undertake. Whether it's architecting community platforms like Science Orbit or driving growth for my own ventures like Qorvode, I am driven by the intersection of innovation and art.
             </p>
 
             <p className="text-[14px] sm:text-base font-medium text-white/50">
