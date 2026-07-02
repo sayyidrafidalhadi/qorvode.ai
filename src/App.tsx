@@ -10,6 +10,7 @@ import Marquee from './components/Marquee';
 import Work from './components/Work';
 import Process from './components/Process';
 import About from './components/About';
+import Education from './components/Education';
 import MusicSection from './components/MusicSection';
 import Niches from './components/Niches';
 import Testimonials from './components/Testimonials';
@@ -24,18 +25,19 @@ const Contact = FinalCTA;
 
 export default function App() {
   return (
-    <div className="relative min-h-screen selection:bg-accent selection:text-bg text-white font-sans bg-bg selection:bg-accent selection:text-bg">
+    <div className="relative min-h-screen selection:bg-accent selection:text-text-alt font-sans bg-bg text-text">
       <AmoledBackground />
       <Navbar />
       <MusicPlayer />
       <FloatingWhatsApp />
       <FloatingTerminal />
-      <main className="skeuo">
+      <main>
         <Hero />
         <Marquee />
         <Work />
         <Process />
         <About />
+        <Education />
         <Niches />
         <Testimonials />
         <MusicSection />

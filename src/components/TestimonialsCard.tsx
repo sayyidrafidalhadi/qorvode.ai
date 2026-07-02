@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { QuoteIcon } from "@/components/Icons";
 
 interface TestimonialItem {
   id: string | number;
@@ -63,10 +64,10 @@ export function TestimonialsCard({
   }
 
   return (
-    <div className={cn("relative max-w-2xl mx-auto", className)}>
+    <div className={cn("relative max-w-3xl mx-auto", className)}>
       {showCounter && (
         <div className="flex justify-between items-center mb-8">
-          <span className="text-[9px] uppercase tracking-[0.3em] text-white/30">
+          <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-alt/40">
             {activeIndex + 1} / {items.length}
           </span>
         </div>
@@ -80,19 +81,19 @@ export function TestimonialsCard({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.2, 0, 0, 1] }}
-            className="w-full"
+            className="w-full p-8 sm:p-10 brutal-border-alt bg-surface-alt"
           >
-            <Quote className="w-12 h-12 text-accent/20 mb-6" />
+            <QuoteIcon size="xl" />
 
-            <blockquote className="text-xl sm:text-2xl lg:text-3xl font-display uppercase tracking-tight leading-relaxed text-white mb-8">
+            <blockquote className="text-xl sm:text-2xl lg:text-3xl font-display font-bold uppercase tracking-tight leading-relaxed text-text-alt mb-8 mt-6">
               &ldquo;{activeItem.description}&rdquo;
             </blockquote>
 
-            <div className="border-l-2 border-accent/30 pl-6">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-accent font-medium">
+            <div className="border-l-[3px] border-accent-alt/40 pl-6">
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-accent-alt">
                 {activeItem.author}
               </p>
-              <p className="text-[10px] text-white/40 mt-1">
+              <p className="text-[10px] text-text-alt/50 mt-1 font-mono">
                 {activeItem.role}
               </p>
             </div>
@@ -101,33 +102,31 @@ export function TestimonialsCard({
       </div>
 
       {showNavigation && items.length > 1 && (
-        <div className="flex items-center justify-between mt-10 pt-8 border-t border-white/[0.06]">
+        <div className="flex items-center justify-between mt-10 pt-8 border-t-[3px] border-accent-alt/20">
           <button
             disabled={activeIndex === 0}
             onClick={handlePrev}
             className={cn(
-              "flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-white/[0.02] transition-all",
+              "flex items-center justify-center w-11 h-11 brutal-border-alt bg-surface-alt transition-all",
               activeIndex === 0
                 ? "opacity-20 cursor-not-allowed"
-                : "hover:border-accent/30 hover:bg-white/[0.04]"
+                : "hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             )}
             aria-label="Previous"
           >
-            <ArrowLeft className="w-5 h-5 text-white/40" />
+            <ArrowLeft className="w-5 h-5 text-text-alt/60" />
           </button>
 
           <div className="flex gap-2">
             {items.map((_, i) => (
               <button
                 key={i}
-                onClick={() => {
-                  setActiveIndex(i);
-                }}
+                onClick={() => { setActiveIndex(i); }}
                 className={cn(
-                  "w-2 h-2 rounded-full transition-all",
+                  "h-2 transition-all duration-300 brutal-border-alt",
                   i === activeIndex
-                    ? "bg-accent w-8"
-                    : "bg-white/20 hover:bg-white/40"
+                    ? "bg-accent-alt w-8"
+                    : "bg-text-alt/20 w-2 hover:bg-text-alt/40"
                 )}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
@@ -138,14 +137,14 @@ export function TestimonialsCard({
             disabled={activeIndex === items.length - 1}
             onClick={handleNext}
             className={cn(
-              "flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-white/[0.02] transition-all",
+              "flex items-center justify-center w-11 h-11 brutal-border-alt bg-surface-alt transition-all",
               activeIndex === items.length - 1
                 ? "opacity-20 cursor-not-allowed"
-                : "hover:border-accent/30 hover:bg-white/[0.04]"
+                : "hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             )}
             aria-label="Next"
           >
-            <ArrowRight className="w-5 h-5 text-white/40" />
+            <ArrowRight className="w-5 h-5 text-text-alt/60" />
           </button>
         </div>
       )}

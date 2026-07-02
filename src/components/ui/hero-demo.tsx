@@ -2,10 +2,10 @@
 
 import { useEffect } from "react";
 import { renderCanvas } from "@/components/ui/canvas"
-import { Shapes, ArrowRight, Plus } from "lucide-react";
 import { site } from "@/data/site";
-
+import { motion } from "motion/react";
 import { Button } from "@/components/ui/button"
+import { BriefcaseIcon } from "@/components/Icons";
 
 export function HeroDemo() {
   useEffect(() => {
@@ -13,82 +13,68 @@ export function HeroDemo() {
   }, []);
 
   return (
-    <section id="home">
-      <div className="animation-delay-8 animate-fadeIn mt-20 flex flex-col items-center justify-center px-4 text-center md:mt-20">
-        <div className="z-10 mb-6 mt-10 sm:justify-center md:mb-4 md:mt-20">
-          <div className="relative flex items-center whitespace-nowrap rounded-full border bg-white/[0.05] px-3 py-1 text-xs leading-6 text-white/60">
-            <Shapes className="h-5 p-1" /> {site.brand} — Premium Digital Studio
-            <a
-              href="#work"
-              className="ml-1 flex items-center font-semibold hover:text-accent"
-            >
-              <div className="absolute inset-0 flex" aria-hidden="true" />
-              Explore{" "}
-              <span aria-hidden="true">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <div className="mb-10 mt-4 md:mt-6">
-          <div className="px-2">
-            <div className="relative mx-auto h-full max-w-7xl border border-white/[0.08] p-6 [mask-image:radial-gradient(800rem_96rem_at_center,white,transparent)] md:px-12 md:py-20">
-              <h1 className="flex select-none flex-col px-3 py-2 text-center text-5xl font-semibold leading-none tracking-tight md:flex-col md:text-8xl lg:flex-row lg:text-8xl">
-                <Plus
-                  strokeWidth={4}
-                  className="text-accent absolute -left-5 -top-5 h-10 w-10"
-                />
-                <Plus
-                  strokeWidth={4}
-                  className="text-accent absolute -bottom-5 -left-5 h-10 w-10"
-                />
-                <Plus
-                  strokeWidth={4}
-                  className="text-accent absolute -right-5 -top-5 h-10 w-10"
-                />
-                <Plus
-                  strokeWidth={4}
-                  className="text-accent absolute -bottom-5 -right-5 h-10 w-10"
-                />
-                Design. Development. Digital Authority.
-              </h1>
-              <div className="flex items-center justify-center gap-1">
-                <span className="relative flex h-3 w-3 items-center justify-center">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-                </span>
-                <p className="text-xs text-green-500">Available for Projects — 2026</p>
-              </div>
-            </div>
+    <section id="home" className="relative min-h-screen flex items-center bg-bg overflow-hidden">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-24 sm:py-32 lg:py-32">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.2, 0, 0, 1] }}
+          className="max-w-4xl"
+        >
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-bg-alt brutal-border-alt brutal-shadow-sm-alt mb-6 sm:mb-8">
+            <span className="w-2 h-2 bg-accent-alt" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-alt">{site.hero.badge}</span>
           </div>
 
-          <h1 className="mt-8 text-2xl md:text-2xl">
-            I&#39;m{" "}
-            <span className="text-accent font-bold">{site.name}</span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text">
+            {site.hero.headline.top}
+            <br />
+            <span className="text-accent relative inline-block">
+              {site.hero.headline.bottom}
+              <motion.span
+                className="absolute -bottom-2 left-0 w-full h-[3px] bg-accent"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 1, duration: 0.8, ease: [0.2, 0, 0, 1] }}
+              />
+            </span>
           </h1>
 
-          <p className="md:text-md mx-auto mb-16 mt-2 max-w-2xl px-6 text-sm text-white/60 sm:px-6 md:max-w-4xl md:px-20 lg:text-lg">
-            {site.description}
+          <p className="mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base lg:text-lg text-text/70 leading-relaxed font-light">
+            {site.hero.subheadline}
           </p>
-          <div className="flex justify-center gap-2">
+
+          <div className="mt-8 sm:mt-10 flex flex-wrap gap-4">
             <a href="#contact">
               <Button variant="default" size="lg">
-                Start Your Brand Upgrade
+                {site.hero.ctaPrimary}
               </Button>
             </a>
-            <a href="https://wa.me/919526755210" target="_blank" rel="noreferrer">
-              <Button variant="outline" size="lg">
-                Book a call
+            <a href="#work">
+              <Button variant="ghost" size="lg" className="gap-2">
+                <BriefcaseIcon size="m" /> {site.hero.ctaSecondary}
               </Button>
             </a>
           </div>
-        </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="mt-8 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-text/40"
+          >
+            {site.hero.trust}
+          </motion.p>
+        </motion.div>
+
+        {/* Decorative element */}
+        <div className="absolute top-20 right-5 sm:right-12 lg:right-24 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 brutal-border rotate-12 opacity-20 pointer-events-none" aria-hidden="true" />
       </div>
+
       <canvas
-        className="bg-skin-base pointer-events-none absolute inset-0 mx-auto"
+        className="pointer-events-none absolute inset-0 mx-auto opacity-40"
         id="canvas"
-      ></canvas>
+      />
     </section>
   );
 }

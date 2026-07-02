@@ -31,23 +31,23 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-32 sm:py-48 px-6 sm:px-12 lg:px-24 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+    <section id="testimonials" className="py-32 sm:py-48 px-5 sm:px-8 lg:px-12 bg-bg-alt relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[3px] bg-accent-alt" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-6 sm:space-y-8 mb-16 sm:mb-20"
+          className="mb-16 sm:mb-20"
         >
-          <span className="text-[10px] uppercase tracking-[0.5em] font-medium text-accent block">Client Success</span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-display uppercase leading-[0.88] tracking-tighter">
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-alt block mb-4">Client Success</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text-alt">
             Trusted by<br />
-            <span className="text-accent italic font-serif normal-case">Serious Brands.</span>
+            <span className="text-accent-alt italic font-serif normal-case">Serious Brands.</span>
           </h2>
-          <p className="max-w-xl text-[14px] sm:text-base lg:text-lg font-light leading-relaxed text-white/60 font-serif italic border-l border-accent/20 pl-6">
+          <p className="max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-text-alt/60 font-serif italic border-l-[3px] border-accent-alt pl-6 mt-6">
             Real results. Real trust. Every project engineered to deliver measurable business outcomes for clients who expect more.
           </p>
         </motion.div>
@@ -65,20 +65,18 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="mt-20 sm:mt-28 pt-16 sm:pt-20 border-t border-white/[0.06]"
+          className="mt-20 sm:mt-28 pt-16 sm:pt-20 border-t-[3px] border-accent-alt"
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <p className="text-[13px] sm:text-sm text-white/60">
+            <p className="text-sm text-text-alt/60">
               Ready to join the list of successful transformations?
             </p>
-            <motion.a
+            <a
               href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-10 sm:px-12 py-5 bg-accent text-bg font-semibold text-[10px] uppercase tracking-[0.25em] hover:shadow-[0_20px_40px_rgba(197,160,89,0.2)] transition-all"
+              className="px-8 py-4 bg-accent-alt text-bg-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border brutal-shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
             >
               Start Your Project
-            </motion.a>
+            </a>
           </div>
         </motion.div>
       </div>
