@@ -12,12 +12,12 @@ const Navbar = () => {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-md border-b border-white/10 py-3 sm:py-4' : 'mix-blend-difference'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-md border-b border-white/10 py-3 sm:py-4' : 'mix-blend-difference'}`} aria-label="Music page navigation">
       <motion.a
         href="/"
         initial={{ opacity: 0, x: -20 }}
@@ -38,7 +38,7 @@ const Navbar = () => {
           Home
         </motion.a>
 
-        <span className="text-white/20 hidden sm:inline">|</span>
+        <span className="text-white/20 hidden sm:inline" aria-hidden="true">|</span>
 
         <motion.a
           href="/articles.html"
@@ -50,18 +50,19 @@ const Navbar = () => {
           Articles
         </motion.a>
 
-        <span className="text-white/20 hidden sm:inline">|</span>
+        <span className="text-white/20 hidden sm:inline" aria-hidden="true">|</span>
 
         <motion.a
           href="https://instagram.com/qorvode.ai"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
           whileHover={{ scale: 1.1, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
           className="text-white/60 p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg hover:text-accent transition-colors"
+          aria-label="Follow on Instagram"
         >
           <Instagram size={20} />
         </motion.a>
@@ -69,13 +70,14 @@ const Navbar = () => {
         <motion.a
           href={site.github}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 }}
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
           className="text-white/60 p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg hover:text-accent transition-colors"
+          aria-label="View GitHub profile"
         >
           <Github size={20} />
         </motion.a>
@@ -97,15 +99,16 @@ const TrackCard = ({ release, isActive, onPlay }: { release: Release; isActive: 
       <button
         onClick={() => onPlay(release)}
         className="w-full p-6 sm:p-8 flex items-center gap-4 sm:gap-6 hover:bg-white/[0.02] transition-all group"
+        aria-label={isActive ? `Pause ${release.title}` : `Play ${release.title}`}
       >
         <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all ${isActive ? 'bg-accent scale-110' : 'bg-white/5 group-hover:bg-accent/20'}`}>
           {isActive ? <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" /> : <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-1" />}
         </div>
 
         <div className="flex-1 text-left">
-          <div className="flex items-center gap-3 mb-1">
+                <div className="flex items-center gap-3 mb-1">
             <span className="text-[10px] font-mono opacity-40">{release.year}</span>
-            <span className="text-[10px] uppercase tracking-wider text-accent/60">{release.label}</span>
+            <span className="text-[10px] uppercase tracking-wider text-accent/60" aria-label={`Label: ${release.label}`}>{release.label}</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-display uppercase tracking-tight">{release.title}</h3>
           <p style={{ fontFamily: "'Amiri', serif" }} className="text-base opacity-50 mt-1">{release.arabic}</p>
@@ -124,17 +127,22 @@ const TrackCard = ({ release, isActive, onPlay }: { release: Release; isActive: 
         <button
           onClick={() => setExpanded(!expanded)}
           className="text-[10px] uppercase tracking-widest text-accent/60 hover:text-accent transition-colors flex items-center gap-2"
+          aria-expanded={expanded}
+          aria-controls={`lyrics-${release.id}`}
         >
-          {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          {expanded ? <ChevronUp className="w-4 h-4" aria-hidden="true" /> : <ChevronDown className="w-4 h-4" aria-hidden="true" />}
           {expanded ? 'Hide Lyrics' : 'View Lyrics & Translation'}
         </button>
       </div>
 
       {expanded && release.lyrics && (
         <motion.div
+          id={`lyrics-${release.id}`}
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           className="px-6 sm:px-8 pb-8 border-t border-white/5"
+          role="region"
+          aria-label={`Lyrics for ${release.title}`}
         >
           <div className="py-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
@@ -253,16 +261,17 @@ const StreamingLinks = () => {
             { label: 'Amazon Music', icon: 'fab fa-amazon', url: 'https://music.amazon.com' },
             { label: 'JioSaavn', icon: 'fas fa-music', url: 'https://www.jiosaavn.com/artist' },
           ].map(platform => (
-            <a
-              key={platform.label}
-              href={platform.url}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-3 px-6 py-3 border border-white/10 rounded-full hover:border-accent hover:bg-accent/5 transition-all group"
-            >
-              <i className={`${platform.icon} text-lg opacity-60 group-hover:text-accent`}></i>
-              <span className="text-[11px] uppercase tracking-wider">{platform.label}</span>
-            </a>
+              <a
+                  key={platform.label}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-6 py-3 border border-white/10 rounded-full hover:border-accent hover:bg-accent/5 transition-all group"
+                  aria-label={`Listen on ${platform.label}`}
+                >
+                  <i className={`${platform.icon} text-lg opacity-60 group-hover:text-accent`} aria-hidden="true"></i>
+                  <span className="text-[11px] uppercase tracking-wider">{platform.label}</span>
+                </a>
           ))}
         </div>
       </div>
@@ -301,7 +310,7 @@ const MusicPage = () => {
           <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-white/5">
             <div className="flex items-center gap-4 sm:gap-6">
               <span className="text-base sm:text-lg font-display uppercase tracking-tighter">{site.brand}.</span>
-              <span className="text-white/20">|</span>
+              <span className="text-white/20" aria-hidden="true">|</span>
               <p className="text-[11px] sm:text-xs opacity-40">
                 © {new Date().getFullYear()}
               </p>
@@ -310,10 +319,10 @@ const MusicPage = () => {
             <div className="flex items-center gap-4 sm:gap-6">
               <div className="flex items-center gap-3 sm:gap-4">
                 <a href="/" className="text-xs sm:text-sm text-white/50 hover:text-accent transition-colors">Home</a>
-                <span className="text-white/20">·</span>
+                <span className="text-white/20" aria-hidden="true">·</span>
                 <a href="/articles.html" className="text-xs sm:text-sm text-white/50 hover:text-accent transition-colors">Articles</a>
-                <span className="text-white/20">·</span>
-                <a href={site.github} target="_blank" rel="noreferrer" className="text-xs sm:text-sm text-white/50 hover:text-accent transition-colors">GitHub</a>
+                <span className="text-white/20" aria-hidden="true">·</span>
+                <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/50 hover:text-accent transition-colors">GitHub</a>
               </div>
             </div>
 

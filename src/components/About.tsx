@@ -1,5 +1,13 @@
 import { motion } from "motion/react";
-import { CodeIcon, PaletteIcon, HeadphonesIcon } from "@/components/Icons";
+import { CodeIcon, PaletteIcon, HeadphonesIcon, TerminalIcon, ExternalIcon } from "@/components/Icons";
+
+const tags = [
+  { icon: CodeIcon, label: "Vibecoder" },
+  { icon: HeadphonesIcon, label: "Music Artist" },
+  { icon: PaletteIcon, label: "Founder" },
+  { icon: TerminalIcon, label: "Linux Enthusiast" },
+  { icon: ExternalIcon, label: "UI/UX Designer" },
+];
 
 const About = () => {
   return (
@@ -20,15 +28,14 @@ const About = () => {
             </h2>
 
             <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface text-accent font-bold text-[9px] uppercase tracking-[0.15em] brutal-border brutal-shadow-sm">
-                <CodeIcon size="sm" /> Vibecoder
-              </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface text-accent font-bold text-[9px] uppercase tracking-[0.15em] brutal-border brutal-shadow-sm">
-                <HeadphonesIcon size="sm" /> Music Artist
-              </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface text-accent font-bold text-[9px] uppercase tracking-[0.15em] brutal-border brutal-shadow-sm">
-                <PaletteIcon size="sm" /> Founder
-              </span>
+              {tags.map(({ icon: Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-surface text-accent font-bold text-[9px] uppercase tracking-[0.15em] brutal-border brutal-shadow-sm"
+                >
+                  <Icon size="sm" /> {label}
+                </span>
+              ))}
             </div>
           </motion.div>
 
@@ -37,18 +44,34 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-6 sm:space-y-8"
+            className="space-y-5 sm:space-y-6"
           >
             <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-text/70 font-serif italic">
               I build high-performance web experiences and digital brands that bridge the gap between technical efficiency and creative storytelling.
             </p>
 
             <p className="text-sm leading-relaxed text-text/60">
-              Based in Kerala, India, I specialize in developing modern, static-first web applications using Astro, Tailwind CSS, and Node.js. My workflow is mobile-first, leveraging advanced terminal environments to build seamless solutions on the go.
+              Music is one of my strongest creative outlets. I pour the same care into cover art, thumbnails, captions, and visual branding as I do into recording. My taste leans toward cinematic aesthetics, minimal compositions, and designs that feel authentic rather than artificial. Every release is a complete visual and auditory statement.
             </p>
 
             <p className="text-sm leading-relaxed text-text/60">
-              Beyond the code, I am a digital content creator and music artist, bringing a unique, artistic perspective to every project I undertake. Whether it's architecting community platforms like Science Orbit or driving growth for my own ventures like Qorvode, I am driven by the intersection of innovation and art.
+              On the development side, I build modern websites with HTML, CSS, JavaScript, React, and Tailwind CSS — ranging from personal portfolios to institutional and healthcare platforms. I prioritise meaningful content, responsive layouts, accessibility, and visual polish in every project.
+            </p>
+
+            <p className="text-sm leading-relaxed text-text/60">
+              Technology is part of who I am. I explore Linux distributions, Termux, Ubuntu, Kali Linux, command-line tools, Git, GitHub, Node.js, and Android customisation. I approach technical challenges patiently, experimenting until I understand the underlying concepts rather than settling for surface-level fixes.
+            </p>
+
+            <p className="text-sm leading-relaxed text-text/60">
+              Visually, I gravitate toward premium interfaces — elegant typography, smooth animations, balanced spacing, and modern layouts. I revise until every detail aligns with my vision, reflecting a quality-first mindset that carries across code, design, and music alike.
+            </p>
+
+            <p className="text-sm leading-relaxed text-text/60">
+              My learning style is practical. I prefer complete examples, full project files, and step-by-step guidance I can apply immediately. This approach lets me steadily expand my knowledge while building real, working projects. And I rarely settle for a first attempt — I iterate, troubleshoot, and refine until it's right.
+            </p>
+
+            <p className="text-sm leading-relaxed text-text/60">
+              Looking ahead, I aim to blend software engineering, UI/UX design, content creation, and music into a career that sits at the intersection of logic and creativity. Curiosity, persistence, and a willingness to keep learning are the foundations I build on.
             </p>
 
             <p className="text-sm font-medium text-text/70">
@@ -59,10 +82,24 @@ const About = () => {
               <a
                 href="https://instagram.com/zydhh.hadi"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-surface brutal-border brutal-shadow-sm text-text text-[10px] font-bold uppercase tracking-[0.15em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
               >
                 @zydhh.hadi
+              </a>
+              <a
+                href="https://github.com/sayyidrafidalhadi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-surface brutal-border brutal-shadow-sm text-text text-[10px] font-bold uppercase tracking-[0.15em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+              >
+                GitHub
+              </a>
+              <a
+                href="mailto:qorvode.ai@gmail.com"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-surface brutal-border brutal-shadow-sm text-text text-[10px] font-bold uppercase tracking-[0.15em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+              >
+                Email
               </a>
             </div>
           </motion.div>

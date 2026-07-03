@@ -87,7 +87,7 @@ const Process = () => {
               </p>
 
               {i < steps.length - 1 && (
-                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 bg-bg-alt brutal-border-alt rounded-full w-6 h-6 items-center justify-center z-10">
+                <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 bg-bg-alt brutal-border-alt rounded-full w-6 h-6 items-center justify-center z-10" aria-hidden="true">
                   <ArrowRightIcon size="sm" />
                 </div>
               )}

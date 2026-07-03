@@ -47,8 +47,9 @@ const MusicSection = () => {
                     key={link.url}
                     href={link.url}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="text-[9px] font-bold uppercase tracking-[0.15em] px-3 py-2 brutal-border text-text/60 hover:bg-accent hover:text-text-alt hover:border-accent transition-all duration-300"
+                    aria-label={`Listen to ${release.title} on ${link.label}`}
                   >
                     {link.label}
                   </a>

@@ -8,7 +8,8 @@ const FloatingWhatsApp = () => {
     <motion.a
       href={whatsappUrl}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
+      aria-label="Chat with Qorvode on WhatsApp"
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1.5, duration: 0.5 }}

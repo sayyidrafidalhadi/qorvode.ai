@@ -27,7 +27,7 @@ const SocialProof = () => {
   const icons = [BriefcaseIcon, ChartIcon, ShieldIcon, CheckIcon];
 
   return (
-    <section className="py-24 sm:py-32 px-5 sm:px-8 lg:px-12 bg-bg-alt border-t-[3px] border-accent-alt">
+    <section aria-label="Results and trust signals" className="py-24 sm:py-32 px-5 sm:px-8 lg:px-12 bg-bg-alt border-t-[3px] border-accent-alt">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16">
           {metrics.map((metric, i) => {

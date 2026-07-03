@@ -19,6 +19,7 @@ import Services from './components/Services';
 import SocialProof from './components/SocialProof';
 import FinalCTA from './components/FinalCTA';
 import BackToTop from './components/BackToTop';
+import SEO from './components/SEO';
 
 const Hero = () => <HeroDemo />;
 const Contact = FinalCTA;
@@ -26,6 +27,7 @@ const Contact = FinalCTA;
 export default function App() {
   return (
     <div className="relative min-h-screen selection:bg-accent selection:text-text-alt font-sans bg-bg text-text">
+      <SEO />
       <AmoledBackground />
       <Navbar />
       <MusicPlayer />

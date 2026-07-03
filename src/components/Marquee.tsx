@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const Marquee = () => {
   const items = ["Digital Authority", "Premium Design", "Strategic Development", "Conversion Focus", "Bespoke Solutions", "Brand Upgrade"];
   return (
-    <div className="py-8 sm:py-16 border-y-[3px] border-accent-alt bg-bg-alt overflow-hidden">
+    <div className="py-8 sm:py-16 border-y-[3px] border-accent-alt bg-bg-alt overflow-hidden" aria-hidden="true">
       <div className="flex whitespace-nowrap">
         {[1, 2].map((i) => (
           <motion.div

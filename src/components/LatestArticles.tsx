@@ -48,8 +48,9 @@ const LatestArticles = () => {
           <a
             href="/articles.html"
             className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-text-alt/60 hover:text-accent-alt transition-all duration-300 py-4"
+            aria-label="View all articles in archive"
           >
-            Archive <ArrowRight className="w-4 h-4" />
+            Archive <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </div>
 
@@ -79,7 +80,7 @@ const LatestArticles = () => {
 
               <div className="pt-4 mt-auto border-t-[3px] border-accent-alt/20 flex items-center justify-between">
                 <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-text-alt/60 group-hover:text-accent-alt transition-colors">Read Insight</span>
-                <ArrowRight className="w-4 h-4 text-text-alt/60 group-hover:text-accent-alt group-hover:translate-x-1 transition-all duration-300" />
+                <ArrowRight className="w-4 h-4 text-text-alt/60 group-hover:text-accent-alt group-hover:translate-x-1 transition-all duration-300" aria-hidden="true" />
               </div>
             </motion.a>
           ))}
@@ -96,12 +97,13 @@ const LatestArticles = () => {
             <p className="text-sm text-text-alt/60">
               Insights for brands that think beyond templates.
             </p>
-            <a
-              href="#contact"
-              className="px-6 py-3 bg-accent-alt text-bg-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
-            >
-              Work With Us
-            </a>
+          <a
+            href="#contact"
+            className="px-6 py-3 bg-accent-alt text-bg-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+            aria-label="Contact us to start a project"
+          >
+            Work With Us
+          </a>
           </div>
         </motion.div>
       </div>

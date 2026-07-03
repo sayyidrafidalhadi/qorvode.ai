@@ -74,6 +74,7 @@ const Testimonials = () => {
             <a
               href="#contact"
               className="px-8 py-4 bg-accent-alt text-bg-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border brutal-shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+              aria-label="Start your project inquiry"
             >
               Start Your Project
             </a>

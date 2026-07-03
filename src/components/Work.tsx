@@ -128,10 +128,11 @@ const Work = () => {
                     <a
                       href={projects.find(p => p.title === study.brand)?.url || '#'}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-text-alt text-[10px] font-bold uppercase tracking-[0.15em] brutal-shadow-sm-alt hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+                      aria-label={`Visit ${study.brand} website`}
                     >
-                      Visit Site <ExternalIcon size="sm" />
+                      Visit Site <ExternalIcon size="sm" aria-hidden="true" />
                     </a>
                   </div>
                 </div>
@@ -159,6 +160,7 @@ const Work = () => {
             <a
               href="#contact"
               className="px-8 py-4 bg-accent text-text-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border-alt brutal-shadow-lg-alt hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all duration-300"
+              aria-label="Start a conversation about your project"
             >
               Start Conversation
             </a>

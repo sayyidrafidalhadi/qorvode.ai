@@ -61,7 +61,7 @@ export default function Navbar() {
             <motion.a
               href={site.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
@@ -118,7 +118,7 @@ export default function Navbar() {
               <a
                 href={site.github}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="mt-4 px-6 py-3 bg-accent text-text-alt font-bold text-[11px] uppercase tracking-[0.2em] text-center brutal-border-alt brutal-shadow-sm-alt"
               >

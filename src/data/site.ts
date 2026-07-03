@@ -24,7 +24,7 @@ export const site: SiteConfig = {
   brand: "QORVODE",
   name: "Sayyid Rafid Al Hadi",
   title: "QORVODE — Premium Digital Experiences",
-  description: "We build premium digital authority for brands that want to dominate. Bespoke design and high-performance development.",
+  description: "Sayyid Rafid Al Hadi — vibecoder, music artist, and founder of QORVODE. Building premium digital experiences, cinematic music, and open-source technology from Kerala, India.",
   url: "https://qorvode.co.in",
   github: "https://github.com/sayyidrafidalhadi",
   email: "qorvode.ai@gmail.com",

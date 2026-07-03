@@ -147,7 +147,7 @@ const TerminalContent = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose} role="dialog" aria-modal="true" aria-label="Qorvode AI Terminal">
       <div
         className="absolute inset-0 bg-bg/95"
         onClick={onClose}
@@ -167,7 +167,7 @@ const TerminalContent = ({ onClose }: { onClose: () => void }) => {
             <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-text/60">Qorvode AI Terminal</span>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={onClose} className="p-1 hover:bg-accent/10 rounded transition-colors">
+            <button onClick={onClose} className="p-1 hover:bg-accent/10 rounded transition-colors" aria-label="Close terminal">
               <X className="w-4 h-4 text-text/40" />
             </button>
           </div>
@@ -194,16 +194,17 @@ const TerminalContent = ({ onClose }: { onClose: () => void }) => {
         <form onSubmit={handleSubmit} className="border-t-[3px] border-accent">
           <div className="flex items-center gap-2 px-4 py-3 bg-surface">
             <span className="text-accent font-bold font-mono text-sm">qorvode@ai:~$</span>
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type a command or question..."
-              className="flex-1 bg-transparent outline-none text-text font-mono text-sm placeholder:text-text/30"
-              autoFocus
-            />
+              <input
+                ref={inputRef}
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a command or question..."
+                className="flex-1 bg-transparent outline-none text-text font-mono text-sm placeholder:text-text/30"
+                autoFocus
+                aria-label="Terminal input"
+              />
           </div>
         </form>
       </motion.div>
@@ -224,7 +225,7 @@ export const FloatingTerminal = () => {
         whileHover={{ scale: 1.1, rotate: -5 }}
         whileTap={{ scale: 0.95 }}
         className="fixed bottom-6 sm:bottom-8 left-6 sm:left-8 z-40 w-14 h-14 sm:w-16 sm:h-16 bg-accent text-text-alt brutal-border brutal-shadow flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
-        title="AI Terminal"
+        aria-label="Open AI Terminal"
       >
         <Terminal className="w-5 h-5 sm:w-6 sm:h-6" />
       </motion.button>
@@ -362,6 +363,7 @@ export const TerminalSection = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type a command or question..."
                 className="flex-1 bg-transparent outline-none text-text font-mono text-sm placeholder:text-text/30"
+                aria-label="Terminal input"
               />
             </div>
           </form>

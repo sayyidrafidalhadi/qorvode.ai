@@ -184,8 +184,8 @@ const FinalCTA = () => {
               <div className="flex flex-col gap-4">
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Connect</span>
                 <div className="flex flex-col gap-3">
-                  <a href={site.github} target="_blank" rel="noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">GitHub</a>
-                  <a href="https://instagram.com/qorvode.ai" target="_blank" rel="noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Instagram</a>
+                  <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">GitHub</a>
+                  <a href="https://instagram.com/qorvode.ai" target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Instagram</a>
                   <a href={`mailto:${site.email}`} className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium"><MailIcon size="sm" /> Email</a>
                 </div>
               </div>

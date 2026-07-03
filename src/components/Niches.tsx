@@ -95,6 +95,7 @@ const Niches = () => {
             <a
               href="#contact"
               className="px-6 py-3 border-[3px] border-accent text-text font-bold text-[10px] uppercase tracking-[0.2em] brutal-shadow-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+              aria-label="Start a conversation about your project"
             >
               Let's Talk
             </a>
