@@ -5,6 +5,7 @@ import { SchoolIcon, BookIcon, GraduationIcon, ShieldIcon, CyberShieldIcon } fro
 interface Milestone {
   id: number;
   institution: string;
+  place: string;
   degree: string;
   period: string;
   icon: React.ReactNode;
@@ -14,6 +15,7 @@ const milestones: Milestone[] = [
   {
     id: 1,
     institution: "Green Woods Public School",
+    place: "Palakkunnu, Kasaragod, Kerala, India",
     degree: "Lower Primary",
     period: "Primary Education",
     icon: <SchoolIcon />,
@@ -21,6 +23,7 @@ const milestones: Milestone[] = [
   {
     id: 2,
     institution: "GHSS Pookkottur",
+    place: "Pookkottur, Kasaragod, Kerala, India",
     degree: "Upper Primary",
     period: "Upper Primary Education",
     icon: <BookIcon />,
@@ -28,13 +31,15 @@ const milestones: Milestone[] = [
   {
     id: 3,
     institution: "Pallikkara Islamic School",
+    place: "Pallikkara, Kasaragod, Kerala, India",
     degree: "High School",
     period: "Secondary Education",
     icon: <ShieldIcon />,
   },
   {
     id: 4,
-    institution: "Markaz Integrated",
+    institution: "Jamia Madeenathunnoor Baithul Izza",
+    place: "Narikkuni, Calicut, Kerala, India",
     degree: "Higher Secondary",
     period: "Higher Secondary Education",
     icon: <GraduationIcon />,
@@ -42,8 +47,9 @@ const milestones: Milestone[] = [
   {
     id: 5,
     institution: "Al-Azhar Engineering College",
+    place: "Thodupuzha, Kerala, India",
     degree: "B.Tech Computer Science & Engineering (Cyber Security)",
-    period: "2024 – Present",
+    period: "2026 – Present",
     icon: <CyberShieldIcon />,
   },
 ];
@@ -170,6 +176,9 @@ function MilestoneCard({ milestone, index }: { milestone: Milestone; index: numb
                     {milestone.institution}
                   </h3>
                   <p className="text-sm text-text-alt/50 leading-relaxed">
+                    {milestone.place}
+                  </p>
+                  <p className="text-sm text-text-alt/50 leading-relaxed">
                     {milestone.degree}
                   </p>
                 </div>
@@ -208,6 +217,9 @@ function MilestoneCard({ milestone, index }: { milestone: Milestone; index: numb
                     <h3 className="text-sm sm:text-base font-display font-bold uppercase tracking-tight text-text-alt mb-1">
                       {milestone.institution}
                     </h3>
+                    <p className="text-sm text-text-alt/50 leading-relaxed">
+                      {milestone.place}
+                    </p>
                     <p className="text-xs text-text-alt/50 leading-relaxed">
                       {milestone.degree}
                     </p>
@@ -274,7 +286,7 @@ export default function Education() {
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <p className="text-sm text-text-alt/60">
-              Currently pursuing a B.Tech in Cyber Security at Al-Azhar Engineering College.
+              Currently pursuing a B.Tech CSE in Cyber Security at Al-Azhar Engineering College.
             </p>
             <a
               href="#contact"

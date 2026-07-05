@@ -6,6 +6,7 @@ const tags = [
   { icon: HeadphonesIcon, label: "Music Artist" },
   { icon: PaletteIcon, label: "Founder" },
   { icon: TerminalIcon, label: "Linux Enthusiast" },
+  { icon: TerminalIcon, label: "Cyber Security Student" },
   { icon: ExternalIcon, label: "UI/UX Designer" },
 ];
 

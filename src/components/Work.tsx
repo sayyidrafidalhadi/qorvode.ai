@@ -28,17 +28,6 @@ const Work = () => {
       status: "Live"
     },
     {
-      id: 1,
-      brand: "Kithademic Studies",
-      problem: "Islamic & academic excellence platform lacking modern digital presence and user trust",
-      approach: "Premium rebranding with performance-first architecture and authority-focused design system",
-      result: "Modern educational platform built to inspire trust and knowledge transfer",
-      metric: "35% increase in enrollments",
-      timeline: "Delivered in 3 weeks",
-      tags: ["Next.js", "Education", "Islamic", "Platform"],
-      status: "Live"
-    },
-    {
       id: 3,
       brand: "Meliqo",
       problem: "No dedicated halal audio streaming platform with lossless quality and privacy-first approach for Muslim audiences",

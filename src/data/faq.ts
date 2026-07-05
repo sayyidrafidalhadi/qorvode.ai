@@ -5,6 +5,10 @@ export interface FaqItem {
 
 export const faq: FaqItem[] = [
   {
+    question: "What is your background?",
+    answer: "I am a full-stack web and mobile developer with a strong foundation in modern technologies. I have experience in building responsive and interactive applications, as well as a passion for music production."
+  },
+  {
     question: "What is your primary development stack?",
     answer: "I specialize in modern web and mobile technologies — Next.js, React, Tailwind CSS, TypeScript, Firebase, and Three.js for immersive 3D interfaces. I build everything mobile-first."
   },
