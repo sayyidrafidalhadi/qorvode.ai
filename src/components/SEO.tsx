@@ -101,7 +101,7 @@ const organizationSchema = {
   name: "QORVODE",
   alternateName: "Qorvode AI",
   url: siteUrl,
-  logo: imageUrl,
+  logo: `${siteUrl}/logo.webp`,
   description: "Premium digital experiences agency. Bespoke design and high-performance development for brands that want to dominate.",
   foundingDate: "2026",
   founder: {
