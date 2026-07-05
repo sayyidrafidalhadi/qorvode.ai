@@ -40,14 +40,14 @@ const legalData: Record<string, LegalSection> = {
 };
 
 const Navbar = () => {
-    return (
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-bg/80 backdrop-blur-md border-b border-white/10">
-        <a href="/" className="text-xl font-display uppercase tracking-tighter cursor-pointer">
-          {site.brand}.
-        </a>
-      </nav>
-    );
-  };
+  return (
+    <nav className="fixed top-0 left-0 w-full z-50 px-5 sm:px-8 lg:px-12 py-5 flex justify-between items-center bg-bg-alt/90 backdrop-blur-md border-b-[3px] border-accent-alt">
+      <a href="/" className="text-xl font-display font-bold uppercase tracking-tighter text-text-alt hover:text-accent-alt transition-colors">
+        {site.brand}.
+      </a>
+    </nav>
+  );
+};
 
 function LegalPage() {
   const path = window.location.pathname.toLowerCase();
@@ -60,39 +60,60 @@ function LegalPage() {
   }, [page]);
 
   return (
-    <div className="bg-bg min-h-screen selection:bg-accent selection:text-white text-white">
+    <div className="bg-bg-alt min-h-screen selection:bg-accent-alt selection:text-bg-alt text-text-alt">
       <AmoledBackground />
       <Navbar />
-      <main className="pt-48 pb-24 px-6 max-w-4xl mx-auto">
-        <a href="/" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold opacity-40 hover:opacity-100 hover:text-accent transition-all mb-12">
+      <main className="pt-36 sm:pt-40 pb-24 px-5 sm:px-8 lg:px-12 max-w-4xl mx-auto">
+        <motion.a
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          href="/"
+          className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-text-alt/50 hover:text-accent-alt transition-colors mb-10 sm:mb-14"
+        >
           <ArrowLeft className="w-4 h-4" /> Back to Base
-        </a>
+        </motion.a>
 
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white/5 border border-white/10 rounded-[40px] p-12 glass"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.8, ease: [0.2, 0, 0, 1] }}
         >
-          <h1 className="text-5xl md:text-7xl font-display uppercase leading-none mb-12">{page.title}</h1>
-          <span className="text-[10px] uppercase tracking-widest font-bold opacity-30 block mb-12">Effective Date: February 25, 2024</span>
+          <div className="bg-surface-alt brutal-border-alt p-8 sm:p-12 lg:p-16">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text-alt mb-6">
+              {page.title}
+            </h1>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/60 block mb-12">
+              Effective Date: February 25, 2024
+            </span>
 
-          <div className="space-y-12">
-            {page.sections.map(([title, text]) => (
+            <div className="space-y-12">
+              {page.sections.map(([title, text]) => (
                 <section key={title}>
-                <h3 className="text-2xl font-display uppercase mb-4 text-accent">{title}</h3>
-                <p className="text-lg opacity-60 leading-relaxed font-light">{text}</p>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-accent-alt mb-3">
+                    {title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-text-alt/60 leading-relaxed font-light">
+                    {text}
+                  </p>
                 </section>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="mt-16 pt-12 border-t border-white/10">
-            <h3 className="text-2xl font-display uppercase mb-4">Contact Information</h3>
-            <p className="text-lg opacity-60">Email: {site.email}</p>
+            <div className="mt-16 pt-12 border-t-[3px] border-accent-alt">
+              <h3 className="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-accent-alt mb-3">
+                Contact Information
+              </h3>
+              <p className="text-sm sm:text-base text-text-alt/60 leading-relaxed font-light">
+                Email: {site.email}
+              </p>
+            </div>
           </div>
         </motion.div>
       </main>
-      <footer className="py-24 px-6 border-t border-white/10 text-center opacity-30 text-[10px] uppercase tracking-widest">
-         © {new Date().getFullYear()} {site.brand} · Compliance Dept.
+      <footer className="py-16 sm:py-20 px-5 sm:px-8 lg:px-12 border-t-[3px] border-accent-alt text-center">
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-alt/30">
+          &copy; {new Date().getFullYear()} {site.brand} &middot; Compliance Dept.
+        </p>
       </footer>
     </div>
   );

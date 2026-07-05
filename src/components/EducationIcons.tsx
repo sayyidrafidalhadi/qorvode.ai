@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 
-const iconBase = "text-accent";
+const iconBase = "text-white";
 
 function IconWrap({ children, label }: { children: React.ReactNode; label: string }) {
   return (

@@ -32,8 +32,8 @@ export const site: SiteConfig = {
   hero: {
     badge: "Available for Selective Partnerships · 2026",
     headline: {
-      top: "Design. Development.",
-      bottom: "Digital Authority."
+      top: "Sayyid Rafid",
+      bottom: "Al Hadi."
     },
     subheadline: "We build premium digital experiences that transform brands into industry leaders. High-ticket solutions for serious businesses.",
     ctaPrimary: "Start Your Brand Upgrade",

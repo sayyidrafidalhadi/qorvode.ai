@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import Marquee from './components/Marquee';
 import Work from './components/Work';
 import Process from './components/Process';
-import About from './components/About';
+import FounderPage from './components/FounderPage';
 import Education from './components/Education';
 import MusicSection from './components/MusicSection';
 import Niches from './components/Niches';
@@ -17,6 +17,7 @@ import Testimonials from './components/Testimonials';
 import LatestArticles from './components/LatestArticles';
 import Services from './components/Services';
 import SocialProof from './components/SocialProof';
+import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
 import BackToTop from './components/BackToTop';
 import SEO from './components/SEO';
@@ -38,7 +39,7 @@ export default function App() {
         <Marquee />
         <Work />
         <Process />
-        <About />
+        <FounderPage />
         <Education />
         <Niches />
         <Testimonials />
@@ -46,6 +47,7 @@ export default function App() {
         <LatestArticles />
         <Services />
         <SocialProof />
+        <FAQ />
         <TerminalSection />
       </main>
       <Contact />
