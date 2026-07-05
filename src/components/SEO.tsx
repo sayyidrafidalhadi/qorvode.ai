@@ -47,7 +47,7 @@ const personSchema = {
     "Kali Linux",
     "Android Customization",
   ])],
-  jobTitle: ["Vibecoder", "Music Artist", "Founder"],
+  jobTitle: ["Developer", "Music Artist", "Founder"],
   knowsLanguage: [
     { "@type": "Language", name: "English" },
     { "@type": "Language", name: "Arabic" },
