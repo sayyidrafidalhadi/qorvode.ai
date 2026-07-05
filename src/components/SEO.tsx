@@ -5,7 +5,7 @@ import { releases } from "@/data/releases";
 import { arsenal } from "@/data/arsenal";
 
 const siteUrl = site.url;
-const imageUrl = "https://res.cloudinary.com/detke30vn/image/upload/v1777443295/file_0000000006007208afa7d600fdb83b0a_zdxltn.png";
+const imageUrl = `${siteUrl}/logo.webp`;
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -101,7 +101,7 @@ const organizationSchema = {
   name: "QORVODE",
   alternateName: "Qorvode AI",
   url: siteUrl,
-  logo: `${siteUrl}/logo.webp`,
+  logo: imageUrl,
   description: "Premium digital experiences agency. Bespoke design and high-performance development for brands that want to dominate.",
   foundingDate: "2026",
   founder: {
