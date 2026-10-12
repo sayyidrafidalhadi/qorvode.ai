@@ -6,6 +6,7 @@ import { arsenal } from "@/data/arsenal";
 
 const siteUrl = site.url;
 const imageUrl = `${siteUrl}/logo.webp`;
+const aliases = [...new Set([site.name, ...site.aliases])];
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -13,11 +14,13 @@ const personSchema = {
   name: site.name,
   givenName: "Sayyid Rafid",
   familyName: "Al Hadi",
-  alternateName: "zydhh.hadi",
+  additionalName: "Muhammed Rafid Thangal",
+  alternateName: aliases,
   description: site.description,
   url: siteUrl,
   email: site.email,
   image: imageUrl,
+  keywords: site.keywords.join(", "),
   sameAs: [
     "https://instagram.com/zydhh.hadi",
     site.github,
@@ -99,15 +102,22 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "QORVODE",
-  alternateName: "Qorvode AI",
+  alternateName: ["Qorvode AI", "QORVODE.AI", "qorvode.ai", "Qorvode"],
   url: siteUrl,
   logo: imageUrl,
-  description: "Premium digital experiences agency. Bespoke design and high-performance development for brands that want to dominate.",
+  description: "Qorvode AI is a premium digital experiences studio founded by Sayyid Rafid Al Hadi (Rafid Thangal). Bespoke web development, UI/UX design, brand identity, and cinematic music for brands that want to dominate.",
+  keywords: site.keywords.join(", "),
   foundingDate: "2026",
   founder: {
     "@type": "Person",
     name: site.name,
+    alternateName: aliases,
   },
+  foundingLocation: {
+    "@type": "Place",
+    name: "Kerala, India",
+  },
+  areaServed: "Worldwide",
   email: site.email,
   sameAs: [
     "https://instagram.com/zydhh.hadi",
@@ -130,8 +140,14 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: `${site.name} | QORVODE`,
+  alternateName: site.aliases,
   url: siteUrl,
   description: site.description,
+  keywords: site.keywords.join(", "),
+  about: {
+    "@type": "Person",
+    name: site.name,
+  },
   author: {
     "@type": "Person",
     name: site.name,

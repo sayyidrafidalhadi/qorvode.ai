@@ -39,9 +39,9 @@ const PremiumBackground = () => {
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
 
-      const goldColor = new THREE.Color(0xC5A059);
-      const emeraldColor = new THREE.Color(0x064E3B);
-      const whiteColor = new THREE.Color(0xFFFFFF);
+      const brightColor = new THREE.Color(0xFFFFFF);
+      const midColor = new THREE.Color(0x9CA3AF);
+      const dimColor = new THREE.Color(0x4B5563);
 
       for (let i = 0; i < particleCount; i++) {
         const i3 = i * 3;
@@ -51,9 +51,9 @@ const PremiumBackground = () => {
 
         const colorChoice = Math.random();
         let color: THREE.Color;
-        if (colorChoice < 0.4) color = goldColor;
-        else if (colorChoice < 0.6) color = emeraldColor;
-        else color = whiteColor;
+        if (colorChoice < 0.4) color = brightColor;
+        else if (colorChoice < 0.6) color = midColor;
+        else color = dimColor;
 
         colors[i3] = color.r;
         colors[i3 + 1] = color.g;

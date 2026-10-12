@@ -1,6 +1,14 @@
 import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 import { ExternalIcon } from "@/components/Icons";
+import ScrambleText from "@/components/motion/ScrambleText";
+import TiltCard from "@/components/motion/TiltCard";
+
+interface CuratedBlock {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+}
 
 interface CaseStudy {
   id: number;
@@ -12,6 +20,7 @@ interface CaseStudy {
   timeline: string;
   tags: string[];
   status: string;
+  curated?: CuratedBlock;
 }
 
 const Work = () => {
@@ -25,7 +34,16 @@ const Work = () => {
       metric: "100+ design inquiries/month",
       timeline: "Delivered in 3 weeks",
       tags: ["React", "3D", "Premium Design", "UI/UX"],
-      status: "Live"
+      status: "Live",
+      curated: {
+        eyebrow: "Studio standard",
+        title: "The Elvora Design Standard.",
+        paragraphs: [
+          "Elvora is a modern graphic design studio crafting distinctive brand identities that leave lasting impressions — logos, packaging, and visual systems built from the idea up, never pulled from a template.",
+          "Every project moves through a transparent, collaborative process: strategy, exploration, refinement, and delivery. You stay informed at each step, and nothing ships until the craft holds up.",
+          "From brand identity and packaging to promotional posters and complete social presences, each piece is designed to feel unmistakably yours — and to stay consistent across every surface it touches."
+        ]
+      }
     },
     {
       id: 3,
@@ -36,7 +54,16 @@ const Work = () => {
       metric: "Launching soon — waitlist active",
       timeline: "Delivered in 2 weeks",
       tags: ["React", "Audio", "Islamic", "Streaming"],
-      status: "Coming Soon"
+      status: "Coming Soon",
+      curated: {
+        eyebrow: "Curated experience",
+        title: "The Meliqo Audio Standard.",
+        paragraphs: [
+          "Every track on Meliqo passes through a two-stage filter: curation review and audio engineering. If it compromises your ears or your values, it does not belong here.",
+          "Curated albums, live sessions, ambient soundscapes — all vetted through a lens that honours the craft of recording without sacrificing modern production values.",
+          "Our panel is made of people who listen critically every day, master audio for a living, and believe your playlist should feel like an extension of your taste — not an algorithmic guess."
+        ]
+      }
     }
   ];
 
@@ -52,8 +79,9 @@ const Work = () => {
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent block mb-4">Case Studies</span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text">
-              Work That<br />
-              <span className="text-accent italic font-serif normal-case">Builds Authority.</span>
+              <ScrambleText text="Work That" />
+              <br />
+              <ScrambleText text="Builds Authority." className="text-accent italic font-serif normal-case" />
             </h2>
             <p className="max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-text/60 font-serif italic border-l-[3px] border-accent pl-6 mt-6">
               Not projects — business transformations. Each system engineered to solve specific problems and deliver measurable results for premium brands.
@@ -62,7 +90,9 @@ const Work = () => {
         </div>
 
         <div className="space-y-12 sm:space-y-16">
-          {caseStudies.map((study, i) => (
+          {caseStudies.map((study, i) => {
+            const project = projects.find((p) => p.title === study.brand);
+            return (
             <motion.article
               key={study.id}
               initial={{ opacity: 0, y: 40 }}
@@ -75,7 +105,7 @@ const Work = () => {
                 <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
                   <div className="flex items-center gap-4">
                     <span className="text-[10px] font-mono font-bold text-text/40">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 bg-accent text-text-alt">{study.status}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 bg-accent text-bg">{study.status}</span>
                   </div>
 
                   <div>
@@ -86,6 +116,24 @@ const Work = () => {
                       {study.problem}
                     </p>
                   </div>
+
+                  {study.curated && (
+                    <div className="rounded-r-lg border-l-2 border-accent bg-surface/60 p-5 sm:p-6">
+                      <span className="mb-3 block font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-accent">
+                        {study.curated.eyebrow}
+                      </span>
+                      <h4 className="mb-3 font-display text-lg font-bold tracking-tight text-text sm:text-xl">
+                        {study.curated.title}
+                      </h4>
+                      <div className="space-y-3">
+                        {study.curated.paragraphs.map((para) => (
+                          <p key={para} className="text-sm leading-relaxed text-text/60">
+                            {para}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   <div className="space-y-4">
                     <div>
@@ -111,23 +159,41 @@ const Work = () => {
                   </div>
                 </div>
 
-                <div className="relative aspect-[16/10] lg:aspect-[4/3] order-1 lg:order-2 brutal-border bg-surface overflow-hidden flex items-center justify-center">
-                  <div className="text-center px-8">
-                    <span className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-tight text-text/20 block mb-6">{study.brand}</span>
+                <TiltCard className="order-1 lg:order-2 w-full rounded-2xl" max={8}>
+                  <div className="group/media relative aspect-[16/10] lg:aspect-[4/3] brutal-border bg-surface overflow-hidden">
+                  {project?.image && (
+                    <img
+                      src={project.image}
+                      alt={`${study.brand} website preview`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover/media:scale-[1.04]"
+                    />
+                  )}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-linear-to-t from-bg via-bg/35 to-transparent"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
+                    <span className="font-display text-lg font-bold tracking-tight text-text sm:text-xl">
+                      {study.brand}
+                    </span>
                     <a
-                      href={projects.find(p => p.title === study.brand)?.url || '#'}
+                      href={project?.url || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-text-alt text-[10px] font-bold uppercase tracking-[0.15em] brutal-shadow-sm-alt hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 font-mono text-[11px] font-medium text-bg transition-colors duration-150 hover:bg-[color-mix(in_oklch,var(--color-accent),white_14%)]"
                       aria-label={`Visit ${study.brand} website`}
                     >
                       Visit Site <ExternalIcon size="sm" aria-hidden="true" />
                     </a>
                   </div>
                 </div>
+                </TiltCard>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </div>
 
         <motion.div
@@ -148,7 +214,7 @@ const Work = () => {
             </div>
             <a
               href="#contact"
-              className="px-8 py-4 bg-accent text-text-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border-alt brutal-shadow-lg-alt hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all duration-300"
+              className="px-8 py-4 bg-accent text-bg font-bold text-[10px] uppercase tracking-[0.2em] brutal-border-alt brutal-shadow-lg-alt hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none transition-all duration-300"
               aria-label="Start a conversation about your project"
             >
               Start Conversation

@@ -5,6 +5,14 @@ export interface FaqItem {
 
 export const faq: FaqItem[] = [
   {
+    question: "Who is the founder of QORVODE?",
+    answer: "QORVODE was founded by Sayyid Rafid Al Hadi — a web developer and music artist from Kerala, India, known online as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, or zydhh.hadi."
+  },
+  {
+    question: "What is QORVODE (Qorvode AI)?",
+    answer: "Qorvode AI (QORVODE) is a premium digital experiences studio founded by Sayyid Rafid Al Hadi. It delivers high-performance web development, UI/UX design, brand identity, and cinematic Islamic music from Kerala, India."
+  },
+  {
     question: "What is your background?",
     answer: "I am a full-stack web and mobile developer with a strong foundation in modern technologies. I have experience in building responsive and interactive applications, as well as a passion for music production."
   },

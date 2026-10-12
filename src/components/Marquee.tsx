@@ -1,25 +1,80 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from "motion/react";
+
+const ITEMS = [
+  "Digital Authority",
+  "Premium Design",
+  "Strategic Development",
+  "Conversion Focus",
+  "Bespoke Solutions",
+  "Brand Upgrade",
+];
+
+function wrap(min: number, max: number, v: number) {
+  const range = max - min;
+  return ((((v - min) % range) + range) % range) + min;
+}
+
+function Track() {
+  return (
+    <div className="flex items-center gap-12">
+      {ITEMS.map((text) => (
+        <span key={text} className="flex items-center gap-12">
+          <span className="font-mono text-xs uppercase tracking-[0.35em] text-text/35 sm:text-sm">
+            {text}
+          </span>
+          <span className="block size-1.5 bg-accent/50" />
+        </span>
+      ))}
+    </div>
+  );
+}
 
 const Marquee = () => {
-  const items = ["Digital Authority", "Premium Design", "Strategic Development", "Conversion Focus", "Bespoke Solutions", "Brand Upgrade"];
+  const reduce = useReducedMotion();
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  const velocityFactor = useTransform(
+    smoothVelocity,
+    [0, 1400],
+    [0, 4],
+    { clamp: false },
+  );
+  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
+  const directionFactor = useRef<number>(1);
+
+  useAnimationFrame((_, delta) => {
+    if (reduce) return;
+    const velocity = velocityFactor.get();
+    if (velocity < 0) directionFactor.current = -1;
+    else if (velocity > 0) directionFactor.current = 1;
+
+    let moveBy = directionFactor.current * -1.6 * (delta / 1000);
+    moveBy += directionFactor.current * moveBy * Math.abs(velocity) * 0.6;
+    baseX.set(baseX.get() + moveBy);
+  });
+
   return (
-    <div className="py-8 sm:py-16 border-y-[3px] border-accent-alt bg-bg-alt overflow-hidden" aria-hidden="true">
+    <div className="overflow-hidden border-y border-border bg-bg-alt py-5" aria-hidden="true">
       <div className="flex whitespace-nowrap">
-        {[1, 2].map((i) => (
-          <motion.div
-            key={i}
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="flex items-center gap-16 sm:gap-24 px-8 sm:px-12"
-          >
-            {items.map((text) => (
-              <div key={text} className="flex items-center gap-16 sm:gap-24">
-                <span className="text-lg sm:text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter text-text-alt/20">{text}</span>
-                <span className="w-2 h-2 bg-accent-alt/40" />
-              </div>
-            ))}
-          </motion.div>
-        ))}
+        <motion.div className="flex items-center gap-12 px-6" style={{ x }}>
+          <Track />
+          <Track />
+        </motion.div>
       </div>
     </div>
   );

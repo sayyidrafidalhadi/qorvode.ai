@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
-import { CodeIcon, PaletteIcon, HeadphonesIcon, TerminalIcon, ExternalIcon } from "@/components/Icons";
+import { site } from "@/data/site";
+import { team } from "@/data/team";
+import ScrambleText from "@/components/motion/ScrambleText";
+import { CodeIcon, PaletteIcon, HeadphonesIcon, TerminalIcon, ExternalIcon, MailIcon } from "@/components/Icons";
 
 const tags = [
   { icon: CodeIcon, label: "Vibecoder" },
@@ -53,30 +56,6 @@ const FounderPage = () => {
     <div className="min-h-screen bg-bg text-text font-sans">
       {/* ========== INTRO + ABOUT (MERGED) — FULL-BLEED ========== */}
       <section id="about" className="relative min-h-screen sm:min-h-[80vh] bg-bg border-y-[3px] border-accent overflow-hidden">
-        {/* Full-bleed cutout background */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1, filter: "blur(15px)" }}
-          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.2, 0, 0, 1] }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <picture>
-            <source media="(min-width: 768px)" srcSet="/landscapesayyid.png" />
-            <img
-              src="/portraitsayyid.jpg"
-              alt=""
-              className="h-full w-full object-cover object-left scale-[1.8] saturate-[0.15]"
-            />
-          </picture>
-          {/* Tint overlay */}
-          <div className="absolute inset-0 bg-bg mix-blend-multiply" />
-        </motion.div>
-
-        {/* Gradient veil */}
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/30 via-bg/85 to-bg" />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/10" />
-
         {/* Content */}
         <div className="relative z-10 w-full h-full min-h-screen sm:min-h-[80vh] flex items-center">
           <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28">
@@ -92,13 +71,14 @@ const FounderPage = () => {
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent font-mono">
-                    QORVODE.AI / Founder profile
+                    About QORVODE / The studio
                   </span>
                 </div>
 
                 <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.95] tracking-tighter text-text">
-                  Sayyid Rafid<br />
-                  <span className="text-accent italic font-serif normal-case">Al Hadi.</span>
+                  <ScrambleText text="A studio of" />
+                  <br />
+                  <ScrambleText text="makers & storytellers." className="text-accent italic font-serif normal-case" />
                 </h2>
 
                 <div className="flex flex-wrap gap-3">
@@ -133,7 +113,7 @@ const FounderPage = () => {
                 className="space-y-5 sm:space-y-6"
               >
                 <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-text/70 font-serif italic">
-                  I build high-performance web experiences and digital brands that bridge the gap between technical efficiency and creative storytelling.
+                  Hey, I'm <span className="font-semibold text-accent">Sayyid Rafid Al Hadi</span> — founder of QORVODE. I build high-performance web experiences and digital brands that bridge the gap between technical efficiency and creative storytelling.
                 </p>
 
                 <p className="text-sm leading-relaxed text-text/60">
@@ -190,6 +170,61 @@ const FounderPage = () => {
                 </div>
               </motion.div>
             </div>
+
+            {/* ========== TEAM ========== */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mt-16 border-t border-border pt-12 sm:mt-24 sm:pt-16"
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent font-mono">
+                  The team
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {team.map((member) => (
+                  <div
+                    key={member.name}
+                    className="flex flex-col bg-surface brutal-border p-6"
+                  >
+                    <div className="mb-4 flex size-12 items-center justify-center rounded-md bg-bg-alt brutal-border font-display text-lg font-bold text-accent">
+                      {member.initials}
+                    </div>
+                    <h3 className="text-lg font-display font-bold tracking-tight text-text">
+                      {member.name}
+                    </h3>
+                    <span className="mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-accent">
+                      {member.role}
+                    </span>
+                    {member.bio && (
+                      <p className="mt-3 flex-1 text-sm leading-relaxed text-text/60">
+                        {member.bio}
+                      </p>
+                    )}
+                    {member.links && member.links.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-4">
+                        {member.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-[10px] uppercase tracking-[0.15em] text-text/50 transition-colors hover:text-accent"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -225,7 +260,7 @@ const FounderPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-surface-alt brutal-border-alt shadow-[5px_5px_0px_#111] p-6 flex flex-col hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+                className="bg-surface-alt brutal-border-alt shadow-[5px_5px_0px_var(--color-border)] p-6 flex flex-col hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
               >
                 {/* Icon shell */}
                 <div className="w-10 h-10 bg-bg brutal-border flex items-center justify-center mb-4">
@@ -274,86 +309,103 @@ const FounderPage = () => {
           </div>
         </div>
       </section>
+    </div>
+  );
+};
 
-      {/* ========== CONTACT / FOOTER ========== */}
-      <footer className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-bg">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-surface brutal-border brutal-shadow-lg p-8 sm:p-12 lg:p-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
+function getHijriYear(): number {
+  const now = new Date();
+  const gregorianYear = now.getFullYear();
+  const hijriOffset = Math.floor((gregorianYear - 622) * (33 / 32));
+  return hijriOffset;
+}
+
+export const SiteFooter = () => {
+  return (
+    <footer className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-bg">
+      <div className="max-w-7xl mx-auto">
+        {/* Contact / Collaborate CTA */}
+        <div className="bg-surface brutal-border brutal-shadow-lg p-8 sm:p-12 lg:p-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
+          >
+            <div className="space-y-4 max-w-xl">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent font-mono block">
+                Contact / Collaborate
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight text-text">
+                Let's collaborate on something meaningful.
+              </h2>
+              <p className="text-sm sm:text-base leading-relaxed text-text/60">
+                Reach QORVODE for websites, branding, social creatives, music visuals, or focused product interfaces.
+              </p>
+            </div>
+
+            <a
+              href={`mailto:${site.email}`}
+              className="inline-flex items-center gap-3 px-6 py-4 bg-bg-alt brutal-border-alt shadow-[4px_4px_0px_var(--color-border)] text-text-alt font-mono text-[12px] font-semibold uppercase tracking-wider hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300 shrink-0"
             >
-              <div className="space-y-4 max-w-xl">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent font-mono block">
-                  Contact / Collaborate
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] tracking-tight text-text">
-                  Let's collaborate on something meaningful.
-                </h2>
-                <p className="text-sm sm:text-base leading-relaxed text-text/60">
-                  Reach QORVODE for websites, branding, social creatives, music visuals, or focused product interfaces.
-                </p>
+              <MailIcon size="sm" />
+              {site.email}
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Site footer bar */}
+        <div className="mt-16 pt-10 border-t-[3px] border-accent-alt/20">
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 p-8 sm:p-10 brutal-border-alt bg-surface-alt">
+            <div className="flex flex-col gap-4 max-w-sm">
+              <span className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-tighter text-text-alt">
+                {site.brand}<span className="text-accent-alt">.</span>
+              </span>
+              <p className="text-sm leading-relaxed text-text-alt/60">
+                Crafting premium digital experiences that blend technical excellence with creative storytelling.
+              </p>
+              <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-text-alt/40 pt-2">
+                © {new Date().getFullYear()} / {getHijriYear()} AH · Kerala, India
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-10 sm:gap-16">
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Navigation</span>
+                <div className="flex flex-col gap-3">
+                  <a href="#work" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Work</a>
+                  <a href="#about" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">About</a>
+                  <a href="/articles.html" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Insights</a>
+                  <a href="#contact" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Contact</a>
+                </div>
               </div>
 
-              <a
-                href="mailto:qorvode.ai@gmail.com"
-                className="inline-flex items-center gap-3 px-6 py-4 bg-bg-alt brutal-border-alt shadow-[4px_4px_0px_#111] text-text-alt font-mono text-[12px] font-semibold uppercase tracking-wider hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300 shrink-0"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5 text-accent-alt"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M0 0h9.75v9.75H0z" transform="translate(8.25 6)" />
-                  <path d="M0 7.125L7.125 0" transform="translate(6 10.875)" />
-                  <path d="M0 0h9.75v9.75H0z" transform="translate(8.25 6)" />
-                </svg>
-                qorvode.ai@gmail.com
-              </a>
-            </motion.div>
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Connect</span>
+                <div className="flex flex-col gap-3">
+                  <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">GitHub</a>
+                  <a href="https://instagram.com/qorvode.ai" target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Instagram</a>
+                  <a href={`mailto:${site.email}`} className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Email</a>
+                </div>
+              </div>
 
-            <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-border">
-              <a
-                href="https://instagram.com/zydhh.hadi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-text/60 hover:text-accent transition-colors"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://github.com/sayyidrafidalhadi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-text/60 hover:text-accent transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://qorvode.co.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-text/60 hover:text-accent transition-colors"
-              >
-                qorvode.co.in
-              </a>
+              <div className="flex flex-col gap-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Legal</span>
+                <div className="flex flex-col gap-3">
+                  <a href="/privacy.html" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Privacy Policy</a>
+                  <a href="/terms.html" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Terms of Service</a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-between gap-2 mt-8 text-xs text-text/50">
-            <p>© 2026 QORVODE / Sayyid Rafid Al Hadi</p>
-            <p>Kerala, India • English / Arabic / Malayalam • +919526755210</p>
-          </div>
+          <p className="text-[9px] font-mono text-text-alt/30 uppercase tracking-[0.15em] text-center mt-8">
+            {site.terminalPrompt}
+          </p>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

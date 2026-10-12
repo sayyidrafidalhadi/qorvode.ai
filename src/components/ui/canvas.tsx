@@ -145,8 +145,9 @@ function render() {
     ctx.globalCompositeOperation = "source-over";
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.globalCompositeOperation = "lighter";
-    ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",100%,50%,0.025)";
-    ctx.lineWidth = 10;
+    f.update();
+    ctx.strokeStyle = "rgba(185,206,130,0.06)";
+    ctx.lineWidth = 8;
     for (let e, t = 0; t < E.trails; t++) {
       (e = lines[t]).update();
       e.draw();

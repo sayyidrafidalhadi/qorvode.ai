@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import TestimonialsCard from "./TestimonialsCard";
+import ScrambleText from "@/components/motion/ScrambleText";
 
 interface TestimonialItem {
   id: number;
@@ -44,8 +45,9 @@ const Testimonials = () => {
         >
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-alt block mb-4">Client Success</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text-alt">
-            Trusted by<br />
-            <span className="text-accent-alt italic font-serif normal-case">Serious Brands.</span>
+            <ScrambleText text="Trusted by" />
+            <br />
+            <ScrambleText text="Serious Brands." className="text-accent-alt italic font-serif normal-case" />
           </h2>
           <p className="max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-text-alt/60 font-serif italic border-l-[3px] border-accent-alt pl-6 mt-6">
             Real results. Real trust. Every project engineered to deliver measurable business outcomes for clients who expect more.

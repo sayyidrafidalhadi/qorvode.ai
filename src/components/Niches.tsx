@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { PerfumeIcon, StoreIcon, CrescentIcon, DiamondIcon } from "@/components/Icons";
+import ScrambleText from "@/components/motion/ScrambleText";
 
 interface Niche {
   id: number;
@@ -48,8 +49,9 @@ const Niches = () => {
         >
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent block">Specialization</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text">
-            Industries<br />
-            <span className="text-accent italic font-serif normal-case">I Serve.</span>
+            <ScrambleText text="Industries" />
+            <br />
+            <ScrambleText text="I Serve." className="text-accent italic font-serif normal-case" />
           </h2>
           <p className="max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-text/60 font-serif italic border-l-[3px] border-accent pl-6 mt-6">
             Focused expertise in industries where premium positioning makes all the difference. I understand the nuances that matter.

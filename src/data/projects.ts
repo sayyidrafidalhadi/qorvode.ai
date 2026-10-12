@@ -6,6 +6,7 @@ export interface Project {
   statusType: string;
   tags: string[];
   url: string;
+  image?: string;
   wide?: boolean;
 }
 
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     statusType: "success",
     tags: ["React", "3D", "Premium Design", "UI/UX"],
     url: "https://elvoracreative.vercel.app/",
+    image: "/elvora.png",
     wide: true
   },
 {
@@ -28,6 +30,7 @@ export const projects: Project[] = [
     statusType: "default",
     tags: ["React", "Audio", "Islamic", "Streaming", "Tailwind CSS"],
     url: "https://meliqo.qorvode.co.in/",
+    image: "/meliqo.png",
     wide: true
   }
 ];

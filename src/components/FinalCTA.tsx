@@ -1,14 +1,7 @@
 import { useState, useRef, useMemo, FormEvent } from "react";
 import { motion } from "motion/react";
-import { site } from "@/data/site";
-import { MailIcon } from "@/components/Icons";
-
-function getHijriYear(): number {
-  const now = new Date();
-  const gregorianYear = now.getFullYear();
-  const hijriOffset = Math.floor((gregorianYear - 622) * (33 / 32));
-  return hijriOffset;
-}
+import ShaderAurora from "@/components/ShaderAurora";
+import ScrambleText from "@/components/motion/ScrambleText";
 
 const FinalCTA = () => {
   const [state, setState] = useState<'idle' | 'sending' | 'success'>('idle');
@@ -59,8 +52,9 @@ const FinalCTA = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 sm:py-48 px-5 sm:px-8 lg:px-12 bg-bg-alt border-t-[3px] border-accent-alt">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="relative overflow-hidden py-32 sm:py-48 px-5 sm:px-8 lg:px-12 bg-bg-alt border-t-[3px] border-accent-alt">
+      <ShaderAurora className="pointer-events-none absolute inset-0 h-full w-full opacity-25" />
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20 sm:mb-28">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,8 +66,9 @@ const FinalCTA = () => {
             <div>
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-alt block mb-4 sm:mb-6">Project Discovery</span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text-alt">
-                Where Serious<br />
-                <span className="text-accent-alt italic font-serif normal-case">Projects Begin.</span>
+                <ScrambleText text="Where Serious" />
+                <br />
+                <ScrambleText text="Projects Begin." className="text-accent-alt italic font-serif normal-case" />
               </h2>
             </div>
 
@@ -156,53 +151,6 @@ const FinalCTA = () => {
               </button>
             </form>
           </motion.div>
-        </div>
-
-        <div className="mt-16 pt-10 border-t-[3px] border-accent-alt/20">
-          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-12 p-8 sm:p-10 brutal-border-alt bg-surface-alt">
-            <div className="flex flex-col gap-4 max-w-sm">
-              <span className="text-2xl sm:text-3xl font-display font-bold uppercase tracking-tighter text-text-alt">{site.brand}<span className="text-accent-alt">.</span></span>
-              <p className="text-sm leading-relaxed text-text-alt/60">
-                Crafting premium digital experiences that blend technical excellence with creative storytelling.
-              </p>
-              <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-text-alt/40 pt-2">
-                © {new Date().getFullYear()} / {getHijriYear()} AH
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-10 sm:gap-16">
-              <div className="flex flex-col gap-4">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Navigation</span>
-                <div className="flex flex-col gap-3">
-                  <a href="#work" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Work</a>
-                  <a href="#about" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">About</a>
-                  <a href="/articles.html" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Insights</a>
-                  <a href="#contact" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Contact</a>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Connect</span>
-                <div className="flex flex-col gap-3">
-                  <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">GitHub</a>
-                  <a href="https://instagram.com/qorvode.ai" target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Instagram</a>
-                  <a href={`mailto:${site.email}`} className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium"><MailIcon size="sm" /> Email</a>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/70">Legal</span>
-                <div className="flex flex-col gap-3">
-                  <a href="/privacy.html" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Privacy Policy</a>
-                  <a href="/terms.html" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Terms of Service</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-[9px] font-mono text-text-alt/30 uppercase tracking-[0.15em] text-center mt-8">
-            {site.terminalPrompt}
-          </p>
         </div>
       </div>
     </section>

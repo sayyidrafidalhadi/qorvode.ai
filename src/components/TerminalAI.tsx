@@ -224,7 +224,7 @@ export const FloatingTerminal = () => {
         transition={{ delay: 1.5, duration: 0.5 }}
         whileHover={{ scale: 1.1, rotate: -5 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 sm:bottom-8 left-6 sm:left-8 z-40 w-14 h-14 sm:w-16 sm:h-16 bg-accent text-text-alt brutal-border brutal-shadow flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+        className="fixed bottom-6 sm:bottom-8 left-6 sm:left-8 z-40 w-14 h-14 sm:w-16 sm:h-16 bg-accent text-bg brutal-border brutal-shadow flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
         aria-label="Open AI Terminal"
       >
         <Terminal className="w-5 h-5 sm:w-6 sm:h-6" />

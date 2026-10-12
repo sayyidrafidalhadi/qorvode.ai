@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { faq } from "@/data/faq";
+import ScrambleText from "@/components/motion/ScrambleText";
 
 const iconBase = "text-accent-alt";
 
@@ -82,8 +83,9 @@ export default function FAQ() {
             Got Questions?
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text-alt">
-            Frequently Asked<br />
-            <span className="text-accent-alt italic font-serif normal-case">Questions.</span>
+            <ScrambleText text="Frequently Asked" />
+            <br />
+            <ScrambleText text="Questions." className="text-accent-alt italic font-serif normal-case" />
           </h2>
           <p className="max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-text-alt/60 font-serif italic border-l-[3px] border-accent-alt pl-6 mt-6">
             Quick answers to the most common things people ask me about.

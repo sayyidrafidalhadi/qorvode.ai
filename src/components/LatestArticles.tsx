@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import ScrambleText from "@/components/motion/ScrambleText";
 
 interface Insight {
   id: number;
@@ -41,8 +42,9 @@ const LatestArticles = () => {
           <div className="max-w-xl">
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-alt block mb-4">The Insights</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text-alt">
-              Strategic<br />
-              <span className="text-accent-alt italic font-serif normal-case">Intelligence.</span>
+              <ScrambleText text="Strategic" />
+              <br />
+              <ScrambleText text="Intelligence." className="text-accent-alt italic font-serif normal-case" />
             </h2>
           </div>
           <a

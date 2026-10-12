@@ -102,7 +102,7 @@ const TrackCard = ({ release, isActive, onPlay }: { release: Release; isActive: 
         aria-label={isActive ? `Pause ${release.title}` : `Play ${release.title}`}
       >
         <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all ${isActive ? 'bg-accent scale-110' : 'bg-white/5 group-hover:bg-accent/20'}`}>
-          {isActive ? <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" /> : <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-1" />}
+          {isActive ? <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-bg" /> : <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-1" />}
         </div>
 
         <div className="flex-1 text-left">
@@ -292,7 +292,7 @@ const MusicPage = () => {
   };
 
   return (
-    <div className="bg-bg min-h-screen selection:bg-accent selection:text-white text-white">
+    <div className="bg-bg min-h-screen selection:bg-accent selection:text-bg text-white">
       <AmoledBackground />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-accent z-[60] origin-left"

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ChartIcon, BriefcaseIcon, ShieldIcon, CheckIcon } from "@/components/Icons";
+import Counter from "@/components/motion/Counter";
 
 interface Metric {
   value: string;
@@ -41,9 +42,7 @@ const SocialProof = () => {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="text-center lg:text-left"
               >
-                <span className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-accent-alt tracking-tight block">
-                  {metric.value}
-                </span>
+                <Counter value={metric.value} className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-accent-alt tracking-tight block" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-alt/50 block mt-3">
                   {metric.label}
                 </span>

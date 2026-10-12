@@ -72,7 +72,7 @@ const Navbar = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 }}
               whileHover={{ scale: 1.05 }}
-              className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] bg-accent text-text-alt brutal-border-alt brutal-shadow-sm-alt"
+              className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] bg-accent text-bg brutal-border-alt brutal-shadow-sm-alt"
             >
               GitHub
             </motion.a>
@@ -128,7 +128,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMenuOpen(false)}
-                    className="mt-4 px-6 py-3 bg-accent text-text-alt font-bold text-[11px] uppercase tracking-[0.2em] text-center brutal-border-alt brutal-shadow-sm-alt"
+                    className="mt-4 px-6 py-3 bg-accent text-bg font-bold text-[11px] uppercase tracking-[0.2em] text-center brutal-border-alt brutal-shadow-sm-alt"
                   >
                     GitHub
                   </a>
@@ -307,7 +307,7 @@ const ArticleList = () => {
                                         href={article.repo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 mt-10 px-6 py-3 bg-accent text-text-alt font-bold text-[10px] uppercase tracking-[0.2em] brutal-border-alt brutal-shadow-sm-alt hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+                                        className="inline-flex items-center gap-3 mt-10 px-6 py-3 bg-accent text-bg font-bold text-[10px] uppercase tracking-[0.2em] brutal-border-alt brutal-shadow-sm-alt hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
                                         aria-label={`Visit ${article.title} resource`}
                                     >
                                         Visit Resource <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
@@ -391,7 +391,7 @@ const ArticlesPage = () => {
   }, []);
 
   return (
-    <div className="bg-bg min-h-screen selection:bg-accent selection:text-text-alt text-text">
+    <div className="bg-bg min-h-screen selection:bg-accent selection:text-bg text-text">
       <motion.div
         className="fixed top-0 left-0 right-0 h-[3px] bg-accent z-[60] origin-left"
         style={{ scaleX: scrollYProgress }}

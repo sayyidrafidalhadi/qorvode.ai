@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { CheckIcon } from "@/components/Icons";
+import ScrambleText from "@/components/motion/ScrambleText";
 
 interface ServiceItem {
   id: number;
@@ -66,8 +67,9 @@ const Services = () => {
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent block mb-4">What I Offer</span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold uppercase leading-[0.9] tracking-tighter text-text">
-              Services That<br />
-              <span className="text-accent italic font-serif normal-case">Drive Growth.</span>
+              <ScrambleText text="Services That" />
+              <br />
+              <ScrambleText text="Drive Growth." className="text-accent italic font-serif normal-case" />
             </h2>
             <p className="max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-text/60 font-serif italic border-l-[3px] border-accent pl-6 mt-6">
               I build digital experiences designed to attract, engage, and convert your target audience into loyal customers.
