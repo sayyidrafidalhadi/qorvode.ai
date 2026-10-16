@@ -117,10 +117,6 @@ const FounderPage = () => {
                 </p>
 
                 <p className="text-sm leading-relaxed text-text/60">
-                  Music is one of my strongest creative outlets. I pour the same care into cover art, thumbnails, captions, and visual branding as I do into recording. My taste leans toward cinematic aesthetics, minimal compositions, and designs that feel authentic rather than artificial. Every release is a complete visual and auditory statement.
-                </p>
-
-                <p className="text-sm leading-relaxed text-text/60">
                   On the development side, I build modern websites with HTML, CSS, JavaScript, React, and Tailwind CSS — ranging from personal portfolios to institutional and healthcare platforms. I prioritise meaningful content, responsive layouts, accessibility, and visual polish in every project.
                 </p>
 
