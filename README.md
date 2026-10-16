@@ -2,7 +2,7 @@
 
 # Sayyid Rafid Al Hadi
 
-### Vibecoder & Music Artist
+### Vibecoder & Developer
 
 [![GitHub Followers](https://img.shields.io/github/followers/sayyidrafidalhadi?label=Follow&style=social)](https://github.com/sayyidrafidalhadi)
 [![Static Badge](https://img.shields.io/badge/Portfolio-Live-6e07f3)](https://qorvode.co.in/)
@@ -31,10 +31,9 @@ We build premium digital experiences that transform brands into industry leaders
 This isn't just a website — it's a high-performance 3D environment built entirely on **Android** via **Spck Editor**.
 
 - **Immersive 3D:** Powered by `Three.js` with hardware-accelerated WebGL rendering.
-- **Hacker Aesthetic:** Dynamic "Hacker Text" decoding animations and translucent glassmorphism UI.
-- **Fluid Motion:** Motion-driven scroll triggers and a liquid-glow background that follows user interaction.
-- **Encrypted Transmission:** Fully functional contact portal powered by `EmailJS`.
-- **Anti-Inspect Protocol:** Hardened against unauthorized code inspection and debugging.
+- **Terminal Aesthetic:** Pixel wordmark, scrambled "hacker text" animations, and a terminal-inspired interface.
+- **Fluid Motion:** Motion-driven scroll triggers and a liquid-glow shader background.
+- **Direct Contact:** Project inquiries open a pre-filled WhatsApp message — no backend, no stored data.
 
 ---
 
@@ -45,7 +44,6 @@ I leverage a diverse tech stack to build, test, and secure digital assets.
 ### Development
 
 - **Full-Stack Architecture:** Scalable, high-performance web applications using Next.js, React, Tailwind, and Firebase.
-- **Vocal Production:** Composing, writing, and tracking resonant vocal performances and lyrics with professional fidelity.
 - **Immersive 3D UI:** Three.js and GSAP for fluid motion, WebGL, and glassmorphism that keeps users deeply engaged.
 - **Mobile-First Dev:** Production-grade apps built entirely on Android — Spck Editor, Kotlin, no desktop required.
 
@@ -97,34 +95,23 @@ I offer premium digital services tailored to elevate your brand.
 - Typography & Color
 - Brand Strategy
 
-### Islamic Audio Production — From $199
-
-- Nasheed Composition
-- Vocals & Lyrics
-- Professional Mixing
-- Mastering
-- Rights Management
-
 ---
 
 ## Selected Works
 
-### Meliqo
-> *Pure Sound, Pure Halal — High-Fidelity Audio Streaming Platform*
+### Elvora Creative
+> *Premium digital design studio portfolio*
 
-- **Core:** A premium halal audio streaming platform for Quran recitations, vocal nasheeds, and spiritual soundscapes. AMOLED monochrome design, lossless quality, privacy-first.
+- **Core:** Luxury-inspired UI with smooth animations and an immersive 3D interactive layout.
+- **Tech:** React, Tailwind CSS, Vite, Three.js
+- **Status:** Live — [Visit Site](https://elvoracreative.vercel.app/)
+
+### Meliqo
+> *High-Fidelity Audio Streaming Platform*
+
+- **Core:** A high-fidelity audio streaming platform with an AMOLED monochrome design, lossless quality, and a privacy-first approach.
 - **Tech:** React, Tailwind CSS, Vite, OGL/Three.js
 - **Status:** Coming Soon — [Live Preview](https://meliqo.qorvode.co.in/)
-
----
-
-## Music & Releases
-
-### Wail Of The End
-Nasheed — All vocals, lyric writing, and composition by Sayyid Rafid Al Hadi.
-
-### Fajr-al-Islam
-Nasheed — Blending tradition with modern vocals.
 
 ---
 
@@ -145,14 +132,11 @@ qorvode@authority:~$ ./accelerate_growth
 **What is your primary development stack?**
 I specialize in modern web and mobile technologies — Next.js, React, Tailwind CSS, TypeScript, Firebase, and Three.js for immersive 3D interfaces. I build everything mobile-first.
 
-**Do you write and compose your own music?**
-Yes. For releases like 'Wail Of The End' and 'Fajr-al-Islam', I handle all vocals, lyric writing, and composition. My music draws from Islamic heritage and modern production.
-
-**Are the Kithademic and KPS projects live?**
-Both are in active development with live preview deployments on Vercel. Click the project links above to explore them.
+**How long does a typical project take?**
+Most projects ship within 2–4 weeks depending on scope. Landing pages and brand identities move fastest; full platform builds take longer.
 
 **Open to collaboration?**
-Absolutely. Whether it's development, audio collaboration, or a hybrid creative project — use the contact form below and let's build something extraordinary together.
+Absolutely. Whether it's development, design, or a hybrid creative project — use the contact form below and let's build something extraordinary together.
 
 ---
 

@@ -69,14 +69,6 @@ export function StoreIcon({ size = "m" }: { size?: Size }) {
   );
 }
 
-export function CrescentIcon({ size = "m" }: { size?: Size }) {
-  return (
-    <Wrap label="Islamic" size={size}>
-      <Svg path="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-    </Wrap>
-  );
-}
-
 export function DiamondIcon({ size = "m" }: { size?: Size }) {
   return (
     <Wrap label="Luxury" size={size}>
@@ -124,18 +116,6 @@ export function PaletteIcon({ size = "m" }: { size?: Size }) {
         <circle cx="12" cy="12" r="4" />
         <line x1="12" y1="2" x2="12" y2="8" />
         <line x1="12" y1="16" x2="12" y2="22" />
-      </svg>
-    </Wrap>
-  );
-}
-
-export function HeadphonesIcon({ size = "m" }: { size?: Size }) {
-  return (
-    <Wrap label="Music" size={size}>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-        <path d="M3 18v-6a9 9 0 0118 0v6" />
-        <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3z" />
-        <path d="M3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
       </svg>
     </Wrap>
   );

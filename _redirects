@@ -1,8 +1,6 @@
 # Premium URL Management — QORVODE
-# Redirects for consistent domain handling
-
-# SPA fallback for client-side routing
-/*    /index.html   200
+# This is a multi-page static site (index / articles / privacy / terms),
+# so no SPA fallback is defined here — unknown paths should 404, not serve index.html.
 
 # Ensure trailing slashes (optional — commented by default)
 # /about    /about/

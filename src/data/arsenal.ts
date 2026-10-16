@@ -11,11 +11,6 @@ export const arsenal: ArsenalItem[] = [
     description: "Scalable, high-performance web applications using Next.js, React, Tailwind, and Firebase."
   },
   {
-    icon: "fas fa-microphone-alt",
-    title: "Vocal Production",
-    description: "Composing, writing, and tracking resonant vocal performances and lyrics with professional fidelity."
-  },
-  {
     icon: "fas fa-cube",
     title: "Immersive 3D UI",
     description: "Three.js and GSAP for fluid motion, WebGL, and glassmorphism that keeps users deeply engaged."

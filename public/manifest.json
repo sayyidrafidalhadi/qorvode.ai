@@ -1,26 +1,26 @@
 {
   "name": "QORVODE — Sayyid Rafid Al Hadi",
   "short_name": "QORVODE",
-  "description": "Vibecoder, Music Artist & Founder — Premium Digital Experiences, Islamic Nasheeds & Creative Storytelling",
+  "description": "Vibecoder & Developer — Premium Digital Experiences, Brand Identity & Creative Storytelling",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#0a100d",
+  "theme_color": "#0a100d",
   "orientation": "portrait-primary",
-  "categories": ["portfolio", "technology", "music", "design"],
+  "categories": ["portfolio", "technology", "design"],
   "lang": "en-IN",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/detke30vn/image/upload/v1777443295/file_0000000006007208afa7d600fdb83b0a_zdxltn.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "https://res.cloudinary.com/detke30vn/image/upload/c_fill,w_512,h_512/v1777443295/file_0000000006007208afa7d600fdb83b0a_zdxltn.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "screenshots": [],

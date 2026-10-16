@@ -25,9 +25,9 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      description: "Finally, a developer who understands premium positioning. Our PWA transformed how our community accesses Islamic music.",
+      description: "Finally, a developer who understands premium positioning. Our PWA completely changed how our community experiences our content.",
       author: "Platform Co-Founder",
-      role: "Islamic Audio · Global"
+      role: "Digital Platform · Global"
     }
   ];
 

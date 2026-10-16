@@ -8,6 +8,7 @@ export interface SiteConfig {
   url: string;
   github: string;
   email: string;
+  whatsapp: string;
   availableYear: string;
   hero: {
     badge: string;
@@ -40,7 +41,7 @@ export const site: SiteConfig = {
     "zydhh.hadi",
   ],
   title: "QORVODE — Premium Digital Experiences",
-  description: "Sayyid Rafid Al Hadi (also known as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, or zydhh.hadi) is the founder of QORVODE (Qorvode AI) — a premium digital experiences studio from Kerala, India. He builds high-performance websites, UI/UX, brand identities, and cinematic Islamic music.",
+  description: "Sayyid Rafid Al Hadi (also known as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, or zydhh.hadi) is the founder of QORVODE (Qorvode AI) — a premium digital experiences studio from Kerala, India. He builds high-performance websites, UI/UX, and brand identities.",
   keywords: [
     "QORVODE",
     "Qorvode AI",
@@ -54,14 +55,12 @@ export const site: SiteConfig = {
     "Rafid",
     "zydhh.hadi",
     "web developer Kerala",
-    "music artist Kerala",
-    "nasheed artist",
     "premium digital studio",
-    "Islamic music",
   ],
   url: "https://qorvode.co.in",
   github: "https://github.com/sayyidrafidalhadi",
   email: "qorvode.ai@gmail.com",
+  whatsapp: "+919526755210",
   availableYear: "2026",
   hero: {
     badge: "Available for Selective Partnerships · 2026",
@@ -73,7 +72,7 @@ export const site: SiteConfig = {
     subheadline: "We build premium digital experiences that transform brands into industry leaders. High-ticket solutions for serious businesses.",
     tagline: [
       "The studio for the age of agents.",
-      "Code, design, and sound — one connected system."
+      "Code, design, and brand — one connected system."
     ],
     news: {
       text: "QORVODE is accepting select partnerships for 2026",
@@ -83,7 +82,6 @@ export const site: SiteConfig = {
       "Web Development",
       "UI/UX Design",
       "Brand Identity",
-      "Music Production",
       "Linux & Security"
     ],
     stats: [

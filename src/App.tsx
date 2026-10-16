@@ -1,9 +1,7 @@
 import './styles/main.css';
 
-import AmoledBackground from './components/AmoledBackground';
 import { FloatingTerminal, TerminalSection } from './components/TerminalAI';
 import { HeroDemo } from '@/components/ui/hero-demo';
-import MusicPlayer from './components/MusicPlayer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import Navbar from './components/Navbar';
 import Marquee from './components/Marquee';
@@ -31,9 +29,7 @@ export default function App() {
       <Preloader />
       <SEO />
       <Spotlight />
-      <AmoledBackground />
       <Navbar />
-      <MusicPlayer />
       <FloatingWhatsApp />
       <FloatingTerminal />
       <main>

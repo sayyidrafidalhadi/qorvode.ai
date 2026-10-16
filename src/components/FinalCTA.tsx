@@ -1,23 +1,31 @@
-import { useState, useRef, useMemo, FormEvent } from "react";
+import { useState, useRef, useMemo, useEffect, FormEvent } from "react";
 import { motion } from "motion/react";
 import ShaderAurora from "@/components/ShaderAurora";
 import ScrambleText from "@/components/motion/ScrambleText";
+import { site } from "@/data/site";
 
 const FinalCTA = () => {
   const [state, setState] = useState<'idle' | 'sending' | 'success'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
-  const phoneNumber = "+919526755210";
+  const resetTimer = useRef<number | undefined>(undefined);
+
+  useEffect(() => () => window.clearTimeout(resetTimer.current), []);
 
   const label = useMemo(() => {
+    if (state === 'sending') return 'Preparing...';
     if (state === 'success') return 'Opening WhatsApp...';
     return 'Submit via WhatsApp';
   }, [state]);
 
   function submitForm(e: FormEvent) {
     e.preventDefault();
-    if (!formRef.current || state === 'sending') return;
+    if (!formRef.current || state !== 'idle') return;
 
     const data = new FormData(formRef.current);
+
+    // Honeypot: real visitors never see or fill this hidden field.
+    if (String(data.get('website') || '').trim()) return;
+
     const name = data.get('from_name') || '';
     const brand = data.get('brand_name') || '';
     const email = data.get('from_email') || '';
@@ -28,10 +36,15 @@ const FinalCTA = () => {
 
     const message = `*New Project Inquiry - QORVODE*\n\n*Name:* ${name}\n*Brand:* ${brand}\n*Email:* ${email}\n*Website:* ${website || 'N/A'}\n*Project Type:* ${projectType}\n*Budget:* ${budget}\n*Vision:* ${vision}`;
 
-    setState('success');
-    window.open(`https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`, '_blank');
+    setState('sending');
+    window.open(
+      `https://wa.me/${site.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`,
+      '_blank',
+      'noopener,noreferrer',
+    );
     formRef.current.reset();
-    setState('idle');
+    setState('success');
+    resetTimer.current = window.setTimeout(() => setState('idle'), 2500);
   }
 
   const projectTypes = [
@@ -140,12 +153,12 @@ const FinalCTA = () => {
                 <textarea required name="project_vision" rows={3} className="bg-transparent border-[3px] border-text-alt/10 px-3 py-2.5 outline-none focus:border-accent-alt transition-colors resize-none text-sm text-text-alt placeholder:text-text-alt/40" placeholder="Describe your project goals and vision..." />
               </div>
 
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} />
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} aria-hidden="true" />
 
               <button
                 type="submit"
-                disabled={state === 'sending'}
-                className="mt-2 bg-accent-alt text-bg-alt font-bold uppercase py-4 text-[10px] tracking-[0.2em] brutal-border hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300 disabled:opacity-50"
+                disabled={state !== 'idle'}
+                className="mt-2 bg-accent-alt text-bg-alt font-bold uppercase py-4 text-[10px] tracking-[0.2em] brutal-border hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none"
               >
                 {label}
               </button>

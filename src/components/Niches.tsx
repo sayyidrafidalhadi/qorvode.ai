@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { PerfumeIcon, StoreIcon, CrescentIcon, DiamondIcon } from "@/components/Icons";
+import { PerfumeIcon, StoreIcon, DiamondIcon } from "@/components/Icons";
 import ScrambleText from "@/components/motion/ScrambleText";
 
 interface Niche {
@@ -25,12 +25,6 @@ const Niches = () => {
     },
     {
       id: 3,
-      title: "Islamic Brands",
-      description: "Halal businesses, Islamic education platforms, and faith-centered brands seeking modern digital identity.",
-      icon: <CrescentIcon size="xl" />
-    },
-    {
-      id: 4,
       title: "Luxury Products",
       description: "Premium brands demanding sophisticated design that commands premium pricing.",
       icon: <DiamondIcon size="xl" />

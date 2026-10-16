@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect, FormEvent, KeyboardEvent } from "react";
+import { useState, useRef, useEffect, useCallback, FormEvent, KeyboardEvent } from "react";
+import type { RefObject } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Terminal } from "lucide-react";
 
@@ -14,10 +15,10 @@ interface HistoryItem {
 
 const knowledgeBase: Record<string, KnowledgeEntry> = {
   about: {
-    keywords: ['who', 'whoami', 'about', 'yourself', 'introduce', 'background', 'name', 'developer', 'music artist', 'sayyid'],
+    keywords: ['who', 'whoami', 'about', 'yourself', 'introduce', 'background', 'name', 'developer', 'sayyid'],
     responses: [
-      "I'm Sayyid Rafid Al Hadi — a Vibecoder & Music Artist based in South Asia.",
-      "I build premium digital experiences for brands that refuse to be average. Plus I compose Islamic vocals.",
+      "I'm Sayyid Rafid Al Hadi — a Vibecoder & Developer based in South Asia.",
+      "I build premium digital experiences for brands that refuse to be average — from landing pages to full product interfaces.",
     ]
   },
   skills: {
@@ -37,20 +38,20 @@ const knowledgeBase: Record<string, KnowledgeEntry> = {
   projects: {
     keywords: ['projects', 'work', 'built', 'portfolio', 'case', 'studies', 'clients'],
     responses: [
-      "Projects: Meliqo (Halal audio streaming platform)",
-      "Case Studies: Meliqo — Pure Sound, Pure Halal streaming platform",
+      "Projects: Elvora Creative (premium design studio portfolio) and Meliqo (audio streaming platform).",
+      "Case Studies: Elvora Creative — 3D interactive portfolio; Meliqo — high-fidelity audio streaming platform.",
     ]
   },
   contact: {
     keywords: ['contact', 'reach', 'connect', 'whatsapp', 'email', 'instagram', 'message', 'hire'],
     responses: [
-      "WhatsApp: +919526755210 | Email: qorvode.ai@gmail.com | Instagram: @qorvode",
+      "WhatsApp: +919526755210 | Email: qorvode.ai@gmail.com | Instagram: @zydhh.hadi",
     ]
   },
   niches: {
-    keywords: ['niches', 'industries', 'specialize', 'serve', 'perfume', 'luxury', 'islamic', 'small'],
+    keywords: ['niches', 'industries', 'specialize', 'serve', 'perfume', 'luxury', 'small'],
     responses: [
-      "Industries I serve: Perfume & Fragrance Brands, Small Businesses, Islamic Brands, Luxury Products",
+      "Industries I serve: Perfume & Fragrance Brands, Small Businesses, Luxury Products",
     ]
   },
   process: {
@@ -62,7 +63,7 @@ const knowledgeBase: Record<string, KnowledgeEntry> = {
   testimonials: {
     keywords: ['testimonials', 'reviews', 'clients', 'feedback', 'success', 'testimony'],
     responses: [
-      "Client Success: '40% increase in premium inquiries' — Wellness Brand | 'Launched 2 weeks early' — EdTech | '5,000+ active users' — HalalTune",
+      "Client Success: '40% increase in premium inquiries' — Wellness Brand | 'Launched 2 weeks early' — EdTech | '5,000+ active users' — Streaming Platform",
     ]
   },
   help: {
@@ -73,12 +74,27 @@ const knowledgeBase: Record<string, KnowledgeEntry> = {
   }
 };
 
-const TerminalContent = ({ onClose }: { onClose: () => void }) => {
+const HELP_TEXT = "Available commands:\n  /about   — Who I am\n  /skills  — Tech stack\n  /services — Services & pricing\n  /projects — My work\n  /contact — Get in touch\n  /niches  — Industries I serve\n  /process — How I work\n  /testimonials — Client reviews\n\nTip: Ask naturally like 'Who are you?' or 'What do you build?'";
+
+const welcomeHistory = (): HistoryItem[] => [
+  { type: "output", content: "Welcome to Qorvode AI Terminal" },
+  { type: "output", content: "Type /help for available commands or ask me anything about Sayyid." }
+];
+
+interface TerminalState {
+  input: string;
+  setInput: (value: string) => void;
+  history: HistoryItem[];
+  outputRef: RefObject<HTMLDivElement>;
+  inputRef: RefObject<HTMLInputElement>;
+  handleSubmit: (e: FormEvent) => void;
+  handleKeyDown: (e: KeyboardEvent) => void;
+}
+
+/** Shared terminal logic used by both the floating modal and the inline section. */
+function useTerminal({ autoFocus = false }: { autoFocus?: boolean } = {}): TerminalState {
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState<HistoryItem[]>([
-    { type: "output", content: "Welcome to Qorvode AI Terminal" },
-    { type: "output", content: "Type /help for available commands or ask me anything about Sayyid." }
-  ]);
+  const [history, setHistory] = useState<HistoryItem[]>(welcomeHistory);
   const outputRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -89,41 +105,42 @@ const TerminalContent = ({ onClose }: { onClose: () => void }) => {
   }, [history]);
 
   useEffect(() => {
-    inputRef.current?.focus();
+    if (autoFocus) inputRef.current?.focus();
+  }, [autoFocus]);
+
+  const clearHistory = useCallback(() => {
+    setHistory([{ type: "output", content: "Terminal cleared." }]);
   }, []);
 
-  const findResponse = (query: string): string | null => {
+  const findResponse = useCallback((query: string): string | null => {
     const q = query.toLowerCase().trim();
 
     if (!q) return "Please enter a command or question.";
 
     if (q === 'clear') {
-      setHistory([{ type: "output", content: "Terminal cleared." }]);
+      clearHistory();
       return null;
     }
 
-    if (q === '/help') {
-      return "Available commands:\n  /about   — Who I am\n  /skills  — Tech stack\n  /services — Services & pricing\n  /projects — My work\n  /contact — Get in touch\n  /niches  — Industries I serve\n  /process — How I work\n  /testimonials — Client reviews\n\nTip: Ask naturally like 'Who are you?' or 'What do you build?'";
-    }
+    if (q === '/help') return HELP_TEXT;
 
     if (q.startsWith('/')) {
       const cmd = q.slice(1);
-      if (knowledgeBase[cmd]) {
-        return knowledgeBase[cmd].responses[0];
-      }
-      return `Command '${q}' not found. Type /help for available commands.`;
+      return knowledgeBase[cmd]
+        ? knowledgeBase[cmd].responses[0]
+        : `Command '${q}' not found. Type /help for available commands.`;
     }
 
-    for (const [, data] of Object.entries(knowledgeBase)) {
+    for (const data of Object.values(knowledgeBase)) {
       if (data.keywords.some(kw => q.includes(kw))) {
         return data.responses[Math.floor(Math.random() * data.responses.length)];
       }
     }
 
     return `I didn't understand that. Type /help for available commands or ask me about: services, projects, about me, contact info, etc.`;
-  };
+  }, [clearHistory]);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 
@@ -133,18 +150,60 @@ const TerminalContent = ({ onClose }: { onClose: () => void }) => {
     setHistory(prev => [
       ...prev,
       { type: "input", content: command },
-      ...(response ? [{ type: "output", content: response }] : [])
+      ...(response ? [{ type: "output" as const, content: response }] : [])
     ]);
 
     setInput("");
-  };
+  }, [input, findResponse]);
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'l' && e.ctrlKey) {
       e.preventDefault();
-      setHistory([{ type: "output", content: "Terminal cleared." }]);
+      clearHistory();
     }
-  };
+  }, [clearHistory]);
+
+  return { input, setInput, history, outputRef, inputRef, handleSubmit, handleKeyDown };
+}
+
+const TerminalOutput = ({ state, heightClass }: { state: TerminalState; heightClass: string }) => (
+  <div ref={state.outputRef} className={`${heightClass} overflow-y-auto p-4 font-mono text-sm`}>
+    {state.history.map((item, i) => (
+      <div key={i} className={item.type === "input" ? "mb-2" : "mb-4"}>
+        {item.type === "input" ? (
+          <div className="flex items-center gap-2">
+            <span className="text-accent font-bold">qorvode@ai:~$</span>
+            <span className="text-text/80">{item.content}</span>
+          </div>
+        ) : (
+          <pre className="text-text/60 whitespace-pre-wrap leading-relaxed">{item.content}</pre>
+        )}
+      </div>
+    ))}
+  </div>
+);
+
+const TerminalPrompt = ({ state, autoFocus = false }: { state: TerminalState; autoFocus?: boolean }) => (
+  <form onSubmit={state.handleSubmit} className="border-t-[3px] border-accent">
+    <div className="flex items-center gap-2 px-4 py-3 bg-surface">
+      <span className="text-accent font-bold font-mono text-sm">qorvode@ai:~$</span>
+      <input
+        ref={state.inputRef}
+        type="text"
+        value={state.input}
+        onChange={(e) => state.setInput(e.target.value)}
+        onKeyDown={state.handleKeyDown}
+        placeholder="Type a command or question..."
+        className="flex-1 bg-transparent outline-none text-text font-mono text-sm placeholder:text-text/30"
+        autoFocus={autoFocus}
+        aria-label="Terminal input"
+      />
+    </div>
+  </form>
+);
+
+const TerminalContent = ({ onClose }: { onClose: () => void }) => {
+  const state = useTerminal({ autoFocus: true });
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose} role="dialog" aria-modal="true" aria-label="Qorvode AI Terminal">
@@ -173,40 +232,9 @@ const TerminalContent = ({ onClose }: { onClose: () => void }) => {
           </div>
         </div>
 
-        <div
-          ref={outputRef}
-          className="h-80 overflow-y-auto p-4 font-mono text-sm bg-bg"
-        >
-          {history.map((item, i) => (
-            <div key={i} className={item.type === "input" ? "mb-2" : "mb-4"}>
-              {item.type === "input" ? (
-                <div className="flex items-center gap-2">
-                  <span className="text-accent font-bold">qorvode@ai:~$</span>
-                  <span className="text-text/80">{item.content}</span>
-                </div>
-              ) : (
-                <pre className="text-text/60 whitespace-pre-wrap leading-relaxed">{item.content}</pre>
-              )}
-            </div>
-          ))}
-        </div>
+        <TerminalOutput state={state} heightClass="h-80 bg-bg" />
 
-        <form onSubmit={handleSubmit} className="border-t-[3px] border-accent">
-          <div className="flex items-center gap-2 px-4 py-3 bg-surface">
-            <span className="text-accent font-bold font-mono text-sm">qorvode@ai:~$</span>
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Type a command or question..."
-                className="flex-1 bg-transparent outline-none text-text font-mono text-sm placeholder:text-text/30"
-                autoFocus
-                aria-label="Terminal input"
-              />
-          </div>
-        </form>
+        <TerminalPrompt state={state} autoFocus />
       </motion.div>
     </div>
   );
@@ -240,66 +268,7 @@ export const FloatingTerminal = () => {
 };
 
 export const TerminalSection = () => {
-  const [input, setInput] = useState("");
-  const [history, setHistory] = useState<HistoryItem[]>([
-    { type: "output", content: "Welcome to Qorvode AI Terminal" },
-    { type: "output", content: "Type /help for available commands or ask me anything about Sayyid." }
-  ]);
-  const outputRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (outputRef.current) {
-      outputRef.current.scrollTop = outputRef.current.scrollHeight;
-    }
-  }, [history]);
-
-  const findResponse = (query: string): string | null => {
-    const q = query.toLowerCase().trim();
-
-    if (!q) return "Please enter a command or question.";
-
-    if (q === 'clear') {
-      setHistory([{ type: "output", content: "Terminal cleared." }]);
-      return null;
-    }
-
-    if (q === '/help') {
-      return "Available commands:\n  /about   — Who I am\n  /skills  — Tech stack\n  /services — Services & pricing\n  /projects — My work\n  /contact — Get in touch\n  /niches  — Industries I serve\n  /process — How I work\n  /testimonials — Client reviews\n\nTip: Ask naturally like 'Who are you?' or 'What do you build?'";
-    }
-
-    if (q.startsWith('/')) {
-      const cmd = q.slice(1);
-      if (knowledgeBase[cmd]) {
-        return knowledgeBase[cmd].responses[0];
-      }
-      return `Command '${q}' not found. Type /help for available commands.`;
-    }
-
-    for (const [, data] of Object.entries(knowledgeBase)) {
-      if (data.keywords.some(kw => q.includes(kw))) {
-        return data.responses[Math.floor(Math.random() * data.responses.length)];
-      }
-    }
-
-    return `I didn't understand that. Type /help for available commands or ask me about: services, projects, about me, contact info, etc.`;
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    const command = input.trim();
-    const response = findResponse(command);
-
-    setHistory(prev => [
-      ...prev,
-      { type: "input", content: command },
-      ...(response ? [{ type: "output", content: response }] : [])
-    ]);
-
-    setInput("");
-  };
+  const state = useTerminal();
 
   return (
     <section id="terminal" className="py-32 sm:py-48 px-5 sm:px-8 lg:px-12 bg-bg border-t-[3px] border-accent">
@@ -335,38 +304,9 @@ export const TerminalSection = () => {
             </div>
           </div>
 
-          <div
-            ref={outputRef}
-            className="h-64 sm:h-80 overflow-y-auto p-4 font-mono text-sm"
-          >
-            {history.map((item, i) => (
-              <div key={i} className={item.type === "input" ? "mb-2" : "mb-4"}>
-                {item.type === "input" ? (
-                  <div className="flex items-center gap-2">
-                    <span className="text-accent font-bold">qorvode@ai:~$</span>
-                    <span className="text-text/80">{item.content}</span>
-                  </div>
-                ) : (
-                  <pre className="text-text/60 whitespace-pre-wrap leading-relaxed">{item.content}</pre>
-                )}
-              </div>
-            ))}
-          </div>
+          <TerminalOutput state={state} heightClass="h-64 sm:h-80" />
 
-          <form onSubmit={handleSubmit} className="border-t-[3px] border-accent">
-            <div className="flex items-center gap-2 px-4 py-3 bg-surface">
-              <span className="text-accent font-bold font-mono text-sm">qorvode@ai:~$</span>
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Type a command or question..."
-                className="flex-1 bg-transparent outline-none text-text font-mono text-sm placeholder:text-text/30"
-                aria-label="Terminal input"
-              />
-            </div>
-          </form>
+          <TerminalPrompt state={state} />
         </motion.div>
       </div>
     </section>

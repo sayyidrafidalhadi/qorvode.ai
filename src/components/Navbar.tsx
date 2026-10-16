@@ -5,7 +5,6 @@ import { site } from "@/data/site";
 const navItems = [
   { href: "#work", label: "Work", id: "work" },
   { href: "#about", label: "About", id: "about" },
-  { href: "/music.html", label: "Music" },
   { href: "/articles.html", label: "Insights" },
 ];
 

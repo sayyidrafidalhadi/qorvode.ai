@@ -1,72 +1,10 @@
 import { motion } from "motion/react";
-import { projects } from "@/data/projects";
+import { caseStudies, projects } from "@/data/projects";
 import { ExternalIcon } from "@/components/Icons";
 import ScrambleText from "@/components/motion/ScrambleText";
 import TiltCard from "@/components/motion/TiltCard";
 
-interface CuratedBlock {
-  eyebrow: string;
-  title: string;
-  paragraphs: string[];
-}
-
-interface CaseStudy {
-  id: number;
-  brand: string;
-  problem: string;
-  approach: string;
-  result: string;
-  metric: string;
-  timeline: string;
-  tags: string[];
-  status: string;
-  curated?: CuratedBlock;
-}
-
 const Work = () => {
-  const caseStudies: CaseStudy[] = [
-    {
-      id: 0,
-      brand: "Elvora Creative",
-      problem: "Digital design studio needing immersive portfolio with luxury aesthetic and 3D interactions",
-      approach: "Premium dark-themed UI with smooth animations and 3D interactive layout",
-      result: "Luxury-inspired design portfolio showcasing creative excellence",
-      metric: "100+ design inquiries/month",
-      timeline: "Delivered in 3 weeks",
-      tags: ["React", "3D", "Premium Design", "UI/UX"],
-      status: "Live",
-      curated: {
-        eyebrow: "Studio standard",
-        title: "The Elvora Design Standard.",
-        paragraphs: [
-          "Elvora is a modern graphic design studio crafting distinctive brand identities that leave lasting impressions — logos, packaging, and visual systems built from the idea up, never pulled from a template.",
-          "Every project moves through a transparent, collaborative process: strategy, exploration, refinement, and delivery. You stay informed at each step, and nothing ships until the craft holds up.",
-          "From brand identity and packaging to promotional posters and complete social presences, each piece is designed to feel unmistakably yours — and to stay consistent across every surface it touches."
-        ]
-      }
-    },
-    {
-      id: 3,
-      brand: "Meliqo",
-      problem: "No dedicated halal audio streaming platform with lossless quality and privacy-first approach for Muslim audiences",
-      approach: "AMOLED monochrome landing page with immersive UI, OGL/Three.js visuals, and modern React architecture",
-      result: "Premium brand presence with waitlist capture and high-conversion landing experience",
-      metric: "Launching soon — waitlist active",
-      timeline: "Delivered in 2 weeks",
-      tags: ["React", "Audio", "Islamic", "Streaming"],
-      status: "Coming Soon",
-      curated: {
-        eyebrow: "Curated experience",
-        title: "The Meliqo Audio Standard.",
-        paragraphs: [
-          "Every track on Meliqo passes through a two-stage filter: curation review and audio engineering. If it compromises your ears or your values, it does not belong here.",
-          "Curated albums, live sessions, ambient soundscapes — all vetted through a lens that honours the craft of recording without sacrificing modern production values.",
-          "Our panel is made of people who listen critically every day, master audio for a living, and believe your playlist should feel like an extension of your taste — not an algorithmic guess."
-        ]
-      }
-    }
-  ];
-
   return (
     <section id="work" className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-bg">
       <div className="max-w-7xl mx-auto">

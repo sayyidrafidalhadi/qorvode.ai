@@ -28,10 +28,10 @@
     script-src 'self' 'unsafe-inline' 'unsafe-eval';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: https://res.cloudinary.com https:;
-    media-src 'self' https://res.cloudinary.com;
-    connect-src 'self' https://service.emailjs.com https://api.emailjs.com https://wa.me;
-    frame-src 'self' https://open.spotify.com;
+    img-src 'self' data: https:;
+    media-src 'self';
+    connect-src 'self' https://wa.me;
+    frame-src 'self';
     frame-ancestors 'none';
     form-action 'self' https://wa.me;
     base-uri 'self';
@@ -41,6 +41,10 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Service worker — must never be served stale
+/sw.js
+  Cache-Control: no-cache
+
 # HTML Pages — No Cache
 /index.html
   Cache-Control: no-cache, no-store, must-revalidate
@@ -49,6 +53,4 @@
 /terms.html
   Cache-Control: no-cache, no-store, must-revalidate
 /articles.html
-  Cache-Control: no-cache, no-store, must-revalidate
-/music.html
   Cache-Control: no-cache, no-store, must-revalidate

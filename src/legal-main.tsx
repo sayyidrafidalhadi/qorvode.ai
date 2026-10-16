@@ -20,7 +20,7 @@ const legalData: Record<string, LegalSection> = {
       ['1. Introduction', 'Welcome to the portfolio of Sayyid Rafid Al Hadi (QORVODE). This Privacy Policy outlines how your personal information is collected, used, and protected when you visit this website and use the contact forms.'],
       ['2. Information We Collect', 'We only collect information that you voluntarily provide when submitting the contact form: name, email address, and message content.'],
       ['3. How We Use Your Information', 'Information is used strictly to respond to inquiries, discuss project requirements, and maintain professional communication records.'],
-      ['4. Third-Party Services', 'This site uses EmailJS to route form messages securely to our inbox without exposing a backend server.'],
+      ['4. Third-Party Services', 'This site has no backend of its own. Contact inquiries are sent through WhatsApp (wa.me) — submitting the contact form opens a pre-filled message in your own WhatsApp app, so the conversation stays inside WhatsApp.'],
       ['5. Data Sharing and Security', 'Your personal data and project details are never sold or shared with third-party marketers. We use standard communication security practices.'],
       ['6. Your Rights', 'You may request deletion of your submitted communication data at any time by contacting us.'],
     ],
@@ -30,7 +30,7 @@ const legalData: Record<string, LegalSection> = {
     description: 'Terms governing the use of QORVODE portfolio website.',
     sections: [
       ['1. Acceptance of Terms', 'By accessing and using this website, you agree to these terms.'],
-      ['2. Intellectual Property Rights', 'All original code, design assets, and music releases are protected intellectual property unless explicitly stated otherwise.'],
+      ['2. Intellectual Property Rights', 'All original code and design assets are protected intellectual property unless explicitly stated otherwise.'],
       ['3. User Conduct', 'You agree not to submit spam, unlawful content, or malicious payloads via the contact form.'],
       ['4. Disclaimer', 'The website is provided as-is without guarantees of uninterrupted availability.'],
       ['5. Limitation of Liability', 'We are not liable for direct or indirect damages resulting from website use.'],
@@ -83,7 +83,7 @@ function LegalPage() {
               {page.title}
             </h1>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-alt/60 block mb-12">
-              Effective Date: February 25, 2024
+              Effective Date: October 16, 2026
             </span>
 
             <div className="space-y-12">

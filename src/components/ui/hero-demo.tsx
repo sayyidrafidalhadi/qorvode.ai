@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { renderCanvas } from "@/components/ui/canvas";
 import { site } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import PixelWordmark from "@/components/PixelWordmark";
@@ -24,10 +23,6 @@ export function HeroDemo() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.1]);
 
   useEffect(() => {
-    renderCanvas();
-  }, []);
-
-  useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
     setIsDesktop(mq.matches);
     const onChange = (event: MediaQueryListEvent) => setIsDesktop(event.matches);
@@ -44,10 +39,6 @@ export function HeroDemo() {
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <ShaderAurora className="absolute inset-0 h-full w-full opacity-70" />
-        <canvas
-          id="canvas"
-          className="hero-canvas-in absolute inset-0 h-full w-full opacity-70"
-        />
         <div className="grain absolute inset-0 opacity-40" />
       </div>
 

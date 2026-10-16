@@ -227,19 +227,6 @@
   animation-delay: calc(var(--stagger, 0) * 90ms);
 }
 
-@keyframes canvas-warmup {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.hero-canvas-in {
-  animation: canvas-warmup 0.9s ease-out both;
-}
-
 @keyframes wordmark-sheen {
   0% {
     background-position: 0 0, 0 -140%;
@@ -336,7 +323,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-canvas-in,
   .hero-intro [data-hero-stagger],
   .pixel-wordmark,
   .terminal-caret::after {

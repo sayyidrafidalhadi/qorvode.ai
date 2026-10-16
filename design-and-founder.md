@@ -3,30 +3,35 @@
 ## Design System
 
 ### Philosophy
-**Neo-Tech Brutalism** — bold borders, hard offset shadows, high contrast, monochrome-adjacent palette with lime green accents. Brutalist structural rigidity meets modern typography and motion.
+**Terminal Brutalism** — dark green-black palette, terminal-green accents, thin structural borders with soft layered shadows. Brutalist structure meets modern pixel typography and motion. The palette is dark-only (no light mode).
 
 ---
 
 ### Color Palette
 
+_Source of truth: the `@theme` block in `src/styles/main.css`._
+
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--color-bg` | `#E4FD97` (Lime Sprout) | Primary light background |
-| `--color-bg-alt` | `#2D3E2C` (Fresh Canopy) | Dark background / sections |
-| `--color-text` | `#111111` | Body text on light |
-| `--color-text-alt` | `#FFFFFF` | Body text on dark |
-| `--color-accent` | `#2D3E2C` | Accent on light sections (buttons, borders, highlights) |
-| `--color-accent-alt` | `#E4FD97` | Accent on dark sections |
-| `--color-surface` | `#FFFFFF` | Card / container surface on light |
-| `--color-surface-alt` | `#3A4F39` | Card / container surface on dark |
-| `--color-border` | `#2D3E2C` | Borders on light backgrounds |
-| `--color-border-alt` | `#E4FD97` | Borders on dark backgrounds |
+| `--color-bg` | `#0a100d` | Primary dark background |
+| `--color-bg-alt` | `#0b130f` | Alternate dark background / sections |
+| `--color-text` | `#f1e6be` | Body text (warm parchment) |
+| `--color-text-alt` | `#eadfb0` | Body text on alt surfaces |
+| `--color-accent` | `#b9ce82` | Primary accent (terminal green) |
+| `--color-accent-alt` | `#9ece6a` | Accent on alt sections |
+| `--color-surface` | `#101812` | Card / container surface |
+| `--color-surface-alt` | `#141e16` | Alternate card surface |
+| `--color-surface-2` | `#18241b` | Nested surface |
+| `--color-border` | `#1e2e22` | Subtle borders |
+| `--color-border-alt` | `#26382a` | Default borders |
+| `--color-border-strong` | `#35513c` | Emphasized borders |
+| `--color-muted` | `#8a9a76` | Muted text / metadata |
 
 ### Theme Meta
 | Mode | Theme Color |
 |------|-------------|
-| Light | `#E4FD97` |
-| Dark | `#2D3E2C` |
+| Light | `#0a100d` |
+| Dark | `#0a100d` |
 
 ### Font Stack
 
@@ -34,7 +39,8 @@
 |--------|------|---------|
 | **Outfit** | Sans-serif (UI headings, body) | 300, 400, 500, 600, 700 |
 | **Cormorant Garamond** | Serif (quotes, italic display) | 300, 400, 500, 600, 700 (roman + italic) |
-| **JetBrains Mono** | Monospace (code, terminal) | 400, 500, 600 |
+| **JetBrains Mono** | Mono (display headings, code, terminal) | 400, 500, 600 |
+| **Silkscreen** | Pixel display (hero wordmark) | 400, 700 |
 | **Amiri** | Arabic text | 400, 700 |
 
 ---
@@ -43,18 +49,16 @@
 
 #### Borders
 ```css
-.brutal-border        /* 2px solid var(--color-border) */
-.brutal-border-alt    /* 2px solid var(--color-border-alt) */
+.brutal-border        /* 1px solid var(--color-border-alt), border-radius 12px */
+.brutal-border-alt    /* 1px solid var(--color-border), border-radius 12px */
 ```
 
-#### Shadows
+#### Shadows (soft layered rings, not hard offsets)
 ```css
-.brutal-shadow        /* 4px 4px 0px var(--color-border) */
-.brutal-shadow-alt    /* 4px 4px 0px var(--color-border-alt) */
-.brutal-shadow-lg     /* 6px 6px 0px var(--color-border) */
-.brutal-shadow-lg-alt /* 6px 6px 0px var(--color-border-alt) */
-.brutal-shadow-sm     /* 3px 3px 0px var(--color-border) */
-.brutal-shadow-sm-alt /* 3px 3px 0px var(--color-border-alt) */
+.brutal-shadow        /* ring 1px var(--color-border-alt) @60% + 0 24px 48px -32px black */
+.brutal-shadow-sm     /* ring 1px @50% + 0 12px 28px -22px black */
+.brutal-shadow-lg     /* ring 1px @70% + 0 36px 70px -40px black */
+/* -alt variants swap --color-border-alt for --color-border */
 ```
 
 #### Interaction
@@ -117,7 +121,7 @@
 |-------|-------|
 | Name | **Sayyid Rafid Al Hadi** |
 | Brand | **QORVODE / QORVODE.AI** |
-| Titles | Vibecoder, Music Artist, Founder, Linux Enthusiast, Cyber Security Student, UI/UX Designer |
+| Titles | Vibecoder, Founder, Linux Enthusiast, Cyber Security Student, UI/UX Designer |
 | Location | Kerala, India |
 | Languages | English, Arabic, Malayalam |
 | Website | [qorvode.co.in](https://qorvode.co.in) |
@@ -135,32 +139,22 @@
 
 > I build high-performance web experiences and digital brands that bridge the gap between technical efficiency and creative storytelling.
 
-> Music is one of my strongest creative outlets. I pour the same care into cover art, thumbnails, captions, and visual branding as I do into recording. My taste leans toward cinematic aesthetics, minimal compositions, and designs that feel authentic rather than artificial. Every release is a complete visual and auditory statement.
+> Cover art, thumbnails, captions, and visual branding are treated as one connected creative system. My taste leans toward cinematic aesthetics, minimal compositions, and designs that feel authentic rather than artificial. Every project is a complete visual statement.
 
 > On the development side, I build modern websites with HTML, CSS, JavaScript, React, and Tailwind CSS — ranging from personal portfolios to institutional and healthcare platforms. I prioritise meaningful content, responsive layouts, accessibility, and visual polish in every project.
 
 > Technology is part of who I am. I explore Linux distributions, Termux, Ubuntu, Kali Linux, command-line tools, Git, GitHub, Node.js, and Android customisation. I approach technical challenges patiently, experimenting until I understand the underlying concepts rather than settling for surface-level fixes.
 
-> Visually, I gravitate toward premium interfaces — elegant typography, smooth animations, balanced spacing, and modern layouts. I revise until every detail aligns with my vision, reflecting a quality-first mindset that carries across code, design, and music alike.
+> Visually, I gravitate toward premium interfaces — elegant typography, smooth animations, balanced spacing, and modern layouts. I revise until every detail aligns with my vision, reflecting a quality-first mindset that carries across code and design alike.
 
 > My learning style is practical. I prefer complete examples, full project files, and step-by-step guidance I can apply immediately. This approach lets me steadily expand my knowledge while building real, working projects. And I rarely settle for a first attempt — I iterate, troubleshoot, and refine until it's right.
 
-> Looking ahead, I aim to blend software engineering, UI/UX design, content creation, and music into a career that sits at the intersection of logic and creativity. Curiosity, persistence, and a willingness to keep learning are the foundations I build on.
+> Looking ahead, I aim to blend software engineering, UI/UX design, and content creation into a career that sits at the intersection of logic and creativity. Curiosity, persistence, and a willingness to keep learning are the foundations I build on.
 
 > Let's collaborate on something meaningful.
 
 ### Tech Stack
 HTML5, CSS3, JavaScript, React, Next.js, Tailwind CSS, Python, PHP, Linux, Docker, Git, GitHub
-
-### Education
-
-| Institution | Location | Level |
-|------------|----------|-------|
-| Green Woods Public School | Palakkunnu, Kasaragod, Kerala | Lower Primary |
-| GHSS Pookkottur | Pookkottur, Kasaragod, Kerala | Upper Primary |
-| Pallikkara Islamic School | Pallikkara, Kasaragod, Kerala | High School |
-| Jamia Madeenathunnoor Baithul Izza | Narikkuni, Calicut, Kerala | Higher Secondary |
-| Al-Azhar Engineering College | Thodupuzha, Kerala | B.Tech CSE (Cyber Security), 2026–Present |
 
 ### Services (via Terminal AI)
 | Service | Price |

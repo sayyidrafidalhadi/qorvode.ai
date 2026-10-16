@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { motion, AnimatePresence, useScroll } from 'motion/react';
-import { BookOpen, Calendar, ArrowUpRight, Github, Instagram } from 'lucide-react';
+import { BookOpen, Calendar, ArrowUpRight } from 'lucide-react';
 import './styles/main.css';
 import { site } from './data/site';
 import { articles, type Article } from './data/articles';

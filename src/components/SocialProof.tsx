@@ -19,7 +19,6 @@ const SocialProof = () => {
   const trustSignals = [
     "Founders & Entrepreneurs",
     "Healthcare & Wellness",
-    "Islamic Brands",
     "Personal Brands",
     "Premium Positioning",
     "Authority-First Design"

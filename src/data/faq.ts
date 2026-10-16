@@ -6,30 +6,26 @@ export interface FaqItem {
 export const faq: FaqItem[] = [
   {
     question: "Who is the founder of QORVODE?",
-    answer: "QORVODE was founded by Sayyid Rafid Al Hadi — a web developer and music artist from Kerala, India, known online as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, or zydhh.hadi."
+    answer: "QORVODE was founded by Sayyid Rafid Al Hadi — a web developer from Kerala, India, known online as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, or zydhh.hadi."
   },
   {
     question: "What is QORVODE (Qorvode AI)?",
-    answer: "Qorvode AI (QORVODE) is a premium digital experiences studio founded by Sayyid Rafid Al Hadi. It delivers high-performance web development, UI/UX design, brand identity, and cinematic Islamic music from Kerala, India."
+    answer: "Qorvode AI (QORVODE) is a premium digital experiences studio founded by Sayyid Rafid Al Hadi. It delivers high-performance web development, UI/UX design, and brand identity from Kerala, India."
   },
   {
     question: "What is your background?",
-    answer: "I am a full-stack web and mobile developer with a strong foundation in modern technologies. I have experience in building responsive and interactive applications, as well as a passion for music production."
+    answer: "I am a full-stack web and mobile developer with a strong foundation in modern technologies. I have experience in building responsive and interactive applications, from portfolios to product interfaces."
   },
   {
     question: "What is your primary development stack?",
     answer: "I specialize in modern web and mobile technologies — Next.js, React, Tailwind CSS, TypeScript, Firebase, and Three.js for immersive 3D interfaces. I build everything mobile-first."
   },
   {
-    question: "Do you write and compose your own music?",
-    answer: "Yes. For releases like 'Wail Of The End' and 'Fajr-al-Islam', I handle all vocals, lyric writing, and composition. My music draws from Islamic heritage and modern production."
-  },
-  {
-    question: "Are the Kithademic and KPS projects live?",
-    answer: "Both are in active development with live preview deployments on Vercel. Click the project links above to explore them."
+    question: "How long does a typical project take?",
+    answer: "Most projects ship within 2–4 weeks depending on scope. Landing pages and brand identities move fastest; full platform builds take longer. You get a clear timeline after the discovery call."
   },
   {
     question: "Open to collaboration?",
-    answer: "Absolutely. Whether it's development, audio collaboration, or a hybrid creative project — use the contact form below and let's build something extraordinary together."
+    answer: "Absolutely. Whether it's development, design, or a hybrid creative project — use the contact form below and let's build something extraordinary together."
   }
 ];

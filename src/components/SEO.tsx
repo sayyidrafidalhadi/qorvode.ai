@@ -1,7 +1,6 @@
 import { site } from "@/data/site";
 import { faq } from "@/data/faq";
 import { projects } from "@/data/projects";
-import { releases } from "@/data/releases";
 import { arsenal } from "@/data/arsenal";
 
 const siteUrl = site.url;
@@ -29,8 +28,6 @@ const personSchema = {
     ...arsenal.map(a => a.title),
     "Web Development",
     "UI/UX Design",
-    "Music Production",
-    "Vocal Performance",
     "Linux",
     "React",
     "Next.js",
@@ -50,18 +47,11 @@ const personSchema = {
     "Kali Linux",
     "Android Customization",
   ])],
-  jobTitle: ["Developer", "Music Artist", "Founder"],
+  jobTitle: ["Developer", "Designer", "Founder"],
   knowsLanguage: [
     { "@type": "Language", name: "English" },
     { "@type": "Language", name: "Arabic" },
     { "@type": "Language", name: "Malayalam" },
-  ],
-  alumniOf: [
-    { "@type": "School", name: "Green Woods Public School" },
-    { "@type": "School", name: "GHSS Pookkottur" },
-    { "@type": "School", name: "Pallikkara Islamic School" },
-    { "@type": "School", name: "Markaz Integrated" },
-    { "@type": "CollegeOrUniversity", name: "Al-Azhar Engineering College" },
   ],
   founderOf: {
     "@type": "Organization",
@@ -94,7 +84,7 @@ const profilePageSchema = {
     name: site.name,
     identifier: site.github,
   },
-  dateModified: "2026-07-03",
+  dateModified: "2026-10-16",
   inLanguage: "en",
 };
 
@@ -105,7 +95,7 @@ const organizationSchema = {
   alternateName: ["Qorvode AI", "QORVODE.AI", "qorvode.ai", "Qorvode"],
   url: siteUrl,
   logo: imageUrl,
-  description: "Qorvode AI is a premium digital experiences studio founded by Sayyid Rafid Al Hadi (Rafid Thangal). Bespoke web development, UI/UX design, brand identity, and cinematic music for brands that want to dominate.",
+  description: "Qorvode AI is a premium digital experiences studio founded by Sayyid Rafid Al Hadi (Rafid Thangal). Bespoke web development, UI/UX design, and brand identity for brands that want to dominate.",
   keywords: site.keywords.join(", "),
   foundingDate: "2026",
   founder: {
@@ -176,9 +166,7 @@ const collectionPageSchema = {
       { "@type": "ListItem", position: 1, name: "About Me", url: `${siteUrl}/#about` },
       { "@type": "ListItem", position: 2, name: "Work & Projects", url: `${siteUrl}/#work` },
       { "@type": "ListItem", position: 3, name: "Services", url: `${siteUrl}/#services` },
-      { "@type": "ListItem", position: 4, name: "Music", url: `${siteUrl}/music.html` },
-      { "@type": "ListItem", position: 5, name: "Articles", url: `${siteUrl}/articles.html` },
-      { "@type": "ListItem", position: 6, name: "Education", url: `${siteUrl}/#education` },
+      { "@type": "ListItem", position: 4, name: "Articles", url: `${siteUrl}/articles.html` },
     ],
   },
 };
@@ -191,9 +179,8 @@ const breadcrumbSchema = {
     { "@type": "ListItem", position: 2, name: "About", item: `${siteUrl}/#about` },
     { "@type": "ListItem", position: 3, name: "Work", item: `${siteUrl}/#work` },
     { "@type": "ListItem", position: 4, name: "Services", item: `${siteUrl}/#services` },
-    { "@type": "ListItem", position: 5, name: "Music", item: `${siteUrl}/music.html` },
-    { "@type": "ListItem", position: 6, name: "Articles", item: `${siteUrl}/articles.html` },
-    { "@type": "ListItem", position: 7, name: "Contact", item: `${siteUrl}/#contact` },
+    { "@type": "ListItem", position: 5, name: "Articles", item: `${siteUrl}/articles.html` },
+    { "@type": "ListItem", position: 6, name: "Contact", item: `${siteUrl}/#contact` },
   ],
 };
 
@@ -209,40 +196,12 @@ const contactPageSchema = {
     email: site.email,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+919526755210",
+      telephone: site.whatsapp,
       contactType: "customer service",
       availableLanguage: ["English", "Arabic", "Malayalam"],
     },
   },
 };
-
-const musicSchemas = releases.map((release) => ({
-  "@context": "https://schema.org",
-  "@type": ["MusicRecording", "MusicAlbum"],
-  name: release.title,
-  byArtist: {
-    "@type": "MusicGroup",
-    name: site.name,
-    foundingDate: "2025",
-  },
-  artist: {
-    "@type": "Person",
-    name: site.name,
-  },
-  image: imageUrl,
-  description: `Music release by ${site.name}: ${release.title} (${release.year})`,
-  datePublished: `${release.year}-01-01`,
-  inLanguage: ["en", "ar"],
-  genre: ["Nasheed", "Islamic Music", "Vocal"],
-  keywords: ["nasheed", "islamic music", "vocal", release.title.toLowerCase().replace(/\s+/g, "-")],
-  locationCreated: "Kerala, India",
-  recordingOf: {
-    "@type": "MusicComposition",
-    name: release.title,
-    composer: site.name,
-    lyricist: site.name,
-  },
-}));
 
 const projectSchemas = projects.map((project) => ({
   "@context": "https://schema.org",
@@ -269,7 +228,7 @@ const projectSchemas = projects.map((project) => ({
   applicationCategory: "WebApplication",
   operatingSystem: "All",
   dateCreated: "2026",
-  dateModified: "2026-07-03",
+  dateModified: "2026-10-16",
   image: imageUrl,
 }));
 
@@ -292,7 +251,7 @@ const speakableSchema = {
   name: `${site.name} | QORVODE`,
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: ["#about", "#hero", "#services"],
+    cssSelector: ["#home", "#about", "#services"],
   },
   url: siteUrl,
 };
@@ -319,7 +278,6 @@ const schemas = [
   faqSchema,
   speakableSchema,
   imageObjectSchema,
-  ...musicSchemas,
   ...projectSchemas,
 ];
 

@@ -15,8 +15,8 @@ export interface TeamMember {
 export const team: TeamMember[] = [
   {
     name: "Sayyid Rafid Al Hadi",
-    role: "Founder · Developer & Music Artist",
-    bio: "Leads QORVODE — building high-performance web experiences and steering the studio's creative and sonic direction.",
+    role: "Founder · Developer & Designer",
+    bio: "Leads QORVODE — building high-performance web experiences and steering the studio's creative direction.",
     initials: "RA",
     links: [
       { label: "GitHub", href: "https://github.com/sayyidrafidalhadi" },

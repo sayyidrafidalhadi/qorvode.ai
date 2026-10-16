@@ -2,11 +2,10 @@ import { motion } from "motion/react";
 import { site } from "@/data/site";
 import { team } from "@/data/team";
 import ScrambleText from "@/components/motion/ScrambleText";
-import { CodeIcon, PaletteIcon, HeadphonesIcon, TerminalIcon, ExternalIcon, MailIcon } from "@/components/Icons";
+import { CodeIcon, PaletteIcon, TerminalIcon, ExternalIcon, MailIcon } from "@/components/Icons";
 
 const tags = [
   { icon: CodeIcon, label: "Vibecoder" },
-  { icon: HeadphonesIcon, label: "Music Artist" },
   { icon: PaletteIcon, label: "Founder" },
   { icon: TerminalIcon, label: "Linux Enthusiast" },
   { icon: TerminalIcon, label: "Cyber Security Student" },
@@ -31,15 +30,15 @@ const capabilities = [
   },
   {
     title: "Creative storytelling",
-    desc: "Music, cover art, thumbnails, captions, and digital branding treated as one connected creative system.",
-    tags: "Music ⇢ Visuals ⇢ Brand",
+    desc: "Cover art, thumbnails, captions, and digital branding treated as one connected creative system.",
+    tags: "Visuals ⇢ Content ⇢ Brand",
   },
 ];
 
 const operatingNotes = [
   {
     title: "Quality-first mindset",
-    desc: "I revise until every detail aligns with the vision — across code, design, and music alike.",
+    desc: "I revise until every detail aligns with the vision — across code and design alike.",
   },
   {
     title: "Practical learning style",
@@ -125,7 +124,7 @@ const FounderPage = () => {
                 </p>
 
                 <p className="text-sm leading-relaxed text-text/60">
-                  Visually, I gravitate toward premium interfaces — elegant typography, smooth animations, balanced spacing, and modern layouts. I revise until every detail aligns with my vision, reflecting a quality-first mindset that carries across code, design, and music alike.
+                  Visually, I gravitate toward premium interfaces — elegant typography, smooth animations, balanced spacing, and modern layouts. I revise until every detail aligns with my vision, reflecting a quality-first mindset that carries across code and design alike.
                 </p>
 
                 <p className="text-sm leading-relaxed text-text/60">
@@ -133,7 +132,7 @@ const FounderPage = () => {
                 </p>
 
                 <p className="text-sm leading-relaxed text-text/60">
-                  Looking ahead, I aim to blend software engineering, UI/UX design, content creation, and music into a career that sits at the intersection of logic and creativity. Curiosity, persistence, and a willingness to keep learning are the foundations I build on.
+                  Looking ahead, I aim to blend software engineering, UI/UX design, and content creation into a career that sits at the intersection of logic and creativity. Curiosity, persistence, and a willingness to keep learning are the foundations I build on.
                 </p>
 
                 <p className="text-sm font-medium text-text/70">
@@ -243,7 +242,7 @@ const FounderPage = () => {
               Capabilities
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05] tracking-tight text-text-alt">
-              QORVODE sits where software engineering, UI/UX design, content creation, and music meet.
+              QORVODE sits where software engineering, UI/UX design, and creative content meet.
             </h2>
           </motion.div>
 
@@ -309,13 +308,6 @@ const FounderPage = () => {
   );
 };
 
-function getHijriYear(): number {
-  const now = new Date();
-  const gregorianYear = now.getFullYear();
-  const hijriOffset = Math.floor((gregorianYear - 622) * (33 / 32));
-  return hijriOffset;
-}
-
 export const SiteFooter = () => {
   return (
     <footer className="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 bg-bg">
@@ -337,7 +329,7 @@ export const SiteFooter = () => {
                 Let's collaborate on something meaningful.
               </h2>
               <p className="text-sm sm:text-base leading-relaxed text-text/60">
-                Reach QORVODE for websites, branding, social creatives, music visuals, or focused product interfaces.
+                Reach QORVODE for websites, branding, social creatives, and focused product interfaces.
               </p>
             </div>
 
@@ -362,7 +354,7 @@ export const SiteFooter = () => {
                 Crafting premium digital experiences that blend technical excellence with creative storytelling.
               </p>
               <p className="text-[10px] font-mono uppercase tracking-[0.15em] text-text-alt/40 pt-2">
-                © {new Date().getFullYear()} / {getHijriYear()} AH · Kerala, India
+                © {new Date().getFullYear()} · Kerala, India
               </p>
             </div>
 

@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
+import { site } from "@/data/site";
+
+const whatsappUrl = `https://wa.me/${site.whatsapp.replace(/\D/g, '')}`;
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = "+919526755210";
-  const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}`;
-
   return (
     <motion.a
       href={whatsappUrl}

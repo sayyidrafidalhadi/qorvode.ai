@@ -1,5 +1,7 @@
 # Project Analysis: QORVODE Portfolio
 
+> **Note:** This is a historical snapshot (April 2026). The codebase has since migrated to TypeScript + Tailwind v4 and the terminal-green palette; see `AGENTS.md` and `src/styles/main.css` for the current state.
+
 ## Overview
 
 **Project Name:** QORVODE Personal Portfolio
