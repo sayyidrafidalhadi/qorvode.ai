@@ -3,12 +3,6 @@
  * Edit copy here; components stay purely presentational.
  */
 
-export interface Metric {
-  value: string;
-  label: string;
-  note: string;
-}
-
 export interface Capability {
   icon: "code" | "terminal" | "shield" | "palette";
   title: string;
@@ -42,13 +36,6 @@ export interface ProjectEntry {
   image: string;
 }
 
-export interface ServiceEntry {
-  title: string;
-  price: string;
-  desc: string;
-  items: string[];
-}
-
 export interface ReleaseEntry {
   title: string;
   year: string;
@@ -68,6 +55,8 @@ export const profile = {
   instagram: "https://instagram.com/zydhh.hadi",
   github: "https://github.com/sayyidrafidalhadi",
   website: "https://qorvode.co.in",
+  /** Where project requirements and enquiries are handled — the studio page. */
+  enquiry: "https://qorvode.co.in/#contact",
   status: "Open to selective collaborations · 2026",
   tagline:
     "I build bespoke, high-conversion digital experiences that combine technical efficiency with luxury aesthetics.",
@@ -88,23 +77,6 @@ export const profile = {
     "Founder",
     "Music Artist",
   ],
-  metrics: [
-    {
-      value: "25+",
-      label: "Premium Projects Delivered",
-      note: "Websites, identities, and product interfaces shipped end-to-end.",
-    },
-    {
-      value: "40%",
-      label: "Avg Increase in Client Inquiries",
-      note: "Conversion-focused positioning across luxury and healthcare brands.",
-    },
-    {
-      value: "98%",
-      label: "On-Time Delivery Rate",
-      note: "Tight iteration loops — from first sketch to production deploy.",
-    },
-  ] as Metric[],
   capabilities: [
     {
       icon: "code",
@@ -194,27 +166,19 @@ export const profile = {
       url: "https://meliqo.qorvode.co.in/",
       image: "meliqo",
     },
+    {
+      name: "QORVODE.AI",
+      kind: "Agency Hub",
+      meta: "Live · studio",
+      stack: ["React", "Vite", "Motion", "SEO"],
+      points: [
+        "The studio site where packages, process, and every enquiry are handled end to end.",
+        "Pixel-wordmark identity, motion system, and conversion-first structure.",
+      ],
+      url: "https://qorvode.co.in/",
+      image: "qorvode",
+    },
   ] as ProjectEntry[],
-  services: [
-    {
-      title: "Website Development",
-      price: "₹6,999+",
-      desc: "Custom, high-speed, SEO-optimized web applications.",
-      items: ["Bespoke builds, no templates", "Responsive · accessible · fast", "Deploy, analytics & handover"],
-    },
-    {
-      title: "Brand Identity Systems",
-      price: "₹14,999",
-      desc: "Logo concepts, guidelines, stationery, and visual authority assets.",
-      items: ["Logo & visual direction", "Guidelines + asset kit", "Applied across web & social"],
-    },
-    {
-      title: "Graphic Design & Art Direction",
-      price: "Custom",
-      desc: "Social media systems, thumbnails, and brand creative direction.",
-      items: ["Content systems & templates", "Thumbnails & covers", "Ongoing creative direction"],
-    },
-  ] as ServiceEntry[],
   music: {
     intro:
       "Independent musical compositions exploring spirituality and existence — released on Spotify, Apple Music, and JioSaavn.",

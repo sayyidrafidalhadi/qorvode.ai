@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { profile } from "@/data/profile";
-import { MailIcon, ExternalIcon, ArrowRightIcon } from "@/components/Icons";
+import { MailIcon, ExternalIcon } from "@/components/Icons";
 
 const channels = [
   { label: "Email", value: profile.email, href: `mailto:${profile.email}` },
@@ -35,24 +35,26 @@ const Contact = () => {
                 <span className="font-serif normal-case italic text-accent"> meaningful.</span>
               </h2>
               <p className="text-sm leading-relaxed text-text/60 sm:text-base">
-                Reach me for websites, brand identity systems, creative direction, or sonic identity
-                work. Every message gets a considered response.
+                Project requirements, packages, and pricing are handled through the QORVODE studio —
+                that is where a brief becomes a build. For everything else, reach me directly.
               </p>
             </div>
 
             <div className="flex shrink-0 flex-wrap gap-4">
+              <a
+                href={profile.enquiry}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-accent px-6 py-4 font-mono text-[12px] font-semibold uppercase tracking-wider text-bg [&_span]:text-current brutal-border-alt brutal-shadow-sm-alt transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              >
+                Start a project <ExternalIcon size="sm" />
+              </a>
               <a
                 href={`mailto:${profile.email}`}
                 className="inline-flex items-center gap-3 bg-bg-alt px-6 py-4 font-mono text-[12px] font-semibold tracking-wider text-text-alt brutal-border-alt shadow-[4px_4px_0px_var(--color-border)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
                 <MailIcon size="sm" />
                 {profile.email}
-              </a>
-              <a
-                href={profile.phoneHref}
-                className="inline-flex items-center gap-3 bg-accent px-6 py-4 font-mono text-[12px] font-semibold uppercase tracking-wider text-bg brutal-border-alt brutal-shadow-sm-alt transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-              >
-                Call <ArrowRightIcon size="sm" />
               </a>
             </div>
           </div>

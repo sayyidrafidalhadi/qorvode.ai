@@ -4,10 +4,12 @@ import TiltCard from "@/components/motion/TiltCard";
 import { BriefcaseIcon, ExternalIcon, GridIcon } from "@/components/Icons";
 import elvoraImg from "@/assets/elvora.png";
 import meliqoImg from "@/assets/meliqo.png";
+import qorvodeImg from "@/assets/qorvode.webp";
 
 const projectImages: Record<string, string> = {
   elvora: elvoraImg,
   meliqo: meliqoImg,
+  qorvode: qorvodeImg,
 };
 
 const Work = () => {
@@ -80,7 +82,7 @@ const Work = () => {
         </div>
 
         {/* Selected projects */}
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {profile.projects.map((project, i) => (
             <motion.article
               key={project.name}

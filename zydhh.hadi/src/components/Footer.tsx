@@ -3,7 +3,6 @@ import { profile } from "@/data/profile";
 const explore = [
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
   { href: "#music", label: "Music" },
   { href: "#contact", label: "Contact" },
 ];

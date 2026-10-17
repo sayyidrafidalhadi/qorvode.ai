@@ -53,9 +53,9 @@ const fragmentShader = `
     float n = fbm(p * 2.0 + q * 1.8 + vec2(0.0, -t * 0.5));
     float band = smoothstep(0.25, 0.85, n);
 
-    vec3 bg = vec3(0.039, 0.063, 0.051);
-    vec3 c1 = vec3(0.725, 0.808, 0.510);
-    vec3 c2 = vec3(0.620, 0.808, 0.416);
+    vec3 bg = vec3(0.0, 0.0, 0.0);
+    vec3 c1 = vec3(0.86, 0.86, 0.86);
+    vec3 c2 = vec3(0.55, 0.55, 0.55);
 
     vec3 col = mix(bg, c1, band * 0.32);
     col = mix(col, c2, smoothstep(0.6, 1.0, band) * 0.22);
@@ -180,7 +180,7 @@ export default function ShaderAurora({ className }: ShaderAuroraProps) {
         className={className}
         style={{
           background:
-            "radial-gradient(80% 60% at 50% 40%, rgba(185,206,130,0.14), transparent 70%)",
+            "radial-gradient(80% 60% at 50% 40%, rgba(255,255,255,0.1), transparent 70%)",
         }}
       />
     );

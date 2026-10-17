@@ -24,7 +24,7 @@ const BackToTop = () => {
       onClick={scrollToTop}
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
-      className="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-accent-alt text-bg-alt brutal-border-alt brutal-shadow-alt flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300 cursor-pointer"
+      className="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-accent-alt text-bg-alt [&_span]:text-current brutal-border-alt brutal-shadow-alt flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300 cursor-pointer"
     >
       <ArrowUpIcon size="m" />
     </motion.button>

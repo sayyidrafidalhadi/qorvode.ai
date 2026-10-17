@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 import { profile } from "@/data/profile";
 import ScrambleText from "@/components/motion/ScrambleText";
 import TiltCard from "@/components/motion/TiltCard";
-import { ArrowRightIcon, MailIcon, ExternalIcon } from "@/components/Icons";
-import portrait from "@/assets/portrait.jpg";
+import { ArrowRightIcon, ExternalIcon } from "@/components/Icons";
+import person from "@/assets/person.webp";
 
 const TermLine = ({ delay, children }: { delay: number; children: React.ReactNode }) => (
   <motion.p
@@ -89,24 +89,18 @@ const Hero = () => {
               className="flex flex-wrap items-center gap-4 pt-2"
             >
               <a
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-3 bg-accent px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] text-bg brutal-border-alt brutal-shadow-sm-alt transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                href={profile.enquiry}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-accent px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] text-bg [&_span]:text-current brutal-border-alt brutal-shadow-sm-alt transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                <MailIcon size="sm" /> Start a project
+                Start a project <ExternalIcon size="sm" />
               </a>
               <a
                 href="#work"
                 className="inline-flex items-center gap-3 bg-surface px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] text-text brutal-border brutal-shadow-sm transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
                 Selected work <ArrowRightIcon size="sm" />
-              </a>
-              <a
-                href={profile.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-text/50 transition-colors hover:text-accent"
-              >
-                qorvode.co.in <ExternalIcon size="sm" />
               </a>
             </motion.div>
           </div>
@@ -119,13 +113,25 @@ const Hero = () => {
             className="space-y-5 lg:col-span-5"
           >
             <TiltCard className="brutal-border brutal-shadow-lg rounded-xl bg-surface p-3">
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-bg-alt">
+                <div
+                  className="grid-field pointer-events-none absolute inset-0 opacity-30"
+                  aria-hidden="true"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  aria-hidden="true"
+                  style={{
+                    background:
+                      "radial-gradient(56% 44% at 50% 68%, rgba(255,255,255,0.14), transparent 72%)",
+                  }}
+                />
                 <img
-                  src={portrait}
-                  alt="Portrait of Sayyid Rafid Al Hadi"
-                  width={1200}
-                  height={1500}
-                  className="aspect-[4/5] w-full object-cover"
+                  src={person}
+                  alt="Sayyid Rafid Al Hadi, founder of QORVODE"
+                  width={1100}
+                  height={1100}
+                  className="relative h-full w-full object-cover object-bottom drop-shadow-[0_0_38px_rgba(255,255,255,0.22)]"
                   loading="eager"
                   decoding="async"
                 />

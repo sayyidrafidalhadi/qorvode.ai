@@ -4,11 +4,9 @@ import Spotlight from "@/components/Spotlight";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import Metrics from "@/components/Metrics";
 import About from "@/components/About";
 import Education from "@/components/Education";
 import Work from "@/components/Work";
-import Services from "@/components/Services";
 import Music from "@/components/Music";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -30,11 +28,9 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
-        <Metrics />
         <About />
         <Education />
         <Work />
-        <Services />
         <Music />
       </main>
       <Contact />

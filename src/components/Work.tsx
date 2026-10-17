@@ -120,7 +120,7 @@ const Work = () => {
                       href={project?.url || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 font-mono text-[11px] font-medium text-bg transition-colors duration-150 hover:bg-[color-mix(in_oklch,var(--color-accent),white_14%)]"
+                      className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 font-mono text-[11px] font-medium text-bg [&_span]:text-current transition-colors duration-150 hover:bg-[color-mix(in_oklch,var(--color-accent),white_14%)]"
                       aria-label={`Visit ${study.brand} website`}
                     >
                       Visit Site <ExternalIcon size="sm" aria-hidden="true" />

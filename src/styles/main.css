@@ -7,23 +7,23 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --font-pixel: "Silkscreen", "JetBrains Mono", monospace;
 
-  /* Omarchy-inspired terminal field palette */
-  --color-bg: #0a100d;
-  --color-bg-alt: #0b130f;
-  --color-text: #f1e6be;
-  --color-text-alt: #eadfb0;
-  --color-accent: #b9ce82;
-  --color-accent-alt: #9ece6a;
-  --color-surface: #101812;
-  --color-surface-alt: #141e16;
-  --color-surface-2: #18241b;
-  --color-border: #1e2e22;
-  --color-border-alt: #26382a;
-  --color-border-strong: #35513c;
-  --color-muted: #8a9a76;
-  --color-primary: #b9ce82;
-  --color-primary-foreground: #0a100d;
-  --color-ring: #b9ce82;
+  /* Monochrome palette — black, white, and greys only */
+  --color-bg: #000000;
+  --color-bg-alt: #0a0a0a;
+  --color-text: #ededed;
+  --color-text-alt: #fafafa;
+  --color-accent: #ffffff;
+  --color-accent-alt: #c8c8c8;
+  --color-surface: #0d0d0d;
+  --color-surface-alt: #131313;
+  --color-surface-2: #1a1a1a;
+  --color-border: #242424;
+  --color-border-alt: #343434;
+  --color-border-strong: #4f4f4f;
+  --color-muted: #8c8c8c;
+  --color-primary: #ffffff;
+  --color-primary-foreground: #000000;
+  --color-ring: #ffffff;
 
   --breakpoint-xs: 480px;
 }
@@ -32,12 +32,12 @@
   --nav-h: calc(3.5rem + env(safe-area-inset-top, 0px));
 
   /* Pixel wordmark vertical field gradient (crest -> dim) */
-  --t-field-bg: #0a100d;
-  --t-field-crest: #223428;
-  --t-field-hover: #34503b;
-  --t-field-lit: #9ece6a;
-  --t-field-mid: #c7d39a;
-  --t-field-dim: #5e6e45;
+  --t-field-bg: #000000;
+  --t-field-crest: #1a1a1a;
+  --t-field-hover: #3d3d3d;
+  --t-field-lit: #ffffff;
+  --t-field-mid: #d6d6d6;
+  --t-field-dim: #5c5c5c;
 }
 
 @layer base {
@@ -73,6 +73,7 @@
   }
 
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
   }
 }
