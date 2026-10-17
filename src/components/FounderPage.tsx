@@ -157,6 +157,12 @@ const FounderPage = () => {
                     GitHub
                   </a>
                   <a
+                    href="/zydhh.hadi/"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-surface brutal-border brutal-shadow-sm text-text text-[10px] font-bold uppercase tracking-[0.15em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
+                  >
+                    Personal portfolio ↗
+                  </a>
+                  <a
                     href="mailto:qorvode.ai@gmail.com"
                     className="inline-flex items-center gap-2 px-5 py-3 bg-surface brutal-border brutal-shadow-sm text-text text-[10px] font-bold uppercase tracking-[0.15em] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-300"
                   >
@@ -375,6 +381,7 @@ export const SiteFooter = () => {
                   <a href={site.github} target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">GitHub</a>
                   <a href="https://instagram.com/qorvode.ai" target="_blank" rel="noopener noreferrer" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Instagram</a>
                   <a href={`mailto:${site.email}`} className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Email</a>
+                  <a href="/zydhh.hadi/" className="text-xs text-text-alt/50 hover:text-accent-alt transition-colors font-medium">Personal portfolio</a>
                 </div>
               </div>
 

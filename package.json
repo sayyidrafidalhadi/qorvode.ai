@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "dev:zydhh": "npm --prefix zydhh.hadi run dev",
+    "build": "npm --prefix zydhh.hadi install --no-audit --no-fund && vite build && npm --prefix zydhh.hadi run build",
+    "build:zydhh": "npm --prefix zydhh.hadi run build",
     "preview": "vite preview",
     "lint": "eslint ."
   },
