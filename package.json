@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:zydhh": "npm --prefix zydhh.hadi run dev",
-    "build": "npm --prefix zydhh.hadi install --no-audit --no-fund && vite build && npm --prefix zydhh.hadi run build",
-    "build:zydhh": "npm --prefix zydhh.hadi run build",
+    "dev:zydhh": "vite --config zydhh.hadi/vite.config.ts --port 5174 --strictPort",
+    "build": "vite build && vite build --config zydhh.hadi/vite.config.ts",
+    "build:zydhh": "vite build --config zydhh.hadi/vite.config.ts",
     "preview": "vite preview",
     "lint": "eslint ."
   },
