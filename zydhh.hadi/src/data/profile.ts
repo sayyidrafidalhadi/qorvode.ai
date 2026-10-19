@@ -105,7 +105,6 @@ export const profile = {
   ] as Capability[],
   facts: [
     { label: "Base", value: "Kerala, India" },
-    { label: "Languages", value: "English · Arabic · Malayalam" },
     { label: "Currently", value: "B.Tech CSE — Cyber Security" },
     { label: "Studio", value: "QORVODE.AI — Founder" },
   ],
