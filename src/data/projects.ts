@@ -32,6 +32,17 @@ export interface CaseStudy {
 export const projects: Project[] = [
   {
     id: 0,
+    title: "Al Reem Restaurants",
+    description: "A premium restaurant website with a modern design, smooth animations, and a refined dark blue and gold aesthetic, Featuring a custom web loading animation and custom hero section with custom handmade components, and a custom menu section with a custom filter and a custom menu item component.",
+    status: "Live",
+    statusType: "success",
+    tags: ["React", "Custom Components", "UI/UX", "Tailwind CSS"],
+    url: "https://alreemmandi.com/",
+    image: "/alreem.png",
+    wide: true
+  },
+  {
+    id: 1,
     title: "Elvora Creative",
     description: "A premium digital design portfolio with luxury-inspired UI, smooth animations, and a refined dark aesthetic. Features immersive 3D interactive layout.",
     status: "Live",
@@ -57,6 +68,26 @@ export const projects: Project[] = [
 export const caseStudies: CaseStudy[] = [
   {
     id: 0,
+    brand: "Al Reem Restaurants",
+    problem: "Premium restaurant website with modern design, smooth animations, and refined dark blue and gold aesthetic",
+    approach: "Custom web loading animation, custom hero section with handmade components, and custom menu section with filter and menu item component",
+    result: "Luxury-inspired restaurant website with immersive user experience",
+    metric: "100+ daily visitors",
+    timeline: "Delivered in 4 weeks",
+    tags: ["React", "Custom Components", "UI/UX", "Tailwind CSS"],
+    status: "Live",
+    curated: {
+      eyebrow: "Curated experience",
+      title: "The Al Reem Restaurants Case Study.",
+      paragraphs: [
+        "Al Reem Restaurants needed a website that reflected their premium positioning and unique dining experience.",
+        "Our solution featured a modern design with smooth animations and a refined dark blue and gold aesthetic.",
+        "The custom web loading animation and handmade components created an immersive user experience."
+      ]
+    }
+  },
+  {
+    id: 1,
     brand: "Elvora Creative",
     problem: "Digital design studio needing immersive portfolio with luxury aesthetic and 3D interactions",
     approach: "Premium dark-themed UI with smooth animations and 3D interactive layout",

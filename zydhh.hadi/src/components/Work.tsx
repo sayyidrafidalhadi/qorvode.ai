@@ -4,11 +4,13 @@ import TiltCard from "@/components/motion/TiltCard";
 import { BriefcaseIcon, ExternalIcon, GridIcon } from "@/components/Icons";
 import elvoraImg from "@/assets/elvora.png";
 import meliqoImg from "@/assets/meliqo.png";
+import alreemImg from "@/assets/alreem.png";
 import qorvodeImg from "@/assets/qorvode.webp";
 
 const projectImages: Record<string, string> = {
   elvora: elvoraImg,
   meliqo: meliqoImg,
+  alreem: alreemImg,
   qorvode: qorvodeImg,
 };
 

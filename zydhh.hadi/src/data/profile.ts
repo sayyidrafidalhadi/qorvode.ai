@@ -49,7 +49,7 @@ export const profile = {
   brand: "QORVODE.AI",
   location: "Kerala, India",
   languages: ["English", "Arabic", "Malayalam"],
-  email: "qorvode.ai@gmail.com",
+  email: "rappuplayzpro@gmail.com",
   phone: "+91 9526755210",
   phoneHref: "tel:+919526755210",
   instagram: "https://instagram.com/zydhh.hadi",

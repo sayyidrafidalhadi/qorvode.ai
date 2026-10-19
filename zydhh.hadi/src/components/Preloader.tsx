@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { profile } from "@/data/profile";
 
 const BOOT_LINES = [
-  "boot rafid profile",
+  "boot rafid's profile",
   "load design system",
   "mount portfolio modules",
   "open sonic channel",

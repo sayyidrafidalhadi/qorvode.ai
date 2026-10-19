@@ -128,7 +128,7 @@ const Hero = () => {
                 />
                 <img
                   src={person}
-                  alt="Sayyid Rafid Al Hadi, founder of QORVODE"
+                  alt="Sayyid Rafid Al Hadi, Founder of QORVODE.AI"
                   width={1100}
                   height={1100}
                   className="relative h-full w-full object-cover object-bottom drop-shadow-[0_0_38px_rgba(255,255,255,0.22)]"
