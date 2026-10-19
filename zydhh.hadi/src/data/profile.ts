@@ -143,6 +143,18 @@ export const profile = {
   ] as RoleEntry[],
   projects: [
     {
+      name: "Al Reem Restaurants",
+      kind: "Restaurant Website",
+      meta: "Delivered in 4 wks",
+      stack: ["React", "Custom Components", "UI/UX", "Tailwind CSS"],
+      points: [
+        "Designed and deployed a premium restaurant website with modern design, smooth animations, and refined dark blue and gold aesthetic.",
+        "Implemented a custom web loading animation, hero section with handmade components, and menu section with filter and menu item component.",
+      ],
+      url: "https://alreemmandi.com/",
+      image: "alreem",
+    },
+    {
       name: "Elvora Creative",
       kind: "Digital Portfolio",
       meta: "Delivered in 3 wks",
