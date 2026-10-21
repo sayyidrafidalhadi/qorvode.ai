@@ -5,7 +5,7 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="border-y-[3px] border-border-alt bg-bg-alt px-5 py-16 sm:px-8 sm:py-24 lg:px-12"
+      className="border-y-[3px] border-accent-alt bg-bg-alt px-5 py-16 sm:px-8 sm:py-24 lg:px-12"
     >
       <div className="mx-auto max-w-7xl space-y-12">
         <motion.div
@@ -44,7 +44,7 @@ const Education = () => {
               <span
                 aria-hidden="true"
                 className={`absolute top-8 -left-[31px] size-2.5 rounded-full border-2 border-bg-alt sm:-left-[47px] ${
-                  entry.current ? "animate-pulse bg-accent" : "bg-border-strong"
+                  entry.current ? "animate-pulse bg-accent" : "bg-umber"
                 }`}
               />
 
@@ -53,7 +53,7 @@ const Education = () => {
                   {entry.period}
                 </span>
                 {entry.focus && (
-                  <span className="border border-accent/40 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-accent">
+                  <span className="border border-red-deep px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-red-bright">
                     {entry.focus}
                   </span>
                 )}

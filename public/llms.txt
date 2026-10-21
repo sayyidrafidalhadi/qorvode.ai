@@ -1,0 +1,44 @@
+# QORVODE
+
+> Qorvode AI (QORVODE) is a premium digital experiences studio based in Kerala, India. It is a two-person studio: **Sayyid Rafid Al Hadi** (founder — developer and designer) and **Muhammed Fayiz** (graphic designer and video grapher, based in Kozhikode). The studio delivers web development, UI/UX design, brand identity, graphic and poster design, and video production. The brand is also known as Qorvode AI, QORVODE.AI and qorvode.ai. The site is at https://qorvode.co.in/ and the canonical domain is qorvode.co.in (qorvode.ai is the brand name).
+
+## Team
+
+- [Sayyid Rafid Al Hadi — Founder of QORVODE](https://qorvode.co.in/zydhh.hadi/): Founder, full-stack developer and UI/UX designer from Kerala, India. Also known as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, Muhammed Rafid Thangal and zydhh.hadi. Builds high-performance web experiences with React, Next.js, TypeScript, Tailwind CSS, Three.js and Node.js. Works in Linux, Ubuntu, Kali Linux and Termux, and studies cyber security.
+- [Muhammed Fayiz — Graphic Designer at QORVODE](https://qorvode.co.in/fayiizeeh/): Graphic designer and video grapher based in Kozhikode, Kerala. Also known as Fayiz, Fayiz M and fayiizeeh. Specialises in poster design, brand identity, art direction, motion and animation, videography, video editing and photo editing. Works with Adobe Creative Suite, Canva, CapCut, DaVinci Resolve, After Effects and Figma.
+
+## What the studio does
+
+- Web development — React, Next.js, TypeScript, Tailwind CSS, PHP, Python, Three.js.
+- UI/UX design — premium interfaces, design systems, typography, motion and polish.
+- Brand identity — logos, visual systems, art direction and guidelines.
+- Graphic and poster design — event, campaign and social posters.
+- Video production — videography, video editing, motion graphics and colour grading.
+- Linux, DevOps and cyber security — Ubuntu, Kali Linux, Termux, Docker, Git and GitHub.
+
+## Pages
+
+- [Home](https://qorvode.co.in/): Studio overview, selected work, services and contact.
+- [About & the team](https://qorvode.co.in/#about): Founder bio, capabilities and the team roster.
+- [Work](https://qorvode.co.in/#work): Selected case studies.
+- [Services](https://qorvode.co.in/#services): What QORVODE delivers.
+- [Insights](https://qorvode.co.in/articles.html): Long-form articles on design, development and digital strategy.
+- [Contact](https://qorvode.co.in/#contact): Collaborate with the studio.
+
+## Personal portfolios
+
+- [Sayyid Rafid Al Hadi](https://qorvode.co.in/zydhh.hadi/): developer portfolio, projects and engineering notes.
+- [Muhammed Fayiz](https://qorvode.co.in/fayiizeeh/): graphic design and video portfolio — posters, brand work and event design.
+
+## Contact
+
+- Studio email: qorvode.ai@gmail.com
+- WhatsApp: +91 95267 55210
+- Instagram: https://instagram.com/qorvode.ai
+- GitHub: https://github.com/sayyidrafidalhadi
+
+## Optional
+
+- [Full reference sheet](https://qorvode.co.in/llms-full.txt): expanded facts, FAQs and team detail for long-form retrieval.
+- [Sitemap](https://qorvode.co.in/sitemap.xml)
+- [FAQ schema](https://qorvode.co.in/#faq)

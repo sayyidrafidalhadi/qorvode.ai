@@ -9,7 +9,7 @@ export default function Spotlight() {
   const y = useMotionValue(-600);
   const springX = useSpring(x, { stiffness: 120, damping: 20, mass: 0.5 });
   const springY = useSpring(y, { stiffness: 120, damping: 20, mass: 0.5 });
-  const background = useMotionTemplate`radial-gradient(520px circle at ${springX}px ${springY}px, rgba(255,255,255,0.06), transparent 65%)`;
+  const background = useMotionTemplate`radial-gradient(520px circle at ${springX}px ${springY}px, rgba(217,166,72,0.07), transparent 65%)`;
 
   useEffect(() => {
     if (window.matchMedia("(hover: none)").matches) return;

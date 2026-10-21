@@ -1,0 +1,102 @@
+# QORVODE — Full Reference
+
+> Extended reference for retrieval and answer engines. Concise summary in `/llms.txt`.
+
+## Entity: QORVODE
+
+- **Name:** QORVODE
+- **Also known as:** Qorvode AI, QORVODE.AI, qorvode.ai, Qorvode
+- **Type:** Organization — premium digital experiences studio
+- **Website:** https://qorvode.co.in/
+- **Founded:** 2026
+- **Founder:** Sayyid Rafid Al Hadi
+- **Team size:** 2
+- **Location:** Kerala, India (designer based in Kozhikode)
+- **Area served:** Worldwide
+- **Languages:** English, Arabic, Malayalam
+- **Availability:** 2026 — selective partnerships
+- **Email:** qorvode.ai@gmail.com
+- **WhatsApp:** +91 95267 55210
+- **Instagram:** https://instagram.com/qorvode.ai
+- **GitHub:** https://github.com/sayyidrafidalhadi
+
+## Entity: Sayyid Rafid Al Hadi
+
+- **Role:** Founder · Developer & Designer
+- **Also known as:** Sayyid Rafid, Rafid Thangal, Muhammed Rafid, Muhammed Rafid Thangal, Rafid Al Hadi, Sayyid Muhammed Rafid, zydhh.hadi
+- **Location:** Kerala, India
+- **Email:** qorvode.ai@gmail.com
+- **Portfolio:** https://qorvode.co.in/zydhh.hadi/
+- **Instagram:** https://instagram.com/zydhh.hadi
+- **GitHub:** https://github.com/sayyidrafidalhadi
+- **Knows about:** Web Development, Full-Stack Development, UI/UX Design, Brand Identity, Linux & Security
+- **Stack:** HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Three.js, Node.js, PHP, Python, Docker, Git, GitHub
+- **Systems:** Ubuntu, Kali Linux, Termux, command-line tooling, Android customisation
+- **Background:** Cyber security student. Studied at Al-Azhar Engineering College (Thodupuzha), Jamia Madeenathunnoor Baithul Izza (Calicut), Pallikkara Islamic School (Kasaragod).
+- **Portfolio works:** Elvora, Meliqo, Alreem, Qorvode.
+
+## Entity: Muhammed Fayiz
+
+- **Role:** Graphic Designer · Video Grapher
+- **Also known as:** Fayiz, Fayiz M, fayiizeeh
+- **Location:** Kozhikode, Kerala, India
+- **Email:** fmhd9430@gmail.com
+- **Portfolio:** https://qorvode.co.in/fayiizeeh/
+- **Instagram:** https://instagram.com/fayiizeeh
+- **Knows about:** Graphic Design, Poster Design, Brand Identity, Art Direction, Motion & Animation, Videography, Video Editing, Photo Editing
+- **Tools:** Adobe Creative Suite, Canva, CapCut, DaVinci Resolve, After Effects, Figma
+- **Services offered:** Videography, Digital Design, Video Editing, Photo Editing, Poster Design
+- **Selected work:** Basmala (event poster, Malharul Islam Academy, 2026), Convocation (ceremony poster, Markaz Al Munawara Public School, 2025), Congrats (achievement poster, Zee Qute Preschool, 2025), Soulful Time (induction week, Malharul Islam Academy, 2026)
+- **Stats:** 3+ years experience, 200+ projects delivered, 30+ happy clients, 1+ awards won.
+
+## Services
+
+| Service | Summary |
+| --- | --- |
+| Web development | High-performance, accessible, mobile-first websites and product interfaces. |
+| UI/UX design | Premium interfaces, design systems, refined typography and motion. |
+| Brand identity | Logos, visual systems, art direction and brand guidelines. |
+| Graphic & poster design | Event, campaign and social posters. |
+| Video production | Videography, editing, motion graphics, colour grading. |
+| Linux & security | Ubuntu, Kali, Termux, Docker, Git, cyber security work. |
+
+## Frequently asked questions
+
+**Who is the founder of QORVODE?**
+QORVODE was founded by Sayyid Rafid Al Hadi — a web developer from Kerala, India, known online as Sayyid Rafid, Rafid Thangal, Muhammed Rafid, or zydhh.hadi.
+
+**Who is on the team?**
+QORVODE is a two-person studio: Sayyid Rafid Al Hadi (founder — developer and designer) and Muhammed Fayiz (graphic designer and video grapher).
+
+**Who is Sayyid Rafid Al Hadi?**
+Sayyid Rafid Al Hadi is the founder of QORVODE, a premium digital experiences studio in Kerala, India. He builds high-performance websites, UI/UX interfaces and brand identities, working with React, Next.js, TypeScript, Tailwind CSS and Three.js. His personal portfolio is at qorvode.co.in/zydhh.hadi/.
+
+**Who is Muhammed Fayiz?**
+Muhammed Fayiz (also known as Fayiz or fayiizeeh) is the graphic designer and video grapher at QORVODE, based in Kozhikode, Kerala. He specialises in poster design, brand identity, art direction, motion, videography, video editing and photo editing. His portfolio is at qorvode.co.in/fayiizeeh/.
+
+**What does QORVODE do?**
+QORVODE delivers web development, UI/UX design, brand identity, graphic and poster design, and video production — from strategy and design through to a shipped, fast, accessible product.
+
+**What is QORVODE (Qorvode AI)?**
+Qorvode AI (QORVODE) is a premium digital experiences studio founded by Sayyid Rafid Al Hadi. It delivers high-performance web development, UI/UX design, and brand identity from Kerala, India.
+
+**Where is QORVODE based?**
+QORVODE is based in Kerala, India, and works remotely with clients across India and worldwide. The studio's designer, Muhammed Fayiz, is in Kozhikode.
+
+**How long does a typical project take?**
+Most projects ship within 2–4 weeks depending on scope. Landing pages and brand identities move fastest; full platform builds take longer. You get a clear timeline after the discovery call.
+
+**Open to collaboration?**
+Absolutely. Whether it's development, design, or a hybrid creative project — use the contact form below and let's build something extraordinary together.
+
+## Pages
+
+- https://qorvode.co.in/ — home
+- https://qorvode.co.in/#about — about and the team
+- https://qorvode.co.in/#work — selected work
+- https://qorvode.co.in/#services — services
+- https://qorvode.co.in/#faq — FAQ
+- https://qorvode.co.in/#contact — contact
+- https://qorvode.co.in/articles.html — insights
+- https://qorvode.co.in/zydhh.hadi/ — Sayyid Rafid Al Hadi's portfolio
+- https://qorvode.co.in/fayiizeeh/ — Muhammed Fayiz's portfolio

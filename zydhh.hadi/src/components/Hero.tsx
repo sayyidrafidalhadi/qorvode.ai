@@ -123,7 +123,7 @@ const Hero = () => {
                   aria-hidden="true"
                   style={{
                     background:
-                      "radial-gradient(56% 44% at 50% 68%, rgba(255,255,255,0.14), transparent 72%)",
+                      "radial-gradient(56% 44% at 50% 68%, rgba(217,166,72,0.16), transparent 72%)",
                   }}
                 />
                 <img
@@ -131,7 +131,7 @@ const Hero = () => {
                   alt="Sayyid Rafid Al Hadi, Founder of QORVODE.AI"
                   width={1100}
                   height={1100}
-                  className="relative h-full w-full object-cover object-bottom drop-shadow-[0_0_38px_rgba(255,255,255,0.22)]"
+                  className="relative h-full w-full object-cover object-bottom drop-shadow-[0_0_38px_rgba(224,75,60,0.28)]"
                   loading="eager"
                   decoding="async"
                 />

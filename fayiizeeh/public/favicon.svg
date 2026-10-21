@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Fayiz">
+  <rect width="512" height="512" fill="#000000"/>
+  <rect x="24" y="24" width="464" height="464" fill="none" stroke="#ededed" stroke-width="8"/>
+  <g fill="#ffffff">
+    <rect x="140" y="128" width="76" height="256"/>
+    <rect x="140" y="128" width="232" height="66"/>
+    <rect x="140" y="238" width="180" height="66"/>
+  </g>
+  <rect x="346" y="320" width="46" height="46" fill="#ffffff"/>
+</svg>

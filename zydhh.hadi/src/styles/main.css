@@ -7,23 +7,35 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --font-pixel: "Silkscreen", "JetBrains Mono", monospace;
 
-  /* Monochrome palette — black, white, and greys only */
-  --color-bg: #000000;
-  --color-bg-alt: #0a0a0a;
-  --color-text: #ededed;
-  --color-text-alt: #fafafa;
-  --color-accent: #ffffff;
-  --color-accent-alt: #c8c8c8;
-  --color-surface: #0d0d0d;
-  --color-surface-alt: #131313;
-  --color-surface-2: #1a1a1a;
-  --color-border: #242424;
-  --color-border-alt: #343434;
-  --color-border-strong: #4f4f4f;
-  --color-muted: #8c8c8c;
-  --color-primary: #ffffff;
-  --color-primary-foreground: #000000;
-  --color-ring: #ffffff;
+  /* Red + gold on golden black */
+  --color-bg: #0a0805;
+  --color-bg-alt: #100d08;
+  --color-text: #f5efe2;
+  --color-text-alt: #e8dfcd;
+  --color-accent: #e04b3c;
+  --color-accent-alt: #d9a648;
+  --color-surface: #15110a;
+  --color-surface-alt: #1a150d;
+  --color-surface-2: #201a10;
+  --color-border: #282114;
+  --color-border-alt: #332a1a;
+  --color-border-strong: #423621;
+  --color-muted: #a68c55;
+  --color-primary: #e04b3c;
+  --color-primary-foreground: #0a0805;
+  --color-ring: #e04b3c;
+
+  /* Full palette — art-directed accents for work, capabilities and releases */
+  --color-red: #e04b3c;
+  --color-red-bright: #f2695a;
+  --color-red-deep: #a52f22;
+  --color-ember: #d9722f;
+  --color-rust: #cf5f39;
+  --color-copper: #b4713a;
+  --color-gold: #d9a648;
+  --color-gold-bright: #f2c869;
+  --color-gold-deep: #a87c2b;
+  --color-umber: #6b5836;
 
   --breakpoint-xs: 480px;
 }
@@ -32,12 +44,12 @@
   --nav-h: calc(3.5rem + env(safe-area-inset-top, 0px));
 
   /* Pixel wordmark vertical field gradient (crest -> dim) */
-  --t-field-bg: #000000;
-  --t-field-crest: #1a1a1a;
-  --t-field-hover: #3d3d3d;
-  --t-field-lit: #ffffff;
-  --t-field-mid: #d6d6d6;
-  --t-field-dim: #5c5c5c;
+  --t-field-bg: #0a0805;
+  --t-field-crest: #221c11;
+  --t-field-hover: #4b3a1e;
+  --t-field-lit: #f4cf72;
+  --t-field-mid: #e04b3c;
+  --t-field-dim: #7a3a24;
 }
 
 @layer base {
@@ -91,32 +103,32 @@
   .brutal-shadow {
     box-shadow:
       0 0 0 1px color-mix(in oklch, var(--color-border-alt) 60%, transparent),
-      0 24px 48px -32px rgba(0, 0, 0, 0.9);
+      0 24px 48px -32px rgba(10, 8, 5, 0.9);
   }
   .brutal-shadow-alt {
     box-shadow:
       0 0 0 1px color-mix(in oklch, var(--color-border) 60%, transparent),
-      0 24px 48px -32px rgba(0, 0, 0, 0.9);
+      0 24px 48px -32px rgba(10, 8, 5, 0.9);
   }
   .brutal-shadow-sm {
     box-shadow:
       0 0 0 1px color-mix(in oklch, var(--color-border-alt) 50%, transparent),
-      0 12px 28px -22px rgba(0, 0, 0, 0.85);
+      0 12px 28px -22px rgba(10, 8, 5, 0.85);
   }
   .brutal-shadow-sm-alt {
     box-shadow:
       0 0 0 1px color-mix(in oklch, var(--color-border) 50%, transparent),
-      0 12px 28px -22px rgba(0, 0, 0, 0.85);
+      0 12px 28px -22px rgba(10, 8, 5, 0.85);
   }
   .brutal-shadow-lg {
     box-shadow:
       0 0 0 1px color-mix(in oklch, var(--color-border-alt) 70%, transparent),
-      0 36px 70px -40px rgba(0, 0, 0, 0.95);
+      0 36px 70px -40px rgba(10, 8, 5, 0.95);
   }
   .brutal-shadow-lg-alt {
     box-shadow:
       0 0 0 1px color-mix(in oklch, var(--color-border) 70%, transparent),
-      0 36px 70px -40px rgba(0, 0, 0, 0.95);
+      0 36px 70px -40px rgba(10, 8, 5, 0.95);
   }
 
   .pixel-container {
@@ -145,7 +157,7 @@
       linear-gradient(
         to bottom,
         transparent 44%,
-        rgba(255, 255, 255, 0.4) 50%,
+        rgba(244, 207, 114, 0.45) 50%,
         transparent 56%
       );
     background-size: 100% 100%, 100% 240%;
@@ -173,7 +185,7 @@
 
   .grain {
     background-image: radial-gradient(
-      rgba(255, 255, 255, 0.022) 1px,
+      rgba(245, 239, 226, 0.022) 1px,
       transparent 0
     );
     background-size: 3px 3px;
@@ -187,11 +199,11 @@
     background-size: 44px 44px;
   }
 
-  /* Soft white field glow */
+  /* Soft gold field glow */
   .field-glow {
     background: radial-gradient(
       62% 52% at 50% 8%,
-      rgba(255, 255, 255, 0.08),
+      rgba(217, 166, 72, 0.09),
       transparent 70%
     );
   }
@@ -199,7 +211,7 @@
   /* Vinyl disc for the sonic identity section */
   .vinyl-disc {
     background:
-      radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.3), transparent 46%),
+      radial-gradient(circle at 32% 28%, rgba(224, 75, 60, 0.32), transparent 46%),
       repeating-radial-gradient(
         circle at 50% 50%,
         var(--color-surface) 0px,

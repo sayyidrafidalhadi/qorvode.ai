@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://qorvode.co.in/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://qorvode.co.in/sayyid.webp</image:loc>
+      <image:title>Sayyid Rafid Al Hadi — Founder of QORVODE</image:title>
+      <image:caption>Portrait of Sayyid Rafid Al Hadi, founder of QORVODE.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://qorvode.co.in/fayiz.webp</image:loc>
+      <image:title>Muhammed Fayiz — Graphic Designer at QORVODE</image:title>
+      <image:caption>Portrait of Muhammed Fayiz (fayiizeeh), graphic designer and video grapher at QORVODE.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://qorvode.co.in/articles.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://qorvode.co.in/privacy.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://qorvode.co.in/terms.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://qorvode.co.in/zydhh.hadi/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://qorvode.co.in/sayyid.webp</image:loc>
+      <image:title>Sayyid Rafid Al Hadi — Portfolio</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://qorvode.co.in/fayiizeeh/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://qorvode.co.in/fayiz.webp</image:loc>
+      <image:title>Muhammed Fayiz — Portfolio</image:title>
+    </image:image>
   </url>
 </urlset>

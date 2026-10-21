@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { profile } from "@/data/profile";
+import { accent } from "@/lib/accents";
 import ScrambleText from "@/components/motion/ScrambleText";
 import { CodeIcon, TerminalIcon, ShieldIcon, PaletteIcon } from "@/components/Icons";
 
@@ -83,7 +84,9 @@ const About = () => {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="flex flex-col bg-surface-alt p-6 brutal-border-alt shadow-[5px_5px_0px_var(--color-border)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
                 >
-                  <div className="mb-4 flex size-10 items-center justify-center bg-bg brutal-border">
+                  <div
+                    className={`mb-4 flex size-10 items-center justify-center bg-bg brutal-border ${accent.text[cap.accent]} [&_span]:text-current`}
+                  >
                     <Icon size="sm" />
                   </div>
                   <h3 className="mb-3 font-display text-lg font-bold tracking-tight text-text">

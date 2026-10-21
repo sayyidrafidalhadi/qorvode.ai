@@ -1,6 +1,6 @@
 /* QORVODE Service Worker — offline-first caching for production assets */
 
-const CACHE = "qorvode-v4";
+const CACHE = "qorvode-v5";
 
 const PRECACHE_URLS = [
   "/",
@@ -10,6 +10,7 @@ const PRECACHE_URLS = [
   "/terms.html",
   "/manifest.json",
   "/zydhh.hadi/",
+  "/fayiizeeh/",
 ];
 
 self.addEventListener("install", (event) => {

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { profile } from "@/data/profile";
+import { accent } from "@/lib/accents";
 import TiltCard from "@/components/motion/TiltCard";
 import { BriefcaseIcon, ExternalIcon, GridIcon } from "@/components/Icons";
 import elvoraImg from "@/assets/elvora.png";
@@ -108,7 +109,9 @@ const Work = () => {
 
               <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-accent">
+                  <span
+                    className={`inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.15em] ${accent.text[project.accent]} [&_span]:text-current`}
+                  >
                     <GridIcon size="sm" /> {project.kind}
                   </span>
                   <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-text/40">
@@ -144,7 +147,7 @@ const Work = () => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-3 self-start bg-bg-alt px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-text-alt brutal-border-alt shadow-[4px_4px_0px_var(--color-border)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                  className={`mt-auto inline-flex items-center gap-3 self-start bg-bg-alt px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.15em] brutal-border-alt shadow-[4px_4px_0px_var(--color-border)] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none hover:text-bg ${accent.text[project.accent]} ${accent.fill[project.accent]} [&_span]:text-current`}
                 >
                   Visit live <ExternalIcon size="sm" />
                 </a>

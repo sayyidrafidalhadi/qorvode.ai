@@ -13,7 +13,7 @@ const channels = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="bg-bg-alt border-t-[3px] border-border-alt px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
+    <section id="contact" className="bg-bg-alt border-t-[3px] border-accent-alt px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -3,11 +3,15 @@
  * Edit copy here; components stay purely presentational.
  */
 
+import type { AccentToken } from "@/lib/accents";
+
 export interface Capability {
   icon: "code" | "terminal" | "shield" | "palette";
   title: string;
   items: string[];
   tags: string;
+  /** Accent colour for this capability's icon. */
+  accent: AccentToken;
 }
 
 export interface EducationEntry {
@@ -34,11 +38,15 @@ export interface ProjectEntry {
   points: string[];
   url: string;
   image: string;
+  /** Accent colour for this project's label and link. */
+  accent: AccentToken;
 }
 
 export interface ReleaseEntry {
   title: string;
   year: string;
+  /** Accent colour for the vinyl marker and year. */
+  accent: AccentToken;
 }
 
 export const profile = {
@@ -83,24 +91,28 @@ export const profile = {
       title: "Web & Frontend",
       items: ["React", "Next.js", "JavaScript", "Tailwind CSS", "HTML / CSS"],
       tags: "Components ⇢ Layouts ⇢ Performance",
+      accent: "red",
     },
     {
       icon: "terminal",
       title: "Backend & Systems",
       items: ["Node.js", "PHP", "Python", "Git & GitHub"],
       tags: "APIs ⇢ Tooling ⇢ Shipping",
+      accent: "gold",
     },
     {
       icon: "shield",
       title: "Linux & Security",
       items: ["Ubuntu", "Kali Linux", "Termux", "CLI Operations"],
       tags: "Hardening ⇢ Automation ⇢ Forensics",
+      accent: "rust",
     },
     {
       icon: "palette",
       title: "Design & Creative",
       items: ["UI/UX Design", "3D Interactions", "Brand Identity", "Audio Branding"],
       tags: "Type ⇢ Motion ⇢ Systems",
+      accent: "ember",
     },
   ] as Capability[],
   facts: [
@@ -152,6 +164,7 @@ export const profile = {
       ],
       url: "https://alreemmandi.com/",
       image: "alreem",
+      accent: "ember",
     },
     {
       name: "Elvora Creative",
@@ -164,6 +177,7 @@ export const profile = {
       ],
       url: "https://elvoracreative.vercel.app/",
       image: "elvora",
+      accent: "gold-bright",
     },
     {
       name: "Meliqo",
@@ -176,6 +190,7 @@ export const profile = {
       ],
       url: "https://meliqo.qorvode.co.in/",
       image: "meliqo",
+      accent: "red-bright",
     },
     {
       name: "QORVODE.AI",
@@ -188,15 +203,16 @@ export const profile = {
       ],
       url: "https://qorvode.co.in/",
       image: "qorvode",
+      accent: "gold",
     },
   ] as ProjectEntry[],
   music: {
     intro:
       "Independent musical compositions exploring spirituality and existence — released on Spotify, Apple Music, and JioSaavn.",
     releases: [
-      { title: "Wail Of The End", year: "2025" },
-      { title: "Fajr-al-Islam", year: "2025" },
-      { title: "The Sanctuary Of Hearts", year: "2026" },
+      { title: "Wail Of The End", year: "2025", accent: "red" },
+      { title: "Fajr-al-Islam", year: "2025", accent: "gold" },
+      { title: "The Sanctuary Of Hearts", year: "2026", accent: "copper" },
     ] as ReleaseEntry[],
   },
 };

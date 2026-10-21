@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { profile } from "@/data/profile";
+import { accent } from "@/lib/accents";
 
 const Music = () => {
   return (
@@ -12,7 +13,7 @@ const Music = () => {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(70% 60% at 50% 0%, rgba(255,255,255,0.07), transparent 70%)",
+            "radial-gradient(70% 60% at 50% 0%, rgba(224,75,60,0.09), transparent 70%)",
         }}
       />
 
@@ -52,11 +53,15 @@ const Music = () => {
               <div className="relative size-16 shrink-0 rounded-full border border-border-alt sm:size-20">
                 <div className="vinyl-disc absolute inset-0 rounded-full" />
                 <span className="absolute left-1/2 top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border-alt bg-bg sm:size-6" />
-                <span className="absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent" />
+                <span
+                  className={`absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full ${accent.text[release.accent]}`}
+                />
               </div>
 
               <div className="min-w-0">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
+                <span
+                  className={`font-mono text-[10px] font-bold uppercase tracking-[0.2em] ${accent.text[release.accent]}`}
+                >
                   {release.year}
                 </span>
                 <h3 className="mt-1 font-display text-lg font-bold leading-snug tracking-tight text-text sm:text-xl">

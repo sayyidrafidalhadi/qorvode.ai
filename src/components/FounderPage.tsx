@@ -174,11 +174,12 @@ const FounderPage = () => {
 
             {/* ========== TEAM ========== */}
             <motion.div
+              id="team"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mt-16 border-t border-border pt-12 sm:mt-24 sm:pt-16"
+              className="mt-16 scroll-mt-24 border-t border-border pt-12 sm:mt-24 sm:pt-16"
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -187,14 +188,33 @@ const FounderPage = () => {
                 </span>
               </div>
 
+              <p className="mb-8 max-w-3xl text-sm leading-relaxed text-text/60 sm:text-base">
+                QORVODE is a two-person studio.{" "}
+                <span className="font-semibold text-text">Sayyid Rafid Al Hadi</span> — the
+                founder — builds the web experiences and product interfaces, while{" "}
+                <span className="font-semibold text-text">Muhammed Fayiz</span> (fayiizeeh) leads
+                the visual side: graphic and poster design, brand identity, art direction, and
+                video.
+              </p>
+
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {team.map((member) => (
                   <div
                     key={member.name}
                     className="flex flex-col bg-surface brutal-border p-6"
                   >
-                    <div className="mb-4 flex size-12 items-center justify-center rounded-md bg-bg-alt brutal-border font-display text-lg font-bold text-accent">
-                      {member.initials}
+                    <div className="mb-4 flex size-12 items-center justify-center overflow-hidden rounded-md bg-bg-alt brutal-border font-display text-lg font-bold text-accent">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover object-top"
+                        />
+                      ) : (
+                        member.initials
+                      )}
                     </div>
                     <h3 className="text-lg font-display font-bold tracking-tight text-text">
                       {member.name}
@@ -213,8 +233,8 @@ const FounderPage = () => {
                           <a
                             key={link.href}
                             href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={link.external ? "_blank" : undefined}
+                            rel={link.external ? "noopener noreferrer" : undefined}
                             className="font-mono text-[10px] uppercase tracking-[0.15em] text-text/50 transition-colors hover:text-accent"
                           >
                             {link.label}
