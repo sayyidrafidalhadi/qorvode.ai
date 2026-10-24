@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "dev:zydhh": "vite --config zydhh.hadi/vite.config.ts --port 5174 --strictPort",
-    "dev:fayiizeeh": "vite --config fayiizeeh/vite.config.ts --port 5175 --strictPort",
-    "build": "vite build && vite build --config zydhh.hadi/vite.config.ts && vite build --config fayiizeeh/vite.config.ts",
+    "dev:syd.swalih": "vite --config syd.swalih/vite.config.ts --port 5175 --strictPort",
+    "dev:fayiizeeh": "vite --config fayiizeeh/vite.config.ts --port 5176 --strictPort",
+    "build": "vite build && vite build --config zydhh.hadi/vite.config.ts && vite build --config fayiizeeh/vite.config.ts && vite build --config syd.swalih/vite.config.ts",
     "build:zydhh": "vite build --config zydhh.hadi/vite.config.ts",
     "build:fayiizeeh": "vite build --config fayiizeeh/vite.config.ts",
+    "build:syd.swalih": "vite build --config syd.swalih/vite.config.ts",
     "preview": "vite preview",
     "lint": "eslint ."
   },

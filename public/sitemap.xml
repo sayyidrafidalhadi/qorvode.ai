@@ -55,4 +55,15 @@
       <image:title>Muhammed Fayiz — Portfolio</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://qorvode.co.in/syd.swalih/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://qorvode.co.in/syd.swalih/sayyid.jpeg</image:loc>
+      <image:title>Sayyid Swalih — Graphic Designer &amp; Civil Engineer</image:title>
+      <image:caption>Portfolio of Sayyid Swalih (syd.swalih), graphic designer and civil engineer at QORVODE.</image:caption>
+    </image:image>
+  </url>
 </urlset>

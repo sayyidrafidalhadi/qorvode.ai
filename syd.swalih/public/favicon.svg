@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sayyid Swalih">
+  <rect width="512" height="512" fill="#08090b"/>
+  <rect x="28" y="28" width="456" height="456" fill="none" stroke="#e6a53c" stroke-opacity=".32" stroke-width="4"/>
+  <path d="M356 168H208c-40 0-64 24-64 64s24 64 64 64h96c40 0 64 24 64 64s-24 64-64 64H156" fill="none" stroke="#e6a53c" stroke-width="52" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="348" y="92" width="36" height="36" fill="#74b3c6"/>
+  <rect x="120" y="384" width="24" height="24" fill="#74b3c6" opacity=".65"/>
+</svg>
