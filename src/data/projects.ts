@@ -62,6 +62,17 @@ export const projects: Project[] = [
     url: "https://meliqo.qorvode.co.in/",
     image: "/meliqo.png",
     wide: true
+  },
+  {
+    id: 4,
+    title: "MissionForge",
+    description: "Interactive 3D Space Mission Design & Physics Simulation Platform with immersive UI, smooth animations, and a refined dark aesthetic.",
+    status: "live",
+    statusType: "success",
+    tags: ["React", "3D", "Physics Simulation", "UI/UX", "Space Exploration"],
+    url: "https://missionforge.qorvode.co.in/",
+    image: "/missionforge.png",
+    wide: true
   }
 ];
 
@@ -123,6 +134,26 @@ export const caseStudies: CaseStudy[] = [
         "Every track on Meliqo passes through a two-stage filter: curation review and audio engineering. If it compromises the listening experience, it does not belong here.",
         "Curated collections, ambient recordings, and high-fidelity streams — all vetted through a lens that honours the craft of recording without sacrificing modern production values.",
         "Our panel is made of people who listen critically every day, master audio for a living, and believe your playlist should feel like an extension of your taste — not an algorithmic guess."
+      ]
+    }
+  },
+  {
+    id: 4,
+    brand: "MissionForge",
+    problem: "No interactive 3D space mission design and physics simulation platform with immersive UI",
+    approach: "Custom 3D interactive platform with immersive UI, smooth animations, and refined dark aesthetic",
+    result: "Engaging platform for space enthusiasts to design and simulate space missions",
+    metric: "Made For 2026 NASA Space Apps Challenge",
+    timeline: "Delivered in 2 Days",
+    tags: ["React", "3D", "Physics Simulation", "UI/UX", "Space Exploration"],
+    status: "Live",
+    curated: {
+      eyebrow: "Curated experience",
+      title: "The MissionForge Space Standard.",
+      paragraphs: [
+        "MissionForge is an interactive 3D space mission design and physics simulation platform that allows users to design and simulate space missions with immersive UI and smooth animations.",
+        "The platform features a refined dark aesthetic and custom 3D interactive components that provide an engaging user experience.",
+        "MissionForge was made for the 2026 NASA Space Apps Challenge and delivered in just 2 days."
       ]
     }
   }
