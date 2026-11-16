@@ -189,12 +189,14 @@ const FounderPage = () => {
               </div>
 
               <p className="mb-8 max-w-3xl text-sm leading-relaxed text-text/60 sm:text-base">
-                QORVODE is a two-person studio.{" "}
+                QORVODE is a Digital Studio.{" "}
                 <span className="font-semibold text-text">Sayyid Rafid Al Hadi</span> — the
                 founder — builds the web experiences and product interfaces, while{" "}
                 <span className="font-semibold text-text">Muhammed Fayiz</span> (fayiizeeh) leads
                 the visual side: graphic and poster design, brand identity, art direction, and
                 video.
+                <span className="font-semibold text-text">Sayyid Swalih</span> and{" "}
+                <span className="font-semibold text-text">Niya Fathima</span> round out the team.
               </p>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

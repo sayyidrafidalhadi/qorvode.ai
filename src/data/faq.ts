@@ -10,15 +10,11 @@ export const faq: FaqItem[] = [
   },
   {
     question: "Who is on the team?",
-    answer: "QORVODE is a two-person studio: Sayyid Rafid Al Hadi (founder — developer and designer) and Muhammed Fayiz (graphic designer and video grapher)."
+    answer: "QORVODE is a studio: Sayyid Rafid Al Hadi (founder — developer and designer), Muhammed Fayiz (graphic designer and video grapher), Sayyid Swalih (graphic designer and videographer), Niya Fathima (marketing and communications)."
   },
   {
     question: "Who is Sayyid Rafid Al Hadi?",
     answer: "Sayyid Rafid Al Hadi is the founder of QORVODE, a premium digital experiences studio in Kerala, India. He builds high-performance websites, UI/UX interfaces and brand identities, working with React, Next.js, TypeScript, Tailwind CSS and Three.js. His personal portfolio is at qorvode.co.in/zydhh.hadi/."
-  },
-  {
-    question: "Who is Muhammed Fayiz?",
-    answer: "Muhammed Fayiz (also known as Fayiz or fayiizeeh) is the graphic designer and video grapher at QORVODE, based in Kozhikode, Kerala. He specialises in poster design, brand identity, art direction, motion, videography, video editing and photo editing. His portfolio is at qorvode.co.in/fayiizeeh/."
   },
   {
     question: "What does QORVODE do?",
